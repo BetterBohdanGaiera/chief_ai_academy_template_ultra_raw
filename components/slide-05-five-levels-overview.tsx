@@ -1,7 +1,7 @@
 import { ArrowDown, AlertTriangle, TrendingUp } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
-export function Slide1Overview() {
+export function Slide05FiveLevelsOverview() {
   const levels = [
     {
       level: 1,

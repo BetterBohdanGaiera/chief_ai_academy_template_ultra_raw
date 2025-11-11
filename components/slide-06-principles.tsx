@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { User, Package, Workflow, RotateCw, Sparkles, AlertTriangle, TrendingUp } from "lucide-react"
 
-export function Slide2Principles() {
+export function Slide06Principles() {
   const principles = [
     {
       level: 1,

@@ -1,24 +1,91 @@
 "use client"
 
-import { Slide1Overview } from "@/components/slide-1-overview"
-import { Slide2Principles } from "@/components/slide-2-principles"
-import { useRef } from "react"
+import { Slide01Title } from "@/components/slide-01-title"
+import { Slide02Landscape } from "@/components/slide-02-landscape"
+import { Slide03Execution } from "@/components/slide-03-execution"
+import { Slide04ImplementationCost } from "@/components/slide-04-implementation-cost"
+import { Slide05FiveLevelsOverview } from "@/components/slide-05-five-levels-overview"
+import { Slide06Principles } from "@/components/slide-06-principles"
+import { Slide07Level1 } from "@/components/slide-07-level-1"
+import { Slide08Level2 } from "@/components/slide-08-level-2"
+import { Slide09Level3Promise } from "@/components/slide-09-level-3-promise"
+import { Slide10Level3Reality } from "@/components/slide-10-level-3-reality"
+import { Slide11Level3Why } from "@/components/slide-11-level-3-why"
+import { Slide12Level3Consequence } from "@/components/slide-12-level-3-consequence"
+import { Slide13Level3Guidance } from "@/components/slide-13-level-3-guidance"
+import { Slide14Level4Overview } from "@/components/slide-14-level-4-overview"
+import { Slide15Level4Economics } from "@/components/slide-15-level-4-economics"
+import { Slide16Level5 } from "@/components/slide-16-level-5"
+import { Slide17InteractivePoll } from "@/components/slide-17-interactive-poll"
+import { useRef, useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const currentSlideRef = useRef(0)
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const slides = [
+    <Slide01Title key="slide-01" />,
+    <Slide02Landscape key="slide-02" />,
+    <Slide03Execution key="slide-03" />,
+    <Slide04ImplementationCost key="slide-04" />,
+    <Slide05FiveLevelsOverview key="slide-05" />,
+    <Slide06Principles key="slide-06" />,
+    <Slide07Level1 key="slide-07" />,
+    <Slide08Level2 key="slide-08" />,
+    <Slide09Level3Promise key="slide-09" />,
+    <Slide10Level3Reality key="slide-10" />,
+    <Slide11Level3Why key="slide-11" />,
+    <Slide12Level3Consequence key="slide-12" />,
+    <Slide13Level3Guidance key="slide-13" />,
+    <Slide14Level4Overview key="slide-14" />,
+    <Slide15Level4Economics key="slide-15" />,
+    <Slide16Level5 key="slide-16" />,
+    <Slide17InteractivePoll key="slide-17" />,
+  ]
+
+  const totalSlides = slides.length
 
   const goToSlide = (index: number) => {
-    if (containerRef.current) {
-      currentSlideRef.current = index
+    if (containerRef.current && index >= 0 && index < totalSlides) {
+      setCurrentSlide(index)
       containerRef.current.scrollTo({
         left: index * window.innerWidth,
         behavior: "smooth",
       })
     }
   }
+
+  const goToPrevSlide = () => {
+    if (currentSlide > 0) {
+      goToSlide(currentSlide - 1)
+    }
+  }
+
+  const goToNextSlide = () => {
+    if (currentSlide < totalSlides - 1) {
+      goToSlide(currentSlide + 1)
+    }
+  }
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        goToPrevSlide()
+      } else if (e.key === "ArrowRight") {
+        goToNextSlide()
+      } else if (e.key === "Home") {
+        goToSlide(0)
+      } else if (e.key === "End") {
+        goToSlide(totalSlides - 1)
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [currentSlide, totalSlides])
 
   return (
     <>
@@ -27,46 +94,63 @@ export default function Home() {
         className="h-screen w-screen overflow-x-auto overflow-y-auto snap-x snap-mandatory flex scrollbar-hide"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        <div className="min-w-full min-h-full snap-start overflow-y-auto">
-          <Slide1Overview />
-        </div>
-        <div className="min-w-full min-h-full snap-start overflow-y-auto">
-          <Slide2Principles />
-        </div>
+        {slides.map((slide, index) => (
+          <div key={index} className="min-w-full min-h-full snap-start overflow-y-auto">
+            {slide}
+          </div>
+        ))}
       </main>
 
+      {/* Navigation Controls */}
       <div className="fixed bottom-8 right-8 flex gap-3 z-50">
         <Button
           variant="outline"
           size="icon"
-          onClick={() => goToSlide(0)}
-          className="bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-lg hover:bg-white rounded-full transition-all duration-600"
-          aria-label="Go to slide 1"
+          onClick={goToPrevSlide}
+          disabled={currentSlide === 0}
+          className="bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-lg hover:bg-white rounded-full transition-all duration-600 disabled:opacity-50"
+          aria-label="Previous slide"
         >
           <ChevronLeft className="h-5 w-5" />
         </Button>
         <Button
           variant="outline"
           size="icon"
-          onClick={() => goToSlide(1)}
-          className="bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-lg hover:bg-white rounded-full transition-all duration-600"
-          aria-label="Go to slide 2"
+          onClick={goToNextSlide}
+          disabled={currentSlide === totalSlides - 1}
+          className="bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-lg hover:bg-white rounded-full transition-all duration-600 disabled:opacity-50"
+          aria-label="Next slide"
         >
           <ChevronRight className="h-5 w-5" />
         </Button>
       </div>
 
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-50">
-        <button
-          onClick={() => goToSlide(0)}
-          className="w-2 h-2 rounded-full bg-primary/30 hover:bg-primary/60 hover:scale-110 transition-all duration-600"
-          aria-label="Go to slide 1"
-        />
-        <button
-          onClick={() => goToSlide(1)}
-          className="w-2 h-2 rounded-full bg-primary/30 hover:bg-primary/60 hover:scale-110 transition-all duration-600"
-          aria-label="Go to slide 2"
-        />
+      {/* Slide Indicator */}
+      <div className="fixed bottom-8 left-8 z-50">
+        <div className="bg-white/90 backdrop-blur-sm shadow-sm rounded-full px-4 py-2">
+          <p className="text-sm font-semibold">
+            {currentSlide + 1} / {totalSlides}
+          </p>
+        </div>
+      </div>
+
+      {/* Dot Navigation */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-50 max-w-2xl overflow-x-auto px-4">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`
+              w-2 h-2 rounded-full transition-all duration-600 flex-shrink-0
+              ${
+                currentSlide === index
+                  ? "w-8 bg-primary"
+                  : "bg-primary/30 hover:bg-primary/60 hover:scale-110"
+              }
+            `}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </>
   )
