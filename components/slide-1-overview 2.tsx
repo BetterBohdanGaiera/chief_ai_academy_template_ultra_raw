@@ -50,7 +50,7 @@ export function Slide1Overview() {
           <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary font-medium">
             Module 02
           </Badge>
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-balance leading-[1.1]">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance leading-tight">
             The 5 Levels of AI Adoption
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
@@ -59,18 +59,18 @@ export function Slide1Overview() {
         </div>
 
         {/* Levels Display */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
           {levels.map((item, index) => (
             <div
               key={item.level}
               className={`
-                relative p-8 rounded-xl border transition-all duration-600 hover:shadow-lg
+                relative p-6 rounded-xl border transition-all hover:shadow-lg
                 ${
                   item.status === "warning"
-                    ? "border-warning/40 bg-warning/5 hover:shadow-warning/20"
+                    ? "border-warning/40 bg-warning/10 hover:shadow-warning/20"
                     : item.status === "transformation"
                       ? "border-primary/40 bg-primary/5 hover:shadow-primary/20"
-                      : "border-border/50 bg-card hover:shadow-md"
+                      : "border-border bg-card hover:shadow-md"
                 }
               `}
             >

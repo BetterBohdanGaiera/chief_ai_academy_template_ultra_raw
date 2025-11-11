@@ -51,8 +51,8 @@ export function Slide2Principles() {
   ]
 
   return (
-    <section className="min-h-screen flex items-center justify-center p-8 lg:p-16">
-      <div className="max-w-7xl w-full space-y-12 lg:space-y-16">
+    <section className="min-h-screen flex items-center justify-center p-12 lg:p-20">
+      <div className="max-w-6xl w-full space-y-16 lg:space-y-20">
         {/* Header */}
         <div className="text-center space-y-6">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-balance leading-tight">
@@ -69,17 +69,17 @@ export function Slide2Principles() {
             <Card
               key={item.level}
               className={`
-                border transition-all hover:shadow-lg
+                border transition-all duration-600 hover:shadow-lg
                 ${
                   item.status === "warning"
                     ? "border-warning/40 bg-warning/5 hover:shadow-warning/20"
                     : item.status === "transformation"
                       ? "border-primary/40 bg-primary/5 hover:shadow-primary/20"
-                      : "border-border hover:shadow-md"
+                      : "border-border/50 hover:shadow-md"
                 }
               `}
             >
-              <CardContent className="p-8">
+              <CardContent className="p-10">
                 <div className="flex flex-col md:flex-row gap-6">
                   {/* Level Badge & Icon */}
                   <div className="flex flex-col items-center gap-4 md:min-w-[120px]">
@@ -115,21 +115,21 @@ export function Slide2Principles() {
 
                   {/* Content */}
                   <div className="flex-1 space-y-4">
-                    <h3 className="text-2xl font-bold text-balance leading-snug">{item.title}</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-balance leading-snug">{item.title}</h3>
 
                     <div className="space-y-3">
                       <div>
                         <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-1">
                           Principle
                         </p>
-                        <p className="text-base text-pretty leading-relaxed">{item.principle}</p>
+                        <p className="text-base lg:text-lg text-pretty leading-relaxed">{item.principle}</p>
                       </div>
 
                       <div>
                         <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-1">
                           Outcome
                         </p>
-                        <p className="text-base text-pretty leading-relaxed">{item.outcome}</p>
+                        <p className="text-base lg:text-lg text-pretty leading-relaxed">{item.outcome}</p>
                       </div>
 
                       {item.highlight && (
@@ -139,7 +139,7 @@ export function Slide2Principles() {
                           ${item.status === "transformation" ? "bg-primary/10 border-primary/30" : ""}
                         `}
                         >
-                          <p className="text-base font-semibold text-pretty leading-relaxed flex items-start gap-2">
+                          <p className="text-base lg:text-lg font-semibold text-pretty leading-relaxed flex items-start gap-2">
                             <TrendingUp className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                             {item.highlight}
                           </p>

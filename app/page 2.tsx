@@ -56,15 +56,15 @@ export default function Home() {
         </Button>
       </div>
 
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-50">
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-50">
         <button
           onClick={() => goToSlide(0)}
-          className="w-2 h-2 rounded-full bg-primary/30 hover:bg-primary/60 hover:scale-110 transition-all duration-600"
+          className="w-2 h-2 rounded-full bg-primary/30 hover:bg-primary/50 transition-colors"
           aria-label="Go to slide 1"
         />
         <button
           onClick={() => goToSlide(1)}
-          className="w-2 h-2 rounded-full bg-primary/30 hover:bg-primary/60 hover:scale-110 transition-all duration-600"
+          className="w-2 h-2 rounded-full bg-primary/30 hover:bg-primary/50 transition-colors"
           aria-label="Go to slide 2"
         />
       </div>
