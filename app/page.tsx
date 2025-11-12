@@ -1,20 +1,26 @@
 "use client"
 
 import { Slide01Title } from "@/components/slide-01-title"
-import { Slide02Landscape } from "@/components/slide-02-landscape"
+import { Slide02aLandscapePyramid } from "@/components/slide-02a-landscape-pyramid"
+import { Slide02bLandscapeMessages } from "@/components/slide-02b-landscape-messages"
 import { Slide03Execution } from "@/components/slide-03-execution"
 import { Slide04ImplementationCost } from "@/components/slide-04-implementation-cost"
-import { Slide05FiveLevelsOverview } from "@/components/slide-05-five-levels-overview"
-import { Slide06Principles } from "@/components/slide-06-principles"
+import { Slide05aFiveLevelsBasic } from "@/components/slide-05a-five-levels-basic"
+import { Slide05bFiveLevelsTransformation } from "@/components/slide-05b-five-levels-transformation"
+import { Slide06aPrinciplesBasic } from "@/components/slide-06a-principles-basic"
+import { Slide06bPrinciplesTransformation } from "@/components/slide-06b-principles-transformation"
 import { Slide07Level1 } from "@/components/slide-07-level-1"
 import { Slide08Level2 } from "@/components/slide-08-level-2"
 import { Slide09Level3Promise } from "@/components/slide-09-level-3-promise"
 import { Slide10Level3Reality } from "@/components/slide-10-level-3-reality"
 import { Slide11Level3Why } from "@/components/slide-11-level-3-why"
 import { Slide12Level3Consequence } from "@/components/slide-12-level-3-consequence"
-import { Slide13Level3Guidance } from "@/components/slide-13-level-3-guidance"
-import { Slide14Level4Overview } from "@/components/slide-14-level-4-overview"
-import { Slide15Level4Economics } from "@/components/slide-15-level-4-economics"
+import { Slide13aLevel3GuidanceMain } from "@/components/slide-13a-level-3-guidance-main"
+import { Slide13bLevel3GuidanceEconomics } from "@/components/slide-13b-level-3-guidance-economics"
+import { Slide14aLevel4OverviewIteration } from "@/components/slide-14a-level-4-overview-iteration"
+import { Slide14bLevel4OverviewPaths } from "@/components/slide-14b-level-4-overview-paths"
+import { Slide15aLevel4EconomicsComparison } from "@/components/slide-15a-level-4-economics-comparison"
+import { Slide15bLevel4EconomicsValue } from "@/components/slide-15b-level-4-economics-value"
 import { Slide16Level5 } from "@/components/slide-16-level-5"
 import { Slide17InteractivePoll } from "@/components/slide-17-interactive-poll"
 import { useRef, useState, useEffect } from "react"
@@ -27,20 +33,26 @@ export default function Home() {
 
   const slides = [
     <Slide01Title key="slide-01" />,
-    <Slide02Landscape key="slide-02" />,
+    <Slide02aLandscapePyramid key="slide-02a" />,
+    <Slide02bLandscapeMessages key="slide-02b" />,
     <Slide03Execution key="slide-03" />,
     <Slide04ImplementationCost key="slide-04" />,
-    <Slide05FiveLevelsOverview key="slide-05" />,
-    <Slide06Principles key="slide-06" />,
+    <Slide05aFiveLevelsBasic key="slide-05a" />,
+    <Slide05bFiveLevelsTransformation key="slide-05b" />,
+    <Slide06aPrinciplesBasic key="slide-06a" />,
+    <Slide06bPrinciplesTransformation key="slide-06b" />,
     <Slide07Level1 key="slide-07" />,
     <Slide08Level2 key="slide-08" />,
     <Slide09Level3Promise key="slide-09" />,
     <Slide10Level3Reality key="slide-10" />,
     <Slide11Level3Why key="slide-11" />,
     <Slide12Level3Consequence key="slide-12" />,
-    <Slide13Level3Guidance key="slide-13" />,
-    <Slide14Level4Overview key="slide-14" />,
-    <Slide15Level4Economics key="slide-15" />,
+    <Slide13aLevel3GuidanceMain key="slide-13a" />,
+    <Slide13bLevel3GuidanceEconomics key="slide-13b" />,
+    <Slide14aLevel4OverviewIteration key="slide-14a" />,
+    <Slide14bLevel4OverviewPaths key="slide-14b" />,
+    <Slide15aLevel4EconomicsComparison key="slide-15a" />,
+    <Slide15bLevel4EconomicsValue key="slide-15b" />,
     <Slide16Level5 key="slide-16" />,
     <Slide17InteractivePoll key="slide-17" />,
   ]
