@@ -1,5 +1,6 @@
 import { ArrowDown, AlertTriangle, TrendingUp } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import Image from "next/image"
 
 export function Slide05FiveLevelsOverview() {
   const levels = [
@@ -9,6 +10,8 @@ export function Slide05FiveLevelsOverview() {
       tools: "ChatGPT, Claude, Gemini",
       description: "Individual chat | Personal productivity only",
       status: "basic",
+      image: "/generated-images/gemini-1762957135055-1.png",
+      imageAlt: "Individual person using AI chat for personal productivity",
     },
     {
       level: 2,
@@ -16,6 +19,8 @@ export function Slide05FiveLevelsOverview() {
       tools: "Jasper, Copy.ai, pre-built chatbots",
       description: "Too generic, doesn't fit your needs",
       status: "basic",
+      image: "/generated-images/gemini-1762957143972-1.png",
+      imageAlt: "Generic pre-packaged software boxes representing one-size-fits-all SaaS tools",
     },
     {
       level: 3,
@@ -24,6 +29,8 @@ export function Slide05FiveLevelsOverview() {
       description: "THE TRAP - Communication gaps, often NEGATIVE ROI",
       status: "warning",
       icon: <AlertTriangle className="h-5 w-5" />,
+      image: "/generated-images/gemini-1762957153054-1.png",
+      imageAlt: "Drag-and-drop automation interface showing the trap of no-code promises",
     },
     {
       level: 4,
@@ -32,6 +39,8 @@ export function Slide05FiveLevelsOverview() {
       description: "Growing reliability | TRANSFORMATION STARTS HERE",
       status: "transformation",
       icon: <TrendingUp className="h-5 w-5" />,
+      image: "/generated-images/gemini-1762957162056-1.png",
+      imageAlt: "Iterative improvement cycle with rapid feedback loops",
     },
     {
       level: 5,
@@ -39,6 +48,8 @@ export function Slide05FiveLevelsOverview() {
       tools: "No human oversight | Self-improving",
       description: "Full automation",
       status: "transformation",
+      image: "/generated-images/gemini-1762957184245-1.png",
+      imageAlt: "Autonomous AI agent operating independently with self-improvement capabilities",
     },
   ]
 
@@ -74,6 +85,19 @@ export function Slide05FiveLevelsOverview() {
                 }
               `}
             >
+              {/* Level Icon Image */}
+              {item.image && (
+                <div className="mb-4">
+                  <Image
+                    src={item.image}
+                    alt={item.imageAlt || ""}
+                    width={80}
+                    height={80}
+                    className="w-20 h-20 mx-auto mb-4 rounded-lg object-cover"
+                  />
+                </div>
+              )}
+
               {/* Level Badge */}
               <div className="flex items-center justify-between mb-4">
                 <Badge

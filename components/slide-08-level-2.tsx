@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Package, AlertCircle, Eye } from "lucide-react"
+import Image from "next/image"
 
 export function Slide08Level2() {
   return (
@@ -22,6 +23,17 @@ export function Slide08Level2() {
         {/* What it is */}
         <Card className="border-border/50">
           <CardContent className="p-8">
+            {/* Hero Image */}
+            <div className="mb-6 flex justify-center">
+              <Image
+                src="/generated-images/gemini-1762957317202-1.png"
+                alt="Generic pre-packaged software boxes showing one-size-fits-all limitation"
+                width={800}
+                height={533}
+                className="w-full h-auto rounded-xl shadow-lg object-cover"
+              />
+            </div>
+
             <div className="flex items-center gap-3 mb-6">
               <Package className="h-8 w-8 text-muted-foreground" />
               <h3 className="text-2xl font-bold">What it is</h3>

@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { User, Package, Workflow, RotateCw, Sparkles, AlertTriangle, TrendingUp } from "lucide-react"
+import Image from "next/image"
 
 export function Slide06Principles() {
   const principles = [
@@ -11,6 +12,8 @@ export function Slide06Principles() {
       principle: "Anyone can use AI chat, but knowledge stays personal",
       outcome: "No business integration, no shared learning",
       status: "basic",
+      image: "/generated-images/gemini-1762957220205-1.png",
+      imageAlt: "Individual person accessing AI with knowledge staying personal",
     },
     {
       level: 2,
@@ -19,6 +22,8 @@ export function Slide06Principles() {
       principle: "Use existing AI tools, but they're generic by design",
       outcome: "One-size-fits-all doesn't match your business needs, heavy editing required",
       status: "basic",
+      image: "/generated-images/gemini-1762957230880-1.png",
+      imageAlt: "Generic pre-built tools that don't fit specific business needs",
     },
     {
       level: 3,
@@ -28,6 +33,8 @@ export function Slide06Principles() {
       outcome: 'Sounds good high-level ("quick noodles"), but doesn\'t work deep enough to be reliable',
       status: "warning",
       badge: <AlertTriangle className="h-5 w-5 text-warning" />,
+      image: "/generated-images/gemini-1762957242587-1.png",
+      imageAlt: "Shallow connection between AI and business systems through no-code tools",
     },
     {
       level: 4,
@@ -38,6 +45,8 @@ export function Slide06Principles() {
       highlight: "ROI, time savings, and money savings BEGIN HERE (because you can finally reach reliability)",
       status: "transformation",
       badge: <TrendingUp className="h-5 w-5 text-primary" />,
+      image: "/generated-images/gemini-1762957252941-1.png",
+      imageAlt: "Rapid feedback loops enabling continuous iteration and improvement",
     },
     {
       level: 5,
@@ -47,6 +56,8 @@ export function Slide06Principles() {
       outcome: "Trusted automation that self-improves",
       highlight: "Maximum ROI and exponential time/money savings",
       status: "transformation",
+      image: "/generated-images/gemini-1762957268077-1.png",
+      imageAlt: "Fully autonomous AI making decisions and self-improving",
     },
   ]
 
@@ -81,8 +92,22 @@ export function Slide06Principles() {
             >
               <CardContent className="p-10">
                 <div className="flex flex-col md:flex-row gap-6">
-                  {/* Level Badge & Icon */}
-                  <div className="flex flex-col items-center gap-4 md:min-w-[120px]">
+                  {/* Principle Image */}
+                  {item.image && (
+                    <div className="flex-shrink-0">
+                      <Image
+                        src={item.image}
+                        alt={item.imageAlt || ""}
+                        width={192}
+                        height={128}
+                        className="w-48 h-auto rounded-xl shadow-md object-cover"
+                      />
+                    </div>
+                  )}
+
+                  <div className="flex flex-col flex-1 gap-6">
+                    {/* Level Badge & Icon */}
+                    <div className="flex flex-row md:flex-row items-center gap-4">
                     <Badge
                       className={`
                         text-2xl font-bold px-4 py-2
@@ -111,10 +136,10 @@ export function Slide06Principles() {
                       {item.icon}
                     </div>
                     {item.badge && <div>{item.badge}</div>}
-                  </div>
+                    </div>
 
-                  {/* Content */}
-                  <div className="flex-1 space-y-4">
+                    {/* Content */}
+                    <div className="flex-1 space-y-4">
                     <h3 className="text-2xl md:text-3xl font-bold text-balance leading-snug">{item.title}</h3>
 
                     <div className="space-y-3">
@@ -147,6 +172,7 @@ export function Slide06Principles() {
                       )}
                     </div>
                   </div>
+                </div>
                 </div>
               </CardContent>
             </Card>

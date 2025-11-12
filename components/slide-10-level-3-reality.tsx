@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { AlertTriangle, TrendingDown } from "lucide-react"
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
+import Image from "next/image"
 
 export function Slide10Level3Reality() {
   const timelineData = [
@@ -60,6 +61,18 @@ export function Slide10Level3Reality() {
             <TrendingDown className="h-8 w-8 text-destructive" />
             What Actually Happens
           </h3>
+
+          {/* Reality Image */}
+          <div className="mb-8 flex justify-center">
+            <Image
+              src="/generated-images/gemini-1762957347500-1.png"
+              alt="Broken tangled automation wires showing disappointment and failure of no-code reality"
+              width={800}
+              height={533}
+              className="w-full max-w-3xl mx-auto h-auto rounded-xl shadow-lg object-cover"
+            />
+          </div>
+
           <Card className="border-destructive/40 bg-destructive/5">
             <CardContent className="p-8">
               <ResponsiveContainer width="100%" height={300}>

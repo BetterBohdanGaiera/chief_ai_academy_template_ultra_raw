@@ -37,6 +37,15 @@ export function Slide01Title() {
           </div>
         </div>
 
+        {/* Hero Image */}
+        <div className="pt-8">
+          <img
+            src="/generated-images/gemini-1762957041486-1.png"
+            alt="Diverse business executives collaborating around a glowing holographic AI interface, representing innovation and teamwork in AI transformation"
+            className="w-full h-auto rounded-xl shadow-2xl"
+          />
+        </div>
+
         {/* Decorative Pattern */}
         <div className="absolute inset-0 -z-10 overflow-hidden opacity-10">
           <div className="absolute top-20 right-20 w-72 h-72 bg-primary rounded-full blur-3xl" />

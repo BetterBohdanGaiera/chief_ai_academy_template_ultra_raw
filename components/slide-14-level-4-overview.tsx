@@ -57,6 +57,16 @@ export function Slide14Level4Overview() {
             <RotateCw className="h-8 w-8 text-primary" />
             Example Iteration Cycle
           </h3>
+
+          {/* Iteration Visualization */}
+          <div className="mb-8 flex justify-center">
+            <img
+              src="/generated-images/gemini-1762957968867-1.png"
+              alt="Rapid iteration cycle showing developer and domain expert collaborating closely with fast feedback loops"
+              className="w-full max-w-3xl h-auto rounded-xl shadow-lg"
+            />
+          </div>
+
           <Card className="border-primary/40 bg-primary/5">
             <CardContent className="p-8">
               <ol className="space-y-4">

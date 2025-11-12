@@ -10,6 +10,7 @@ Follow the `Instructions` to implement the `Plan` then `Report` the completed wo
   3. Fill in the Comments field with brief notes about what was done, any issues encountered, or important decisions made
 - Update the spec file progressively after completing each phase/task, not just at the end.
 - Use the Edit tool to update checkboxes and fields in the spec file as you progress.
+- **CRITICAL:** For slide implementations, ALWAYS generate AI images using `IMAGE_GENERATION_GUIDE.md` and the `generate-image.ts` script. Every slide must have visually supportive images in the handwritten illustration style with orange color palette.
 
 ## Slide Implementation Guidelines
 IMPORTANT: If implementing presentation slides, follow these technical and design guidelines:
@@ -30,6 +31,51 @@ IMPORTANT: If implementing presentation slides, follow these technical and desig
    ```
 3. Import into `app/page.tsx` and add to slide array for navigation
 4. Update slide navigation count if adding new slides
+
+### Image Generation & Integration
+CRITICAL: Every slide MUST include AI-generated images following the IMAGE_GENERATION_GUIDE.md specifications.
+
+**Generation Workflow:**
+1. **Review the Image Generation Strategy** from the spec file
+2. **Generate each image** using the `generate-image.ts` script:
+   ```bash
+   tsx generate-image.ts "[PROMPT FROM SPEC]" --ratio [ASPECT_RATIO] --output public/generated-images/
+   ```
+3. **Verify style consistency** before integrating:
+   - [ ] Colors match design system (orange tones, charcoal, white/gray)
+   - [ ] Handwritten illustration style (not photorealistic)
+   - [ ] Subject aligns with slide narrative
+   - [ ] Composition is clean and uncluttered
+4. **Integrate into slide component** using appropriate pattern from IMAGE_GENERATION_GUIDE.md:
+   ```tsx
+   <img
+     src="public/generated-images/gemini-[timestamp]-1.png"
+     alt="[Descriptive alt text]"
+     className="w-full h-auto rounded-xl shadow-lg"
+   />
+   ```
+5. **Test in browser** to ensure images enhance (not distract from) the message
+
+**Image Generation Checklist (Complete for EACH slide):**
+- [ ] All images generated using base prompt template with orange color palette
+- [ ] Aspect ratios match planned layout (16:9 hero, 1:1 cards, 3:2 balanced)
+- [ ] Images saved to `public/generated-images/` directory
+- [ ] Alt text is descriptive and meaningful
+- [ ] Images integrated with responsive sizing and shadows
+- [ ] Style is consistent with other presentation images
+- [ ] Images complement (don't overpower) text content
+
+**Common Image Generation Commands:**
+```bash
+# Hero/full-width image (16:9)
+tsx generate-image.ts "A professional handwritten illustration of [SUBJECT], featuring warm orange tones (vibrant orange #F5A623, light orange accents), with charcoal outlines and white background. [SCENE DETAILS]. Editorial style, clean lines, minimal shading." --ratio 16:9
+
+# Card/icon image (1:1)
+tsx generate-image.ts "A professional handwritten illustration of [SUBJECT], featuring warm orange tones, charcoal outlines, light gray background. [DETAILS]. Editorial style, minimal composition." --ratio 1:1
+
+# Balanced scene (3:2)
+tsx generate-image.ts "A professional handwritten illustration of [SUBJECT], featuring warm orange tones, charcoal outlines. [SCENE DETAILS]. Editorial style, professional aesthetic." --ratio 3:2
+```
 
 ### Visual Appeal Verification Checklist
 Before marking a slide task as complete, verify:

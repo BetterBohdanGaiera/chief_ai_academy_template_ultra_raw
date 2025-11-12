@@ -18,6 +18,15 @@ export function Slide11Level3Why() {
           </p>
         </div>
 
+        {/* Iteration Speed Visualization */}
+        <div className="flex justify-center">
+          <img
+            src="/generated-images/gemini-1762957945148-1.png"
+            alt="Two clocks showing contrast between slow Level 3 iteration (tangled gears) and fast Level 4 iteration (smooth flowing gears)"
+            className="w-full max-w-5xl h-auto rounded-xl shadow-lg"
+          />
+        </div>
+
         {/* Why Level 3 is a POC Trap */}
         <Card className="border-warning/40 bg-warning/5">
           <CardContent className="p-8">

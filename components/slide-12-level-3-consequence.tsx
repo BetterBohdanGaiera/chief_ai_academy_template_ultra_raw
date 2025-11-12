@@ -15,6 +15,15 @@ export function Slide12Level3Consequence() {
           </h2>
         </div>
 
+        {/* Scar Tissue Visualization */}
+        <div className="flex justify-center">
+          <img
+            src="/generated-images/gemini-1762957954779-1.png"
+            alt="Organizational scar tissue showing cracked trust and barrier walls blocking communication"
+            className="w-full max-w-3xl h-auto rounded-xl shadow-lg"
+          />
+        </div>
+
         {/* Main Impact */}
         <Card className="border-destructive/40 bg-destructive/5">
           <CardContent className="p-10">

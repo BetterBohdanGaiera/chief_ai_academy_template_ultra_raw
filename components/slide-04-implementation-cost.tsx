@@ -27,6 +27,15 @@ export function Slide04ImplementationCost() {
             </Card>
           </div>
 
+          {/* Fork in the Road Illustration */}
+          <div className="mb-12">
+            <img
+              src="/generated-images/gemini-1762957110515-1.png"
+              alt="Fork in the road showing two diverging paths: one leading to chaos and one leading to success, representing the critical implementation decision"
+              className="w-full max-w-5xl mx-auto h-auto rounded-xl shadow-lg"
+            />
+          </div>
+
           {/* Two Paths */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Poor Implementation Path */}

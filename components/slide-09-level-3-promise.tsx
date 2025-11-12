@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckSquare, AlertTriangle } from "lucide-react"
+import Image from "next/image"
 
 export function Slide09Level3Promise() {
   return (
@@ -24,6 +25,18 @@ export function Slide09Level3Promise() {
         <Card className="border-primary/40 bg-gradient-to-br from-primary/10 to-primary/5">
           <CardContent className="p-10">
             <h3 className="text-3xl font-bold mb-6 text-center">The Promise</h3>
+
+            {/* Wide Banner Image */}
+            <div className="mb-6">
+              <Image
+                src="/generated-images/gemini-1762957333342-1.png"
+                alt="Attractive drag-and-drop automation interface showing seductive appeal of no-code promises"
+                width={1200}
+                height={675}
+                className="w-full h-auto rounded-xl shadow-lg object-cover"
+              />
+            </div>
+
             <div className="space-y-6">
               <div className="text-center space-y-4">
                 <p className="text-2xl font-semibold text-muted-foreground">

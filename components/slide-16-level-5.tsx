@@ -87,6 +87,15 @@ export function Slide16Level5() {
         <Card className="border-blue-500/40 bg-gradient-to-br from-blue-500/10 to-blue-500/5">
           <CardContent className="p-10">
             <h3 className="text-3xl font-bold mb-6 text-center">The Power - Multi-Agent Orchestration</h3>
+
+            {/* Multi-Agent Visualization */}
+            <div className="mb-8 flex justify-center">
+              <img
+                src="/generated-images/gemini-1762957978715-1.png"
+                alt="Multiple autonomous AI agents orchestrating together in a network with flowing data streams"
+                className="w-full max-w-5xl h-auto rounded-xl shadow-lg"
+              />
+            </div>
             <p className="text-xl leading-relaxed mb-6 text-center">
               The breakthrough isn't just automation - it's <span className="font-bold text-blue-600 dark:text-blue-400">orchestration</span>
             </p>

@@ -21,6 +21,15 @@ export function Slide02Landscape() {
 
         {/* Pyramid Visualization */}
         <div className="relative py-12">
+          {/* Pyramid Illustration */}
+          <div className="mb-12 flex justify-center">
+            <img
+              src="/generated-images/gemini-1762957059095-1.png"
+              alt="Three-tier pyramid structure showing AI adoption hierarchy with glowing orange apex representing top-tier companies"
+              className="w-full max-w-md h-auto rounded-xl shadow-lg"
+            />
+          </div>
+
           {/* Top Tier */}
           <div className="max-w-xs mx-auto mb-6">
             <Card className="border-primary/60 bg-gradient-to-br from-yellow-500/20 to-primary/20">

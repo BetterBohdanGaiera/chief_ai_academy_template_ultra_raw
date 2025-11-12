@@ -6,7 +6,7 @@ Create a new plan in specs/*.md to implement the `Feature` using the exact speci
 
 - You're writing a plan to implement a net new feature that will add value to the application.
 - Create the plan in the `specs/*.md` file. Name it appropriately based on the `Feature`.
-- Use the `Plan Format` below to create the plan. 
+- Use the `Plan Format` below to create the plan.
 - Research the codebase to understand existing patterns, architecture, and conventions before planning the feature.
 - IMPORTANT: Replace every <placeholder> in the `Plan Format` with the requested value. Add as much detail as needed to implement the feature successfully.
 - Use your reasoning model: THINK HARD about the feature requirements, design, and implementation approach.
@@ -15,11 +15,14 @@ Create a new plan in specs/*.md to implement the `Feature` using the exact speci
 - If you need a new library, use `uv add` and be sure to report it in the `Notes` section of the `Plan Format`.
 - Respect requested files in the `Relevant Files` section.
 - Start your research by reading the `README.md` file.
+- **IMPORTANT:** For slide features, ALWAYS plan AI-generated images using `IMAGE_GENERATION_GUIDE.md` specifications. Every slide should have visually supportive images in the handwritten illustration style with orange color palette.
 
 ## Relevant Files
 
 Focus on the following files:
 - `README.md` - Contains the project overview and instructions.
+- `IMAGE_GENERATION_GUIDE.md` - **CRITICAL:** Style guide for AI-generated images. Must be referenced for all slide image planning.
+- `generate-image.ts` - CLI tool for generating images using Gemini API.
 - `app/page.tsx` - Main presentation container with slide navigation.
 - `components/slide-*.tsx` - Individual slide components.
 - `components/ui/**` - Reusable UI primitives from shadcn/ui.
@@ -92,13 +95,29 @@ Use as many h3 headers as needed to organize the tasks. Order matters, start wit
 ## Slide Design Requirements
 IMPORTANT: If this feature involves creating or modifying presentation slides, complete this section. Otherwise, mark as "N/A".
 
+### Image Generation Strategy
+IMPORTANT: Every slide should be visually supported by AI-generated images. Reference the IMAGE_GENERATION_GUIDE.md for complete style specifications.
+
+<plan the images needed for this slide:
+- Number of images: How many images will support this slide's narrative (typically 1-3)
+- Image subjects: What should each image depict?
+- Aspect ratios: Choose appropriate ratios (16:9 for hero, 1:1 for cards, 3:2 for balanced scenes)
+- Prompt drafts: Draft the generation prompts using the template from IMAGE_GENERATION_GUIDE.md
+- Integration points: Where in the slide layout will each image appear?
+
+REMEMBER:
+- All images must use the handwritten illustration style with orange color palette
+- Use the base prompt template: "A professional handwritten illustration of [SUBJECT], featuring warm orange tones (vibrant orange #F5A623, light orange, dark orange accents), with charcoal outlines and white/light gray backgrounds..."
+- Generate images using: `tsx generate-image.ts "[PROMPT]" --ratio [RATIO]`
+- Each image should complement and enhance the slide's message>
+
 ### Visual Component Selection
 <specify which visual elements will be used and why they're appropriate for the narrative:
 - Text blocks: For key messages, quotes, definitions
 - Data visualizations: Charts (Recharts), tables, infographics - specify chart type and data structure
 - Interactive elements: Pop-ups, hover cards, accordions, tabs - describe interaction pattern
 - Icons: lucide-react icons for visual hierarchy and emphasis
-- Images/Graphics: Custom graphics, diagrams, or illustrations>
+- AI-Generated Images: Specify subjects and integration (MUST reference Image Generation Strategy above)>
 
 ### Layout Design
 <describe the slide layout using the existing design system:

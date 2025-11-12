@@ -58,6 +58,30 @@ export function Slide03Execution() {
           </p>
         </div>
 
+        {/* Visual Comparison Images */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="text-center space-y-4">
+            <img
+              src="/generated-images/gemini-1762957079375-1.png"
+              alt="Tangled, chaotic workflow with broken connections representing poor execution"
+              className="w-full h-auto rounded-xl shadow-lg"
+            />
+            <p className="text-sm font-semibold text-destructive uppercase tracking-wide">
+              Poor Execution
+            </p>
+          </div>
+          <div className="text-center space-y-4">
+            <img
+              src="/generated-images/gemini-1762957087205-1.png"
+              alt="Smooth, flowing workflow with organized connections representing excellent execution"
+              className="w-full h-auto rounded-xl shadow-lg"
+            />
+            <p className="text-sm font-semibold text-primary uppercase tracking-wide">
+              Excellent Execution
+            </p>
+          </div>
+        </div>
+
         {/* Comparisons */}
         <div className="space-y-8">
           {useCases.map((useCase, index) => (

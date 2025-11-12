@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { User, MessageSquare } from "lucide-react"
+import Image from "next/image"
 
 export function Slide07Level1() {
   return (
@@ -17,6 +18,17 @@ export function Slide07Level1() {
           <p className="text-xl md:text-2xl text-muted-foreground text-pretty leading-relaxed">
             How It Works
           </p>
+        </div>
+
+        {/* Hero Image */}
+        <div className="flex justify-center">
+          <Image
+            src="/generated-images/gemini-1762957303460-1.png"
+            alt="Professional using ChatGPT or Claude on laptop representing individual AI productivity"
+            width={800}
+            height={533}
+            className="w-full max-w-3xl mx-auto h-auto rounded-xl shadow-lg object-cover"
+          />
         </div>
 
         {/* Content Grid */}
