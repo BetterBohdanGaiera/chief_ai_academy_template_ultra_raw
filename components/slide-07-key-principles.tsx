@@ -39,7 +39,7 @@ export function Slide07KeyPrinciples() {
   ]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh-dark">
+    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh">
       {/* Atmospheric Background */}
       <GeometricPattern type="dots" opacity={0.04} />
       <GrainOverlay opacity={0.12} />
@@ -80,7 +80,7 @@ export function Slide07KeyPrinciples() {
                 variant={isFeatured ? "glow" : "layered"}
                 className={`
                   ${isFeatured ? "lg:row-span-1 border-primary/60" : "border-accent-cyan/40"}
-                  bg-background-dark/90 backdrop-blur-sm
+                  bg-white/80 shadow-lg backdrop-blur-sm
                   hover-lift hover-glow
                   relative overflow-hidden
                   animate-fade-in
@@ -162,7 +162,7 @@ export function Slide07KeyPrinciples() {
           className="text-center pt-6 lg:pt-10 max-w-5xl mx-auto animate-fade-in"
           style={{ animationDelay: "0.8s" }}
         >
-          <Card variant="brutal" className="border-primary/60 bg-background-dark/95 backdrop-blur-sm">
+          <Card variant="brutal" className="border-primary/60 bg-white/90 shadow-lg backdrop-blur-sm">
             <CardContent className="p-8 md:p-10 relative overflow-hidden">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-orange opacity-5 blur-2xl animate-glow-pulse" />

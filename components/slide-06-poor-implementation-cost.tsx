@@ -35,7 +35,7 @@ export function Slide06PoorImplementationCost() {
   ]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh-dark">
+    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh">
       {/* Atmospheric Background - Heavier grain for impact */}
       <GeometricPattern type="diagonal" opacity={0.04} />
       <GrainOverlay opacity={0.2} />
@@ -74,7 +74,7 @@ export function Slide06PoorImplementationCost() {
           className="text-center py-8 animate-scale-in"
           style={{ animationDelay: "0.3s" }}
         >
-          <Card variant="brutal" className="border-destructive/60 bg-background-dark/90 backdrop-blur-sm max-w-2xl mx-auto">
+          <Card variant="brutal" className="border-destructive/60 bg-white/80 shadow-lg backdrop-blur-sm max-w-2xl mx-auto">
             <CardContent className="p-8 md:p-12 relative overflow-hidden">
               {/* Pulsing glow */}
               <div className="absolute inset-0 bg-destructive/5 blur-2xl animate-glow-pulse" />
@@ -102,7 +102,7 @@ export function Slide06PoorImplementationCost() {
               <Card
                 key={cost.title}
                 variant="layered"
-                className="border-warning/50 bg-background-dark/80 backdrop-blur-sm hover-lift relative overflow-hidden animate-fade-in"
+                className="border-warning/50 bg-white/70 shadow-md backdrop-blur-sm hover-lift relative overflow-hidden animate-fade-in"
                 style={{ animationDelay: `${0.5 + idx * 0.1}s` }}
               >
                 {/* Warning tint */}
@@ -153,7 +153,7 @@ export function Slide06PoorImplementationCost() {
           className="text-center pt-6 lg:pt-10 animate-fade-in"
           style={{ animationDelay: "0.9s" }}
         >
-          <Card variant="brutal" className="border-destructive/60 bg-background-dark/95 backdrop-blur-sm max-w-5xl mx-auto">
+          <Card variant="brutal" className="border-destructive/60 bg-white/90 shadow-lg backdrop-blur-sm max-w-5xl mx-auto">
             <CardContent className="p-8 md:p-12 relative overflow-hidden">
               {/* Heavy grain for gravity */}
               <div className="absolute inset-0 opacity-30">

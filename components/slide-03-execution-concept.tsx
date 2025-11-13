@@ -11,9 +11,9 @@ export function Slide03ExecutionConcept() {
   const [revealed, setRevealed] = useState(false)
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh-dark">
+    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh">
       {/* Atmospheric Background */}
-      <GeometricPattern type="diagonal" opacity={0.02} />
+      <GeometricPattern type="diagonal" opacity={0.05} />
       <GrainOverlay opacity={0.12} />
 
       {/* Decorative Elements */}
@@ -47,7 +47,7 @@ export function Slide03ExecutionConcept() {
             {/* Core Principle Card */}
             <Card
               variant="glow"
-              className="border-primary/60 bg-background-dark/90 backdrop-blur-sm cursor-pointer hover-lift"
+              className="border-primary/60 bg-white/80 backdrop-blur-sm cursor-pointer hover-lift shadow-lg"
               onClick={() => setRevealed(!revealed)}
             >
               <CardContent className="p-8 md:p-10 relative overflow-hidden">
@@ -92,7 +92,7 @@ export function Slide03ExecutionConcept() {
                   : 'opacity-0 translate-x-8 scale-95 pointer-events-none'
               }`}
             >
-              <Card variant="brutal" className="border-accent-cyan/40 bg-background-dark/95 backdrop-blur-sm">
+              <Card variant="brutal" className="border-accent-cyan/40 bg-white/90 backdrop-blur-sm shadow-lg">
                 <CardContent className="p-6 md:p-8 space-y-6">
                   <div className="flex items-center gap-3">
                     <AlertTriangle className="h-8 w-8 text-accent-cyan" />
@@ -133,7 +133,7 @@ export function Slide03ExecutionConcept() {
 
             {/* Static Insight - Always Visible */}
             <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-              <Card variant="glass" className="border-foreground-muted/20 bg-background-dark/50 backdrop-blur-md">
+              <Card variant="glass" className="border-foreground-muted/20 bg-white/30 backdrop-blur-md shadow-md">
                 <CardContent className="p-6 space-y-3">
                   <div className="flex items-center gap-2">
                     <div className="w-1 h-8 bg-primary" />

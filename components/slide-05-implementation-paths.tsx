@@ -8,7 +8,7 @@ import { GeometricPattern } from "@/components/decorative/geometric-patterns"
 
 export function Slide05ImplementationPaths() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh-dark">
+    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh">
       {/* Atmospheric Background */}
       <GeometricPattern type="grid" opacity={0.03} />
       <GrainOverlay opacity={0.12} />
@@ -53,7 +53,7 @@ export function Slide05ImplementationPaths() {
           <div className="absolute left-1/2 top-0 -translate-x-1/2 z-10 animate-scale-in" style={{ animationDelay: "0.3s" }}>
             <div className="relative">
               <div className="absolute inset-0 bg-primary/30 blur-xl animate-glow-pulse" />
-              <div className="relative bg-background-dark border-2 border-primary rounded-full p-4">
+              <div className="relative bg-white shadow-lg border-2 border-primary rounded-full p-4">
                 <GitBranch className="h-10 w-10 text-primary" />
               </div>
             </div>
@@ -98,7 +98,7 @@ export function Slide05ImplementationPaths() {
             <div className="animate-slide-in-left" style={{ animationDelay: "0.5s" }}>
               <Card
                 variant="brutal"
-                className="border-destructive/60 bg-background-dark/90 backdrop-blur-sm hover-lift relative overflow-hidden"
+                className="border-destructive/60 bg-white/80 shadow-lg backdrop-blur-sm hover-lift relative overflow-hidden"
               >
                 {/* Destructive glow */}
                 <div className="absolute inset-0 bg-destructive/5 blur-xl" />
@@ -154,7 +154,7 @@ export function Slide05ImplementationPaths() {
             <div className="animate-slide-in-right" style={{ animationDelay: "0.7s" }}>
               <Card
                 variant="glow"
-                className="border-primary/60 bg-background-dark/90 backdrop-blur-sm hover-lift relative overflow-hidden"
+                className="border-primary/60 bg-white/80 shadow-lg backdrop-blur-sm hover-lift relative overflow-hidden"
               >
                 {/* Primary glow */}
                 <div className="absolute inset-0 bg-gradient-orange opacity-5 blur-2xl" />
@@ -216,7 +216,7 @@ export function Slide05ImplementationPaths() {
           className="text-center pt-6 lg:pt-10 max-w-4xl mx-auto animate-fade-in"
           style={{ animationDelay: "1.2s" }}
         >
-          <Card variant="glass" className="border-foreground-muted/20 bg-background-dark/50 backdrop-blur-md">
+          <Card variant="glass" className="border-foreground-muted/20 bg-white/30 shadow-md backdrop-blur-md">
             <CardContent className="p-6 md:p-8">
               <div className="flex items-start gap-4">
                 <div className="w-1 h-full bg-primary shrink-0" />

@@ -8,9 +8,9 @@ import { GeometricPattern } from "@/components/decorative/geometric-patterns"
 
 export function Slide02LandscapePyramid() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh-dark">
+    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh">
       {/* Atmospheric Background */}
-      <GeometricPattern type="grid" opacity={0.03} />
+      <GeometricPattern type="grid" opacity={0.06} />
       <GrainOverlay opacity={0.15} />
 
       {/* Decorative Accent Line */}
@@ -39,7 +39,7 @@ export function Slide02LandscapePyramid() {
             className="relative mb-8 lg:mb-12 lg:ml-auto lg:mr-0 max-w-3xl animate-slide-in-right"
             style={{ animationDelay: "0.3s" }}
           >
-            <Card variant="glow" className="border-primary/60 bg-background-dark/90 backdrop-blur-sm hover-lift">
+            <Card variant="glow" className="border-primary/60 bg-white/80 backdrop-blur-sm hover-lift shadow-lg">
               <CardContent className="p-6 md:p-10 relative overflow-hidden">
                 {/* Glow effect background */}
                 <div className="absolute inset-0 bg-gradient-orange opacity-5 blur-2xl" />
@@ -84,7 +84,7 @@ export function Slide02LandscapePyramid() {
             className="relative mb-8 lg:mb-12 lg:mx-auto max-w-3xl animate-slide-in-up"
             style={{ animationDelay: "0.5s" }}
           >
-            <Card variant="layered" className="border-warning/50 bg-background-dark/90 backdrop-blur-sm hover-lift">
+            <Card variant="layered" className="border-warning/50 bg-white/80 backdrop-blur-sm hover-lift shadow-lg">
               <CardContent className="p-6 md:p-10 relative overflow-hidden">
                 {/* Warning glow */}
                 <div className="absolute inset-0 bg-warning/5 blur-xl" />
@@ -123,7 +123,7 @@ export function Slide02LandscapePyramid() {
             className="relative lg:ml-0 lg:mr-auto max-w-3xl animate-slide-in-left"
             style={{ animationDelay: "0.7s" }}
           >
-            <Card variant="brutal" className="border-destructive/60 bg-background-dark/90 backdrop-blur-sm hover-lift">
+            <Card variant="brutal" className="border-destructive/60 bg-white/80 backdrop-blur-sm hover-lift shadow-lg">
               <CardContent className="p-6 md:p-10 relative overflow-hidden">
                 {/* Destructive glow */}
                 <div className="absolute inset-0 bg-destructive/5 blur-xl" />

@@ -86,7 +86,7 @@ export default function Home() {
           size="icon"
           onClick={goToPrevSlide}
           disabled={currentSlide === 0}
-          className="bg-background-dark/95 backdrop-blur-sm border-2 border-primary/60 hover:border-primary hover:bg-primary/10 rounded-lg transition-all duration-300 disabled:opacity-20 disabled:border-foreground-muted/30 disabled:hover:bg-background-dark/95 group"
+          className="bg-white/95 backdrop-blur-sm border-2 border-primary/60 hover:border-primary hover:bg-primary/10 rounded-lg transition-all duration-300 disabled:opacity-20 disabled:border-border disabled:hover:bg-white/95 group shadow-lg"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
@@ -96,7 +96,7 @@ export default function Home() {
           size="icon"
           onClick={goToNextSlide}
           disabled={currentSlide === slides.length - 1}
-          className="bg-background-dark/95 backdrop-blur-sm border-2 border-primary/60 hover:border-primary hover:bg-primary/10 rounded-lg transition-all duration-300 disabled:opacity-20 disabled:border-foreground-muted/30 disabled:hover:bg-background-dark/95 group"
+          className="bg-white/95 backdrop-blur-sm border-2 border-primary/60 hover:border-primary hover:bg-primary/10 rounded-lg transition-all duration-300 disabled:opacity-20 disabled:border-border disabled:hover:bg-white/95 group shadow-lg"
           aria-label="Next slide"
         >
           <ChevronRight className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
@@ -104,7 +104,7 @@ export default function Home() {
       </div>
 
       {/* Progress Dots - Enhanced with brutalist style */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-50 bg-background-dark/80 backdrop-blur-md px-4 py-3 rounded-lg border border-primary/30">
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-50 bg-white/90 backdrop-blur-md px-4 py-3 rounded-lg border border-primary/30 shadow-lg">
         {slides.map((_, idx) => (
           <button
             key={idx}
@@ -130,7 +130,7 @@ export default function Home() {
 
       {/* Slide Counter - Distinctive brutalist typography */}
       <div className="fixed top-8 right-8 z-50">
-        <div className="bg-background-dark/90 backdrop-blur-md border-2 border-primary/40 px-5 py-2 rounded-lg shadow-lg group hover:border-primary transition-colors">
+        <div className="bg-white/95 backdrop-blur-md border-2 border-primary/40 px-5 py-2 rounded-lg shadow-lg group hover:border-primary transition-colors">
           <div className="flex items-baseline gap-2">
             <span className="font-display text-2xl font-bold text-primary group-hover:scale-110 transition-transform inline-block">
               {currentSlide + 1}

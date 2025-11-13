@@ -44,7 +44,7 @@ export function Slide04ExecutionComparison() {
   ]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh-dark">
+    <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh">
       {/* Atmospheric Background */}
       <GeometricPattern type="dots" opacity={0.04} />
       <GrainOverlay opacity={0.1} />
@@ -82,7 +82,7 @@ export function Slide04ExecutionComparison() {
                 {/* Poor Execution - Desaturated */}
                 <Card
                   variant="brutal"
-                  className="border-foreground-muted/30 bg-background-dark/60 backdrop-blur-sm hover-lift relative overflow-hidden"
+                  className="border-foreground-muted/30 bg-white/40 shadow-md backdrop-blur-sm hover-lift relative overflow-hidden"
                 >
                   {/* Subtle destructive tint */}
                   <div className="absolute inset-0 bg-destructive/5" />
@@ -123,7 +123,7 @@ export function Slide04ExecutionComparison() {
                 {/* Excellent Execution - Vibrant */}
                 <Card
                   variant="glow"
-                  className="border-primary/60 bg-background-dark/90 backdrop-blur-sm hover-lift relative overflow-hidden"
+                  className="border-primary/60 bg-white/80 shadow-lg backdrop-blur-sm hover-lift relative overflow-hidden"
                 >
                   {/* Primary glow effect */}
                   <div className="absolute inset-0 bg-gradient-orange opacity-5 blur-2xl" />
