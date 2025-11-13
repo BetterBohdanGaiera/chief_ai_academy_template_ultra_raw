@@ -13,7 +13,7 @@ export function Slide05ImplementationPaths() {
       {/* AI-Generated Image Layer - Forking Paths Metaphor */}
       <div className="absolute inset-0 z-0 animate-fade-in delay-100 fill-backwards">
         <Image
-          src="/generated-images/gemini-1763055551782-1.png"
+          src="/generated-images/gemini-1763063275105-1.png"
           alt=""
           fill
           sizes="100vw"

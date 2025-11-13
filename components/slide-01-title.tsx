@@ -12,7 +12,7 @@ export function Slide01Title() {
       {/* AI-Generated Image Layer - AI Transformation Hero */}
       <div className="absolute inset-0 z-0 animate-fade-in delay-100 fill-backwards">
         <Image
-          src="/generated-images/gemini-1763055623009-1.png"
+          src="/generated-images/gemini-1763063226214-1.png"
           alt=""
           fill
           sizes="100vw"

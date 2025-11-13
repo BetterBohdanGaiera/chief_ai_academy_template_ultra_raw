@@ -16,7 +16,7 @@ export function Slide03ExecutionConcept() {
       {/* AI-Generated Image Layer - Execution Quality Metaphor */}
       <div className="absolute inset-0 z-0 animate-fade-in delay-100 fill-backwards">
         <Image
-          src="/generated-images/gemini-1763055579750-1.png"
+          src="/generated-images/gemini-1763063261388-1.png"
           alt=""
           fill
           sizes="100vw"
