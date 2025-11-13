@@ -6,7 +6,11 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "gen:image": "tsx generate-image.ts",
+    "gen:list": "tsx generate-image.ts --list-templates",
+    "gen:hero": "tsx generate-image.ts --template hero-bold",
+    "gen:concept": "tsx generate-image.ts --template concept-ai"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
