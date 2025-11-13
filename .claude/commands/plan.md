@@ -17,7 +17,7 @@ Create a new plan in specs/*.md to implement the `Feature` using the exact speci
 - If you need a new library, use `uv add` and be sure to report it in the `Notes` section of the `Plan Format`.
 - Respect requested files in the `Relevant Files` section.
 - Start your research by reading the `README.md` file.
-- **IMPORTANT:** For slide features, ALWAYS plan AI-generated images using `IMAGE_GENERATION_GUIDE.md` specifications. Every slide should have visually supportive images in the handwritten illustration style with orange color palette.
+- **IMPORTANT:** For slide features, ALWAYS plan AI-generated images using `ai_docs/IMAGE_GENERATION_GUIDE.md` specifications. Every slide should have visually supportive images following the design system (brutalist-minimalist, electric orange #FF4D00, 16 predefined templates).
 
 ## Relevant Files
 
@@ -102,13 +102,13 @@ Use as many h3 headers as needed to organize the tasks. Order matters, start wit
 IMPORTANT: If this feature involves creating or modifying presentation slides, complete this section. Otherwise, mark as "N/A".
 
 ### Image Generation Strategy
-IMPORTANT: Every slide should be visually supported by AI-generated images. Reference the IMAGE_GENERATION_GUIDE.md for complete style specifications.
+IMPORTANT: Every slide should be visually supported by AI-generated images. Reference the ai_docs/IMAGE_GENERATION_GUIDE.md for complete style specifications.
 
 <plan the images needed for this slide:
 - Number of images: How many images will support this slide's narrative (typically 1-3)
 - Image subjects: What should each image depict?
 - Aspect ratios: Choose appropriate ratios (16:9 for hero, 1:1 for cards, 3:2 for balanced scenes)
-- Prompt drafts: Draft the generation prompts using the template from IMAGE_GENERATION_GUIDE.md
+- Prompt drafts: Draft the generation prompts using the template from ai_docs/IMAGE_GENERATION_GUIDE.md
 - Integration points: Where in the slide layout will each image appear?
 
 REMEMBER:

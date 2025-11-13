@@ -90,7 +90,7 @@ Use these files to implement the feature:
   - Review command structure and template options
   - Use for generating all new images
 
-- **`docs/IMAGE_GENERATION_GUIDE.md`** - Generation workflow documentation
+- **`ai_docs/IMAGE_GENERATION_GUIDE.md`** - Generation workflow documentation
   - Reference for template selection and best practices
   - Ensure consistency with design system
 
@@ -265,7 +265,7 @@ IMPORTANT: Execute every step in order, top to bottom. Each task should be a che
   - Comments: All images have aria-hidden="true". Low opacity (15-35%) ensures text contrast ratios are maintained. Images use pointer-events-none and select-none, so keyboard navigation unaffected. Simple fade-in animations respect motion preferences.
 
 - [x] **Performance validation** - Check image loading and performance
-  - Verify image file sizes are reasonable (0.5-5MB ideal range per IMAGE_GENERATION_GUIDE.md)
+  - Verify image file sizes are reasonable (0.5-5MB ideal range per ai_docs/IMAGE_GENERATION_GUIDE.md)
   - Test page load times and interaction responsiveness
   - Ensure images are optimized for web (compression if needed)
   - Check that background images don't block initial render
@@ -561,7 +561,7 @@ This feature follows the principle of **"enhancement, not decoration"**. Every i
 If an image doesn't clearly enhance understanding or impact, don't use it. Brutal minimalism means intentional restraint.
 
 ### Image Generation Workflow Reference
-Per `docs/IMAGE_GENERATION_GUIDE.md`:
+Per `ai_docs/IMAGE_GENERATION_GUIDE.md`:
 1. **Template selection**: Use decision tree (p. 70-100) to pick appropriate template
 2. **Prompt writing**: Be specific but concise; let design system handle aesthetics
 3. **Generate variations**: Always create 2-3 options with `--count 2` or `--count 3`

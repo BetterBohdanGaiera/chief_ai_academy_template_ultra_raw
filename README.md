@@ -46,7 +46,7 @@ pnpm gen:hero "AI Transformation Strategy"
 pnpm gen:concept "Digital Innovation Framework"
 
 # View comprehensive guide
-cat docs/IMAGE_GENERATION_GUIDE.md
+cat ai_docs/IMAGE_GENERATION_GUIDE.md
 ```
 
 ### Features
@@ -67,7 +67,7 @@ cat docs/IMAGE_GENERATION_GUIDE.md
 
 ### Documentation
 
-📖 **[Complete Image Generation Guide](docs/IMAGE_GENERATION_GUIDE.md)** - Comprehensive workflow documentation including:
+📖 **[Complete Image Generation Guide](ai_docs/IMAGE_GENERATION_GUIDE.md)** - Comprehensive workflow documentation including:
 - Template selection decision tree
 - Best practices for prompt writing
 - Integration with slide development

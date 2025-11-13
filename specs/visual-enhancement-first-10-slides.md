@@ -1,7 +1,7 @@
 # Feature: Visual Enhancement with AI-Generated Images for First 10 Slides
 
 ## Feature Description
-This feature enhances the first 10 slides of the AI Transformation executive presentation by adding strategically placed, contextually relevant AI-generated images. The images will be created using the existing `generate-image.ts` script and `IMAGE_GENERATION_GUIDE.md` standards to maintain visual consistency with the presentation's design system. Images will complement and reinforce the narrative of each slide while adhering to the handwritten illustration style with warm orange tones.
+This feature enhances the first 10 slides of the AI Transformation executive presentation by adding strategically placed, contextually relevant AI-generated images. The images will be created using the existing `generate-image.ts` script and `ai_docs/IMAGE_GENERATION_GUIDE.md` standards to maintain visual consistency with the presentation's design system. Images will complement and reinforce the narrative of each slide following the brutalist-minimalist design system with electric orange (#FF4D00) accents.
 
 ## User Story
 As a presentation viewer (executive audience member)
@@ -12,12 +12,12 @@ So that I can better understand complex AI concepts and stay engaged throughout 
 The current slides rely heavily on text, cards, and abstract UI components. While the information architecture is strong, the slides lack compelling visual storytelling elements that would help executives quickly grasp key concepts and maintain engagement. Visual metaphors and illustrations can significantly improve information retention and make abstract AI concepts more tangible.
 
 ## Solution Statement
-Generate custom AI illustrations using the established IMAGE_GENERATION_GUIDE.md workflow and integrate them strategically into the first 10 slides. Each image will be carefully designed to support the slide's core message without overwhelming the existing content. Some slides will have a single hero image, while others may have multiple supporting images. The implementation will maintain the presentation's clean, professional aesthetic while adding visual depth through handwritten illustration-style imagery.
+Generate custom AI illustrations using the established ai_docs/IMAGE_GENERATION_GUIDE.md workflow and integrate them strategically into the first 10 slides. Each image will be carefully designed to support the slide's core message without overwhelming the existing content. Some slides will have a single hero image, while others may have multiple supporting images. The implementation will maintain the presentation's clean, professional aesthetic while adding visual depth through design-consistent imagery.
 
 ## Relevant Files
 Use these files to implement the feature:
 
-- **`IMAGE_GENERATION_GUIDE.md`** - Comprehensive style guide for generating images with consistent visual aesthetic, color palette, and composition guidelines
+- **`ai_docs/IMAGE_GENERATION_GUIDE.md`** - Comprehensive style guide for generating images with consistent visual aesthetic, color palette, and composition guidelines
 - **`generate-image.ts`** - Script to generate AI images using Gemini API with proper formatting and file management
 - **`components/slide-01-title.tsx`** - Title slide; needs hero/background visual
 - **`components/slide-02-landscape.tsx`** - Reality Check with pyramid visualization; needs supporting pyramid/tier illustration
@@ -306,7 +306,7 @@ No unit tests required for this feature (visual/UI enhancement with no logic cha
 
 ## Acceptance Criteria
 - [ ] All 10 slides (01-10) have contextually relevant AI-generated images integrated
-- [ ] All images follow the IMAGE_GENERATION_GUIDE.md style (handwritten illustration, orange palette, charcoal outlines)
+- [ ] All images follow the ai_docs/IMAGE_GENERATION_GUIDE.md style (design system consistent, electric orange #FF4D00, brutalist-minimalist aesthetic)
 - [ ] Images enhance narrative clarity without overwhelming text content
 - [ ] All images are responsive and display correctly on mobile, tablet, and desktop
 - [ ] All images have descriptive, meaningful alt text for accessibility
@@ -423,7 +423,7 @@ Execute every command to validate the feature works correctly with zero regressi
 - **File Management**: Keep generated filenames (gemini-[timestamp]-N.png) for traceability and version control
 - **Iterative Refinement**: If any generated image doesn't match the vision, regenerate immediately rather than trying to work around it
 - **Text Reduction Strategy**: When integrating images, evaluate if any descriptive text becomes redundant and can be removed to reduce visual clutter
-- **Design System Compliance**: Every image must pass the quality checklist in IMAGE_GENERATION_GUIDE.md before integration
+- **Design System Compliance**: Every image must pass the quality checklist in ai_docs/IMAGE_GENERATION_GUIDE.md before integration
 - **Future Scalability**: This implementation pattern can be extended to remaining slides (11-17) in a future iteration
 - **uv Environment**: Remember to use `uv` for all script executions as per project conventions
 - **API Usage**: The Gemini API is configured via ANTHROPIC_API_KEY in .env (ensure it's loaded for image generation)

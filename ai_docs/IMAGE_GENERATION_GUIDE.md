@@ -1,343 +1,554 @@
-# Image Generation Style Guide
+# AI Image Generation Guide
 
-## Overview
-This guide defines the standard visual style and workflow for generating AI images for presentation slides using the `generate-image.ts` script. All images must maintain visual coherence and complement the presentation's design system.
+Complete workflow documentation for generating design-consistent imagery using the Gemini AI image generation system with integrated design system.
 
----
+## Table of Contents
 
-## Core Visual Style
-
-### Illustration Aesthetic
-**Primary Style:** Handwritten illustration style with live objects, people, and scenes
-- **Characteristics:**
-  - Artistic, hand-drawn quality (not photorealistic)
-  - Warm, approachable, human-centric illustrations
-  - Clean lines with subtle texture
-  - Professional yet friendly tone
-  - Contemporary illustration style (similar to modern editorial illustrations)
-
-### Color Palette Integration
-All images MUST use colors that complement the slide design system:
-
-**Primary Colors (from `app/globals.css`):**
-- **Vibrant Orange:** `oklch(0.65 0.2 35)` - Primary accent color
-- **Light Orange:** `oklch(0.75 0.15 35)` - Secondary accent
-- **Dark Orange:** `oklch(0.55 0.25 35)` - Emphasis color
-- **Deep Charcoal:** `oklch(0.15 0 0)` - Text and line work
-- **Pure White:** `oklch(1 0 0)` - Background highlights
-- **Light Gray:** `oklch(0.96 0 0)` - Neutral backgrounds
-- **Medium Gray:** `oklch(0.5 0 0)` - Supporting elements
-
-**Color Usage Rules:**
-1. Orange tones should be prominent in illustrations (40-60% of color area)
-2. Use charcoal for line work, outlines, and details
-3. White and light gray for backgrounds and negative space
-4. Avoid introducing colors outside this palette (no blues, greens, purples unless explicitly justified)
+1. [Quick Start](#quick-start)
+2. [When to Generate Images](#when-to-generate-images)
+3. [Template Selection Guide](#template-selection-guide)
+4. [Command Reference](#command-reference)
+5. [Best Practices](#best-practices)
+6. [Integration with Slide Development](#integration-with-slide-development)
+7. [Troubleshooting](#troubleshooting)
+8. [Examples Gallery](#examples-gallery)
 
 ---
 
-## Base Prompt Template
+## Quick Start
 
-Use this template for ALL image generation to ensure consistency:
+### Prerequisites
 
-```
-A professional handwritten illustration style drawing of [SUBJECT],
-featuring clean lines and warm orange tones (vibrant orange #F5A623, light orange, dark orange accents),
-with charcoal outlines and white/light gray backgrounds.
-The illustration should have an editorial, contemporary aesthetic with a friendly, approachable feel.
-[SPECIFIC SCENE DETAILS].
-Minimal shading, flat color areas with subtle texture, professional business context.
-```
-
-### Template Variables:
-- `[SUBJECT]`: Main subject (e.g., "business executives in a meeting", "AI robot assistant", "data visualization concept")
-- `[SPECIFIC SCENE DETAILS]`: Scene-specific context (e.g., "in a modern boardroom with glass walls", "presenting on a large screen", "surrounded by floating data icons")
-
----
-
-## Aspect Ratio Guidelines
-
-Choose the appropriate aspect ratio based on slide layout:
-
-| Layout Type | Aspect Ratio | Use Case | Command Example |
-|-------------|--------------|----------|-----------------|
-| **Full-width hero** | `16:9` | Title slides, full-screen visuals | `--ratio 16:9` |
-| **Square card** | `1:1` | Icon-style illustrations, profile shots | `--ratio 1:1` |
-| **Vertical card** | `9:16` | Tall infographics, mobile-first concepts | `--ratio 9:16` |
-| **Horizontal card** | `3:2` | Balanced scenes, multi-person illustrations | `--ratio 3:2` |
-| **Wide banner** | `21:9` | Ultra-wide process diagrams, timelines | `--ratio 21:9` |
-
----
-
-## Composition Guidelines
-
-### Subject Types & Best Practices
-
-#### 1. People & Characters
-**Do:**
-- Show diverse, professional individuals in business contexts
-- Use warm, confident poses and gestures
-- Include subtle facial expressions (optimistic, thoughtful, engaged)
-- Dress in modern business attire (smart casual to formal)
-- Show interaction and collaboration
-
-**Don't:**
-- Use photorealistic faces or bodies
-- Create caricatures or exaggerated features
-- Include logos, branding, or text in clothing
-- Overcrowd scenes with too many characters (max 3-4 focal people)
-
-**Example Prompts:**
-```bash
-tsx generate-image.ts "A professional handwritten illustration of a confident female executive presenting AI strategy, featuring clean lines and warm orange tones (vibrant orange #F5A623, light orange accents), with charcoal outlines and white background. She stands beside a modern display with data visualizations, gesturing toward insights. Editorial style, friendly and approachable, minimal shading, flat color areas." --ratio 16:9
-```
-
-#### 2. Abstract Concepts & Data
-**Do:**
-- Use geometric shapes and flowing lines to represent data
-- Incorporate icons and symbols for clarity
-- Show connections with dotted lines or arrows
-- Use size variation to show hierarchy or importance
-
-**Don't:**
-- Create overly complex diagrams
-- Use realistic charts/graphs (keep illustrative)
-- Include actual numbers or text labels (they'll be added in the slide)
-
-**Example Prompts:**
-```bash
-tsx generate-image.ts "A professional handwritten illustration of abstract AI concepts with interconnected nodes and flowing data streams, featuring warm orange tones (vibrant orange #F5A623, light orange, dark orange accents), charcoal outlines, and light gray background. Geometric shapes representing neural networks, with clean lines and minimal shading. Editorial style, contemporary aesthetic." --ratio 1:1
-```
-
-#### 3. Technology & AI
-**Do:**
-- Show friendly, approachable robots or AI assistants
-- Use rounded shapes for technology (avoid harsh edges)
-- Include human-technology interaction
-- Represent AI as helpful, collaborative tools
-
-**Don't:**
-- Create threatening or dystopian imagery
-- Use overly complex mechanical details
-- Depict AI replacing humans (show collaboration instead)
-
-**Example Prompts:**
-```bash
-tsx generate-image.ts "A professional handwritten illustration of a friendly AI robot assistant collaborating with business professionals, featuring warm orange tones (vibrant orange #F5A623, light orange accents), charcoal outlines, white background. The robot has a simple, rounded design with a helpful gesture. Editorial style, approachable and optimistic feel, minimal shading, flat color areas." --ratio 3:2
-```
-
-#### 4. Business Scenes & Environments
-**Do:**
-- Show modern, clean office environments
-- Include minimal furniture and props (focus on key elements)
-- Use perspective to create depth
-- Show natural light and open spaces
-
-**Don't:**
-- Add too many details (keep it clean and minimal)
-- Use dark or cluttered spaces
-- Include specific company branding
-
-**Example Prompts:**
-```bash
-tsx generate-image.ts "A professional handwritten illustration of a modern boardroom with executives discussing AI strategy, featuring warm orange tones (vibrant orange #F5A623, light orange accents), charcoal outlines, light gray walls. Clean lines, minimal furniture, large windows with natural light. Editorial style, professional yet approachable, minimal shading, flat color areas." --ratio 16:9
-```
-
----
-
-## Generation Workflow
-
-### Step-by-Step Process
-
-1. **Identify Image Needs**
-   - Review slide narrative and message
-   - Determine how many images are needed per slide (typically 1-3)
-   - Choose appropriate aspect ratios based on layout
-
-2. **Craft Prompt Using Template**
-   - Start with base prompt template
-   - Customize `[SUBJECT]` and `[SPECIFIC SCENE DETAILS]`
-   - Always include color specifications (orange tones, charcoal, white/gray)
-   - Mention "handwritten illustration", "editorial style", "clean lines", "minimal shading"
-
-3. **Generate Image**
+1. Ensure `GEMINI_API_KEY` is set in your `.env` file:
    ```bash
-   tsx generate-image.ts "[YOUR COMPLETE PROMPT]" --ratio [ASPECT_RATIO] --output public/generated-images/
+   GEMINI_API_KEY=your_api_key_here
    ```
 
-4. **Verify Style Consistency**
-   - Check that colors match design system (orange prominently featured)
-   - Confirm illustration style is consistent with previous images
-   - Ensure composition is clean and not cluttered
-   - Verify subject matter aligns with slide message
+2. Install dependencies (if not already done):
+   ```bash
+   pnpm install
+   ```
+
+### Generate Your First Image
+
+```bash
+# List all available templates
+pnpm gen:list
+
+# Generate a hero image for a title slide
+pnpm gen:hero "AI Transformation Strategy"
+
+# Generate a concept illustration
+pnpm gen:concept "Digital Innovation Framework"
+
+# Generate with custom parameters
+tsx generate-image.ts "Executive Leadership" --template hero-bold --ratio 16:9 --count 2
+```
+
+---
+
+## When to Generate Images
+
+### ✅ Generate New Images When:
+
+- **Creating New Slides**: You need imagery for a new slide that doesn't fit existing generated images
+- **Specific Concepts**: You have a specific concept/metaphor that requires custom visualization
+- **Variety Needed**: You want multiple variations to choose from for the same slide
+- **Design Consistency**: Existing images don't match the presentation's design system
+- **Quality Upgrade**: Current images are low resolution or outdated
+
+### ❌ Reuse Existing Images When:
+
+- **Generic Backgrounds**: You need a simple background that existing generated images already cover
+- **Cost Efficiency**: The existing image is "good enough" for the purpose
+- **Consistency**: Using the same image across multiple slides for branding
+- **Time Constraints**: Quick turnaround needed and current images are acceptable
+
+---
+
+## Template Selection Guide
+
+### Decision Tree
+
+```
+Need an image?
+├── Title/Hero Slide?
+│   ├── High-impact, bold → hero-bold
+│   ├── Refined, professional → hero-subtle
+│   └── Dynamic, future-focused → hero-dynamic
+│
+├── Abstract Concept?
+│   ├── AI/Machine Learning → concept-ai
+│   ├── Organizational Change → concept-transformation
+│   ├── Strategic Planning → concept-strategy
+│   └── Innovation/Ideas → concept-innovation
+│
+├── Behind Charts/Data?
+│   ├── Need grid structure → dataviz-grid
+│   ├── Soft gradient → dataviz-gradient
+│   └── Textured depth → dataviz-texture
+│
+├── Team/People?
+│   ├── Individual portrait → portrait-executive
+│   └── Group collaboration → portrait-team
+│
+└── Versatile Background?
+    ├── Dot pattern → background-dots
+    ├── Flowing gradient → background-mesh
+    ├── Geometric shapes → background-geometric
+    └── Retro-futuristic → background-retro
+```
+
+### Template Categories
+
+#### 1. Hero Images (Title Slides)
+
+**hero-bold**: High-impact transformation themes
+- Use for: Opening slides, section dividers, bold statements
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: Large geometric shapes, strong orange accents, dramatic whitespace
+
+**hero-subtle**: Refined professional aesthetic
+- Use for: Executive summaries, conclusions, formal presentations
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: Minimal patterns, understated elegance, sophisticated
+
+**hero-dynamic**: Forward-looking innovation
+- Use for: Transformation narratives, strategy reveals, future vision
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: Angular shapes, motion implied, energetic composition
+
+#### 2. Concept Illustrations (Abstract Ideas)
+
+**concept-ai**: Artificial intelligence and machine learning
+- Use for: AI introduction, technology explanation, ML concepts
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: Neural network patterns, interconnected nodes, technical geometric
+
+**concept-transformation**: Digital transformation and change
+- Use for: Change management, digital evolution, organizational transformation
+- Aspect Ratio: 3:2 (recommended)
+- Characteristics: Before/after metaphors, morphing shapes, orange transformation moments
+
+**concept-strategy**: Strategic planning and frameworks
+- Use for: Strategy slides, planning presentations, framework explanations
+- Aspect Ratio: 4:3 (recommended)
+- Characteristics: Layered geometry, systematic composition, structured forms
+
+**concept-innovation**: Innovation and creative breakthroughs
+- Use for: Innovation themes, idea generation, creative thinking
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: Radiating shapes, explosive geometry, dynamic energy
+
+#### 3. Data Visualization Backgrounds
+
+**dataviz-grid**: Subtle grid for charts and tables
+- Use for: Chart backgrounds, table slides, data-heavy presentations
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: Light grid pattern, minimal competition with foreground data
+
+**dataviz-gradient**: Soft gradient for analytics
+- Use for: Dashboard views, analytics presentations, data summaries
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: White-to-off-white gradient, dot matrix texture, very subtle
+
+**dataviz-texture**: Canvas texture for depth
+- Use for: Statistical slides, report backgrounds, data visualizations
+- Aspect Ratio: 4:3 (recommended)
+- Characteristics: Grain texture, professional depth, uniform brightness
+
+#### 4. Executive Portraits
+
+**portrait-executive**: Professional individual portrait
+- Use for: Team slides, leadership introductions, about us sections
+- Aspect Ratio: 3:4 (recommended)
+- Characteristics: Corporate setting, professional lighting, orange environmental accents
+
+**portrait-team**: Team collaboration scene
+- Use for: Team culture, collaboration themes, organization overviews
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: Group dynamics, modern office, inclusive professional atmosphere
+
+#### 5. Abstract Backgrounds
+
+**background-dots**: Dot matrix pattern
+- Use for: General content, text-heavy slides, versatile usage
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: Uniform dots, subtle orange accents, retro-futuristic feel
+
+**background-mesh**: Gradient mesh sophistication
+- Use for: Feature slides, content backgrounds, section transitions
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: Organic curves, gradient zones, modern refinement
+
+**background-geometric**: Geometric abstract shapes
+- Use for: Content slides, mixed media, slide variety
+- Aspect Ratio: 16:9 (recommended)
+- Characteristics: Large-scale shapes, low opacity, brutalist minimalism
+
+**background-retro**: Retro-futuristic grid
+- Use for: Technology themes, futuristic sections, innovation slides
+- Aspect Ratio: 21:9 (recommended)
+- Characteristics: Perspective grid, 1980s aesthetic, cyan and orange accents
+
+---
+
+## Command Reference
+
+### Basic Commands
+
+```bash
+# List all available templates
+tsx generate-image.ts --list-templates
+pnpm gen:list
+
+# Get detailed template information
+tsx generate-image.ts --template-info hero-bold
+
+# Generate with template
+tsx generate-image.ts "your prompt" --template <template-id>
+
+# Generate multiple variations
+tsx generate-image.ts "your prompt" --template <template-id> --count 2
+```
+
+### Advanced Options
+
+```bash
+# Control design system intensity
+tsx generate-image.ts "prompt" --style minimal     # Subtle design influence
+tsx generate-image.ts "prompt" --style moderate   # Balanced (default)
+tsx generate-image.ts "prompt" --style bold       # Strong design emphasis
+
+# Override aspect ratio
+tsx generate-image.ts "prompt" --template hero-bold --ratio 3:2
+
+# Skip design system (use template prompt as-is)
+tsx generate-image.ts "prompt" --template hero-bold --no-design-system
+
+# Custom output directory
+tsx generate-image.ts "prompt" --output custom/path/
+```
+
+### NPM Script Shortcuts
+
+```bash
+pnpm gen:list         # List all templates
+pnpm gen:hero "text"  # Generate hero image
+pnpm gen:concept "text" # Generate concept illustration
+```
+
+### Batch Generation
+
+```bash
+# Generate full presentation set
+bash scripts/generate-presentation-images.sh
+```
+
+---
+
+## Best Practices
+
+### Prompt Writing Tips
+
+1. **Be Specific but Concise**
+   - Good: "AI transformation in healthcare analytics"
+   - Avoid: "A picture showing how AI is transforming the healthcare industry by improving analytics capabilities and enabling better patient outcomes through data-driven insights"
+
+2. **Let Design System Handle Style**
+   - Focus on *what* you want, not *how* it should look
+   - Design system automatically applies colors, aesthetic, layout
+   - Good: "Strategic planning framework"
+   - Avoid: "Strategic planning framework with electric orange accents on white background using geometric shapes"
+
+3. **Use Templates for Consistency**
+   - Always use templates unless you have a very specific custom need
+   - Templates ensure brand consistency across all generated images
+
+4. **Consider Context**
+   - Match template category to slide purpose
+   - Use aspect ratio that fits your slide layout
+   - Generate 2-3 variations to have options
+
+### Design System Integration
+
+**Style Intensity Guidelines:**
+
+- **Minimal**: When template prompt is already detailed and style-specific
+- **Moderate** (default): Balanced design system influence, works for 90% of cases
+- **Bold**: When you want strong design system aesthetic, abstract backgrounds
+
+**When to Use --no-design-system:**
+- Rarely! Only when testing raw template prompts
+- When generating images for external use (not presentation)
+
+### File Organization
+
+- All images save to `public/generated-images/` by default
+- Metadata JSON files save alongside images
+- Use metadata to track prompts, templates, and parameters
+- Keep metadata files for reproducibility
+
+---
+
+## Integration with Slide Development
+
+### Workflow
+
+1. **Plan Slide**
+   - Determine slide content and purpose
+   - Decide if imagery is needed
+
+2. **Select Template**
+   - Use decision tree to pick appropriate template
+   - Review template details with `--template-info`
+
+3. **Generate Image**
+   - Write concise prompt describing the concept
+   - Use recommended aspect ratio from template
+   - Generate 2-3 variations
+
+4. **Review & Select**
+   - Check generated images in `public/generated-images/`
+   - Review validation warnings
+   - Select best variation
 
 5. **Integrate into Slide**
-   - Copy the HTML `<img>` tag from the script output
-   - Add to slide component with appropriate Tailwind classes
-   - Use responsive sizing: `className="w-full h-auto rounded-xl"`
-   - Add shadow for depth: `className="shadow-lg"`
+   - Reference image in slide component
+   - Test in presentation (`pnpm run dev`)
+   - Adjust if needed
 
----
+### Example: Creating a New Slide
 
-## Image Integration Patterns
+```bash
+# Step 1: Decide on template
+tsx generate-image.ts --template-info concept-ai
 
-### Pattern 1: Hero Image (Full-Width)
-```tsx
-<div className="w-full max-w-6xl mx-auto">
-  <img
-    src="public/generated-images/gemini-[timestamp]-1.png"
-    alt="[Descriptive alt text]"
-    className="w-full h-auto rounded-xl shadow-2xl"
-  />
-</div>
+# Step 2: Generate variations
+tsx generate-image.ts "Machine Learning Pipeline" --template concept-ai --count 2 --ratio 16:9
+
+# Step 3: Check output
+ls -lh public/generated-images/
+
+# Step 4: Review metadata
+cat public/generated-images/gemini-*-metadata.json | jq
+
+# Step 5: Use in component (example path)
+# <img src="/generated-images/gemini-1234567890-1.png" alt="ML Pipeline" />
 ```
-
-### Pattern 2: Grid with Multiple Images
-```tsx
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  <img
-    src="public/generated-images/gemini-[timestamp]-1.png"
-    alt="[Alt text]"
-    className="w-full h-auto rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
-  />
-  <img
-    src="public/generated-images/gemini-[timestamp]-2.png"
-    alt="[Alt text]"
-    className="w-full h-auto rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
-  />
-</div>
-```
-
-### Pattern 3: Card with Image + Text
-```tsx
-<Card className="overflow-hidden hover:shadow-xl transition-shadow">
-  <img
-    src="public/generated-images/gemini-[timestamp]-1.png"
-    alt="[Alt text]"
-    className="w-full h-64 object-cover"
-  />
-  <CardContent className="p-6">
-    <h3 className="text-2xl font-bold mb-2">Card Title</h3>
-    <p className="text-muted-foreground">Supporting text content</p>
-  </CardContent>
-</Card>
-```
-
-### Pattern 4: Background Image with Overlay
-```tsx
-<div
-  className="relative w-full h-96 rounded-xl overflow-hidden"
-  style={{
-    backgroundImage: 'url(public/generated-images/gemini-[timestamp]-1.png)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center'
-  }}
->
-  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-  <div className="relative z-10 p-8 text-white">
-    <h2 className="text-4xl font-bold">Overlay Content</h2>
-  </div>
-</div>
-```
-
----
-
-## Do's and Don'ts
-
-### ✅ Do:
-- Always use the base prompt template for consistency
-- Specify orange color palette in every prompt
-- Use "handwritten illustration" or "editorial style" keywords
-- Generate multiple variations if unsure (use `--count 2`)
-- Keep subjects professional and business-focused
-- Use appropriate aspect ratios for slide layouts
-- Test images in context of the slide before finalizing
-
-### ❌ Don't:
-- Generate photorealistic images
-- Use colors outside the design system
-- Create overly complex or cluttered compositions
-- Include text, logos, or branding in images
-- Generate images without specifying the illustration style
-- Use stock photo aesthetic or 3D renders
-- Create images that don't align with slide narrative
-
----
-
-## Quality Checklist
-
-Before marking an image as complete, verify:
-
-- [ ] Colors match the design system (orange, charcoal, white/gray)
-- [ ] Style is handwritten illustration (not photo, 3D, or vector graphic)
-- [ ] Subject matter aligns with slide message
-- [ ] Composition is clean and uncluttered
-- [ ] Aspect ratio is appropriate for layout
-- [ ] Image is saved to `public/generated-images/`
-- [ ] Alt text is descriptive and meaningful
-- [ ] Image integrates smoothly with slide design
-- [ ] Consistent with other images in the presentation
-- [ ] Professional and appropriate for executive audience
 
 ---
 
 ## Troubleshooting
 
-### Problem: Image doesn't match color palette
-**Solution:** Regenerate with explicit color mentions in prompt:
-```
-"...featuring warm orange tones (vibrant orange #F5A623, light orange #FFB84D, dark orange #D98E1A), charcoal gray #262626 for outlines, and white/light gray backgrounds..."
+### Common Issues
+
+#### 1. "GEMINI_API_KEY not found"
+
+**Solution:**
+```bash
+# Create .env file in project root
+echo "GEMINI_API_KEY=your_key_here" > .env
+
+# Or export temporarily
+export GEMINI_API_KEY=your_key_here
 ```
 
-### Problem: Image is too photorealistic
-**Solution:** Add more style keywords:
-```
-"...handwritten illustration style, editorial contemporary aesthetic, flat color areas, minimal shading, clean lines, NOT photorealistic..."
+#### 2. Template not found
+
+**Solution:**
+```bash
+# List available templates
+pnpm gen:list
+
+# Check if you have a typo
+tsx generate-image.ts --template-info hero-bld  # Shows suggestions
 ```
 
-### Problem: Image is too complex
-**Solution:** Simplify subject description and request minimalism:
-```
-"...minimal composition, focus on [KEY ELEMENT], clean negative space, simple background, NOT cluttered..."
+#### 3. Images look inconsistent with design system
+
+**Possible causes:**
+- Using `--no-design-system` flag
+- Style intensity too low (`--style minimal`)
+
+**Solution:**
+```bash
+# Use default moderate intensity
+tsx generate-image.ts "prompt" --template concept-ai
+
+# Or increase to bold
+tsx generate-image.ts "prompt" --template concept-ai --style bold
 ```
 
-### Problem: Wrong aspect ratio
-**Solution:** Regenerate with correct `--ratio` flag. Check section "Aspect Ratio Guidelines" above.
+#### 4. File size warnings
+
+**Interpretation:**
+- < 0.1MB: Possible generation issue, try regenerating
+- 0.1-0.5MB: Usable but below ideal
+- 0.5-5MB: ✅ Ideal range
+- 5-10MB: Large, consider optimization
+- \> 10MB: May cause performance issues
+
+**Solution for large files:**
+```bash
+# Regenerate if over 10MB
+# Or use image optimization tools (imagemagick, sharp, etc.)
+```
+
+#### 5. API Rate Limits
+
+**Solution:**
+- Space out batch generations
+- Add delays in bash script if needed
+- Check Gemini API quota
+
+### Validation Warnings
+
+**"Image file size is below ideal range"**
+- Usually fine, just informational
+- If < 0.1MB, might indicate issue
+
+**"Expected dimensions for 16:9: 1920x1080px"**
+- Informational only (we don't read actual dimensions)
+- Gemini API respects aspect ratio requests
 
 ---
 
-## Example Generation Commands
+## Examples Gallery
 
-### Slide 1: Title/Hero Slide
-```bash
-tsx generate-image.ts "A professional handwritten illustration of diverse business executives gathered around a glowing AI hologram in a modern office, featuring warm orange tones (vibrant orange #F5A623, light orange accents), with charcoal outlines and white background. The scene shows collaboration and innovation, with clean lines, editorial style, friendly and optimistic feel, minimal shading, flat color areas." --ratio 16:9
+### Hero Images
+
+**hero-bold**: "AI-Driven Business Transformation"
+- Strong orange geometric shapes
+- High contrast on white
+- Dramatic asymmetric composition
+
+**hero-subtle**: "Executive Strategy Overview"
+- Light grid pattern
+- Minimal orange accent
+- Sophisticated whitespace
+
+**hero-dynamic**: "Future of Digital Enterprise"
+- Angular shapes suggesting motion
+- Orange and cyan accents
+- Forward-looking composition
+
+### Concept Illustrations
+
+**concept-ai**: "Neural Network Architecture"
+- Interconnected nodes and lines
+- Orange transformation points
+- Cyan data/technology elements
+
+**concept-transformation**: "Organizational Evolution"
+- Before/after geometric metaphor
+- Orange highlighting transformation
+- Gradient mesh background
+
+**concept-strategy**: "Strategic Framework"
+- Layered geometric structure
+- Organized systematic layout
+- Orange key decision points
+
+**concept-innovation**: "Innovation Breakthrough"
+- Radiating geometric shapes
+- Explosive orange and cyan
+- Dynamic star patterns
+
+### Data Viz Backgrounds
+
+**dataviz-grid**: Clean background for charts
+- 5% opacity grid lines
+- Barely visible orange dots
+- Supports foreground data
+
+**dataviz-gradient**: Soft analytics background
+- White to off-white gradient
+- 3% dot matrix
+- Extremely subtle
+
+### Backgrounds
+
+**background-dots**: Versatile dot matrix
+- 10% gray dots in grid
+- 5% orange accent dots
+- Retro-futuristic feel
+
+**background-geometric**: Brutalist abstract
+- Large-scale low opacity shapes
+- Single orange accent
+- Asymmetric composition
+
+---
+
+## Advanced Topics
+
+### Programmatic Usage
+
+```typescript
+import { generateImages, type ImageGenerationOptions } from './generate-image';
+
+const options: ImageGenerationOptions = {
+  prompt: "AI Strategy",
+  template: "hero-bold",
+  aspectRatio: "16:9",
+  count: 1,
+  styleIntensity: "moderate",
+  useDesignSystem: true,
+  outputDir: "public/generated-images"
+};
+
+const result = await generateImages(options);
+console.log(result.savedPaths);
+console.log(result.metadata);
 ```
 
-### Slide 2: Concept Explanation
-```bash
-tsx generate-image.ts "A professional handwritten illustration of a simplified AI brain network with flowing connections, featuring warm orange tones (vibrant orange #F5A623, light orange, dark orange nodes), charcoal outlines, light gray background. Abstract representation with geometric shapes, clean lines, editorial style, minimal shading, contemporary aesthetic." --ratio 1:1
-```
+### Metadata Schema
 
-### Slide 3: Business Impact
-```bash
-tsx generate-image.ts "A professional handwritten illustration of an upward-trending growth chart with a business person pointing to insights, featuring warm orange tones (vibrant orange #F5A623, light orange accents), charcoal outlines, white background. Optimistic and professional, editorial style, clean lines, minimal shading, flat color areas." --ratio 3:2
+```json
+{
+  "timestamp": 1234567890,
+  "prompt": "Full prompt with design system rules...",
+  "originalPrompt": "User's original prompt",
+  "template": "hero-bold",
+  "styleIntensity": "moderate",
+  "aspectRatio": "16:9",
+  "count": 1,
+  "designSystemApplied": true,
+  "validation": [
+    {
+      "valid": true,
+      "warnings": [],
+      "errors": [],
+      "metadata": {
+        "filepath": "...",
+        "sizeBytes": 1234567,
+        "sizeMB": 1.23
+      }
+    }
+  ]
+}
 ```
 
 ---
 
-## Notes for Implementers
+## Resources
 
-1. **Batch Generation:** When implementing a slide with multiple images, generate all images at once using multiple commands to ensure style consistency
-2. **File Naming:** Keep generated filenames (gemini-[timestamp]-N.png) for traceability
-3. **Version Control:** If an image needs regeneration, create a new version rather than overwriting
-4. **Accessibility:** Always provide meaningful alt text that describes the image content and purpose
-5. **Performance:** Use appropriate image sizes - the script generates high-quality PNGs, but consider optimization for web delivery if needed
+- **Design System Reference**: `app/globals.css` (color palette, design tokens)
+- **Template Source Code**: `lib/image-generation/prompt-templates.ts`
+- **Design Rules**: `lib/image-generation/design-system-rules.ts`
+- **Gemini API Docs**: https://ai.google.dev/
 
 ---
 
-## Reference Links
+## Support
 
-- Script: `generate-image.ts`
-- Design System: `app/globals.css`
-- Slide Examples: `components/slide-*.tsx`
-- Gemini API Docs: https://ai.google.dev/gemini-api/docs/image-generation
+For issues or questions:
+1. Check this guide's [Troubleshooting](#troubleshooting) section
+2. Review generated metadata JSON files for prompt details
+3. Test with `--list-templates` and `--template-info` commands
+4. Verify `.env` configuration
+
+---
+
+*Last Updated: 2025 | v1.0*

@@ -130,6 +130,7 @@ export const CATEGORY_DESIGN_RULES = {
 - Pattern: Light geometric grid or dot pattern, very low opacity
 - Gradient: If used, extremely subtle light-to-lighter gradients only
 - Texture: Minimal grain texture for depth without distraction
+- CRITICAL: Absolutely NO TEXT, NO LABELS, NO NUMBERS, NO TYPOGRAPHY - pure background pattern only
   `.trim(),
 
   portrait: `
@@ -144,6 +145,7 @@ export const CATEGORY_DESIGN_RULES = {
 - Subtlety: Very low contrast internal elements, focus on texture not shapes
 - Patterns: Geometric dots, grids, or mesh patterns at 5-15% opacity
 - Colors: Primarily white/off-white with barely visible orange or cyan tints
+- CRITICAL: Absolutely NO TEXT, NO LABELS, NO TYPOGRAPHY, NO NUMBERS - pure abstract visual background only
   `.trim(),
 } as const;
 

@@ -12,7 +12,7 @@ Follow the `Instructions` to implement the `Plan` then `Report` the completed wo
   3. Fill in the Comments field with brief notes about what was done, any issues encountered, or important decisions made
 - Update the spec file progressively after completing each phase/task, not just at the end.
 - Use the Edit tool to update checkboxes and fields in the spec file as you progress.
-- **CRITICAL:** For slide implementations, ALWAYS generate AI images using `IMAGE_GENERATION_GUIDE.md` and the `generate-image.ts` script. Every slide must have visually supportive images in the handwritten illustration style with orange color palette.
+- **CRITICAL:** For slide implementations, ALWAYS generate AI images using `ai_docs/IMAGE_GENERATION_GUIDE.md` and the `generate-image.ts` script. Every slide must have visually supportive images following the design system (brutalist-minimalist, electric orange #FF4D00, 16 predefined templates).
 
 ## Slide Implementation Guidelines
 IMPORTANT: If implementing presentation slides, follow these technical and design guidelines:
@@ -35,7 +35,7 @@ IMPORTANT: If implementing presentation slides, follow these technical and desig
 4. Update slide navigation count if adding new slides
 
 ### Image Generation & Integration
-CRITICAL: Every slide MUST include AI-generated images following the IMAGE_GENERATION_GUIDE.md specifications.
+CRITICAL: Every slide MUST include AI-generated images following the ai_docs/IMAGE_GENERATION_GUIDE.md specifications.
 
 **Generation Workflow:**
 1. **Review the Image Generation Strategy** from the spec file
@@ -48,7 +48,7 @@ CRITICAL: Every slide MUST include AI-generated images following the IMAGE_GENER
    - [ ] Handwritten illustration style (not photorealistic)
    - [ ] Subject aligns with slide narrative
    - [ ] Composition is clean and uncluttered
-4. **Integrate into slide component** using appropriate pattern from IMAGE_GENERATION_GUIDE.md:
+4. **Integrate into slide component** using appropriate pattern from ai_docs/IMAGE_GENERATION_GUIDE.md:
    ```tsx
    <img
      src="public/generated-images/gemini-[timestamp]-1.png"

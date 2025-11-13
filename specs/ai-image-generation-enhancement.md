@@ -61,7 +61,7 @@ Use these files to implement the feature:
 - **lib/image-generation/image-validator.ts**: Post-generation validation utilities
   - Will contain: Resolution checks, aspect ratio validation, basic quality metrics
 
-- **docs/IMAGE_GENERATION_GUIDE.md**: Comprehensive workflow documentation
+- **ai_docs/IMAGE_GENERATION_GUIDE.md**: Comprehensive workflow documentation
   - Will contain: When to generate images, how to use templates, best practices, troubleshooting, example commands
 
 - **scripts/generate-presentation-images.sh**: Bash script to generate a full set of images for all slides
@@ -84,7 +84,7 @@ IMPORTANT: Each phase should be a checkbox that will be checked off during imple
 
 - [x] **Phase 4: Workflow Automation** - Create npm scripts, bash automation, and comprehensive documentation for developer workflow
   - Status: Completed
-  - Comments: Created npm scripts, executable bash automation script, comprehensive 400+ line IMAGE_GENERATION_GUIDE.md, and updated README with complete workflow documentation
+  - Comments: Created npm scripts, executable bash automation script, comprehensive 400+ line ai_docs/IMAGE_GENERATION_GUIDE.md, and updated README with complete workflow documentation
 
 - [x] **Phase 5: Testing & Validation** - Generate test images, validate design consistency, document examples
   - Status: Completed
@@ -189,7 +189,7 @@ IMPORTANT: Execute every step in order, top to bottom. Each task should be a che
   - Status: Completed
   - Comments: Created comprehensive bash script that generates 11 images across all template categories with user confirmation and progress display
 
-- [x] **Write `docs/IMAGE_GENERATION_GUIDE.md`** - Comprehensive guide covering:
+- [x] **Write `ai_docs/IMAGE_GENERATION_GUIDE.md`** - Comprehensive guide covering:
   - When to generate new images vs reuse existing
   - Template selection decision tree
   - Best practices for prompt writing
@@ -205,7 +205,7 @@ IMPORTANT: Execute every step in order, top to bottom. Each task should be a che
 
 - [x] **Create example prompts documentation** - Document 10-15 real-world examples with before/after comparisons showing design system impact
   - Status: Completed
-  - Comments: Included in IMAGE_GENERATION_GUIDE.md Examples Gallery section with detailed descriptions for each template category
+  - Comments: Included in ai_docs/IMAGE_GENERATION_GUIDE.md Examples Gallery section with detailed descriptions for each template category
 
 ### Phase 5: Testing & Validation
 
@@ -233,13 +233,13 @@ IMPORTANT: Execute every step in order, top to bottom. Each task should be a che
   - Status: Completed (macOS verified)
   - Comments: Tested on macOS, bash script uses standard Unix commands compatible with Linux, Windows users can use WSL or Git Bash
 
-- [x] **Documentation review** - Proofread IMAGE_GENERATION_GUIDE.md for clarity, completeness, accuracy
+- [x] **Documentation review** - Proofread ai_docs/IMAGE_GENERATION_GUIDE.md for clarity, completeness, accuracy
   - Status: Completed
   - Comments: Comprehensive 400+ line guide reviewed and validated for accuracy, clarity, and completeness
 
 - [x] **Create gallery of examples** - Add generated images to documentation showing each template's output
   - Status: Completed
-  - Comments: Examples gallery section included in IMAGE_GENERATION_GUIDE.md with detailed descriptions for each template
+  - Comments: Examples gallery section included in ai_docs/IMAGE_GENERATION_GUIDE.md with detailed descriptions for each template
 
 - [x] **Run validation commands** - Execute build, lint, and manual testing of presentation with new images
   - Status: Completed
@@ -274,7 +274,7 @@ Not applicable for this feature - primarily CLI tooling and documentation. Manua
 - [ ] JSON metadata generated alongside each image with full generation context
 - [ ] npm scripts (gen:image, gen:hero, gen:concept, gen:list) work correctly
 - [ ] `scripts/generate-presentation-images.sh` successfully batch generates images for all slide types
-- [ ] `docs/IMAGE_GENERATION_GUIDE.md` comprehensive, includes decision trees, examples, troubleshooting
+- [ ] `ai_docs/IMAGE_GENERATION_GUIDE.md` comprehensive, includes decision trees, examples, troubleshooting
 - [ ] Project README updated with image generation workflow section
 - [ ] 15+ test images generated demonstrating visual consistency with design system
 - [ ] All existing `generate-image.ts` functionality remains backward compatible
@@ -309,7 +309,7 @@ bash scripts/generate-presentation-images.sh
 # Manual validation
 # 1. Open generated images in browser - verify design system consistency
 # 2. Check metadata JSON files contain complete information
-# 3. Review IMAGE_GENERATION_GUIDE.md for clarity and completeness
+# 3. Review ai_docs/IMAGE_GENERATION_GUIDE.md for clarity and completeness
 # 4. Test presentation with newly generated images in pnpm run dev
 ```
 
