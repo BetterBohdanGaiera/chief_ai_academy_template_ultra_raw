@@ -1,10 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { bebasNeue, syne, manrope, jetBrainsMono } from "./fonts"
 import "./globals.css"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "The 5 Levels of AI Adoption",
@@ -35,8 +33,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} font-sans antialiased`}>
+    <html lang="en" className={`${bebasNeue.variable} ${syne.variable} ${manrope.variable} ${jetBrainsMono.variable}`}>
+      <body className="font-manrope antialiased">
         {children}
         <Analytics />
       </body>

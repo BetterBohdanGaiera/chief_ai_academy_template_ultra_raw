@@ -8,6 +8,8 @@ Create a new plan in specs/*.md to implement the `Feature` using the exact speci
 - Create the plan in the `specs/*.md` file. Name it appropriately based on the `Feature`.
 - Use the `Plan Format` below to create the plan.
 - Research the codebase to understand existing patterns, architecture, and conventions before planning the feature.
+- **ESSENTIAL:** Read `ai_docs/DESIGN_AESTHETICS.md` FIRST to understand the complete design system (brutalist-minimalism aesthetics, typography, colors, animations, components). This is the single source of truth for all visual design decisions.
+- **ESSENTIAL:** Read `specs/presentation-design-guidelines.md` to understand all layout patterns, typography scales, color usage, spacing systems, and component standards before planning any slide feature.
 - IMPORTANT: Replace every <placeholder> in the `Plan Format` with the requested value. Add as much detail as needed to implement the feature successfully.
 - Use your reasoning model: THINK HARD about the feature requirements, design, and implementation approach.
 - Follow existing patterns and conventions in the codebase. Don't reinvent the wheel.
@@ -21,12 +23,16 @@ Create a new plan in specs/*.md to implement the `Feature` using the exact speci
 
 Focus on the following files:
 - `README.md` - Contains the project overview and instructions.
-- `IMAGE_GENERATION_GUIDE.md` - **CRITICAL:** Style guide for AI-generated images. Must be referenced for all slide image planning.
+- `ai_docs/DESIGN_AESTHETICS.md` - **ESSENTIAL:** Complete design system documentation including brutalist-minimalism aesthetics, typography hierarchy (Bebas Neue, Syne, Manrope, JetBrains Mono), color palette (electric orange, neon cyan), animation patterns, component variants, and accessibility standards. Must be referenced for ALL design decisions.
+- `specs/presentation-design-guidelines.md` - **ESSENTIAL:** Comprehensive design guidelines extracted from existing presentations. Contains layout patterns, typography scales, color usage, spacing systems, component patterns, and quality checklists. Must be referenced for all slide planning.
+- `ai_docs/IMAGE_GENERATION_GUIDE.md` - **CRITICAL:** Style guide for AI-generated images. Must be referenced for all slide image planning.
 - `generate-image.ts` - CLI tool for generating images using Gemini API.
 - `app/page.tsx` - Main presentation container with slide navigation.
 - `components/slide-*.tsx` - Individual slide components.
-- `components/ui/**` - Reusable UI primitives from shadcn/ui.
-- `app/globals.css` - Design system colors and theme configuration.
+- `components/ui/**` - Reusable UI primitives from shadcn/ui (Badge, Card, Button with custom variants).
+- `components/decorative/**` - Atmospheric components (GrainOverlay, GeometricPattern, GradientMesh).
+- `components/animations/**` - Animation utilities (StaggeredReveal, slide transitions).
+- `app/globals.css` - Design system implementation: colors, animations, shadows, patterns.
 
 Ignore all other files in the codebase.
 

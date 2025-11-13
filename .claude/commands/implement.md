@@ -4,6 +4,8 @@ Follow the `Instructions` to implement the `Plan` then `Report` the completed wo
 ## Instructions
 - Read the plan, think hard about the plan and implement the plan.
 - IMPORTANT: This command expects the plan to be a file path to a spec file (e.g., `specs/feature-name.md`).
+- **ESSENTIAL:** Before implementing ANY slide or visual feature, reference `ai_docs/DESIGN_AESTHETICS.md` for the complete design system (typography hierarchy, color palette, animation patterns, component variants, accessibility standards). This is the authoritative source for all design decisions.
+- **ESSENTIAL:** Reference `specs/presentation-design-guidelines.md` for layout patterns, typography scales, color usage, spacing systems, component patterns, and quality checklists.
 - As you complete each phase and task in the Implementation Plan and Step by Step Tasks sections:
   1. Update the spec file by checking off the completed checkbox (- [ ] → - [x])
   2. Fill in the Status field with completion status (e.g., "Completed", "In Progress", "Partially Done")
@@ -78,13 +80,25 @@ tsx generate-image.ts "A professional handwritten illustration of [SUBJECT], fea
 ```
 
 ### Visual Appeal Verification Checklist
-Before marking a slide task as complete, verify:
-- [ ] Color usage follows design system (primary orange, status colors, or neutral grays from globals.css)
-- [ ] Typography hierarchy is clear (text-7xl titles, text-4xl headers, text-lg/xl body)
-- [ ] Spacing is consistent (p-8 lg:p-16 for sections, gap-4/6/8 for grids)
+Before marking a slide task as complete, verify against `ai_docs/DESIGN_AESTHETICS.md` and `specs/presentation-design-guidelines.md`:
+
+**Design System Compliance** (from DESIGN_AESTHETICS.md):
+- [ ] Typography uses correct font classes (font-bebas for titles, font-syne for emphasis, font-manrope for body)
+- [ ] Color palette matches design system (electric orange #FF4D00, charcoal #0A0A0A, muted gray #A0A0A0)
+- [ ] Component variants are used correctly (Badge: glow/gradient, Card: layered/glow, Button: brutal/glow)
+- [ ] Atmospheric backgrounds include layered effects (GradientMesh + GeometricPattern + GrainOverlay)
+- [ ] Animations follow orchestrated entrance pattern (badge → title → subtitle → content with delays)
+- [ ] Shadow effects use custom utilities (shadow-glow, shadow-layered, shadow-brutal)
+- [ ] Accessibility standards met (WCAG AA contrast, focus states, reduced motion support)
+
+**Layout & Composition**:
+- [ ] Spacing is consistent (p-8 lg:p-16 minimum for sections, gap-4/6/8 for grids)
 - [ ] Responsive grid layouts work at all breakpoints (grid-cols-1 md:grid-cols-2 lg:grid-cols-5)
 - [ ] Visual balance: content is centered and well-distributed
 - [ ] Icons from lucide-react enhance (not clutter) the message
+- [ ] Layout matches one of the documented patterns (Section 6 of design guidelines)
+- [ ] Component usage follows established standards (Section 5 of design guidelines)
+- [ ] Quality checklist completed (Section 14 of design guidelines)
 
 ### Interactivity & Animation Verification
 For slides with interactive elements, verify:
