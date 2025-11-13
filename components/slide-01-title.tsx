@@ -4,10 +4,25 @@ import { Sparkles } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { GrainOverlay } from "@/components/decorative/grain-overlay"
 import { GeometricPattern, GradientMesh } from "@/components/decorative/geometric-patterns"
+import Image from "next/image"
 
 export function Slide01Title() {
   return (
     <section className="min-h-screen flex items-center justify-center p-8 lg:p-24 relative overflow-hidden">
+      {/* AI-Generated Image Layer - AI Transformation Hero */}
+      <div className="absolute inset-0 z-0 animate-fade-in delay-100 fill-backwards">
+        <Image
+          src="/generated-images/gemini-1763055623009-1.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-35 select-none pointer-events-none"
+          priority={true}
+          quality={85}
+          aria-hidden="true"
+        />
+      </div>
+
       {/* Atmospheric Background */}
       <GradientMesh variant="warm" />
       <GeometricPattern type="dots" className="opacity-30" />

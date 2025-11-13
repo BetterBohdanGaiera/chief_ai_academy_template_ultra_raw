@@ -5,10 +5,25 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { GrainOverlay } from "@/components/decorative/grain-overlay"
 import { GeometricPattern } from "@/components/decorative/geometric-patterns"
+import Image from "next/image"
 
 export function Slide05ImplementationPaths() {
   return (
     <section className="relative min-h-screen flex items-center justify-center p-8 lg:p-16 overflow-hidden bg-gradient-mesh">
+      {/* AI-Generated Image Layer - Forking Paths Metaphor */}
+      <div className="absolute inset-0 z-0 animate-fade-in delay-100 fill-backwards">
+        <Image
+          src="/generated-images/gemini-1763055551782-1.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-25 select-none pointer-events-none"
+          priority={false}
+          quality={85}
+          aria-hidden="true"
+        />
+      </div>
+
       {/* Atmospheric Background */}
       <GeometricPattern type="grid" opacity={0.03} />
       <GrainOverlay opacity={0.12} />
