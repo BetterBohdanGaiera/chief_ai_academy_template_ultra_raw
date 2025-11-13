@@ -13,7 +13,7 @@ export function Slide02LandscapePyramid() {
       {/* AI-Generated Image Layer - AI Transformation Landscape */}
       <div className="absolute inset-0 z-0 animate-fade-in delay-100 fill-backwards">
         <Image
-          src="/generated-images/gemini-1763063248318-1.png"
+          src="/generated-images/gemini-1763064223110-1.png"
           alt=""
           fill
           sizes="100vw"

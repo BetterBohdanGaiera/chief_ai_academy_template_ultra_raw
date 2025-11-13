@@ -265,7 +265,27 @@ bash scripts/generate-presentation-images.sh
    - Always use templates unless you have a very specific custom need
    - Templates ensure brand consistency across all generated images
 
-4. **Consider Context**
+4. **Avoid Literal Text References for Background Images**
+   - **CRITICAL**: For abstract backgrounds, describe visual concepts, not text content
+   - The AI may interpret text-heavy prompts as instructions to render actual text in the image
+   - Good: "geometric shapes suggesting transformation and forward motion"
+   - Avoid: "AI Transformation for Executives" (AI may render this as text)
+   - Good: "interconnected nodes and flowing pathways representing strategic decisions"
+   - Avoid: "strategic planning framework with key principles" (may render labels/text)
+   - Good: "diverging angular paths, one chaotic with scattered elements, one organized with aligned forms"
+   - Avoid: "two paths labeled chaos and order" (will render text labels)
+   - Good: "layered geometric foundation structure with ascending tiers"
+   - Avoid: "foundation principles for success" (may render text)
+
+5. **Use Visual Metaphors Instead of Labels**
+   - Describe the visual elements, shapes, and composition you want
+   - Let the visual speak through form, color, and layout—not text
+   - Good: "branching paths diverging from center, left path with erratic angles, right path with smooth curves"
+   - Avoid: "paths showing good vs bad decisions"
+   - Good: "ascending triangular forms creating hierarchy, orange accents on peak elements"
+   - Avoid: "pyramid showing top performers vs experimenters"
+
+6. **Consider Context**
    - Match template category to slide purpose
    - Use aspect ratio that fits your slide layout
    - Generate 2-3 variations to have options

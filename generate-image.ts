@@ -151,7 +151,7 @@ function parseArgs(): ImageGenerationOptions | null {
     prompt: "",
     count: 1,
     aspectRatio: "1:1",
-    outputDir: "public/generated-images",
+    outputDir: path.join(process.cwd(), "public/generated-images"),
     styleIntensity: "moderate",
     useDesignSystem: true,
   };

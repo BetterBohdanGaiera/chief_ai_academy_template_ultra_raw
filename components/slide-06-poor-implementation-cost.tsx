@@ -40,7 +40,7 @@ export function Slide06PoorImplementationCost() {
       {/* AI-Generated Image Layer - Compounding Debt Metaphor */}
       <div className="absolute inset-0 z-0 animate-fade-in delay-100 fill-backwards">
         <Image
-          src="/generated-images/gemini-1763063290439-1.png"
+          src="/generated-images/gemini-1763064272408-1.png"
           alt=""
           fill
           sizes="100vw"

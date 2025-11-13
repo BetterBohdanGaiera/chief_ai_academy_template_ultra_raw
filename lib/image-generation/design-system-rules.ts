@@ -116,6 +116,7 @@ export const CATEGORY_DESIGN_RULES = {
 - Composition: Minimal, centered or asymmetric focal point with dramatic whitespace
 - Energy: High-impact, transformation-focused, inspiring and forward-looking
 - Background: Pure white or very light off-white with subtle texture
+- CRITICAL: Absolutely NO TEXT, NO LABELS, NO TYPOGRAPHY, NO NUMBERS - pure abstract visual imagery only
   `.trim(),
 
   concept: `
@@ -123,6 +124,7 @@ export const CATEGORY_DESIGN_RULES = {
 - Color Usage: Orange for transformation/change, cyan for technology/innovation, amber for caution/opportunity
 - Complexity: Moderate - clear enough to understand at a glance but sophisticated
 - Metaphors: Technology, AI, digital transformation, strategic thinking, executive decision-making
+- CRITICAL: Absolutely NO TEXT, NO LABELS, NO TYPOGRAPHY, NO NUMBERS - use pure abstract visual metaphors only
   `.trim(),
 
   dataViz: `

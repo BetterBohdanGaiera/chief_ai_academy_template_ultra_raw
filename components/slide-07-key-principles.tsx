@@ -44,7 +44,7 @@ export function Slide07KeyPrinciples() {
       {/* AI-Generated Image Layer - Foundation for Success */}
       <div className="absolute inset-0 z-0 animate-fade-in delay-100 fill-backwards">
         <Image
-          src="/generated-images/gemini-1763063298216-1.png"
+          src="/generated-images/gemini-1763064283086-1.png"
           alt=""
           fill
           sizes="100vw"
