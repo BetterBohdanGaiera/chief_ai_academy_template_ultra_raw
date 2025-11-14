@@ -1,13 +1,6 @@
 "use client"
 
-import { Slide01Title } from "@/components/slide-01-title"
-import { Slide02LandscapePyramid } from "@/components/slide-02-landscape-pyramid"
-import { Slide03ExecutionConcept } from "@/components/slide-03-execution-concept"
-import { Slide04ExecutionComparison } from "@/components/slide-04-execution-comparison"
-import { Slide05ImplementationPaths } from "@/components/slide-05-implementation-paths"
-import { Slide06PoorImplementationCost } from "@/components/slide-06-poor-implementation-cost"
-import { Slide07KeyPrinciples } from "@/components/slide-07-key-principles"
-// New interactive visual slides - Module 01
+// Interactive visual slides - Module 01
 import { Slide101TitleVisual } from "@/components/slide-101-title-visual"
 import { Slide102LandscapeInteractive } from "@/components/slide-102-landscape-interactive"
 import { Slide103ExecutionInteractive } from "@/components/slide-103-execution-interactive"
@@ -54,14 +47,6 @@ export default function Home() {
     <Slide211RoiCalculator key="slide-211" />,
     <Slide212Level5Autonomous key="slide-212" />,
     <Slide213InteractivePoll key="slide-213" />,
-    // Original slides (kept for reference)
-    <Slide01Title key="slide-01" />,
-    <Slide02LandscapePyramid key="slide-02" />,
-    <Slide03ExecutionConcept key="slide-03" />,
-    <Slide04ExecutionComparison key="slide-04" />,
-    <Slide05ImplementationPaths key="slide-05" />,
-    <Slide06PoorImplementationCost key="slide-06" />,
-    <Slide07KeyPrinciples key="slide-07" />,
   ]
 
   const goToSlide = (index: number) => {
