@@ -7,6 +7,11 @@ import { Slide04ExecutionComparison } from "@/components/slide-04-execution-comp
 import { Slide05ImplementationPaths } from "@/components/slide-05-implementation-paths"
 import { Slide06PoorImplementationCost } from "@/components/slide-06-poor-implementation-cost"
 import { Slide07KeyPrinciples } from "@/components/slide-07-key-principles"
+// New interactive visual slides
+import { Slide101TitleVisual } from "@/components/slide-101-title-visual"
+import { Slide102LandscapeInteractive } from "@/components/slide-102-landscape-interactive"
+import { Slide103ExecutionInteractive } from "@/components/slide-103-execution-interactive"
+import { Slide211RoiCalculator } from "@/components/slide-211-roi-calculator"
 import { useRef, useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -16,6 +21,11 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const slides = [
+    <Slide101TitleVisual key="slide-101" />,
+    <Slide102LandscapeInteractive key="slide-102" />,
+    <Slide103ExecutionInteractive key="slide-103" />,
+    <Slide211RoiCalculator key="slide-211" />,
+    // Original slides (kept for reference)
     <Slide01Title key="slide-01" />,
     <Slide02LandscapePyramid key="slide-02" />,
     <Slide03ExecutionConcept key="slide-03" />,
