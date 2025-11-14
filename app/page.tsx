@@ -19,6 +19,31 @@ import { Slide210Level4Iterative } from "@/components/slide-210-level4-iterative
 import { Slide211RoiCalculator } from "@/components/slide-211-roi-calculator"
 import { Slide212Level5Autonomous } from "@/components/slide-212-level5-autonomous"
 import { Slide213InteractivePoll } from "@/components/slide-213-interactive-poll"
+// Module 03: ML vs Agentic Principles - Interactive Visual Slides (8 slides)
+import { Slide301TitleVisual } from "@/components/slide-301-title-visual"
+import { Slide302ThreeApproaches } from "@/components/slide-302-three-approaches"
+import { Slide303MlApproach } from "@/components/slide-303-ml-approach"
+import { Slide304AgenticApproach } from "@/components/slide-304-agentic-approach"
+import { Slide305ExistingTools } from "@/components/slide-305-existing-tools"
+import { Slide306DecisionFramework } from "@/components/slide-306-decision-framework"
+import { Slide307CostTradeoffs } from "@/components/slide-307-cost-tradeoffs"
+import { Slide308QuizInteractive } from "@/components/slide-308-quiz-interactive"
+// Module 03b: Understanding AI Agents - Interactive Visual Slides (7 slides)
+import { Slide3b01TitleVisual } from "@/components/slide-3b01-title-visual"
+import { Slide3b02FourComponents } from "@/components/slide-3b02-four-components"
+import { Slide3b03LlmBrain } from "@/components/slide-3b03-llm-brain"
+import { Slide3b04ToolsHands } from "@/components/slide-3b04-tools-hands"
+import { Slide3b05MemoryAutonomy } from "@/components/slide-3b05-memory-autonomy"
+import { Slide3b06AgenticSpectrum } from "@/components/slide-3b06-agentic-spectrum"
+import { Slide3b07VendorEvaluation } from "@/components/slide-3b07-vendor-evaluation"
+// Module 04: Agentic Solution Categories - Interactive Visual Slides (7 slides)
+import { Slide401TitleVisual } from "@/components/slide-401-title-visual"
+import { Slide402ThreeCategoriesOverview } from "@/components/slide-402-three-categories-overview"
+import { Slide403StaticChatbots } from "@/components/slide-403-static-chatbots"
+import { Slide404DynamicChatbots } from "@/components/slide-404-dynamic-chatbots"
+import { Slide405CustomWorkflows } from "@/components/slide-405-custom-workflows"
+import { Slide406RoiComparison } from "@/components/slide-406-roi-comparison"
+import { Slide407SelectionGuide } from "@/components/slide-407-selection-guide"
 import { useRef, useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -47,6 +72,31 @@ export default function Home() {
     <Slide211RoiCalculator key="slide-211" />,
     <Slide212Level5Autonomous key="slide-212" />,
     <Slide213InteractivePoll key="slide-213" />,
+    // Module 03: ML vs Agentic Principles - Interactive Visual Slides (8 slides)
+    <Slide301TitleVisual key="slide-301" />,
+    <Slide302ThreeApproaches key="slide-302" />,
+    <Slide303MlApproach key="slide-303" />,
+    <Slide304AgenticApproach key="slide-304" />,
+    <Slide305ExistingTools key="slide-305" />,
+    <Slide306DecisionFramework key="slide-306" />,
+    <Slide307CostTradeoffs key="slide-307" />,
+    <Slide308QuizInteractive key="slide-308" />,
+    // Module 03b: Understanding AI Agents - Interactive Visual Slides (7 slides)
+    <Slide3b01TitleVisual key="slide-3b01" />,
+    <Slide3b02FourComponents key="slide-3b02" />,
+    <Slide3b03LlmBrain key="slide-3b03" />,
+    <Slide3b04ToolsHands key="slide-3b04" />,
+    <Slide3b05MemoryAutonomy key="slide-3b05" />,
+    <Slide3b06AgenticSpectrum key="slide-3b06" />,
+    <Slide3b07VendorEvaluation key="slide-3b07" />,
+    // Module 04: Agentic Solution Categories - Interactive Visual Slides (7 slides)
+    <Slide401TitleVisual key="slide-401" />,
+    <Slide402ThreeCategoriesOverview key="slide-402" />,
+    <Slide403StaticChatbots key="slide-403" />,
+    <Slide404DynamicChatbots key="slide-404" />,
+    <Slide405CustomWorkflows key="slide-405" />,
+    <Slide406RoiComparison key="slide-406" />,
+    <Slide407SelectionGuide key="slide-407" />,
   ]
 
   const goToSlide = (index: number) => {
