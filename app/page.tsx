@@ -14,8 +14,17 @@ import { Slide103ExecutionInteractive } from "@/components/slide-103-execution-i
 import { Slide104CostFlow } from "@/components/slide-104-cost-flow"
 // New interactive visual slides - Module 02
 import { Slide201FiveLevelsOverview } from "@/components/slide-201-five-levels-overview"
+import { Slide202PrinciplesExplorer } from "@/components/slide-202-principles-explorer"
+import { Slide203Level1Visual } from "@/components/slide-203-level1-visual"
+import { Slide204Level2Visual } from "@/components/slide-204-level2-visual"
+import { Slide205PromiseVsReality } from "@/components/slide-205-promise-vs-reality"
 import { Slide206Level3FailureTimeline } from "@/components/slide-206-level3-failure-timeline"
+import { Slide207RootCauseIteration } from "@/components/slide-207-root-cause-iteration"
+import { Slide208ScarTissue } from "@/components/slide-208-scar-tissue"
+import { Slide209GuidanceInteractive } from "@/components/slide-209-guidance-interactive"
+import { Slide210Level4Iterative } from "@/components/slide-210-level4-iterative"
 import { Slide211RoiCalculator } from "@/components/slide-211-roi-calculator"
+import { Slide212Level5Autonomous } from "@/components/slide-212-level5-autonomous"
 import { Slide213InteractivePoll } from "@/components/slide-213-interactive-poll"
 import { useRef, useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -26,15 +35,24 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const slides = [
-    // Module 01: AI State & Opportunity - Interactive Visual Slides
+    // Module 01: AI State & Opportunity - Interactive Visual Slides (4 slides)
     <Slide101TitleVisual key="slide-101" />,
     <Slide102LandscapeInteractive key="slide-102" />,
     <Slide103ExecutionInteractive key="slide-103" />,
     <Slide104CostFlow key="slide-104" />,
-    // Module 02: Five Levels Framework - Interactive Visual Slides
+    // Module 02: Five Levels Framework - Interactive Visual Slides (13 slides)
     <Slide201FiveLevelsOverview key="slide-201" />,
+    <Slide202PrinciplesExplorer key="slide-202" />,
+    <Slide203Level1Visual key="slide-203" />,
+    <Slide204Level2Visual key="slide-204" />,
+    <Slide205PromiseVsReality key="slide-205" />,
     <Slide206Level3FailureTimeline key="slide-206" />,
+    <Slide207RootCauseIteration key="slide-207" />,
+    <Slide208ScarTissue key="slide-208" />,
+    <Slide209GuidanceInteractive key="slide-209" />,
+    <Slide210Level4Iterative key="slide-210" />,
     <Slide211RoiCalculator key="slide-211" />,
+    <Slide212Level5Autonomous key="slide-212" />,
     <Slide213InteractivePoll key="slide-213" />,
     // Original slides (kept for reference)
     <Slide01Title key="slide-01" />,
