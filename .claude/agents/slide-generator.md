@@ -1235,3 +1235,1017 @@ When invoked, follow this workflow:
 11. **Report deliverables** - Provide comprehensive report
 
 Remember: You are creating slides for Fortune 500 executives. Quality, professionalism, and attention to detail are non-negotiable. Take your time, think deeply, and deliver excellence.
+
+---
+
+## Building Presentations from Scratch
+
+This section provides comprehensive guidance for creating entire presentations from the ground up, including folder organization, component usage patterns, and end-to-end workflows.
+
+### "From Scratch" Presentation Rebuild Workflow
+
+When starting a new presentation or rebuilding an existing one, follow this systematic approach:
+
+#### Phase 1: Planning & Content Organization
+
+**Step 1: Define presentation structure**
+```
+1. Identify the main modules/sections (typically 4-6 modules)
+2. Define learning objectives for each module
+3. Plan slide count per module (aim for 4-8 slides per module)
+4. Create content outline with key messages
+```
+
+**Example module structure**:
+```
+Module 01: AI State & Opportunity (4 slides)
+├── Slide 101: Hero/Title - Set the stage
+├── Slide 102: Landscape Overview - Current state
+├── Slide 103: Execution Quality - The gap
+└── Slide 104: Cost Analysis - The opportunity
+
+Module 02: Five Levels Framework (13 slides)
+├── Slide 201: Framework Overview - The model
+├── Slide 202-206: Level Details - Deep dives
+├── Slide 207-209: Common Pitfalls - What fails
+└── Slide 210-213: Implementation Paths - How to succeed
+```
+
+**Step 2: Map interactive patterns to content**
+
+For each slide, determine which of the 5 Preferred Interactive Patterns fits best:
+
+```
+Slide 103: Execution Quality
+→ Pattern: Interactive Toggle/Comparison
+→ Why: Shows dramatic before/after difference
+→ Implementation: Toggle between poor vs excellent execution metrics
+
+Slide 207: Root Cause Analysis
+→ Pattern: Canvas Animation
+→ Why: Shows iteration cycles over time
+→ Implementation: Animated comparison of L3 vs L4 iteration speed
+
+Slide 208: Organizational Resistance
+→ Pattern: Canvas Animation (Network Effects)
+→ Why: Visualizes how trust decay spreads
+→ Implementation: Canvas showing spreading resistance patterns
+```
+
+**Step 3: Create project structure**
+
+Set up your folder organization (see Folder Structure section below for detailed patterns).
+
+#### Phase 2: Component Development
+
+**Step 1: Start with one complete module**
+
+Build out Module 01 completely before moving to Module 02. This approach:
+- Establishes patterns and conventions early
+- Creates reusable components you can reference
+- Validates design system decisions
+- Provides templates for remaining modules
+
+**Step 2: Create slides in order**
+
+For each slide:
+1. Generate required images first (see Image Generation Workflow below)
+2. Build component using appropriate pattern
+3. Test responsiveness and interactions
+4. Verify quality checklists
+5. Register in `app/page.tsx`
+
+**Example workflow for one slide**:
+```bash
+# 1. Generate hero image
+tsx generate-image.ts "AI transformation opportunity with interconnected nodes" --template hero-bold --ratio 16:9
+
+# 2. Create slide component
+# (Use one of the 5 interactive patterns or reference examples)
+
+# 3. Test locally
+npm run dev
+
+# 4. Verify quality
+# Run through all 5 checklists
+
+# 5. Move to next slide
+```
+
+#### Phase 3: Integration & Polish
+
+**Step 1: Register all slides**
+
+In `app/page.tsx`, import and add slides to the presentation:
+
+```tsx
+// Import all Module 01 slides
+import { Slide101TitleVisual } from '@/components/slide-101-title-visual'
+import { Slide102LandscapeInteractive } from '@/components/slide-102-landscape-interactive'
+import { Slide103ExecutionInteractive } from '@/components/slide-103-execution-interactive'
+import { Slide104CostFlow } from '@/components/slide-104-cost-flow'
+
+// Add to slides array
+const slides = [
+  <Slide101TitleVisual key="slide-101" />,
+  <Slide102LandscapeInteractive key="slide-102" />,
+  <Slide103ExecutionInteractive key="slide-103" />,
+  <Slide104CostFlow key="slide-104" />,
+  // ... more slides
+]
+```
+
+**Step 2: Test complete flow**
+
+- Navigate through all slides sequentially
+- Verify animations work on first load
+- Test responsive behavior at mobile, tablet, desktop sizes
+- Check transitions between slides
+- Validate loading performance
+
+**Step 3: Final polish**
+
+- Ensure consistent visual language across all slides
+- Verify color usage (10-20% orange maximum)
+- Check typography hierarchy consistency
+- Validate all images load correctly
+- Run accessibility audit
+
+### Recommended Folder Structure for New Slides
+
+**Current Pattern** (all slides in `/components/`):
+```
+/components/
+├── slide-101-title-visual.tsx
+├── slide-102-landscape-interactive.tsx
+├── slide-103-execution-interactive.tsx
+└── [... 36 more slide files ...]
+```
+
+**Recommended Pattern** (one folder per slide):
+
+This structure provides better organization and colocation of related assets. Use this pattern for NEW presentations or major refactors.
+
+#### Option A: Flat Slide Folders
+```
+/slides/
+├── slide-101-title-visual/
+│   ├── index.tsx                    # Component export
+│   ├── component.tsx                # Main slide implementation
+│   ├── assets/
+│   │   ├── hero-background.png      # AI-generated images
+│   │   └── metadata.json            # Image generation metadata
+│   ├── data.ts                      # Slide-specific data (optional)
+│   └── README.md                    # Design decisions, notes
+│
+├── slide-102-landscape-interactive/
+│   ├── index.tsx
+│   ├── component.tsx
+│   ├── assets/
+│   │   ├── landscape-viz.png
+│   │   └── metadata.json
+│   ├── hooks/
+│   │   └── use-landscape-state.ts   # Custom hooks for interactivity
+│   └── README.md
+│
+└── slide-103-execution-interactive/
+    ├── index.tsx
+    ├── component.tsx
+    ├── assets/
+    ├── animations/
+    │   └── toggle-config.ts         # Animation configurations
+    └── README.md
+```
+
+**Benefits**:
+- All slide-related files in one location
+- Easy to find images, data, and hooks for specific slides
+- Per-slide documentation captures design decisions
+- Simple to archive or move entire slides
+
+**Example `index.tsx` (barrel export)**:
+```tsx
+export { Slide101TitleVisual } from './component'
+```
+
+**Example `component.tsx`**:
+```tsx
+"use client"
+
+import { Badge } from "@/components/ui/badge"
+import { GrainOverlay } from "@/components/decorative/grain-overlay"
+import Image from "next/image"
+
+export function Slide101TitleVisual() {
+  return (
+    <section className="min-h-screen flex items-center justify-center p-8 lg:p-16 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/slides/slide-101-title-visual/assets/hero-background.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-15"
+          priority
+          aria-hidden="true"
+        />
+      </div>
+
+      <GrainOverlay opacity={0.15} />
+
+      <div className="relative z-10 max-w-7xl w-full space-y-12 text-center">
+        <Badge variant="glow" className="animate-slide-in-down">Module 01</Badge>
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bebas animate-fade-in delay-200 fill-backwards">
+          AI STATE & <span className="text-primary animate-glow-pulse">OPPORTUNITY</span>
+        </h1>
+      </div>
+    </section>
+  )
+}
+```
+
+#### Option B: Module-Based Organization
+
+For larger presentations, group slides by module:
+
+```
+/modules/
+├── 01-ai-state-opportunity/
+│   ├── README.md                    # Module overview and learning objectives
+│   ├── slides/
+│   │   ├── 101-title-visual/
+│   │   │   ├── index.tsx
+│   │   │   ├── component.tsx
+│   │   │   └── assets/
+│   │   ├── 102-landscape-interactive/
+│   │   ├── 103-execution-interactive/
+│   │   └── 104-cost-flow/
+│   └── index.ts                     # Export all module slides
+│
+├── 02-five-levels-framework/
+│   ├── README.md
+│   ├── slides/
+│   │   ├── 201-five-levels-overview/
+│   │   ├── 202-principles-explorer/
+│   │   └── [... 11 more slides ...]
+│   └── index.ts
+│
+└── 03-ml-vs-agentic/
+    ├── README.md
+    ├── slides/
+    └── index.ts
+```
+
+**Module `index.ts` example**:
+```tsx
+// Export all slides from Module 01
+export { Slide101TitleVisual } from './slides/101-title-visual'
+export { Slide102LandscapeInteractive } from './slides/102-landscape-interactive'
+export { Slide103ExecutionInteractive } from './slides/103-execution-interactive'
+export { Slide104CostFlow } from './slides/104-cost-flow'
+```
+
+**Module `README.md` example**:
+```markdown
+# Module 01: AI State & Opportunity
+
+## Learning Objectives
+- Understand current AI landscape and adoption patterns
+- Recognize the execution quality gap in AI implementations
+- Quantify the cost and opportunity of AI transformation
+
+## Slide Breakdown
+- **Slide 101**: Hero title introducing the module
+- **Slide 102**: Interactive landscape showing market segments
+- **Slide 103**: Toggle comparison of poor vs excellent execution
+- **Slide 104**: Cost flow analysis with data visualization
+
+## Design Patterns Used
+- Interactive toggle pattern (Slide 103)
+- Data visualization with Recharts (Slide 104)
+- Hero title with algorithmic background (Slide 101)
+```
+
+**Benefits**:
+- Clear module boundaries
+- Module-level documentation and context
+- Easy to reorder or remove entire modules
+- Better for large presentations (20+ slides)
+
+#### Shared Components Structure
+
+Regardless of slide organization, keep shared components separate:
+
+```
+/components/
+├── ui/                              # shadcn/ui primitives (Button, Card, Badge, etc.)
+├── algorithmic/                     # Reusable algorithmic components
+│   ├── mesh-gradient-background.tsx
+│   └── particle-field.tsx
+├── decorative/                      # Reusable decorative components
+│   ├── grain-overlay.tsx
+│   └── geometric-patterns.tsx
+└── animations/                      # Reusable animation utilities
+    ├── slide-transitions.tsx
+    └── staggered-reveal.tsx
+```
+
+**Integration in `app/page.tsx`**:
+
+```tsx
+// Flat structure
+import { Slide101TitleVisual } from '@/slides/slide-101-title-visual'
+import { Slide102LandscapeInteractive } from '@/slides/slide-102-landscape-interactive'
+
+// Module structure
+import {
+  Slide101TitleVisual,
+  Slide102LandscapeInteractive,
+  Slide103ExecutionInteractive,
+  Slide104CostFlow
+} from '@/modules/01-ai-state-opportunity'
+
+import {
+  Slide201Overview,
+  Slide202PrinciplesExplorer,
+  // ... more imports
+} from '@/modules/02-five-levels-framework'
+```
+
+### Component Usage Examples
+
+This section demonstrates how to use existing algorithmic animations, decorative components, and interactive patterns in your slides.
+
+#### Using Algorithmic Animation Components
+
+##### MeshGradientBackground
+
+**What it does**: Creates animated radial gradients with organic blob-like motion using canvas rendering.
+
+**When to use**:
+- Hero/title slides for visual impact
+- Background atmosphere for concept slides
+- Slides about transformation, innovation, or dynamic topics
+
+**Example 1: Warm Orange Gradient (Transformation Themes)**
+```tsx
+import { MeshGradientBackground } from "@/components/algorithmic/mesh-gradient-background"
+
+export function SlideTransformation() {
+  return (
+    <section className="min-h-screen flex items-center justify-center p-8 relative overflow-hidden">
+      {/* Warm gradient for transformation/innovation themes */}
+      <MeshGradientBackground
+        colors={[
+          '#FF4D00',  // Electric orange (primary)
+          '#F5A623',  // Warm orange
+          '#FFF5E1',  // Soft cream
+          '#0A0A0A'   // Charcoal
+        ]}
+        speed={0.5}        // Slow, professional movement
+        complexity={3}      // 3 gradient blobs
+      />
+
+      <div className="relative z-10">
+        <h1 className="text-8xl font-bebas">AI TRANSFORMATION</h1>
+      </div>
+    </section>
+  )
+}
+```
+
+**Example 2: Cool Gradient (Technical/Data Themes)**
+```tsx
+<MeshGradientBackground
+  colors={[
+    '#00BBFF',  // Cyan (Level 4/5 accent)
+    '#1E3A8A',  // Deep blue
+    '#F3F4F6',  // Light gray
+    '#0A0A0A'   // Charcoal
+  ]}
+  speed={0.3}
+  complexity={2}
+/>
+```
+
+**Props**:
+- `colors`: Array of 3-5 hex colors for gradient
+- `speed`: Animation speed (0.3 = slow, 0.5 = medium, 0.8 = fast)
+- `complexity`: Number of gradient blobs (2-4 recommended)
+
+**Best practices**:
+- Always include your primary color (#FF4D00) in transformation themes
+- Use slow speeds (0.3-0.5) for professional aesthetic
+- Keep complexity low (2-3) to avoid visual noise
+- Layer with GrainOverlay for analog warmth
+
+##### ParticleField
+
+**What it does**: Creates an interactive particle system that responds to mouse movement.
+
+**When to use**:
+- Slides about networks, connections, or distributed systems
+- Interactive exploration slides
+- Technical or data-heavy slides needing visual interest
+
+**Example 1: Subtle Background Particles**
+```tsx
+import { ParticleField } from "@/components/algorithmic/particle-field"
+
+export function SlideNetwork() {
+  return (
+    <section className="min-h-screen flex items-center justify-center p-8 relative overflow-hidden">
+      {/* Subtle particle field */}
+      <ParticleField
+        particleCount={50}           // Moderate density
+        color="#FF4D00"              // Orange particles
+        interactive={true}           // Respond to mouse
+        speed={0.5}                  // Slow drift
+        connectionDistance={150}     // Lines between nearby particles
+        opacity={0.3}                // Subtle presence
+      />
+
+      <div className="relative z-10">
+        <h2>Network Effects</h2>
+        {/* Content */}
+      </div>
+    </section>
+  )
+}
+```
+
+**Example 2: Dense Interactive Field (Feature Slide)**
+```tsx
+<ParticleField
+  particleCount={120}
+  color="#00BBFF"
+  interactive={true}
+  speed={0.8}
+  connectionDistance={200}
+  opacity={0.5}
+/>
+```
+
+**Props**:
+- `particleCount`: Number of particles (30-150, higher = denser)
+- `color`: Hex color for particles and connections
+- `interactive`: Boolean - respond to mouse movement
+- `speed`: Drift speed (0.3-1.0)
+- `connectionDistance`: Max distance to draw lines between particles (px)
+- `opacity`: Particle opacity (0.2-0.6 recommended)
+
+**Best practices**:
+- Use sparingly - high particle counts can impact performance
+- Lower opacity (0.2-0.4) for background ambiance
+- Match particle color to slide theme (orange for transformation, cyan for technical)
+- Disable interactivity (`interactive={false}`) if slide has other interactions
+
+#### Using Decorative Components
+
+##### GrainOverlay
+
+**What it does**: Adds a film grain texture effect for analog warmth and retro aesthetic.
+
+**When to use**: On almost every slide as a subtle finishing touch
+
+**Example 1: Standard Usage**
+```tsx
+import { GrainOverlay } from "@/components/decorative/grain-overlay"
+
+export function SlideExample() {
+  return (
+    <section className="min-h-screen relative overflow-hidden">
+      {/* Other background layers */}
+      <MeshGradientBackground colors={[...]} />
+
+      {/* Grain overlay as top layer */}
+      <GrainOverlay opacity={0.15} />
+
+      <div className="relative z-10">
+        {/* Content */}
+      </div>
+    </section>
+  )
+}
+```
+
+**Example 2: Heavy Grain (Retro Aesthetic)**
+```tsx
+<GrainOverlay opacity={0.3} />
+```
+
+**Example 3: Subtle Grain (Modern Clean)**
+```tsx
+<GrainOverlay opacity={0.08} />
+```
+
+**Props**:
+- `opacity`: Grain intensity (0.05-0.3)
+
+**Best practices**:
+- **Standard**: 0.15 opacity for balanced analog warmth
+- **Heavy**: 0.25-0.3 for retro/nostalgic themes
+- **Subtle**: 0.08-0.12 for modern minimal aesthetic
+- Always apply as the top decorative layer (above gradients, below content)
+
+##### GeometricPattern
+
+**What it does**: Adds subtle geometric patterns (grid, dots, or lines) as background texture.
+
+**When to use**:
+- Data/technical slides needing structure
+- Slides about frameworks or systems
+- Backgrounds that need subtle visual interest without color
+
+**Example 1: Dot Grid (Most Versatile)**
+```tsx
+import { GeometricPattern } from "@/components/decorative/geometric-patterns"
+
+export function SlideFramework() {
+  return (
+    <section className="min-h-screen relative overflow-hidden">
+      <GeometricPattern
+        type="dots"              // or "grid" or "lines"
+        opacity={0.06}           // Very subtle
+        color="#0A0A0A"          // Charcoal
+        spacing={40}             // Dot spacing in pixels
+      />
+
+      <div className="relative z-10">
+        {/* Content */}
+      </div>
+    </section>
+  )
+}
+```
+
+**Example 2: Grid Pattern (Technical Slides)**
+```tsx
+<GeometricPattern
+  type="grid"
+  opacity={0.08}
+  color="#FF4D00"    // Orange grid for branded look
+  spacing={60}
+/>
+```
+
+**Example 3: Lines Pattern (Directional Flow)**
+```tsx
+<GeometricPattern
+  type="lines"
+  opacity={0.1}
+  color="#0A0A0A"
+  spacing={30}
+  angle={45}         // Diagonal lines
+/>
+```
+
+**Props**:
+- `type`: "dots" | "grid" | "lines"
+- `opacity`: Pattern visibility (0.04-0.15 recommended)
+- `color`: Hex color for pattern
+- `spacing`: Gap between pattern elements (px)
+- `angle`: (lines only) Rotation angle (0-360 degrees)
+
+**Best practices**:
+- Keep opacity very low (0.04-0.10) for subtlety
+- Use charcoal (#0A0A0A) for neutral backgrounds
+- Use orange (#FF4D00) sparingly for branded moments
+- Larger spacing (50-80px) for cleaner look
+- Smaller spacing (20-40px) for technical/data slides
+
+#### Layering Components Effectively
+
+**Standard Layer Order** (bottom to top):
+```tsx
+<section className="min-h-screen flex items-center justify-center p-8 lg:p-16 relative overflow-hidden">
+  {/* Layer 1: Algorithmic background (color and movement) */}
+  <MeshGradientBackground colors={[...]} />
+
+  {/* Layer 2: AI-generated image (optional, for atmosphere) */}
+  <div className="absolute inset-0 z-0">
+    <Image src="/generated-images/..." className="opacity-15" />
+  </div>
+
+  {/* Layer 3: Geometric pattern (structure) */}
+  <GeometricPattern type="dots" opacity={0.06} />
+
+  {/* Layer 4: Grain overlay (analog warmth) */}
+  <GrainOverlay opacity={0.15} />
+
+  {/* Layer 5: Content (always z-10) */}
+  <div className="relative z-10 max-w-6xl w-full">
+    {/* Your slide content */}
+  </div>
+</section>
+```
+
+**When to omit layers**:
+- **Skip algorithmic background**: For simple/minimal slides or when AI image is primary visual
+- **Skip AI image**: For interactive-heavy slides or when algorithmic background is sufficient
+- **Skip geometric pattern**: For organic/creative slides where structure feels too rigid
+- **Never skip grain overlay**: It's the signature finishing touch
+
+**Example - Minimal Layering** (Text-focused slide):
+```tsx
+<section className="min-h-screen flex items-center justify-center p-8 relative overflow-hidden bg-background">
+  {/* Just grain, no other backgrounds */}
+  <GrainOverlay opacity={0.12} />
+
+  <div className="relative z-10 max-w-4xl w-full">
+    <h1>Simple, Clean Message</h1>
+  </div>
+</section>
+```
+
+**Example - Maximum Impact Layering** (Hero slide):
+```tsx
+<section className="min-h-screen flex items-center justify-center p-8 relative overflow-hidden">
+  {/* Full layering for maximum visual impact */}
+  <MeshGradientBackground
+    colors={['#FF4D00', '#F5A623', '#FFF5E1', '#0A0A0A']}
+    speed={0.4}
+    complexity={3}
+  />
+
+  <div className="absolute inset-0 z-0">
+    <Image
+      src="/generated-images/transformation-hero.png"
+      fill
+      className="object-cover opacity-15 mix-blend-multiply"
+      aria-hidden="true"
+    />
+  </div>
+
+  <GeometricPattern type="dots" opacity={0.05} color="#0A0A0A" spacing={60} />
+  <GrainOverlay opacity={0.18} />
+
+  <div className="relative z-10 max-w-7xl w-full text-center space-y-12">
+    <Badge variant="glow" className="animate-slide-in-down">Module 02</Badge>
+    <h1 className="text-9xl font-bebas animate-fade-in delay-200 fill-backwards">
+      THE FIVE LEVELS <span className="text-primary animate-glow-pulse">FRAMEWORK</span>
+    </h1>
+  </div>
+</section>
+```
+
+### Complete End-to-End Slide Creation Walkthrough
+
+This example demonstrates the complete process of creating a new slide from concept to integration.
+
+#### Scenario: Create "Slide 305: Solution Categories Overview"
+
+**Requirement**: Create a slide that presents 4 categories of agentic AI solutions with hover-to-explore interaction.
+
+---
+
+#### Step 1: Content Analysis & Pattern Selection
+
+**Core message**: There are 4 main categories of agentic solutions, each suited to different use cases.
+
+**Pattern evaluation**:
+```
+Option 1: Hover-Reveal Cards (Preferred Pattern 3) ✓
+- Pros: Clean overview, details on demand, executive-friendly
+- Pros: Perfect for exploring multiple options
+- Cons: None for this use case
+- FIT: Excellent match
+
+Option 2: Click-to-Expand (Preferred Pattern 4)
+- Pros: Detailed comparison possible
+- Cons: More clicks required, slower exploration
+- FIT: Good but hover is more elegant for 4 simple categories
+
+DECISION: Use Hover-Reveal Cards (Pattern 3)
+```
+
+---
+
+#### Step 2: Image Planning
+
+**Decision**: Generate 1 background image for atmosphere
+
+**Template**: `concept-strategy` (strategic categories theme)
+
+**Aspect ratio**: 16:9 (full-width background)
+
+**Prompt draft**:
+```
+A professional handwritten illustration of four distinct pathways converging toward a central goal, featuring warm orange tones (vibrant orange #F5A623, light orange, dark orange accents), with charcoal outlines and white/light gray backgrounds. Abstract geometric shapes representing different approaches to problem-solving. Editorial style, clean lines, minimal shading.
+```
+
+**Why this prompt**:
+- "Four distinct pathways" → visual metaphor for 4 categories
+- "Converging toward central goal" → unified purpose despite different approaches
+- No text/labels → avoids rendering issues
+- Follows base template from IMAGE_GENERATION_GUIDE.md
+
+---
+
+#### Step 3: Generate Image
+
+**Command**:
+```bash
+tsx generate-image.ts "four distinct pathways converging toward a central goal with geometric shapes representing problem-solving approaches" --template concept-strategy --ratio 16:9
+```
+
+**Generated file**: `/public/generated-images/gemini-1699564234-1.png`
+
+---
+
+#### Step 4: Implement Slide Component
+
+**File**: `components/slide-305-solution-categories.tsx`
+
+```tsx
+"use client"
+
+import { useState } from "react"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+import { GrainOverlay } from "@/components/decorative/grain-overlay"
+import { GeometricPattern } from "@/components/decorative/geometric-patterns"
+import { Zap, Users, FileText, Cog } from "lucide-react"
+import Image from "next/image"
+
+export function Slide305SolutionCategories() {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
+
+  const categories = [
+    {
+      id: "automation",
+      title: "Process Automation",
+      icon: Zap,
+      color: "border-orange-500",
+      glowColor: "shadow-[0_0_30px_rgba(255,77,0,0.3)]",
+      description: "Automate repetitive business processes with intelligent agents",
+      examples: ["Document processing", "Data entry automation", "Workflow orchestration"],
+      bestFor: "High-volume repetitive tasks"
+    },
+    {
+      id: "customer",
+      title: "Customer Interaction",
+      icon: Users,
+      color: "border-cyan-500",
+      glowColor: "shadow-[0_0_30px_rgba(0,187,255,0.3)]",
+      description: "Engage customers with context-aware AI assistants",
+      examples: ["Support chatbots", "Sales qualification", "Personalized recommendations"],
+      bestFor: "Customer-facing touchpoints"
+    },
+    {
+      id: "knowledge",
+      title: "Knowledge Work",
+      icon: FileText,
+      color: "border-green-500",
+      glowColor: "shadow-[0_0_30px_rgba(16,185,129,0.3)]",
+      description: "Augment knowledge workers with AI research and analysis",
+      examples: ["Research synthesis", "Report generation", "Code review"],
+      bestFor: "Complex analytical tasks"
+    },
+    {
+      id: "decision",
+      title: "Decision Support",
+      icon: Cog,
+      color: "border-purple-500",
+      glowColor: "shadow-[0_0_30px_rgba(168,85,247,0.3)]",
+      description: "Provide data-driven insights for strategic decisions",
+      examples: ["Risk assessment", "Opportunity scoring", "Scenario planning"],
+      bestFor: "Strategic decision-making"
+    }
+  ]
+
+  return (
+    <section className="min-h-screen flex items-center justify-center p-8 lg:p-16 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/generated-images/gemini-1699564234-1.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-12 select-none pointer-events-none mix-blend-multiply"
+          priority
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* Geometric Pattern */}
+      <GeometricPattern type="dots" opacity={0.06} color="#0A0A0A" spacing={50} />
+
+      {/* Grain Overlay */}
+      <GrainOverlay opacity={0.15} />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl w-full space-y-12">
+        {/* Header */}
+        <div className="text-center space-y-4 animate-fade-in">
+          <Badge variant="gradient" className="animate-slide-in-down">
+            Module 03: Agentic Solution Categories
+          </Badge>
+          <h2 className="text-5xl md:text-6xl font-bebas animate-fade-in delay-200 fill-backwards">
+            Four Categories of <span className="text-primary">Agentic AI Solutions</span>
+          </h2>
+          <p className="text-xl text-foreground/70 animate-slide-in-up delay-500 fill-backwards">
+            Hover over each category to explore details
+          </p>
+        </div>
+
+        {/* Category Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {categories.map((category, idx) => {
+            const Icon = category.icon
+            const isActive = activeCategory === category.id
+
+            return (
+              <Card
+                key={category.id}
+                className={`
+                  transition-all duration-300 cursor-pointer
+                  ${isActive
+                    ? `scale-105 ${category.color} ${category.glowColor}`
+                    : "border-border hover:scale-102 hover:border-primary/50"
+                  }
+                  animate-fade-in delay-${idx * 150 + 700} fill-backwards
+                `}
+                onMouseEnter={() => setActiveCategory(category.id)}
+                onMouseLeave={() => setActiveCategory(null)}
+              >
+                <CardContent className="pt-6 space-y-4">
+                  {/* Icon & Title */}
+                  <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-xl ${isActive ? 'bg-primary/10' : 'bg-muted'} transition-colors`}>
+                      <Icon className={`w-8 h-8 ${isActive ? 'text-primary' : 'text-foreground/60'}`} />
+                    </div>
+                    <h3 className="text-2xl font-display">{category.title}</h3>
+                  </div>
+
+                  {/* Description (always visible) */}
+                  <p className="text-sm text-foreground/80">
+                    {category.description}
+                  </p>
+
+                  {/* Revealed Details (hover only) */}
+                  {isActive && (
+                    <div className="space-y-3 animate-fade-in pt-4 border-t border-border">
+                      <div>
+                        <p className="text-xs font-semibold text-primary mb-2">EXAMPLES:</p>
+                        <ul className="space-y-1">
+                          {category.examples.map((example, i) => (
+                            <li key={i} className="text-sm text-foreground/80 flex gap-2">
+                              <span className="text-primary">•</span>
+                              <span>{example}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="pt-2">
+                        <p className="text-xs font-semibold text-foreground/60 mb-1">BEST FOR:</p>
+                        <p className="text-sm text-foreground/90">{category.bestFor}</p>
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            )
+          })}
+        </div>
+
+        {/* Key Insight */}
+        <Card className="bg-primary/5 border-primary/20 animate-fade-in delay-1200 fill-backwards">
+          <CardContent className="pt-4">
+            <p className="text-sm text-center text-foreground/90">
+              <span className="font-semibold text-primary">Key Insight:</span> Most organizations benefit from solutions across multiple categories. Start with high-impact, low-complexity use cases.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  )
+}
+```
+
+---
+
+#### Step 5: Quality Verification
+
+**Visual Design Checklist**:
+- [x] Full-screen height (min-h-screen) ✓
+- [x] Content properly centered ✓
+- [x] Responsive padding (p-8 lg:p-16) ✓
+- [x] Typography scales (text-5xl md:text-6xl) ✓
+- [x] Orange accent used appropriately (primary text, one border color) ✓
+- [x] Sufficient white space (space-y-12, gap-6) ✓
+- [x] Image at 12% opacity with blend mode ✓
+- [x] Layered backgrounds (image + pattern + grain) ✓
+
+**Accessibility Checklist**:
+- [x] Image has empty alt and aria-hidden="true" ✓
+- [x] Heading hierarchy (h2 for title) ✓
+- [x] Focus states visible (Card has default focus styling) ✓
+- [x] Semantic HTML (section, div, p, ul) ✓
+- [x] Color contrast verified (text-foreground/80 on background) ✓
+
+**Content Checklist**:
+- [x] Badge indicates module ✓
+- [x] Title is clear and concise ✓
+- [x] Subtitle provides context ("Hover over each...") ✓
+- [x] Content is scannable (cards, bullets) ✓
+- [x] Professional tone ✓
+
+**Technical Checklist**:
+- [x] Component properly exported ✓
+- [x] File naming convention followed (slide-305-solution-categories.tsx) ✓
+- [x] No TypeScript errors ✓
+- [x] Responsive grid (grid-cols-1 md:grid-cols-2) ✓
+- [x] Animations have fill-backwards ✓
+- [x] Next.js Image component used ✓
+
+**Performance Checklist**:
+- [x] Image uses priority loading ✓
+- [x] No unnecessary re-renders (useState used correctly) ✓
+- [x] Smooth animations (CSS transitions) ✓
+
+**Result**: All checklists pass ✓
+
+---
+
+#### Step 6: Integration
+
+**Add to `app/page.tsx`**:
+
+```tsx
+// 1. Import the new slide
+import { Slide305SolutionCategories } from '@/components/slide-305-solution-categories'
+
+// 2. Add to slides array in correct position
+const slides = [
+  // ... Module 01 slides
+  // ... Module 02 slides
+  // ... Module 03 slides 301-304
+  <Slide305SolutionCategories key="slide-305" />,
+  // ... remaining slides
+]
+```
+
+---
+
+#### Step 7: Test & Validate
+
+**Manual testing**:
+```bash
+npm run dev
+# Navigate to slide 305
+# Test hover interactions on all 4 cards
+# Verify responsive behavior at 375px, 768px, 1440px widths
+# Check animation timing and smoothness
+```
+
+**Validation results**:
+- ✓ Hover interactions work smoothly
+- ✓ Responsive grid collapses to single column on mobile
+- ✓ Animations stagger correctly (badge → title → subtitle → cards → insight)
+- ✓ Image loads without layout shift
+- ✓ No console errors
+
+---
+
+#### Step 8: Deliverable Report
+
+**Component Details**:
+- **File**: `components/slide-305-solution-categories.tsx`
+- **Component**: `Slide305SolutionCategories`
+- **Type**: Interactive (Hover-Reveal Cards)
+- **Module**: Module 03 - Agentic Solution Categories
+
+**Design Decisions**:
+- **Pattern**: Hover-Reveal Cards (Preferred Pattern 3) - perfect for exploring 4 distinct categories
+- **Layout**: 2x2 grid on desktop, single column on mobile
+- **Colors**: 4 different border colors (orange, cyan, green, purple) for visual distinction
+- **Animations**: Staggered card entrance with 150ms delays between cards
+- **Interaction**: Hover triggers scale + border color + glow + reveals detailed content
+
+**Images Generated**:
+- **Command**: `tsx generate-image.ts "four distinct pathways converging toward a central goal with geometric shapes representing problem-solving approaches" --template concept-strategy --ratio 16:9`
+- **Template**: concept-strategy
+- **Ratio**: 16:9
+- **File**: `/public/generated-images/gemini-1699564234-1.png`
+- **Integration**: Background layer at 12% opacity with mix-blend-multiply
+
+**Quality Results**:
+- Visual Design: Pass ✓
+- Accessibility: Pass ✓
+- Content: Pass ✓
+- Technical: Pass ✓
+- Performance: Pass ✓
+
+**Time Investment**: ~45 minutes
+- Planning & pattern selection: 10 min
+- Image generation: 5 min
+- Implementation: 20 min
+- Testing & refinement: 10 min
+
+---
+
+This completes the end-to-end walkthrough. The slide is production-ready and maintains consistency with the design system while delivering an engaging, executive-friendly experience.
