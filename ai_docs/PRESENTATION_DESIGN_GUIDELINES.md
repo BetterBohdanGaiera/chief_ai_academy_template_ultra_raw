@@ -491,27 +491,225 @@ Pattern seen in slide 39 (Summary):
 
 ## 7. Interactive & Animation Patterns
 
-### 7.1 Entrance Animations (Future Enhancement)
-Based on existing tw-animate-css import:
-- **Fade in**: Primary content appears
-- **Slide up**: Cards and content blocks
-- **Stagger**: Sequential appearance of list items
+### 7.0 Design Philosophy: Show, Don't Tell
 
-### 7.2 Hover States
+**CRITICAL PRINCIPLE**: Prefer interactive, visual demonstrations over static text-heavy slides.
+
+The most effective slides (3, 10, 11, 13, 23-25, 31-32) share a common trait: they **show** concepts rather than just describe them. Executives learn better by:
+- Interacting with toggles to see dramatic differences
+- Watching animations that demonstrate time-based processes
+- Hovering to explore options at their own pace
+- Clicking to expand and compare detailed choices
+- Using mini POCs that prove concepts work
+
+**When designing a new slide, always ask**: "Can I demonstrate this concept instead of just describing it?"
+
+### 7.1 Preferred Interactive Patterns
+
+#### Pattern 1: Interactive Toggles/Comparisons
+**When to use**: Before/after scenarios, poor vs excellent execution, level comparisons
+
+**Example**: Slide 3 (slide-103-execution-interactive.tsx)
 ```tsx
-className="transition-all duration-600 hover:shadow-xl hover:scale-105"
-```
-- All interactive elements have 600ms transitions
-- Cards scale slightly on hover
-- Shadow intensifies for depth
+const [view, setView] = useState<"poor" | "excellent">("poor")
 
-### 7.3 Focus States
+<Button variant={view === "poor" ? "default" : "outline"}>
+  Poor Execution
+</Button>
+```
+
+**Why it works**:
+- Executives instantly see dramatic differences
+- Color-coding reinforces contrast (red=bad, cyan/green=good)
+- Interactive = memorable
+- Same layout makes differences clear
+
+**Key techniques**:
+- useState for tracking active view
+- Button variants change based on state
+- Dynamic content rendering
+- Smooth transitions with animate-fade-in
+
+#### Pattern 2: Canvas Animations for Complex Logic
+**When to use**: Time-based processes, iteration cycles, network effects, spreading patterns
+
+**Examples**:
+- Slide 10 (slide-207-root-cause-iteration.tsx) - Iteration speed comparison
+- Slide 11 (slide-208-scar-tissue.tsx) - Network trust decay visualization
+
+**Why it works**:
+- Watching processes unfold creates visceral understanding
+- Executives can LITERALLY SEE why Level 3 fails (13x slower iterations)
+- Visual proof > descriptions
+- Creates "aha!" moments
+
+**Key techniques**:
+- useRef for canvas element access
+- requestAnimationFrame for smooth 60fps
+- Cleanup function prevents memory leaks
+- Time-based progress calculations
+- Color-coding matches design system
+
+#### Pattern 3: Hover-Reveal Cards
+**When to use**: Exploring multiple options, feature lists, capability breakdowns
+
+**Examples**:
+- Slides 23-25 (slide-302/303/304) - Approach exploration
+- Slides 31-32 (slide-3b03/3b04) - Capability cards
+
+**Why it works**:
+- Clean overview, rich details on demand
+- Executive-friendly (scannable at glance)
+- Users explore at their own pace
+- No overwhelming information dump
+
+**Key techniques**:
+```tsx
+const [active, setActive] = useState<string | null>(null)
+
+<Card
+  onMouseEnter={() => setActive(id)}
+  onMouseLeave={() => setActive(null)}
+  className={active === id ? "scale-105 shadow-glow" : ""}
+>
+```
+
+#### Pattern 4: Click-to-Expand Details
+**When to use**: Decision frameworks, implementation paths, detailed comparisons
+
+**Example**: Slide 13 (slide-210-level4-iterative.tsx) - Implementation path selector
+
+**Why it works**:
+- Clean interface with deep exploration capability
+- Users can select and compare at own pace
+- Perfect for strategic decision-making
+- Shows pros/cons/best-for in organized way
+
+**Key techniques**:
+- onClick handler with toggle logic
+- Border and shadow changes on selection
+- Color-coded detail sections (green=advantages, orange=considerations)
+- Conditional rendering of expanded content
+
+#### Pattern 5: Mini POCs and Interactive Demos
+**When to use**: Teaching complex concepts, demonstrating cause and effect
+
+**Why it works**:
+- "Add use cases and watch coverage increase" > explaining in bullets
+- Executives learn by doing
+- Proves the concept works
+- Makes abstract ideas concrete
+
+**Key techniques**:
+- Real calculations based on user interaction
+- Visual feedback (numbers, progress bars, status messages)
+- Dynamic rendering with animations
+- Clear cause-and-effect relationships
+
+### 7.2 Background Animations
+
+For slides with interactive foreground content, enhance with subtle background animations:
+
+```tsx
+// Slowly rotating icon (20s duration)
+<RefreshCw className="absolute top-20 right-20 w-64 h-64 text-primary/10 animate-spin-slow" />
+
+// Pulsing glow effect
+<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+     w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+```
+
+**Rules**:
+- Keep opacity very low (5-15%)
+- Slow movement (10-20 second durations)
+- Never compete with foreground interactivity
+- Test that they don't distract from message
+
+### 7.3 Entrance Animations
+
+Based on existing tw-animate-css import:
+
+#### Staggered Entrance Pattern
+```tsx
+<Badge className="animate-slide-in-down" />
+<h1 className="animate-fade-in delay-200 fill-backwards" />
+<p className="animate-slide-in-up delay-500 fill-backwards" />
+<div className="animate-fade-in delay-700 fill-backwards" />
+```
+
+**Timing sequence**:
+- Badge: 0ms (immediate)
+- Title: 200ms delay
+- Subtitle: 500ms delay
+- Content: 700ms delay
+
+**Critical**: Always use `fill-backwards` with delays to prevent content flash
+
+#### Card Grid Stagger
+```tsx
+{items.map((item, idx) => (
+  <Card
+    key={item.id}
+    className={`animate-fade-in delay-${idx * 200 + 300} fill-backwards`}
+  >
+))}
+```
+
+### 7.4 Hover States
+
+```tsx
+className="transition-all duration-300 hover:shadow-xl hover:scale-105"
+```
+
+**Standard hover pattern**:
+- Duration: 300ms (not 600ms - faster feels more responsive)
+- Scale: 102 for subtle hover, 105 for active selection
+- Shadow: Intensifies for depth
+- Border: Optional color change
+
+**For interactive cards**:
+```tsx
+className={`
+  transition-all duration-300 cursor-pointer
+  ${isActive
+    ? "scale-105 border-primary shadow-glow"
+    : "hover:scale-102 border-border"
+  }
+`}
+```
+
+### 7.5 Focus States
+
 ```tsx
 className="outline-ring/50"
 ```
+
 - All focusable elements show orange ring
 - Ensures keyboard accessibility
 - Defined globally in base layer
+- Critical for WCAG AA compliance
+
+### 7.6 Pattern Selection Decision Tree
+
+Use this guide when designing slides:
+
+**Does the slide compare two scenarios?**
+→ Use Interactive Toggle/Comparison (Pattern 1)
+
+**Does it show a process over time?**
+→ Use Canvas Animations (Pattern 2)
+
+**Does it present multiple options to explore?**
+→ Use Hover-Reveal Cards (Pattern 3)
+
+**Does it require detailed comparison of choices?**
+→ Use Click-to-Expand Details (Pattern 4)
+
+**Does it explain a complex concept that can be demonstrated?**
+→ Build a Mini POC/Interactive Demo (Pattern 5)
+
+**None of the above?**
+→ Consider how to make it more interactive before defaulting to static content
 
 ---
 

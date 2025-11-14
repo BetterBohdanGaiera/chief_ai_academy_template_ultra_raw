@@ -1589,4 +1589,4 @@ All images must have descriptive alt text:
 
 **Maintained by**: Chief AI Academy Design Team
 **Last Updated**: December 2024
-**Related Documents**: `ai_docs/IMAGE_GENERATION_GUIDE.md`, `specs/presentation-design-guidelines.md`
+**Related Documents**: `ai_docs/IMAGE_GENERATION_GUIDE.md`, `ai_docs/PRESENTATION_DESIGN_GUIDELINES.md`

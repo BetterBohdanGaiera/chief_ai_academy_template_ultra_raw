@@ -5,7 +5,7 @@ Follow the `Instructions` to implement the `Plan` then `Report` the completed wo
 - Read the plan, think hard about the plan and implement the plan.
 - IMPORTANT: This command expects the plan to be a file path to a spec file (e.g., `specs/feature-name.md`).
 - **ESSENTIAL:** Before implementing ANY slide or visual feature, reference `ai_docs/DESIGN_AESTHETICS.md` for the complete design system (typography hierarchy, color palette, animation patterns, component variants, accessibility standards). This is the authoritative source for all design decisions.
-- **ESSENTIAL:** Reference `specs/presentation-design-guidelines.md` for layout patterns, typography scales, color usage, spacing systems, component patterns, and quality checklists.
+- **ESSENTIAL:** Reference `ai_docs/PRESENTATION_DESIGN_GUIDELINES.md` for layout patterns, typography scales, color usage, spacing systems, component patterns, and quality checklists.
 - As you complete each phase and task in the Implementation Plan and Step by Step Tasks sections:
   1. Update the spec file by checking off the completed checkbox (- [ ] → - [x])
   2. Fill in the Status field with completion status (e.g., "Completed", "In Progress", "Partially Done")
@@ -80,7 +80,7 @@ tsx generate-image.ts "A professional handwritten illustration of [SUBJECT], fea
 ```
 
 ### Visual Appeal Verification Checklist
-Before marking a slide task as complete, verify against `ai_docs/DESIGN_AESTHETICS.md` and `specs/presentation-design-guidelines.md`:
+Before marking a slide task as complete, verify against `ai_docs/DESIGN_AESTHETICS.md` and `ai_docs/PRESENTATION_DESIGN_GUIDELINES.md`:
 
 **Design System Compliance** (from DESIGN_AESTHETICS.md):
 - [ ] Typography uses correct font classes (font-bebas for titles, font-syne for emphasis, font-manrope for body)

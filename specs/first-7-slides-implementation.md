@@ -35,7 +35,7 @@ Create 7 slides following the established design system that progressively build
 - **`components/ui/badge.tsx`** - Status indicators and category labels
 - **`components/ui/card.tsx`** - Primary content container component
 - **`components/ui/button.tsx`** - Interactive elements (if needed for future slides)
-- **`specs/presentation-design-guidelines.md`** - Complete design system reference
+- **`ai_docs/PRESENTATION_DESIGN_GUIDELINES.md`** - Complete design system reference
 
 ### New Files to Create
 - **`app/page.tsx`** - Main presentation container with slide navigation, keyboard controls, progress indicators
@@ -388,7 +388,7 @@ Execute every command to validate the feature works correctly with zero regressi
 ## Notes
 
 ### Design System Adherence
-- All slides follow `specs/presentation-design-guidelines.md` for typography scales, spacing, and color usage
+- All slides follow `ai_docs/PRESENTATION_DESIGN_GUIDELINES.md` for typography scales, spacing, and color usage
 - Orange primary color (`--primary: oklch(0.65 0.2 35)`) is the brand accent
 - Inter font family is configured in `app/layout.tsx` and `app/globals.css`
 
