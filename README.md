@@ -1,16 +1,30 @@
-# Executive Presentation Framework
+# Chief AI Academy - Multi-Course Learning Platform
 
-A brutalist-minimalist presentation framework built with Next.js, featuring interactive slides, algorithmic art, and AI-powered image generation.
+A brutalist-minimalist multi-course presentation platform built with Next.js, featuring modular course architecture, role-based learning paths, interactive slides, and AI-powered image generation.
 
 ## Overview
 
-This framework provides a complete design system and component library for creating stunning executive-level presentations with:
+This platform provides a complete multi-course system for delivering AI Academy content with:
 
-- **Brutalist-Minimalist Aesthetic**: Bold typography, electric orange and neon cyan accents
-- **Interactive Components**: Animations, transitions, and interactive elements
-- **Algorithmic Art**: Particle fields, mesh gradients, and geometric patterns
+- **Multi-Course Architecture**: Separate courses (Foundation, Skills) with atomic slide composition
+- **Role-Based Learning Paths**: Curated paths for Executives, AI Champions, Agent Managers, and Developers
+- **Brutalist-Minimalist Aesthetic**: Bold typography, electric orange #FF4D00 accent, retro-futuristic design
+- **Interactive Components**: Staggered animations, presenter mode, keyboard navigation
+- **Atomic Slide Library**: Reusable slides that compose into different courses and paths
 - **AI Image Generation**: Integrated Gemini API workflow with 16 predefined templates
 - **Design System Documentation**: Comprehensive guidelines in `/ai_docs`
+
+## Current Status: Phase 1 - Infrastructure Complete ✅
+
+Phase 1 delivers the **structural foundation** with:
+- ✅ Multi-course routing (`/courses/foundation`, `/courses/skills`)
+- ✅ Learning path routing (`/paths/executive`, `/paths/ai-champion`, `/paths/agent-manager`, `/paths/developer`)
+- ✅ Course selector and path navigator landing page
+- ✅ Navigation components (breadcrumbs, progress, presenter mode)
+- ✅ 3 mock slides demonstrating design system and path filtering
+- ✅ Configuration system for courses, paths, and slides
+
+**Phase 2** (Future): Convert F1-F2, S1-S3 markdown content to 84+ slides with full image generation.
 
 ## Getting Started
 
@@ -22,51 +36,81 @@ npm install
 pnpm install
 ```
 
-### 2. Create Your Slides
-
-Create slide components in `/components/`:
-
-```tsx
-// components/slide-01-title.tsx
-import { SlideIn } from "@/components/animations/slide-transitions"
-
-export default function Slide01Title() {
-  return (
-    <div className="h-screen bg-[#0A0A0A] flex items-center justify-center">
-      <SlideIn direction="up">
-        <h1 className="font-bebas text-[120px] text-white">
-          Your <span className="text-orange-500">Title</span>
-        </h1>
-      </SlideIn>
-    </div>
-  )
-}
-```
-
-### 3. Add Slides to Presentation
-
-Update `app/page.tsx`:
-
-```tsx
-import Slide01Title from "@/components/slide-01-title"
-import Slide02Overview from "@/components/slide-02-overview"
-
-const slides = [
-  <Slide01Title key="slide-01" />,
-  <Slide02Overview key="slide-02" />,
-  // ... add more slides
-]
-```
-
-### 4. Run Development Server
+### 2. Run Development Server
 
 ```bash
-npm run dev
-# or
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view your presentation.
+Open [http://localhost:3000](http://localhost:3000) to view the landing page.
+
+### 3. Explore the Platform
+
+**Landing Page** (`/`):
+- Course Selector: Choose Foundation or Skills course
+- Path Navigator: Select role-based learning path (Executive, AI Champion, Agent Manager, Developer)
+
+**Available Routes**:
+- `/courses/foundation` - Foundation course (F1, F2 modules)
+- `/courses/skills` - Skills course (S1, S2, S3 modules)
+- `/paths/executive` - Executive learning path (strategic focus)
+- `/paths/ai-champion` - Full curriculum path
+- `/paths/agent-manager` - Context engineering focus
+- `/paths/developer` - Technical implementation focus
+
+**Keyboard Shortcuts**:
+- `Arrow Left/Right` or `Space` - Navigate slides
+- `Home` - First slide
+- `End` - Last slide
+- `P` - Toggle presenter mode
+
+### 4. Adding New Content
+
+See **[COURSE_DEVELOPMENT_GUIDE.md](./COURSE_DEVELOPMENT_GUIDE.md)** for complete instructions on:
+- Creating new courses
+- Developing slide components
+- Configuring learning paths
+- Converting markdown to slides
+- Generating AI images
+
+## Architecture
+
+### Multi-Course System
+
+```
+Landing Page (/)
+    │
+    ├─► Courses
+    │    ├─► Foundation (/courses/foundation)
+    │    │    └─► F1 + F2 modules
+    │    └─► Skills (/courses/skills)
+    │         └─► S1 + S2 + S3 modules
+    │
+    └─► Learning Paths
+         ├─► Executive (/paths/executive)
+         │    └─► Curated strategic slides
+         ├─► AI Champion (/paths/ai-champion)
+         │    └─► Full curriculum
+         ├─► Agent Manager (/paths/agent-manager)
+         │    └─► Context engineering focus
+         └─► Developer (/paths/developer)
+              └─► Technical implementation
+```
+
+### Key Components
+
+- **PresentationContainer**: Handles slide display, navigation, presenter mode
+- **CourseSelector**: Landing page course cards
+- **PathNavigator**: Landing page learning path cards
+- **CourseNavigation**: In-presentation nav bar (breadcrumbs, progress, arrows)
+- **PresenterMode**: Overlay with speaker notes and timing
+
+### Configuration Files
+
+- `config/courses.ts` - Course definitions (title, duration, modules)
+- `config/paths.ts` - Learning path definitions (audience, slide composition)
+- `config/slides.ts` - Slide registry (components, metadata, notes)
+- `types/courses.ts` - TypeScript interfaces
 
 ## Design System
 

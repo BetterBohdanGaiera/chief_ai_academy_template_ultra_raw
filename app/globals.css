@@ -236,7 +236,8 @@
   /* Updated scroll behavior for horizontal scrolling */
   html {
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow-x: hidden;  /* Prevent horizontal scroll only */
+    overflow-y: auto;    /* Allow vertical scroll */
   }
 
   /* Hide scrollbar for horizontal scroll container */
