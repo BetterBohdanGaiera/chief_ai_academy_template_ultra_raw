@@ -1,33 +1,94 @@
-# Presentation website slides
+# Executive Presentation Framework
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
-
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/bohdan-gaieraais-projects/v0-chief-aia-cademy-executive-present)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/t16HrxAY1fW)
+A brutalist-minimalist presentation framework built with Next.js, featuring interactive slides, algorithmic art, and AI-powered image generation.
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+This framework provides a complete design system and component library for creating stunning executive-level presentations with:
 
-## Deployment
+- **Brutalist-Minimalist Aesthetic**: Bold typography, electric orange and neon cyan accents
+- **Interactive Components**: Animations, transitions, and interactive elements
+- **Algorithmic Art**: Particle fields, mesh gradients, and geometric patterns
+- **AI Image Generation**: Integrated Gemini API workflow with 16 predefined templates
+- **Design System Documentation**: Comprehensive guidelines in `/ai_docs`
 
-Your project is live at:
+## Getting Started
 
-**[https://vercel.com/bohdan-gaieraais-projects/v0-chief-aia-cademy-executive-present](https://vercel.com/bohdan-gaieraais-projects/v0-chief-aia-cademy-executive-present)**
+### 1. Install Dependencies
 
-## Build your app
+```bash
+npm install
+# or
+pnpm install
+```
 
-Continue building your app on:
+### 2. Create Your Slides
 
-**[https://v0.app/chat/t16HrxAY1fW](https://v0.app/chat/t16HrxAY1fW)**
+Create slide components in `/components/`:
 
-## How It Works
+```tsx
+// components/slide-01-title.tsx
+import { SlideIn } from "@/components/animations/slide-transitions"
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+export default function Slide01Title() {
+  return (
+    <div className="h-screen bg-[#0A0A0A] flex items-center justify-center">
+      <SlideIn direction="up">
+        <h1 className="font-bebas text-[120px] text-white">
+          Your <span className="text-orange-500">Title</span>
+        </h1>
+      </SlideIn>
+    </div>
+  )
+}
+```
+
+### 3. Add Slides to Presentation
+
+Update `app/page.tsx`:
+
+```tsx
+import Slide01Title from "@/components/slide-01-title"
+import Slide02Overview from "@/components/slide-02-overview"
+
+const slides = [
+  <Slide01Title key="slide-01" />,
+  <Slide02Overview key="slide-02" />,
+  // ... add more slides
+]
+```
+
+### 4. Run Development Server
+
+```bash
+npm run dev
+# or
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view your presentation.
+
+## Design System
+
+### Color Palette
+
+- **Electric Orange**: `#FF4D00` - Primary accent, CTAs, highlights
+- **Neon Cyan**: `#00BBFF` - Secondary accent, interactive elements
+- **Dark Background**: `#0A0A0A` - Base background
+- **White**: `#FFFFFF` - Primary text
+
+### Typography
+
+- **Bebas Neue**: Display headings, large titles
+- **Syne**: Subheadings, section labels
+- **Manrope**: Body text, descriptions
+- **JetBrains Mono**: Code, monospace elements
+
+### Documentation
+
+- 📖 [Design Aesthetics Guide](ai_docs/DESIGN_AESTHETICS.md)
+- 📖 [Presentation Design Guidelines](ai_docs/PRESENTATION_DESIGN_GUIDELINES.md)
+- 📖 [Image Generation Guide](ai_docs/IMAGE_GENERATION_GUIDE.md)
 
 ## AI Image Generation Workflow
 

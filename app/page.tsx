@@ -1,49 +1,7 @@
 "use client"
 
-// Interactive visual slides - Module 01
-import { Slide101TitleVisual } from "@/components/slide-101-title-visual"
-import { Slide102LandscapeInteractive } from "@/components/slide-102-landscape-interactive"
-import { Slide103ExecutionInteractive } from "@/components/slide-103-execution-interactive"
-import { Slide104CostFlow } from "@/components/slide-104-cost-flow"
-// New interactive visual slides - Module 02
-import { Slide201FiveLevelsOverview } from "@/components/slide-201-five-levels-overview"
-import { Slide202PrinciplesExplorer } from "@/components/slide-202-principles-explorer"
-import { Slide203Level1Visual } from "@/components/slide-203-level1-visual"
-import { Slide204Level2Visual } from "@/components/slide-204-level2-visual"
-import { Slide205PromiseVsReality } from "@/components/slide-205-promise-vs-reality"
-import { Slide206Level3FailureTimeline } from "@/components/slide-206-level3-failure-timeline"
-import { Slide207RootCauseIteration } from "@/components/slide-207-root-cause-iteration"
-import { Slide208ScarTissue } from "@/components/slide-208-scar-tissue"
-import { Slide209GuidanceInteractive } from "@/components/slide-209-guidance-interactive"
-import { Slide210Level4Iterative } from "@/components/slide-210-level4-iterative"
-import { Slide211RoiCalculator } from "@/components/slide-211-roi-calculator"
-import { Slide212Level5Autonomous } from "@/components/slide-212-level5-autonomous"
-import { Slide213InteractivePoll } from "@/components/slide-213-interactive-poll"
-// Module 03: ML vs Agentic Principles - Interactive Visual Slides (8 slides)
-import { Slide301TitleVisual } from "@/components/slide-301-title-visual"
-import { Slide302ThreeApproaches } from "@/components/slide-302-three-approaches"
-import { Slide303MlApproach } from "@/components/slide-303-ml-approach"
-import { Slide304AgenticApproach } from "@/components/slide-304-agentic-approach"
-import { Slide305ExistingTools } from "@/components/slide-305-existing-tools"
-import { Slide306DecisionFramework } from "@/components/slide-306-decision-framework"
-import { Slide307CostTradeoffs } from "@/components/slide-307-cost-tradeoffs"
-import { Slide308QuizInteractive } from "@/components/slide-308-quiz-interactive"
-// Module 03b: Understanding AI Agents - Interactive Visual Slides (7 slides)
-import { Slide3b01TitleVisual } from "@/components/slide-3b01-title-visual"
-import { Slide3b02FourComponents } from "@/components/slide-3b02-four-components"
-import { Slide3b03LlmBrain } from "@/components/slide-3b03-llm-brain"
-import { Slide3b04ToolsHands } from "@/components/slide-3b04-tools-hands"
-import { Slide3b05MemoryAutonomy } from "@/components/slide-3b05-memory-autonomy"
-import { Slide3b06AgenticSpectrum } from "@/components/slide-3b06-agentic-spectrum"
-import { Slide3b07VendorEvaluation } from "@/components/slide-3b07-vendor-evaluation"
-// Module 04: Agentic Solution Categories - Interactive Visual Slides (7 slides)
-import { Slide401TitleVisual } from "@/components/slide-401-title-visual"
-import { Slide402ThreeCategoriesOverview } from "@/components/slide-402-three-categories-overview"
-import { Slide403StaticChatbots } from "@/components/slide-403-static-chatbots"
-import { Slide404DynamicChatbots } from "@/components/slide-404-dynamic-chatbots"
-import { Slide405CustomWorkflows } from "@/components/slide-405-custom-workflows"
-import { Slide406RoiComparison } from "@/components/slide-406-roi-comparison"
-import { Slide407SelectionGuide } from "@/components/slide-407-selection-guide"
+// Template Slide - Replace with your presentation slides
+import SlideTemplate from "@/components/slide-template"
 import { useRef, useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -52,51 +10,10 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [currentSlide, setCurrentSlide] = useState(0)
 
+  // Add your presentation slides here
+  // Example: <YourSlideComponent key="slide-1" />
   const slides = [
-    // Module 01: AI State & Opportunity - Interactive Visual Slides (4 slides)
-    <Slide101TitleVisual key="slide-101" />,
-    <Slide102LandscapeInteractive key="slide-102" />,
-    <Slide103ExecutionInteractive key="slide-103" />,
-    <Slide104CostFlow key="slide-104" />,
-    // Module 02: Five Levels Framework - Interactive Visual Slides (13 slides)
-    <Slide201FiveLevelsOverview key="slide-201" />,
-    <Slide202PrinciplesExplorer key="slide-202" />,
-    <Slide203Level1Visual key="slide-203" />,
-    <Slide204Level2Visual key="slide-204" />,
-    <Slide205PromiseVsReality key="slide-205" />,
-    <Slide206Level3FailureTimeline key="slide-206" />,
-    <Slide207RootCauseIteration key="slide-207" />,
-    <Slide208ScarTissue key="slide-208" />,
-    <Slide209GuidanceInteractive key="slide-209" />,
-    <Slide210Level4Iterative key="slide-210" />,
-    <Slide211RoiCalculator key="slide-211" />,
-    <Slide212Level5Autonomous key="slide-212" />,
-    <Slide213InteractivePoll key="slide-213" />,
-    // Module 03: ML vs Agentic Principles - Interactive Visual Slides (8 slides)
-    <Slide301TitleVisual key="slide-301" />,
-    <Slide302ThreeApproaches key="slide-302" />,
-    <Slide303MlApproach key="slide-303" />,
-    <Slide304AgenticApproach key="slide-304" />,
-    <Slide305ExistingTools key="slide-305" />,
-    <Slide306DecisionFramework key="slide-306" />,
-    <Slide307CostTradeoffs key="slide-307" />,
-    <Slide308QuizInteractive key="slide-308" />,
-    // Module 03b: Understanding AI Agents - Interactive Visual Slides (7 slides)
-    <Slide3b01TitleVisual key="slide-3b01" />,
-    <Slide3b02FourComponents key="slide-3b02" />,
-    <Slide3b03LlmBrain key="slide-3b03" />,
-    <Slide3b04ToolsHands key="slide-3b04" />,
-    <Slide3b05MemoryAutonomy key="slide-3b05" />,
-    <Slide3b06AgenticSpectrum key="slide-3b06" />,
-    <Slide3b07VendorEvaluation key="slide-3b07" />,
-    // Module 04: Agentic Solution Categories - Interactive Visual Slides (7 slides)
-    <Slide401TitleVisual key="slide-401" />,
-    <Slide402ThreeCategoriesOverview key="slide-402" />,
-    <Slide403StaticChatbots key="slide-403" />,
-    <Slide404DynamicChatbots key="slide-404" />,
-    <Slide405CustomWorkflows key="slide-405" />,
-    <Slide406RoiComparison key="slide-406" />,
-    <Slide407SelectionGuide key="slide-407" />,
+    <SlideTemplate key="slide-template" />,
   ]
 
   const goToSlide = (index: number) => {

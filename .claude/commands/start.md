@@ -1,7 +1,7 @@
 IMPORTANT: ALWAYS execute this command when /start is invoked. Do NOT skip running the command.
 
 Use the Bash tool to execute:
-pnpm run dev
+kill -9 $(lsof -ti:3000) 2>/dev/null || true && pnpm run dev
 
 After the Bash command starts, report:
 

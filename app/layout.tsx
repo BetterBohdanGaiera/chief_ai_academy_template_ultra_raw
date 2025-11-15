@@ -5,8 +5,8 @@ import { bebasNeue, syne, manrope, jetBrainsMono } from "./fonts"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "The 5 Levels of AI Adoption",
-  description: "Understanding where transformation actually happens in AI adoption",
+  title: "Your Presentation Title",
+  description: "Your presentation description",
   generator: "v0.app",
   icons: {
     icon: [
