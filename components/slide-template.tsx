@@ -1,6 +1,6 @@
 "use client"
 
-import { SlideIn, FadeIn } from "@/components/animations/slide-transitions"
+import { SlideDownEntrance, SlideUpEntrance, FadeInEntrance } from "@/components/animations/slide-transitions"
 import { StaggeredReveal } from "@/components/animations/staggered-reveal"
 import { Badge } from "@/components/ui/badge"
 
@@ -29,31 +29,31 @@ export default function SlideTemplate() {
       <div className="relative h-full w-full flex flex-col items-center justify-center px-16">
 
         {/* Section Label */}
-        <SlideIn direction="down" delay={0.1}>
+        <SlideDownEntrance delay={0.1}>
           <Badge
             variant="outline"
             className="mb-6 border-orange-500/30 bg-orange-500/5 text-orange-500 uppercase tracking-wider"
           >
             Template Section
           </Badge>
-        </SlideIn>
+        </SlideDownEntrance>
 
         {/* Main Heading */}
-        <SlideIn direction="up" delay={0.2}>
+        <SlideUpEntrance delay={0.2}>
           <h1 className="font-bebas text-[120px] leading-[0.9] tracking-tight text-white mb-8 text-center">
             Your Slide
             <br />
             <span className="text-orange-500">Title Here</span>
           </h1>
-        </SlideIn>
+        </SlideUpEntrance>
 
         {/* Supporting Text */}
-        <FadeIn delay={0.4}>
+        <FadeInEntrance delay={0.4}>
           <p className="font-syne text-xl text-white/60 text-center max-w-3xl mb-16">
             This is where you add supporting text or a subtitle.
             Use this space to provide context or key information.
           </p>
-        </FadeIn>
+        </FadeInEntrance>
 
         {/* Content Grid */}
         <StaggeredReveal className="grid grid-cols-3 gap-8 max-w-6xl w-full">

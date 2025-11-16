@@ -1,0 +1,27 @@
+{
+  "timestamp": 1763327594149,
+  "prompt": "five ascending levels framework with transformative progression from individual to autonomous AI\n\nDesign System Requirements following design system guidelines:\n- Color Palette: Clean white and off-white backgrounds (#FFFFFF, #FAFAFA), dark text (#0A0A0A), electric orange accents (#FF4D00), neon cyan highlights (#00BBFF)\n- Style: Brutalist minimalism meets retro-futuristic aesthetic\n- Visual Elements: Bold geometric shapes, high contrast, ample whitespace, clean composition\n- Patterns: Geometric grids, dot matrices, subtle grain texture\n- Tone: Professional, executive-level, sophisticated, modern corporate\n- Accessibility: High contrast ratios (WCAG AA compliant), clear readable text\n- NO dark backgrounds, NO gradients on text, NO overly complex illustrations\n\nCategory-Specific Guidelines:\n- Abstract Forms: Geometric shapes representing ideas, interconnected nodes, flowing lines\n- Color Usage: Orange for transformation/change, cyan for technology/innovation, amber for caution/opportunity\n- Complexity: Moderate - clear enough to understand at a glance but sophisticated\n- Metaphors: Technology, AI, digital transformation, strategic thinking, executive decision-making\n- CRITICAL: Absolutely NO TEXT, NO LABELS, NO TYPOGRAPHY, NO NUMBERS - use pure abstract visual metaphors only",
+  "originalPrompt": "five ascending levels framework with transformative progression from individual to autonomous AI",
+  "template": "concept-strategy",
+  "styleIntensity": "moderate",
+  "aspectRatio": "16:9",
+  "count": 1,
+  "designSystemApplied": true,
+  "validation": [
+    {
+      "valid": true,
+      "warnings": [
+        "Expected dimensions for 16:9: 1920x1080px (approximate)"
+      ],
+      "errors": [],
+      "metadata": {
+        "filepath": "/Users/bohdanpytaichuk/Documents/ChiefAIAcademyPresentationsWebsites/chief_ai_academy_executive_presentation/public/generated-images/gemini-1763327594149-1.png",
+        "filename": "gemini-1763327594149-1.png",
+        "sizeBytes": 1121591,
+        "sizeMB": 1.07,
+        "exists": true,
+        "created": "2025-11-16T21:13:14.150Z"
+      }
+    }
+  ]
+}

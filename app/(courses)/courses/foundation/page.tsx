@@ -1,23 +1,16 @@
 /**
  * Foundation Course Page
- * Displays mock slides demonstrating the Foundation course structure
+ * Displays module selector for F1 and F2 modules
  */
 
-import { PresentationContainer } from '@/components/presentation-container'
-
-// Mock slide IDs for Foundation course
-// In full implementation, this would include all F1 + F2 slides
-const foundationSlides = [
-  'mock-01-foundation-title',
-  'mock-02-skills-concept' // Shared slide also appears in Skills
-]
+import { ModuleSelector } from '@/components/module-selector'
 
 export default function FoundationCoursePage() {
   return (
-    <PresentationContainer
-      slideIds={foundationSlides}
+    <ModuleSelector
+      courseId="foundation"
       title="Foundation Course"
-      id="foundation"
+      description="Build your understanding of AI adoption levels and organizational structure"
     />
   )
 }
