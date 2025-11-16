@@ -87,6 +87,56 @@ Algorithmic expression: Randomized circle packing or Voronoi tessellation. Start
 
 ---
 
+## DESIGN SYSTEM INTEGRATION FOR SLIDE BACKGROUNDS
+
+**CRITICAL: When creating algorithmic art for presentation slide backgrounds**, you MUST reconcile the organic/emergent algorithmic philosophy with the project's brutalist-minimalist design system defined in `ai_docs/DESIGN_AESTHETICS.md`.
+
+**Reference dynamically for:**
+
+- **Color Palette** (Section: "Color System"):
+  - Primary: Electric Orange (#FF4D00 / RGB: 255, 77, 0)
+  - Accent: Neon Cyan (#00D9FF / RGB: 0, 217, 255)
+  - Neutral: Charcoal (#0A0A0A / RGB: 10, 10, 10), Muted Gray (#A0A0A0 / RGB: 160, 160, 160)
+  - Use these as VARIABLES in your p5.js code, not hardcoded values
+
+- **Design Philosophy Alignment** (Section: "Design Philosophy"):
+  - **Brutalist elements**: Express organic algorithms through GEOMETRIC particles (not freeform blobs)
+  - **Angular forms**: Use HARD-EDGED shapes, grid-based positioning, sharp angles
+  - **Constrained randomness**: Limit organic flow to GRID CELLS or ANGULAR PATHS
+  - **High contrast**: Use dramatic value differences between light/dark
+
+**Reconciling Organic Algorithms with Brutalist Aesthetics:**
+
+```javascript
+// Example: Constrained organic flow
+const colorPrimary = '#FF4D00';  // Reference design system
+const colorCyan = '#00D9FF';
+const colorCharcoal = '#0A0A0A';
+
+// Organic flow fields, but particles snap to grid
+let gridSize = 40; // Angular, grid-based
+particles.forEach(p => {
+  // Organic noise-driven flow
+  let angle = noise(p.x * 0.01, p.y * 0.01) * TWO_PI;
+
+  // But constrain to angular directions (brutalist)
+  angle = round(angle / (PI/4)) * (PI/4); // Snap to 45° increments
+
+  // Geometric shapes, not organic blobs
+  rect(p.x, p.y, 5, 5); // Hard-edged rectangles, not circles
+});
+```
+
+**Key Principles:**
+- Organic BEHAVIOR (noise fields, emergence, forces)
+- Geometric EXPRESSION (angular shapes, grid alignment, hard edges)
+- Design system COLORS (orange/cyan/charcoal, not arbitrary palettes)
+- Mathematical BEAUTY (algorithms visible, not hidden)
+
+**Reference**: Always check `ai_docs/DESIGN_AESTHETICS.md` for current design system before generating algorithmic backgrounds.
+
+---
+
 ## DEDUCING THE CONCEPTUAL SEED
 
 **CRITICAL STEP**: Before implementing the algorithm, identify the subtle conceptual thread from the original request.

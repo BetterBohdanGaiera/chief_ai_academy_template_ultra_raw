@@ -1,6 +1,8 @@
 # AI Image Generation Guide
 
-Complete workflow documentation for generating design-consistent imagery using the Gemini AI image generation system with integrated design system.
+Technical documentation for using the `generate-image.ts` script to create images via the Gemini AI API.
+
+**IMPORTANT - Design System Reference**: This guide covers the TECHNICAL usage of the image generation script. For all design decisions (colors, typography, aesthetic philosophy), refer to **`ai_docs/DESIGN_AESTHETICS.md`** as the single source of truth. The script automatically applies design system rules, but customization should align with DESIGN_AESTHETICS.md specifications.
 
 ## Table of Contents
 
@@ -63,6 +65,18 @@ tsx generate-image.ts "Executive Leadership" --template hero-bold --ratio 16:9 -
 - **Cost Efficiency**: The existing image is "good enough" for the purpose
 - **Consistency**: Using the same image across multiple slides for branding
 - **Time Constraints**: Quick turnaround needed and current images are acceptable
+
+### 🚫 When NOT to Generate Images
+
+**Avoid generating images for these scenarios** (focus on clean design instead):
+
+- **Text-heavy slides**: Images would distract from content
+- **Heavily interactive slides**: Focus on UI components, not decorative backgrounds
+- **Simple title/transition slides**: Clean design is more impactful
+- **Dense data visualizations**: Charts and tables need clarity, not decoration
+- **Slides with mini POCs**: The interactive demo is the visual element
+
+**Reference**: For guidance on when to use algorithmic backgrounds instead, see `ai_docs/ALGORITHMIC_COMPONENTS.md`.
 
 ---
 
@@ -554,10 +568,28 @@ console.log(result.metadata);
 
 ## Resources
 
+### Design Documentation
+
+- **`ai_docs/DESIGN_AESTHETICS.md`**: Color palette specifications (#FF4D00, #00D9FF, etc.), typography system, component variants
+- **`ai_docs/PRESENTATION_DESIGN_GUIDELINES.md`**: Layout patterns, integration guidelines, quality verification
+- **`ai_docs/ALGORITHMIC_COMPONENTS.md`**: Alternative to images - canvas-based backgrounds (MeshGradient, ParticleField)
+- **`ai_docs/INTERACTIVE_PATTERNS.md`**: Interactive slide patterns (when to skip static images)
+
+### Technical References
+
 - **Design System Reference**: `app/globals.css` (color palette, design tokens)
 - **Template Source Code**: `lib/image-generation/prompt-templates.ts`
 - **Design Rules**: `lib/image-generation/design-system-rules.ts`
 - **Gemini API Docs**: https://ai.google.dev/
+
+### Color Values (from DESIGN_AESTHETICS.md)
+
+Use these exact values in prompts for design consistency:
+- **Electric Orange**: `#FF4D00` (primary)
+- **Warm Orange**: `#F5A623` (accent)
+- **Neon Cyan**: `#00D9FF` (Level 5 only)
+- **Deep Charcoal**: `#0A0A0A` (backgrounds)
+- **Off-white**: `#FAFAFA`, `#F5F5F0` (light backgrounds)
 
 ---
 

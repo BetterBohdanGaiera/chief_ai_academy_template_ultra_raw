@@ -17,7 +17,33 @@ To build powerful frontend claude.ai artifacts, follow these steps:
 
 ## Design & Style Guidelines
 
-VERY IMPORTANT: To avoid what is often referred to as "AI slop", avoid using excessive centered layouts, purple gradients, uniform rounded corners, and Inter font.
+**CRITICAL: Design System Integration**
+
+When creating slide components for presentations, you MUST follow the project's design system defined in `ai_docs/DESIGN_AESTHETICS.md`. Reference this file dynamically for:
+
+- **Color Palette** (Section: "Color System"):
+  - Primary: Electric Orange (#FF4D00)
+  - Accent: Neon Cyan (#00D9FF)
+  - Neutral: Charcoal (#0A0A0A), Muted Gray (#A0A0A0)
+
+- **Typography** (Section: "Typography System"):
+  - Display titles: Bebas Neue
+  - Emphasis text: Syne
+  - Body text: Manrope
+  - Code/technical: JetBrains Mono
+
+- **Design Philosophy** (Section: "Design Philosophy"):
+  - Brutalist elements: Bold typography, high contrast, geometric patterns, hard edges
+  - Retro-futuristic: Neon glows, analog grain, warm gradients, cyan accents
+  - Minimalist foundation: Clean layouts, purposeful restraint, clarity over decoration
+
+**Anti-Patterns to Avoid**:
+- Inter font (use Manrope for body text instead)
+- Purple gradients (use orange/cyan from design system)
+- Excessive centered layouts (use grid-based, asymmetric layouts)
+- Uniform rounded corners (use angular, brutalist edges)
+
+**Reference**: Always check `ai_docs/DESIGN_AESTHETICS.md` for the complete, up-to-date design system before creating components.
 
 ## Quick Start
 

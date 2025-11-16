@@ -1569,6 +1569,32 @@ All images must have descriptive alt text:
 
 ---
 
+## Algorithmic Animation Components
+
+For advanced canvas-based animations and procedural backgrounds, see:
+
+**`ai_docs/ALGORITHMIC_COMPONENTS.md`** - Complete documentation for:
+- **MeshGradientBackground**: Animated radial gradients with organic motion
+- **ParticleField**: Interactive particle systems with network effects
+- **Component Layering**: Best practices for combining backgrounds
+- **Performance Guidelines**: Optimization tips for canvas animations
+
+These components complement the static design system above by adding dynamic, animated elements to slides.
+
+---
+
+## Interactive Slide Patterns
+
+For interactive slide design patterns and implementation examples, see:
+
+**`ai_docs/INTERACTIVE_PATTERNS.md`** - Complete documentation for:
+- **5 Preferred Interactive Patterns**: Toggle comparisons, canvas animations, hover-reveal cards, click-to-expand details, mini POCs
+- **Pattern Selection Guide**: Decision tree for choosing the right pattern
+- **Complete Code Examples**: Full implementations with best practices
+- **Show, Don't Tell Philosophy**: Why interactivity matters for executive audiences
+
+---
+
 ## Version History
 
 **v2.0** - December 2024
@@ -1588,5 +1614,9 @@ All images must have descriptive alt text:
 ---
 
 **Maintained by**: Chief AI Academy Design Team
-**Last Updated**: December 2024
-**Related Documents**: `ai_docs/IMAGE_GENERATION_GUIDE.md`, `ai_docs/PRESENTATION_DESIGN_GUIDELINES.md`
+**Last Updated**: January 2025
+**Related Documents**:
+- `ai_docs/INTERACTIVE_PATTERNS.md` - Interactive slide patterns and implementations
+- `ai_docs/ALGORITHMIC_COMPONENTS.md` - Canvas-based animation components
+- `ai_docs/IMAGE_GENERATION_GUIDE.md` - AI image generation workflow
+- `ai_docs/PRESENTATION_DESIGN_GUIDELINES.md` - Layout patterns and quality standards

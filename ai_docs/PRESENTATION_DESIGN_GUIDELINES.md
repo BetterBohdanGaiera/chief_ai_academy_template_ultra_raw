@@ -73,10 +73,9 @@ This specification documents the visual design patterns observed across 50+ pres
 
 ## 2. Typography System
 
-### 2.1 Font Family
-- **Primary**: Inter (sans-serif)
-- **Code/Monospace**: SF Mono, Menlo, Monaco
-- **Implementation**: Defined in `app/globals.css` via `--font-sans`
+**AUTHORITATIVE REFERENCE:** `ai_docs/DESIGN_AESTHETICS.md` (Section "Typography System", lines 169-367)
+
+This presentation uses a 4-font hierarchy (Bebas Neue for display, Syne for emphasis, Manrope for body, JetBrains Mono for code). For complete specifications including font weights, line heights, letter spacing, and usage guidelines, see the authoritative reference above.
 
 ### 2.2 Type Scale
 
@@ -491,139 +490,45 @@ Pattern seen in slide 39 (Summary):
 
 ## 7. Interactive & Animation Patterns
 
+**AUTHORITATIVE REFERENCE:** `ai_docs/INTERACTIVE_PATTERNS.md` (Complete pattern implementations and examples)
+
 ### 7.0 Design Philosophy: Show, Don't Tell
 
 **CRITICAL PRINCIPLE**: Prefer interactive, visual demonstrations over static text-heavy slides.
 
-The most effective slides (3, 10, 11, 13, 23-25, 31-32) share a common trait: they **show** concepts rather than just describe them. Executives learn better by:
+The most effective slides share a common trait: they **show** concepts rather than just describe them. Executives learn better by:
 - Interacting with toggles to see dramatic differences
 - Watching animations that demonstrate time-based processes
 - Hovering to explore options at their own pace
 - Clicking to expand and compare detailed choices
 - Using mini POCs that prove concepts work
 
-**When designing a new slide, always ask**: "Can I demonstrate this concept instead of just describing it?"
+**When designing a new slide, always ask**: *"Can I demonstrate this concept instead of just describing it?"*
 
 ### 7.1 Preferred Interactive Patterns
 
-#### Pattern 1: Interactive Toggles/Comparisons
-**When to use**: Before/after scenarios, poor vs excellent execution, level comparisons
+**For complete implementations with full code examples**, see `ai_docs/INTERACTIVE_PATTERNS.md`.
 
-**Example**: Slide 3 (slide-103-execution-interactive.tsx)
-```tsx
-const [view, setView] = useState<"poor" | "excellent">("poor")
+**Quick Pattern Reference:**
 
-<Button variant={view === "poor" ? "default" : "outline"}>
-  Poor Execution
-</Button>
-```
+1. **Interactive Toggle/Comparison** - Before/after scenarios, poor vs excellent execution
+2. **Canvas Animations** - Time-based processes, iteration cycles, network effects
+3. **Hover-Reveal Cards** - Exploring multiple options with details on demand
+4. **Click-to-Expand Details** - Decision frameworks, detailed comparisons
+5. **Mini POCs/Interactive Demos** - Teaching complex concepts through interaction
 
-**Why it works**:
-- Executives instantly see dramatic differences
-- Color-coding reinforces contrast (red=bad, cyan/green=good)
-- Interactive = memorable
-- Same layout makes differences clear
-
-**Key techniques**:
-- useState for tracking active view
-- Button variants change based on state
-- Dynamic content rendering
-- Smooth transitions with animate-fade-in
-
-#### Pattern 2: Canvas Animations for Complex Logic
-**When to use**: Time-based processes, iteration cycles, network effects, spreading patterns
-
-**Examples**:
-- Slide 10 (slide-207-root-cause-iteration.tsx) - Iteration speed comparison
-- Slide 11 (slide-208-scar-tissue.tsx) - Network trust decay visualization
-
-**Why it works**:
-- Watching processes unfold creates visceral understanding
-- Executives can LITERALLY SEE why Level 3 fails (13x slower iterations)
-- Visual proof > descriptions
-- Creates "aha!" moments
-
-**Key techniques**:
-- useRef for canvas element access
-- requestAnimationFrame for smooth 60fps
-- Cleanup function prevents memory leaks
-- Time-based progress calculations
-- Color-coding matches design system
-
-#### Pattern 3: Hover-Reveal Cards
-**When to use**: Exploring multiple options, feature lists, capability breakdowns
-
-**Examples**:
-- Slides 23-25 (slide-302/303/304) - Approach exploration
-- Slides 31-32 (slide-3b03/3b04) - Capability cards
-
-**Why it works**:
-- Clean overview, rich details on demand
-- Executive-friendly (scannable at glance)
-- Users explore at their own pace
-- No overwhelming information dump
-
-**Key techniques**:
-```tsx
-const [active, setActive] = useState<string | null>(null)
-
-<Card
-  onMouseEnter={() => setActive(id)}
-  onMouseLeave={() => setActive(null)}
-  className={active === id ? "scale-105 shadow-glow" : ""}
->
-```
-
-#### Pattern 4: Click-to-Expand Details
-**When to use**: Decision frameworks, implementation paths, detailed comparisons
-
-**Example**: Slide 13 (slide-210-level4-iterative.tsx) - Implementation path selector
-
-**Why it works**:
-- Clean interface with deep exploration capability
-- Users can select and compare at own pace
-- Perfect for strategic decision-making
-- Shows pros/cons/best-for in organized way
-
-**Key techniques**:
-- onClick handler with toggle logic
-- Border and shadow changes on selection
-- Color-coded detail sections (green=advantages, orange=considerations)
-- Conditional rendering of expanded content
-
-#### Pattern 5: Mini POCs and Interactive Demos
-**When to use**: Teaching complex concepts, demonstrating cause and effect
-
-**Why it works**:
-- "Add use cases and watch coverage increase" > explaining in bullets
-- Executives learn by doing
-- Proves the concept works
-- Makes abstract ideas concrete
-
-**Key techniques**:
-- Real calculations based on user interaction
-- Visual feedback (numbers, progress bars, status messages)
-- Dynamic rendering with animations
-- Clear cause-and-effect relationships
+**Pattern Selection Decision Tree:**
+- Compare two scenarios? → Interactive Toggle/Comparison
+- Show process over time? → Canvas Animations
+- Present multiple options? → Hover-Reveal Cards
+- Require detailed comparison? → Click-to-Expand Details
+- Explain complex concept? → Mini POC/Interactive Demo
 
 ### 7.2 Background Animations
 
-For slides with interactive foreground content, enhance with subtle background animations:
+For slides with interactive foreground content, enhance with subtle background animations. Keep opacity very low (5-15%), use slow movement (10-20 second durations), and never compete with foreground interactivity.
 
-```tsx
-// Slowly rotating icon (20s duration)
-<RefreshCw className="absolute top-20 right-20 w-64 h-64 text-primary/10 animate-spin-slow" />
-
-// Pulsing glow effect
-<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-     w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-```
-
-**Rules**:
-- Keep opacity very low (5-15%)
-- Slow movement (10-20 second durations)
-- Never compete with foreground interactivity
-- Test that they don't distract from message
+See `ai_docs/INTERACTIVE_PATTERNS.md` for complete background animation patterns and examples.
 
 ### 7.3 Entrance Animations
 
@@ -824,22 +729,27 @@ className="w-full max-h-64 object-contain rounded-xl shadow-2xl"
 
 ## 11. Component Library Usage
 
+**AUTHORITATIVE REFERENCE:** `ai_docs/DESIGN_AESTHETICS.md` (Section "Component Variants" - lines 883-1095)
+
+**For complete component specifications including all custom variants (Badge has 6 variants, Card has 5 variants, Button has 7 variants), see the DESIGN_AESTHETICS.md reference above.**
+
 ### 11.1 shadcn/ui Components
-Current usage from existing slides:
+Common usage patterns from existing slides:
 
 #### Badge
 ```tsx
 import { Badge } from "@/components/ui/badge"
 ```
-- Variants: `outline` (primary), `default`, `secondary`
-- Custom classes for orange styling
+- **Common variants**: `outline`, `default`, `secondary`, `glow`, `gradient`, `brutal`
+- See DESIGN_AESTHETICS.md for complete variant specifications and use cases
 
 #### Card & CardContent
 ```tsx
 import { Card, CardContent } from "@/components/ui/card"
 ```
-- Main content container
-- Always use CardContent for proper padding
+- **Main content container** for slide sections
+- **Always use CardContent** for proper padding
+- See DESIGN_AESTHETICS.md for 5 custom variants (layered, glow, brutal, glass)
 
 #### Icons (lucide-react)
 ```tsx

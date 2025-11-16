@@ -23,15 +23,24 @@ Create a new plan in specs/*.md to implement the `Feature` using the exact speci
 
 Focus on the following files:
 - `README.md` - Contains the project overview and instructions.
-- `ai_docs/DESIGN_AESTHETICS.md` - **ESSENTIAL:** Complete design system documentation including brutalist-minimalism aesthetics, typography hierarchy (Bebas Neue, Syne, Manrope, JetBrains Mono), color palette (electric orange, neon cyan), animation patterns, component variants, and accessibility standards. Must be referenced for ALL design decisions.
-- `ai_docs/PRESENTATION_DESIGN_GUIDELINES.md` - **ESSENTIAL:** Comprehensive design guidelines extracted from existing presentations. Contains layout patterns, typography scales, color usage, spacing systems, component patterns, and quality checklists. Must be referenced for all slide planning.
-- `ai_docs/IMAGE_GENERATION_GUIDE.md` - **CRITICAL:** Style guide for AI-generated images. Must be referenced for all slide image planning.
+
+**Design Documentation (ai_docs/):**
+- `ai_docs/INTERACTIVE_PATTERNS.md` - **ESSENTIAL:** 5 preferred interactive patterns with complete implementations. READ FIRST for slide design.
+- `ai_docs/DESIGN_AESTHETICS.md` - **ESSENTIAL:** Complete design system (brutalist-minimalism, typography, colors, animations, component variants).
+- `ai_docs/ALGORITHMIC_COMPONENTS.md` - Canvas-based animation components (MeshGradient, ParticleField, decorative components).
+- `ai_docs/IMAGE_GENERATION_GUIDE.md` - **CRITICAL:** AI image generation workflow with 16 templates.
+- `ai_docs/PRESENTATION_DESIGN_GUIDELINES.md` - Layout patterns, quality checklists, typography scales.
+
+**Pattern Library:**
+- `ai_docs/components_inspiration/README.md` - Reusable slide patterns and components for adaptation.
+
+**Implementation Files:**
 - `generate-image.ts` - CLI tool for generating images using Gemini API.
 - `app/page.tsx` - Main presentation container with slide navigation.
 - `components/slide-*.tsx` - Individual slide components.
 - `components/ui/**` - Reusable UI primitives from shadcn/ui (Badge, Card, Button with custom variants).
-- `components/decorative/**` - Atmospheric components (GrainOverlay, GeometricPattern, GradientMesh).
-- `components/animations/**` - Animation utilities (StaggeredReveal, slide transitions).
+- `components/algorithmic/**` - Algorithmic animation components (MeshGradientBackground, ParticleField).
+- `components/decorative/**` - Decorative components (GrainOverlay, GeometricPattern).
 - `app/globals.css` - Design system implementation: colors, animations, shadows, patterns.
 
 Ignore all other files in the codebase.
@@ -102,16 +111,18 @@ Use as many h3 headers as needed to organize the tasks. Order matters, start wit
 IMPORTANT: If this feature involves creating or modifying presentation slides, complete this section. Otherwise, mark as "N/A".
 
 ### Image Generation Strategy
-IMPORTANT: Every slide should be visually supported by AI-generated images. Reference the ai_docs/IMAGE_GENERATION_GUIDE.md for complete style specifications.
+IMPORTANT: Every slide should have AI-generated BACKGROUND images at appropriate opacity to enhance visual appeal. Content can be fully interactive without additional images. Reference the ai_docs/IMAGE_GENERATION_GUIDE.md for complete style specifications.
 
-<plan the images needed for this slide:
-- Number of images: How many images will support this slide's narrative (typically 1-3)
-- Image subjects: What should each image depict?
-- Aspect ratios: Choose appropriate ratios (16:9 for hero, 1:1 for cards, 3:2 for balanced scenes)
+<plan the background images needed for this slide:
+- Number of images: Typically 1 background image per slide (16:9 aspect ratio)
+- Image subject: What should the background depict to fit the slide context?
+- Opacity & integration: Background images typically render at 10-20% opacity with mix-blend-multiply
 - Prompt drafts: Draft the generation prompts using the template from ai_docs/IMAGE_GENERATION_GUIDE.md
-- Integration points: Where in the slide layout will each image appear?
+- Content images (optional): Additional images for cards/content areas if needed (1:1 for cards, 3:2 for balanced scenes)
 
 REMEMBER:
+- Background images: Use 16:9 ratio, 10-20% opacity, mix-blend-multiply
+- Content can be fully interactive (canvas, React components) without additional images
 - All images must use the handwritten illustration style with orange color palette
 - Use the base prompt template: "A professional handwritten illustration of [SUBJECT], featuring warm orange tones (vibrant orange #F5A623, light orange, dark orange accents), with charcoal outlines and white/light gray backgrounds..."
 - Generate images using: `tsx generate-image.ts "[PROMPT]" --ratio [RATIO]`
@@ -139,6 +150,55 @@ REMEMBER:
 - Hover effects: Shadow, color changes, scale transforms
 - Transitions: Smooth state changes with transition-all
 - Pop-up logic: When/how elements appear (onClick, onHover, onScroll)>
+
+### Agent Groups for Parallel Implementation
+IMPORTANT: For modules with multiple slides (4+), organize slides into groups of 2-4 for parallel implementation by slide-generator agents. This enables efficient parallel processing while maintaining thematic coherence.
+
+<If this feature involves 4 or more slides, organize them into agent groups. Otherwise, mark as "N/A".
+
+Create groups following these principles:
+- **Group Size**: 2-4 related slides per group (optimal for parallelization + coherence)
+- **Topic Coherence**: Group slides by sub-topic or narrative flow
+
+For each group, specify:
+- Group identifier (e.g., "Group 1: Introduction & Context")
+- Slide IDs included (e.g., "01-hero, 02-definition, 03-why-it-matters")
+- Theme/topic that unifies the group
+- Assigned agent identifier (e.g., "slide-generator-1")
+
+NOTE: Skill selection (algorithmic-art vs artifacts-builder) is determined by slide-generator agents during implementation based on slide requirements.
+
+Example format:
+```markdown
+## Agent Groups
+
+### Group 1: Introduction & Context (3 slides)
+**Slides**: 01-hero, 02-definition, 03-why-it-matters
+**Theme**: Foundational concepts and motivation
+**Agent**: slide-generator-1
+
+### Group 2: Technical Architecture (4 slides)
+**Slides**: 04-architecture, 05-data-flow, 06-components, 07-integration
+**Theme**: System design and technical implementation
+**Agent**: slide-generator-2
+
+### Group 3: Use Cases & Examples (3 slides)
+**Slides**: 08-example-1, 09-example-2, 10-best-practices
+**Theme**: Practical applications
+**Agent**: slide-generator-3
+
+### Group 4: Summary & Next Steps (2 slides)
+**Slides**: 11-summary, 12-next-steps
+**Theme**: Conclusion and call-to-action
+**Agent**: slide-generator-4
+```
+
+**Consistency Requirements Across Each Group:**
+- Same color palette (e.g., all use #FF4D00 orange accents)
+- Same typography styles (e.g., all use Bebas Neue for titles)
+- Same animation timing (e.g., all use 200ms delay increments)
+- Shared components if applicable (e.g., custom ConceptCard component)
+>
 
 ### Color & Typography Usage
 <specify how the design system will be applied:
