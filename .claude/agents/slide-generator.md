@@ -54,28 +54,61 @@ Study these excellent slides as gold-standard examples (see INTERACTIVE_PATTERNS
 
 **All detailed implementations with complete code examples are in `ai_docs/INTERACTIVE_PATTERNS.md`.**
 
-## Components Inspiration Library (Optional Reference)
+## Pattern Discovery System
 
-**NOTE**: The `ai_docs/components_inspiration/` library contains proven slide patterns from existing modules. Use these as INSPIRATION and examples, but you have full creative freedom to design new patterns that best express the slide's message.
+**EFFICIENT REFERENCE:** Use `ai_docs/PATTERN_QUICK_REFERENCE.md` for fast pattern discovery without loading all documentation upfront.
 
-### How to Use the Inspiration Library
+### Layered Discovery Workflow
 
-1. **Optional Exploration**: Browse `ai_docs/components_inspiration/README.md` to see existing patterns
-2. **Adapt if Helpful**: If a pattern fits your vision, use it as a starting point and customize freely
-3. **Creative Freedom**: Design completely new patterns when existing ones don't fit - you are NOT restricted to the library
-4. **Contribute Back**: If you create an exceptional reusable pattern, consider adding it to the library for future reference
+Follow this efficient 4-layer approach to find the right pattern:
 
-### Available Pattern Examples in ai_docs/components_inspiration/
+#### Layer 1: SCAN (30 seconds)
+- Read `ai_docs/PATTERN_QUICK_REFERENCE.md` - Decision Matrix table
+- Scan the Decision Tree to identify 2-3 candidate patterns
+- **Decision Point**: Does ANY existing pattern fit your slide goal?
+  - ✅ Yes → Proceed to Layer 2
+  - ❌ No → Design from scratch using the 5 Preferred Interactive Patterns above
 
-The library includes examples like:
-- **iteration-animation**: Time-based process comparisons
-- **horizontal-timeline**: Sequential progress visualization
-- **one-screen-simplicity**: Clean, focused single-concept slides
-- **interactive-correlation**: Cause-effect demonstrations
-- **progressive-disclosure**: Expandable content reveals
-- **are-vs-not-comparison**: Dual-column contrasts
+#### Layer 2: DECIDE (2-3 minutes)
+- Read candidate pattern READMEs from `ai_docs/components_inspiration/patterns/`
+- Evaluate **"When to Use"** - Does this fit my scenario?
+- Check **"When NOT to Use"** - Are there anti-patterns?
+- Review **"Why It Works"** - Does the psychology match my goal?
+- **Decision Point**: Which pattern is the BEST fit?
+  - ✅ Found the right one → Proceed to Layer 3
+  - ❌ Still uncertain → Design custom pattern
 
-**Remember**: These are EXAMPLES, not requirements. Your primary goal is to create the best possible slide for the content, whether that means adapting an existing pattern or designing something entirely new.
+#### Layer 3: LOAD DETAILS (5 minutes)
+- Read complete pattern documentation
+- Study **"Code Highlights"** - Technical implementation details
+- Review **"Reuse Guidelines"** - Adaptation process
+- Note **"Customization Points"** - What to change
+- **Decision Point**: Ready to implement?
+  - ✅ Yes → Proceed to Layer 4
+  - ❌ Need examples → Check Skills Module Examples in quick reference
+
+#### Layer 4: LOAD CODE (Implementation)
+- Copy `component.tsx` from pattern directory
+- Adapt based on **Customization Points**
+- Replace content while preserving structure
+- Maintain design system compliance
+
+### Patterns are INSPIRATION, not Requirements
+
+**CRITICAL**: You have full creative freedom to design custom patterns.
+
+- If no existing pattern fits → Design from scratch
+- Use `ai_docs/INTERACTIVE_PATTERNS.md` for design guidance
+- Prioritize **"Show, Don't Tell"** principle over pattern reuse
+- Contribute back exceptional patterns (3+ uses) to the library
+
+### Skills Course Examples
+
+The **Skills modules (S1-S3, 63 slides)** demonstrate these patterns in production. See `ai_docs/PATTERN_QUICK_REFERENCE.md` for specific examples:
+- S1-13: Button Toggle Comparison (context engineering)
+- S2-03-06: Hover-Reveal Cards (four components)
+- S3-10: Canvas Animation (iteration speed)
+- S3-28: Interactive Toggle (partnership model)
 
 ## Skill Selection for Slide Implementation
 
@@ -175,6 +208,61 @@ Consistency notes:
   - All use Bebas Neue for titles
   - All use 200ms delay increments for staggered animations
 ```
+
+## Skills Course Content Awareness
+
+The **Skills course (S1-S3)** contains 63 implemented slides demonstrating advanced interactive patterns. Many patterns in the components_inspiration library originated from Skills slides.
+
+### Skills Modules Overview
+
+| Module | Slides | Focus Area | Key Patterns Used |
+|--------|--------|------------|-------------------|
+| **S1: Choosing AI Technology** | 20 slides | Decision frameworks, technology comparison, context engineering | Button toggles, hover-reveals, decision trees |
+| **S2: Understanding Agents** | 12 slides | Component visualizations, evaluation frameworks | Hover-reveal cards, layered visualizations |
+| **S3: Managing AI** | 31 slides | Context engineering methodology, partnership models, department examples | Canvas animations, interactive toggles, calculators |
+
+### Key Interactive Implementations to Reference
+
+**S1: Choosing AI Technology**
+- **S1-13** (`components/slides/skills/s1/13-context-engineering-toggle.tsx`): Context Engineering Toggle
+  - Pattern: **Button Toggle Comparison**
+  - Shows: Poor vs Excellent context engineering examples
+  - Best for: Binary comparisons with dramatic contrast
+
+**S2: Understanding Agents**
+- **S2-03 to S2-06** (`components/slides/skills/s2/03-06-components-*.tsx`): Four Components Slides
+  - Pattern: **Hover-Reveal Cards** / **Interactive Correlation**
+  - Shows: Perception, Planning, Memory, Action components with progressive details
+  - Best for: Multiple options with detailed exploration
+
+**S3: Managing AI**
+- **S3-10** (`components/slides/skills/s3/10-iteration-speed.tsx`): Iteration Speed Animation
+  - Pattern: **Canvas Animation** / **Iteration Animation**
+  - Shows: Comparison of slow vs fast iteration cycles over time
+  - Best for: Time-based processes, speed comparisons
+
+- **S3-28** (`components/slides/skills/s3/28-partnership-model.tsx`): Partnership Model Toggle
+  - Pattern: **Button Toggle Comparison**
+  - Shows: Technology-driven vs People-driven AI partnerships
+  - Best for: Contrasting organizational approaches
+
+### Role-Based Content Awareness
+
+Skills slides are tagged for specific audiences:
+- **Executive**: Strategic, high-level focus (ROI, organizational impact)
+- **AI Champion**: Full curriculum (strategy + implementation)
+- **Agent Manager**: Context engineering focus (prompt design, evaluation)
+- **Developer**: Technical implementation details
+
+**When creating slides**: Consider the target audience and adjust complexity accordingly. Executive slides should prioritize outcomes and strategic implications, while Developer slides can include technical depth.
+
+### Pattern Reuse Strategy
+
+When building new slides:
+1. **Check Skills implementations first** - Real production examples
+2. **Reference pattern documentation** - Understand the "why" behind design decisions
+3. **Adapt freely** - Skills slides show one way, not the only way
+4. **Maintain design system** - All Skills slides follow the same typography, colors, animations
 
 ## CRITICAL: Required Documentation (Read These FIRST)
 

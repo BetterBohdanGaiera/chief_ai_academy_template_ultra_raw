@@ -1,6 +1,12 @@
 # Components Inspiration Library
 
-**Purpose**: A curated collection of exceptional slide components and design patterns extracted from Foundation modules (F1 & F2), documented with rationale and reuse guidelines.
+**Purpose**: A curated collection of exceptional slide components and design patterns extracted from Foundation modules (F1 & F2) and Skills modules, documented with rationale and reuse guidelines.
+
+This library contains **13 proven patterns** and **6 reusable templates** organized into two complementary collections:
+- **Foundation Patterns** (6 patterns) - Layout, narrative, and structural patterns from F1/F2
+- **Interactive Patterns** (7 patterns) - Advanced interactive engagement patterns from Skills modules
+
+All patterns are located in `patterns/` directory.
 
 ---
 
@@ -9,6 +15,8 @@
 1. [Library Philosophy](#library-philosophy)
 2. [Quick Start](#quick-start)
 3. [Pattern Index](#pattern-index)
+   - [Foundation Patterns](#foundation-patterns-6-patterns)
+   - [Interactive Patterns](#interactive-patterns-7-patterns)
 4. [Template Index](#template-index)
 5. [Use Case Mapping](#use-case-mapping)
 6. [How to Use Patterns](#how-to-use-patterns)
@@ -71,11 +79,27 @@ When the slide-generator agent is assigned to create slides, it follows this wor
 
 ## Quick Start
 
+### Library Organization
+
+This library contains **two complementary collections** (all in `patterns/` directory):
+
+1. **Foundation Patterns** (6 patterns) - Layout, structure, and narrative
+2. **Interactive Patterns** (7 patterns) - Advanced interactivity and engagement
+
+Both collections share the same design system and can be freely mixed in your presentations.
+
 ### Finding a Pattern
 
+**Use Case**: "I need to demonstrate ROI with personalized numbers"
+1. Check [Use Case Mapping](#use-case-mapping) → "ROI/cost-benefit analysis"
+2. Recommended: `Real-Time Calculator` pattern
+3. Navigate to `patterns/realtime-calculator/`
+4. Review `README.md` for design rationale and usage
+5. Copy `component.tsx` and adapt for your content
+
 **Use Case**: "I need to teach a multi-step process"
-1. Check [Use Case Mapping](#use-case-mapping) → "Teaching a process"
-2. Recommended: `horizontal-timeline`, `iteration-animation`
+1. Check [Use Case Mapping](#use-case-mapping) → "Multi-step process"
+2. Recommended: `Horizontal Timeline`, `Iteration Animation` in `patterns/`
 3. Navigate to `patterns/horizontal-timeline/`
 4. Review `README.md` for design rationale and usage
 5. Copy `component.tsx` and adapt for your content
@@ -90,8 +114,13 @@ When the slide-generator agent is assigned to create slides, it follows this wor
 
 2. Copy the `component.tsx` file to your module:
    ```bash
+   # Foundation pattern example
    cp ai_docs/components_inspiration/patterns/horizontal-timeline/component.tsx \
       components/slides/M3/12-process-timeline.tsx
+
+   # Interactive pattern example
+   cp ai_docs/components_inspiration/patterns/realtime-calculator/component.tsx \
+      components/slides/M3/15-roi-calculator.tsx
    ```
 
 3. Modify content while preserving structure:
@@ -118,49 +147,84 @@ cp ai_docs/components_inspiration/templates/interactive-slide-template.tsx \
 
 ## Pattern Index
 
-### Layout & Structure Patterns
+### Foundation Patterns (6 patterns)
+
+**Location**: `patterns/` (top level)
+
+These patterns focus on layout, structure, narrative, and progressive disclosure extracted from Foundation modules (F1 & F2).
+
+#### Layout & Structure
 
 | Pattern | Source | Best For | Key Features |
 |---------|--------|----------|--------------|
 | [One-Screen Simplicity](patterns/one-screen-simplicity/) | F1-04 | Principle slides, core concepts | Minimalist single-screen layout, maximal clarity |
 | [Horizontal Timeline](patterns/horizontal-timeline/) | F1-11 | Process flows, step-by-step guides | Horizontal progression, numbered steps |
-| [Three Approaches](patterns/three-approaches/) | F1-15 | Decision frameworks, option comparison | Side-by-side comparison, visual parity |
 
-### Interactive & Animation Patterns
+#### Comparison & Decision
+
+| Pattern | Source | Best For | Key Features |
+|---------|--------|----------|--------------|
+| [ARE vs NOT Comparison](patterns/are-vs-not-comparison/) | F2-06 | Role clarification, definition slides | Dual-column contrast, clear boundaries |
+| [Interactive Correlation](patterns/interactive-correlation/) | F1-18 | Cause-effect relationships, data exploration | Interactive widget, dynamic feedback |
+
+#### Narrative & Animation
 
 | Pattern | Source | Best For | Key Features |
 |---------|--------|----------|--------------|
 | [Iteration Animation](patterns/iteration-animation/) | F1-13 | Time-based processes, speed comparisons | Canvas animation, iteration counters |
-| [Count + Graph](patterns/count-with-graph/) | F1-14 | Metrics over time, trend visualization | Dynamic counter, real-time chart |
-| [Interactive Correlation](patterns/interactive-correlation/) | F1-18 | Cause-effect relationships, data exploration | Interactive widget, dynamic feedback |
-| [Journey Assessment](patterns/journey-assessment/) | F1-16 | Self-assessment tools, personalized paths | User selection, conditional recommendations |
-
-### Comparison & Decision Patterns
-
-| Pattern | Source | Best For | Key Features |
-|---------|--------|----------|--------------|
-| [Yes/No Questions](patterns/yes-no-questions/) | F1-18 | Decision trees, qualification checks | Binary choice framework, progressive disclosure |
-| [ARE vs NOT Comparison](patterns/are-vs-not-comparison/) | F2-06 | Role clarification, definition slides | Dual-column contrast, clear boundaries |
-| [What Table](patterns/what-table/) | F2-08 | Structured comparisons, feature matrices | Organized table, visual hierarchy |
-
-### Narrative & Storytelling Patterns
-
-| Pattern | Source | Best For | Key Features |
-|---------|--------|----------|--------------|
-| [Retrospect/Transition](patterns/retrospect-transition/) | F2-02 | Module bridges, section transitions | Recap + preview, mental anchoring |
-| [Role-Playing Descriptions](patterns/role-playing-descriptions/) | F2-12-17 | Persona-based learning, relatable scenarios | Character-driven narrative, concrete examples |
-
-### Progressive Disclosure Patterns
-
-| Pattern | Source | Best For | Key Features |
-|---------|--------|----------|--------------|
 | [Progressive Disclosure](patterns/progressive-disclosure/) | F2-22 | Complex information, gradual detail reveal | Expandable sections, manage cognitive load |
+
+---
+
+### Interactive Patterns (7 patterns)
+
+**Location**: `patterns/` (same directory as Foundation patterns)
+
+Advanced interactive patterns demonstrating the "Show, Don't Tell" principle. These patterns enable active learning through user control, real-time feedback, and progressive revelation.
+
+**Decision Tree for Interactive Patterns**:
+1. **Comparing two scenarios?** → [Button Toggle Comparison](#button-toggle-comparison)
+2. **Showing process over time?** → [Scrubber Metrics Timeline](#scrubber-metrics-timeline)
+3. **Demonstrating economic impact?** → [Real-Time Calculator](#real-time-calculator)
+4. **Teaching complex concept progressively?** → [Incremental Prototype](#incremental-prototype)
+5. **Testing understanding informally?** → [Knowledge Test Poll](#knowledge-test-poll)
+6. **Formal assessment needed?** → [Formal Quiz](#formal-quiz)
+7. **Showing conceptual evolution?** → [Layered Evolution](#layered-evolution)
+
+#### User Control Patterns
+
+| Pattern | Source | Best For | Key Features |
+|---------|--------|----------|--------------|
+| [Button Toggle Comparison](patterns/button-toggle-comparison/) | Slide-103 | Contrasting scenarios, before/after, poor vs excellent | Toggle between 2-3 options, cognitive contrast, active learning |
+| [Scrubber Metrics Timeline](patterns/scrubber-metrics-timeline/) | Slide-210 | Progress over time, correlation visualization | Timeline scrubber, multiple synchronized metrics |
+
+#### Real-Time Feedback Patterns
+
+| Pattern | Source | Best For | Key Features |
+|---------|--------|----------|--------------|
+| [Real-Time Calculator](patterns/realtime-calculator/) | Slide-211 | ROI calculation, cost/benefit analysis | Live calculations, personalized results, sliders/inputs |
+| [Incremental Prototype](patterns/incremental-prototype/) | Slide-212 | Complex concepts, cumulative capability | Progressive inputs, coverage expansion, scaffolding |
+
+#### Assessment Patterns
+
+| Pattern | Source | Best For | Key Features |
+|---------|--------|----------|--------------|
+| [Knowledge Test Poll](patterns/knowledge-test-poll/) | Slide-213 | Informal concept verification, active recall | Single question, immediate feedback, formative assessment |
+| [Formal Quiz](patterns/formal-quiz/) | Slide-308 | End-of-module assessment, certification | Multiple questions, scoring, results summary |
+
+#### Progressive Disclosure Patterns
+
+| Pattern | Source | Best For | Key Features |
+|---------|--------|----------|--------------|
+| [Layered Evolution](patterns/layered-evolution/) | Slide-3b06 | Maturity models, conceptual hierarchy | Click-to-reveal layers, visual stacking, progressive depth |
 
 ---
 
 ## Template Index
 
-Reusable templates for common slide architectures:
+Reusable templates for common slide architectures (6 templates merged from Foundation and Interactive collections):
+
+### Foundation Templates
 
 | Template | Purpose | Includes |
 |----------|---------|----------|
@@ -168,43 +232,65 @@ Reusable templates for common slide architectures:
 | [comparison-slide-template.tsx](templates/comparison-slide-template.tsx) | Side-by-side comparisons | Two-column grid, visual parity, contrast |
 | [story-slide-template.tsx](templates/story-slide-template.tsx) | Character-driven narratives | Persona cards, timeline, outcomes |
 
+### Interactive Templates
+
+| Template | Purpose | Includes |
+|----------|---------|----------|
+| [calculator-template.tsx](templates/calculator-template.tsx) | Real-time calculators with live results | Input controls (sliders, number fields), calculation hooks, currency/percentage formatting |
+| [interactive-comparison-template.tsx](templates/interactive-comparison-template.tsx) | Button-toggle comparisons (2-3 options) | Configurable options array, automatic button rendering, content slot system |
+| [quiz-template.tsx](templates/quiz-template.tsx) | Quizzes and knowledge tests | Question array configuration, answer tracking, score calculation, results display |
+
 ---
 
 ## Use Case Mapping
 
-**Quick reference**: Map your slide goal to recommended patterns
+**Quick reference**: Map your slide goal to recommended patterns from both collections
 
 ### Teaching a Concept
 
-| Scenario | Recommended Patterns |
-|----------|---------------------|
-| Abstract principle | One-Screen Simplicity |
-| Multi-step process | Horizontal Timeline, Iteration Animation |
-| Cause-and-effect | Interactive Correlation, Count + Graph |
-| Definition clarification | ARE vs NOT Comparison |
+| Scenario | Recommended Patterns | Type |
+|----------|---------------------|------|
+| Abstract principle | One-Screen Simplicity | Foundation |
+| Multi-step process | Horizontal Timeline, Iteration Animation | Foundation |
+| Complex concept progressively | Incremental Prototype | Interactive |
+| Cause-and-effect | Interactive Correlation | Foundation |
+| Definition clarification | ARE vs NOT Comparison | Foundation |
+| Conceptual evolution/maturity | Layered Evolution | Interactive |
 
-### Enabling Decision-Making
+### Enabling Decision-Making & Comparison
 
-| Scenario | Recommended Patterns |
-|----------|---------------------|
-| Binary choices | Yes/No Questions |
-| Multiple options | Three Approaches, What Table |
-| Personalized paths | Journey Assessment |
+| Scenario | Recommended Patterns | Type |
+|----------|---------------------|------|
+| Contrasting scenarios (before/after) | Button Toggle Comparison | Interactive |
+| Execution quality comparison | Button Toggle Comparison | Interactive |
+| Side-by-side comparisons | ARE vs NOT Comparison | Foundation |
 
-### Building Engagement
+### Building Engagement & Interactivity
 
-| Scenario | Recommended Patterns |
-|----------|---------------------|
-| Interactive exploration | Interactive Correlation, Progressive Disclosure |
-| Relatable stories | Role-Playing Descriptions |
-| Dynamic demonstrations | Iteration Animation, Count + Graph |
+| Scenario | Recommended Patterns | Type |
+|----------|---------------------|------|
+| Interactive exploration | Interactive Correlation, Progressive Disclosure | Foundation |
+| Progress over time visualization | Scrubber Metrics Timeline | Interactive |
+| Economic impact demonstration | Real-Time Calculator | Interactive |
+| ROI/cost-benefit analysis | Real-Time Calculator | Interactive |
+| Dynamic demonstrations | Iteration Animation | Foundation |
 
-### Transitions & Flow
+### Assessment & Validation
 
-| Scenario | Recommended Patterns |
-|----------|---------------------|
-| Section bridges | Retrospect/Transition |
-| Complexity management | Progressive Disclosure |
+| Scenario | Recommended Patterns | Type |
+|----------|---------------------|------|
+| Informal understanding check | Knowledge Test Poll | Interactive |
+| Formal end-of-module assessment | Formal Quiz | Interactive |
+| Active recall practice | Knowledge Test Poll | Interactive |
+| Certification validation | Formal Quiz | Interactive |
+
+### Transitions & Progressive Disclosure
+
+| Scenario | Recommended Patterns | Type |
+|----------|---------------------|------|
+| Complexity management | Progressive Disclosure | Foundation |
+| Scaffolded learning | Incremental Prototype | Interactive |
+| Hierarchical concepts | Layered Evolution | Interactive |
 
 ---
 
@@ -275,17 +361,24 @@ Add a new pattern when:
 
 ### How to Add a Pattern
 
-1. **Create Pattern Directory**
+1. **Decide Pattern Type**
+   - **Foundation pattern** - Layout, structure, narrative patterns (e.g., One-Screen Simplicity)
+   - **Interactive pattern** - Advanced interactivity, engagement patterns (e.g., Button Toggle)
+
+   Note: All patterns are stored in the same `patterns/` directory regardless of type.
+
+2. **Create Pattern Directory**
    ```bash
+   # All patterns go in the same directory
    mkdir -p ai_docs/components_inspiration/patterns/new-pattern-name
    ```
 
-2. **Extract Component**
+3. **Extract Component**
    - Copy original slide component to `component.tsx`
    - Generalize: Remove module-specific content
    - Add comments explaining key sections
 
-3. **Document Pattern**
+4. **Document Pattern**
    - Create `README.md` using template below
    - Explain why it works (psychology, UX)
    - Define when to use (scenarios)
@@ -293,7 +386,7 @@ Add a new pattern when:
    - Highlight important code
    - Provide reuse guidelines with examples
 
-4. **Update Master README**
+5. **Update Master README**
    - Add to appropriate table in [Pattern Index](#pattern-index)
    - Add to [Use Case Mapping](#use-case-mapping)
 
@@ -356,11 +449,19 @@ Major pattern updates should be documented in a changelog within the pattern's R
 
 ### Cross-Module Reuse
 
-Patterns were extracted from Foundation modules (F1 & F2) but are designed for use in:
-- Skills modules (S1, S2, S3)
-- Future courses
-- Different learning paths
+Patterns were extracted from Foundation (F1 & F2) and Skills modules but are designed for universal use in:
+- All course modules (Foundation, Skills, future courses)
+- Different learning paths (Executive, AI Champion, Agent Manager, Developer)
 - Standalone presentations
+- Custom educational content
+
+### Library Consolidation (December 2024)
+
+This library consolidates two previously separate pattern collections:
+- **Foundation Patterns** (6 patterns): Layout, structure, and narrative patterns from F1/F2 modules
+- **Interactive Patterns** (7 patterns): Advanced interactive engagement patterns from Skills modules
+
+Both collections are maintained together in the same `patterns/` directory, sharing the same design system and documentation standards.
 
 ---
 
@@ -369,10 +470,15 @@ Patterns were extracted from Foundation modules (F1 & F2) but are designed for u
 - **Design System**: `ai_docs/DESIGN_AESTHETICS.md`
 - **Layout Guidelines**: `ai_docs/PRESENTATION_DESIGN_GUIDELINES.md`
 - **Image Generation**: `ai_docs/IMAGE_GENERATION_GUIDE.md`
-- **Original Slides**: `components/slides/F1/` and `components/slides/F2/`
+- **Interactive Patterns Guide**: `ai_docs/INTERACTIVE_PATTERNS.md`
+- **Pattern Catalog**: `patterns/INDEX.md` (detailed interactive pattern reference)
+- **Quick Reference**: `ai_docs/PATTERN_QUICK_REFERENCE.md` (fast pattern discovery)
 
 ---
 
 **Created**: December 2024
+**Consolidated**: December 2024
 **Maintained by**: Chief AI Academy Design Team
-**Version**: 1.0
+**Version**: 2.0 (Consolidated)
+**Total Patterns**: 13 (6 Foundation + 7 Interactive)
+**Total Templates**: 6 (3 Foundation + 3 Interactive)
