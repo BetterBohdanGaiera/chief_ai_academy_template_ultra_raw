@@ -1,130 +1,193 @@
 "use client"
 
-import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { GrainOverlay } from "@/components/decorative/grain-overlay"
-import { User, Briefcase, Wrench, Zap, Brain } from "lucide-react"
+import { GeometricPattern } from "@/components/decorative/geometric-patterns"
+import { User, Blocks, Workflow, RefreshCw, Bot } from "lucide-react"
+import Image from "next/image"
 
-export default function F1LevelsOverview() {
-  const [activeLevel, setActiveLevel] = useState<string | null>(null)
-
+export default function F1LevelsOverviewSlide() {
   const levels = [
     {
-      id: "level1",
-      number: "1",
+      number: 1,
       title: "Individual AI",
       icon: User,
-      color: "border-gray-500",
-      glowColor: "shadow-[0_0_30px_rgba(107,114,128,0.3)]",
-      description: "People use ChatGPT, Claude individually. No knowledge sharing.",
-      impact: "Limited, fragmented"
+      color: "muted-foreground",
+      description: "ChatGPT, Claude",
+      characteristics: ["Personal use", "No integration", "$0-20/month"],
+      emphasis: false
     },
     {
-      id: "level2",
-      number: "2",
+      number: 2,
       title: "Generic SaaS",
-      icon: Briefcase,
-      color: "border-blue-500",
-      glowColor: "shadow-[0_0_30px_rgba(59,130,246,0.3)]",
-      description: "Pre-built AI tools (Jasper, Copy.ai). Generic, not customized.",
-      impact: "Quick start, limited fit"
+      icon: Blocks,
+      color: "muted-foreground",
+      description: "Pre-built tools",
+      characteristics: ["Department level", "Shallow integration", "$50-200/month"],
+      emphasis: false
     },
     {
-      id: "level3",
-      number: "3",
-      title: "No-Code Automation",
-      icon: Wrench,
-      color: "border-red-500",
-      glowColor: "shadow-[0_0_30px_rgba(239,68,68,0.3)]",
-      description: "Zapier, Make.com. Slow iteration = THE TRAP. Negative ROI.",
-      impact: "Dangerous trap zone"
+      number: 3,
+      title: "No-Code Trap",
+      icon: Workflow,
+      color: "warning",
+      description: "Zapier, Make.com",
+      characteristics: ["Slow iteration", "External dependency", "Negative ROI"],
+      emphasis: true,
+      trap: true
     },
     {
-      id: "level4",
-      number: "4",
+      number: 4,
       title: "Iterative Agents",
-      icon: Zap,
-      color: "border-primary",
-      glowColor: "shadow-[0_0_30px_rgba(255,77,0,0.3)]",
-      description: "Fast iteration (1-3 cycles/day). Connected to your systems. Where transformation starts.",
-      impact: "300-600% ROI"
+      icon: RefreshCw,
+      color: "primary",
+      description: "Custom solutions",
+      characteristics: ["Rapid iteration", "Internal team", "300-600% ROI"],
+      emphasis: true,
+      transformation: true
     },
     {
-      id: "level5",
-      number: "5",
-      title: "Autonomous Agents",
-      icon: Brain,
-      color: "border-cyan-500",
-      glowColor: "shadow-[0_0_30px_rgba(0,187,255,0.3)]",
-      description: "Fully autonomous, multi-agent systems. Self-improving workflows.",
-      impact: "Maximum automation"
+      number: 5,
+      title: "Autonomous",
+      icon: Bot,
+      color: "cyan-500",
+      description: "Full automation",
+      characteristics: ["Multi-agent", "Minimal oversight", "Strategic advantage"],
+      emphasis: false,
+      future: true
     }
   ]
 
   return (
-    <section className="min-h-screen flex items-center justify-center p-8 lg:p-16 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center p-8 lg:p-12 relative overflow-hidden">
+      {/* Background with levels overview image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/generated-images/gemini-1763332969401-1.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-8 select-none pointer-events-none mix-blend-multiply"
+          aria-hidden="true"
+        />
+      </div>
+
+      <GeometricPattern type="grid" opacity={0.06} color="#0A0A0A" />
       <GrainOverlay opacity={0.15} />
 
-      <div className="relative z-10 max-w-7xl w-full space-y-12">
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl w-full space-y-10">
         {/* Header */}
-        <div className="text-center space-y-4 animate-fade-in">
-          <Badge variant="gradient">The 5 Levels Framework</Badge>
-          <h2 className="text-5xl md:text-6xl font-bebas">
-            THE COMPLETE <span className="text-primary">ROADMAP</span>
+        <div className="text-center space-y-4 animate-slide-in-down">
+          <Badge variant="outline" className="border-primary text-primary">
+            Foundation Module 1
+          </Badge>
+          <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none tracking-tight">
+            THE 5 LEVELS
           </h2>
-          <p className="text-xl text-foreground/70">
-            Hover over each level to explore details
+          <p className="font-syne font-bold text-xl md:text-2xl lg:text-3xl text-primary/80 max-w-4xl mx-auto">
+            Most stuck at 1-3. Transformation happens at 4-5.
           </p>
         </div>
 
-        {/* Levels Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          {levels.map((level, idx) => {
+        {/* 5-Column Level Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
+          {levels.map((level, index) => {
             const Icon = level.icon
-            const isActive = activeLevel === level.id
+            const baseDelay = 200 + (index * 100)
 
             return (
               <Card
-                key={level.id}
+                key={level.number}
                 className={`
-                  transition-all duration-300 cursor-pointer relative
-                  ${isActive
-                    ? `scale-105 ${level.color} ${level.glowColor}`
-                    : "border-border hover:scale-102 hover:border-primary/50"
+                  transition-all duration-600 hover:scale-105 hover:shadow-xl
+                  animate-fade-in delay-${baseDelay} fill-backwards
+                  ${level.trap
+                    ? 'border-warning bg-gradient-to-br from-warning/20 to-warning/10'
+                    : level.transformation
+                    ? 'border-primary/60 bg-gradient-to-br from-primary/15 to-primary/5 shadow-glow'
+                    : level.future
+                    ? 'border-cyan-500/40 bg-gradient-to-br from-cyan-500/10 to-cyan-500/5'
+                    : 'border-border/50 bg-muted/20'
                   }
-                  animate-fade-in delay-${idx * 100 + 300} fill-backwards
                 `}
-                onMouseEnter={() => setActiveLevel(level.id)}
-                onMouseLeave={() => setActiveLevel(null)}
+                style={{ animationDelay: `${baseDelay}ms` }}
               >
-                <CardContent className="pt-6 space-y-3">
+                <CardContent className="p-5 space-y-4 h-full flex flex-col">
                   {/* Level Number Badge */}
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <div className={`bg-primary text-primary-foreground rounded-full h-10 w-10 flex items-center justify-center text-lg font-bold shadow-lg ${isActive ? 'scale-110' : ''} transition-transform`}>
+                  <div className="flex items-center justify-between">
+                    <div
+                      className={`
+                        w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold
+                        ${level.trap
+                          ? 'bg-warning/30 text-warning'
+                          : level.transformation
+                          ? 'bg-primary/30 text-primary'
+                          : level.future
+                          ? 'bg-cyan-500/30 text-cyan-500'
+                          : 'bg-muted text-muted-foreground'
+                        }
+                      `}
+                    >
                       {level.number}
                     </div>
-                  </div>
-
-                  {/* Icon */}
-                  <div className={`flex justify-center pt-4`}>
-                    <Icon className={`h-8 w-8 ${isActive ? 'text-primary' : 'text-foreground/60'} transition-colors`} />
+                    <Icon
+                      className={`
+                        h-6 w-6
+                        ${level.trap
+                          ? 'text-warning'
+                          : level.transformation
+                          ? 'text-primary'
+                          : level.future
+                          ? 'text-cyan-500'
+                          : 'text-muted-foreground'
+                        }
+                      `}
+                    />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-base font-bold text-center min-h-[2.5rem] flex items-center justify-center">
-                    {level.title}
-                  </h3>
+                  <div className="space-y-1 flex-grow">
+                    <h3 className="font-syne font-bold text-lg md:text-xl leading-tight">
+                      {level.title}
+                    </h3>
+                    <p className={`
+                      text-sm font-medium
+                      ${level.trap
+                        ? 'text-warning'
+                        : level.transformation
+                        ? 'text-primary'
+                        : level.future
+                        ? 'text-cyan-500'
+                        : 'text-muted-foreground'
+                      }
+                    `}>
+                      {level.description}
+                    </p>
+                  </div>
 
-                  {/* Expanded Details */}
-                  {isActive && (
-                    <div className="space-y-2 animate-fade-in pt-2 border-t border-border">
-                      <p className="text-xs text-foreground/80 text-center">
-                        {level.description}
+                  {/* Characteristics */}
+                  <div className="space-y-2 border-t border-border/30 pt-3">
+                    {level.characteristics.map((char, idx) => (
+                      <p
+                        key={idx}
+                        className="text-xs text-foreground/70 leading-snug"
+                      >
+                        • {char}
                       </p>
-                      <p className="text-xs font-semibold text-primary text-center">
-                        {level.impact}
-                      </p>
+                    ))}
+                  </div>
+
+                  {/* Special markers */}
+                  {level.trap && (
+                    <div className="bg-warning/20 border border-warning/40 rounded px-2 py-1 text-center">
+                      <span className="text-xs font-bold text-warning uppercase">⚠ Trap</span>
+                    </div>
+                  )}
+                  {level.transformation && (
+                    <div className="bg-primary/20 border border-primary/40 rounded px-2 py-1 text-center">
+                      <span className="text-xs font-bold text-primary uppercase">★ Transform</span>
                     </div>
                   )}
                 </CardContent>
@@ -133,14 +196,18 @@ export default function F1LevelsOverview() {
           })}
         </div>
 
-        {/* Key Insight */}
-        <Card className="bg-primary/5 border-primary/20 animate-fade-in delay-1000 fill-backwards">
-          <CardContent className="pt-4">
-            <p className="text-sm md:text-base text-center">
-              <span className="font-semibold text-primary">Key Insight:</span> Most companies are stuck at Levels 1-3. Transformation happens at Levels 4-5.
+        {/* Bottom Insight */}
+        <div className="max-w-5xl mx-auto animate-fade-in delay-700 fill-backwards">
+          <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/30 rounded-lg p-6 text-center">
+            <p className="font-syne font-bold text-lg md:text-xl text-foreground">
+              <span className="text-muted-foreground">Most organizations are at Levels 1-3.</span>
+              {" "}
+              <span className="text-primary">Real transformation starts at Level 4</span>
+              {" "}
+              <span className="text-muted-foreground">where rapid iteration changes everything.</span>
             </p>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </section>
   )

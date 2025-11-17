@@ -2,14 +2,14 @@
  * Slide registry configuration
  * Maps slide IDs to components and metadata
  *
- * Contains all 78 production slides across 5 modules plus 3 mock slides
+ * Contains all 81 production slides across 5 modules plus 3 mock slides
  */
 
 import { type SlideRegistry } from '@/types/courses'
 
 /**
  * Complete slide registry
- * - F1: Five Levels Framework (18 slides)
+ * - F1: Five Levels Framework (21 slides)
  * - F2: Organization Structure (16 slides)
  * - S1: Choosing AI Technology (14 slides)
  * - S2: Understanding Agents (11 slides)
@@ -18,7 +18,7 @@ import { type SlideRegistry } from '@/types/courses'
  */
 export const slideRegistry: SlideRegistry = {
   // ============================================
-  // F1: FIVE LEVELS FRAMEWORK (18 slides)
+  // F1: FIVE LEVELS FRAMEWORK (21 slides)
   // ============================================
   'f1-01-title': {
     slide: {
@@ -80,106 +80,142 @@ export const slideRegistry: SlideRegistry = {
     },
     loader: () => import('@/components/slides/f1/05-f1-level2-saas')
   },
-  'f1-06-level3-trap': {
+  'f1-06-level3-promise': {
     slide: {
-      id: 'f1-06-level3-trap',
-      component: () => import('@/components/slides/f1/06-f1-level3-trap'),
+      id: 'f1-06-level3-promise',
+      component: () => import('@/components/slides/f1/06-f1-level3-promise'),
+      module: 'f1',
+      title: 'Level 3: The Promise',
+      tags: ['level-detail', 'executive', 'champion'],
+      duration: 2,
+      notes: 'The appealing sales pitch of no-code automation tools'
+    },
+    loader: () => import('@/components/slides/f1/06-f1-level3-promise')
+  },
+  'f1-07-level3-trap': {
+    slide: {
+      id: 'f1-07-level3-trap',
+      component: () => import('@/components/slides/f1/07-f1-level3-trap'),
       module: 'f1',
       title: 'Level 3: The Trap',
       tags: ['level-detail', 'interactive', 'critical', 'executive', 'champion'],
       duration: 3,
       notes: 'Interactive toggle showing promise vs reality of no-code automation'
     },
-    loader: () => import('@/components/slides/f1/06-f1-level3-trap')
+    loader: () => import('@/components/slides/f1/07-f1-level3-trap')
   },
-  'f1-07-level3-failure': {
+  'f1-08-level3-failure': {
     slide: {
-      id: 'f1-07-level3-failure',
-      component: () => import('@/components/slides/f1/07-f1-level3-failure'),
+      id: 'f1-08-level3-failure',
+      component: () => import('@/components/slides/f1/08-f1-level3-failure'),
       module: 'f1',
       title: 'Level 3: Full Failure Story',
       tags: ['level-detail', 'warning', 'executive', 'champion'],
       duration: 3,
       notes: 'Timeline of Level 3 failure and organizational consequences'
     },
-    loader: () => import('@/components/slides/f1/07-f1-level3-failure')
+    loader: () => import('@/components/slides/f1/08-f1-level3-failure')
   },
-  'f1-08-iteration-economics': {
+  'f1-09-iteration-economics': {
     slide: {
-      id: 'f1-08-iteration-economics',
-      component: () => import('@/components/slides/f1/08-f1-iteration-economics'),
+      id: 'f1-09-iteration-economics',
+      component: () => import('@/components/slides/f1/09-f1-iteration-economics'),
       module: 'f1',
       title: 'Iteration Economics',
       tags: ['data-viz', 'critical', 'executive', 'champion', 'manager', 'developer'],
       duration: 3,
       notes: 'Recharts visualization showing why 20 iterations matter'
     },
-    loader: () => import('@/components/slides/f1/08-f1-iteration-economics')
+    loader: () => import('@/components/slides/f1/09-f1-iteration-economics')
   },
-  'f1-09-level4-iterative': {
+  'f1-10-transition-critical': {
     slide: {
-      id: 'f1-09-level4-iterative',
-      component: () => import('@/components/slides/f1/09-f1-level4-iterative'),
+      id: 'f1-10-transition-critical',
+      component: () => import('@/components/slides/f1/10-f1-transition-critical'),
+      module: 'f1',
+      title: 'Critical Transition Point',
+      tags: ['concept', 'critical', 'executive', 'champion'],
+      duration: 2,
+      notes: 'Why the jump from L3 to L4 changes everything'
+    },
+    loader: () => import('@/components/slides/f1/10-f1-transition-critical')
+  },
+  'f1-11-level4-iterative': {
+    slide: {
+      id: 'f1-11-level4-iterative',
+      component: () => import('@/components/slides/f1/11-f1-level4-iterative'),
       module: 'f1',
       title: 'Level 4: Iterative Agents',
       tags: ['level-detail', 'critical', 'all-roles'],
       duration: 3,
       notes: 'How transformation actually works - rapid iteration'
     },
-    loader: () => import('@/components/slides/f1/09-f1-level4-iterative')
+    loader: () => import('@/components/slides/f1/11-f1-level4-iterative')
   },
-  'f1-10-level5-autonomous': {
+  'f1-12-level4-vs-level3-economics': {
     slide: {
-      id: 'f1-10-level5-autonomous',
-      component: () => import('@/components/slides/f1/10-f1-level5-autonomous'),
+      id: 'f1-12-level4-vs-level3-economics',
+      component: () => import('@/components/slides/f1/12-f1-level4-vs-level3-economics'),
+      module: 'f1',
+      title: 'L4 vs L3: Economic Comparison',
+      tags: ['data-viz', 'critical', 'executive', 'champion'],
+      duration: 3,
+      notes: 'Side-by-side comparison showing why L4 wins economically'
+    },
+    loader: () => import('@/components/slides/f1/12-f1-level4-vs-level3-economics')
+  },
+  'f1-13-level5-autonomous': {
+    slide: {
+      id: 'f1-13-level5-autonomous',
+      component: () => import('@/components/slides/f1/13-f1-level5-autonomous'),
       module: 'f1',
       title: 'Level 5: Autonomous Agents',
       tags: ['level-detail', 'advanced', 'executive', 'champion'],
       duration: 2,
       notes: 'Full automation - multi-agent systems'
     },
-    loader: () => import('@/components/slides/f1/10-f1-level5-autonomous')
+    loader: () => import('@/components/slides/f1/13-f1-level5-autonomous')
   },
-  'f1-11-transition-l1-l2': {
+  'f1-14-transition-l1-l2': {
     slide: {
-      id: 'f1-11-transition-l1-l2',
-      component: () => import('@/components/slides/f1/11-f1-transition-l1-l2'),
+      id: 'f1-14-transition-l1-l2',
+      component: () => import('@/components/slides/f1/14-f1-transition-l1-l2'),
       module: 'f1',
       title: 'Transition: L1-L2 to L4',
       tags: ['roadmap', 'actionable', 'champion', 'manager'],
       duration: 3,
       notes: '90-day roadmap from individual AI to Level 4'
     },
-    loader: () => import('@/components/slides/f1/11-f1-transition-l1-l2')
+    loader: () => import('@/components/slides/f1/14-f1-transition-l1-l2')
   },
-  'f1-12-transition-l3-escape': {
+  'f1-15-transition-l3-escape': {
     slide: {
-      id: 'f1-12-transition-l3-escape',
-      component: () => import('@/components/slides/f1/12-f1-transition-l3-escape'),
+      id: 'f1-15-transition-l3-escape',
+      component: () => import('@/components/slides/f1/15-f1-transition-l3-escape'),
       module: 'f1',
       title: 'Escape the L3 Trap',
       tags: ['roadmap', 'actionable', 'critical', 'executive', 'champion'],
       duration: 3,
       notes: 'Diagnosis checklist and escape plan for Level 3 failures'
     },
-    loader: () => import('@/components/slides/f1/12-f1-transition-l3-escape')
+    loader: () => import('@/components/slides/f1/15-f1-transition-l3-escape')
   },
-  'f1-13-decision-tree': {
+  'f1-16-decision-tree': {
     slide: {
-      id: 'f1-13-decision-tree',
-      component: () => import('@/components/slides/f1/13-f1-decision-tree'),
+      id: 'f1-16-decision-tree',
+      component: () => import('@/components/slides/f1/16-f1-decision-tree'),
       module: 'f1',
       title: 'First Action Decision Tree',
       tags: ['interactive', 'decision-framework', 'actionable', 'champion', 'manager'],
       duration: 3,
       notes: 'Click-to-expand 4-question decision framework'
     },
-    loader: () => import('@/components/slides/f1/13-f1-decision-tree')
+    loader: () => import('@/components/slides/f1/16-f1-decision-tree')
   },
-  'f1-14-l4-optimization': {
+  'f1-17-l4-optimization': {
     slide: {
-      id: 'f1-14-l4-optimization',
-      component: () => import('@/components/slides/f1/14-f1-l4-optimization'),
+      id: 'f1-17-l4-optimization',
+      component: () => import('@/components/slides/f1/17-f1-l4-optimization'),
       module: 'f1',
       title: 'L4 Optimization Checklist',
       tags: ['actionable', 'champion', 'manager', 'developer'],
@@ -188,53 +224,53 @@ export const slideRegistry: SlideRegistry = {
     },
     loader: () => import('@/components/slides/f1/14-f1-l4-optimization')
   },
-  'f1-15-self-assessment': {
+  'f1-18-self-assessment': {
     slide: {
-      id: 'f1-15-self-assessment',
-      component: () => import('@/components/slides/f1/15-f1-self-assessment'),
+      id: 'f1-18-self-assessment',
+      component: () => import('@/components/slides/f1/18-f1-self-assessment'),
       module: 'f1',
       title: 'Self-Assessment',
       tags: ['interactive', 'assessment', 'all-roles'],
       duration: 5,
       notes: 'Interactive 6-dimension rating system with calculated results'
     },
-    loader: () => import('@/components/slides/f1/15-f1-self-assessment')
+    loader: () => import('@/components/slides/f1/18-f1-self-assessment')
   },
-  'f1-16-quiz': {
+  'f1-19-quiz': {
     slide: {
-      id: 'f1-16-quiz',
-      component: () => import('@/components/slides/f1/16-f1-quiz'),
+      id: 'f1-19-quiz',
+      component: () => import('@/components/slides/f1/19-f1-quiz'),
       module: 'f1',
       title: 'Knowledge Check',
       tags: ['interactive', 'quiz', 'all-roles'],
       duration: 5,
       notes: '5-question quiz with 80% passing threshold'
     },
-    loader: () => import('@/components/slides/f1/16-f1-quiz')
+    loader: () => import('@/components/slides/f1/19-f1-quiz')
   },
-  'f1-17-summary': {
+  'f1-20-summary': {
     slide: {
-      id: 'f1-17-summary',
-      component: () => import('@/components/slides/f1/17-f1-summary'),
+      id: 'f1-20-summary',
+      component: () => import('@/components/slides/f1/20-f1-summary'),
       module: 'f1',
       title: 'Module Summary',
       tags: ['summary', 'all-roles'],
       duration: 2,
       notes: 'Key takeaways with numbered circular badges'
     },
-    loader: () => import('@/components/slides/f1/17-f1-summary')
+    loader: () => import('@/components/slides/f1/20-f1-summary')
   },
-  'f1-18-whats-next': {
+  'f1-21-whats-next': {
     slide: {
-      id: 'f1-18-whats-next',
-      component: () => import('@/components/slides/f1/18-f1-whats-next'),
+      id: 'f1-21-whats-next',
+      component: () => import('@/components/slides/f1/21-f1-whats-next'),
       module: 'f1',
       title: 'What\'s Next',
       tags: ['next-steps', 'all-roles'],
       duration: 1,
       notes: 'Role-based next steps and recommendations'
     },
-    loader: () => import('@/components/slides/f1/18-f1-whats-next')
+    loader: () => import('@/components/slides/f1/21-f1-whats-next')
   },
 
   // ============================================
