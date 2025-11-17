@@ -27,40 +27,40 @@ const moduleMetadata: Record<string, ModuleInfo> = {
     id: 'f1',
     title: 'Five Levels Framework',
     description: 'Understanding the 5 levels of AI adoption and avoiding the Level 3 trap',
-    slideCount: 18,
-    duration: 20,
+    slideCount: 2,
+    duration: 3,
     slug: '/modules/f1'
   },
   f2: {
     id: 'f2',
     title: 'Organization Structure',
     description: 'Four key roles and the critical Agent Manager + Developer partnership',
-    slideCount: 16,
-    duration: 18,
+    slideCount: 2,
+    duration: 4,
     slug: '/modules/f2'
   },
   s1: {
     id: 's1',
     title: 'Choosing AI Technology',
     description: 'Decision frameworks for ML vs Agentic AI and build vs buy',
-    slideCount: 14,
-    duration: 18,
+    slideCount: 2,
+    duration: 4,
     slug: '/modules/s1'
   },
   s2: {
     id: 's2',
     title: 'Understanding Agents',
     description: 'Four essential components (LLM, Tools, Memory, Autonomy) and vendor evaluation',
-    slideCount: 11,
-    duration: 12,
+    slideCount: 2,
+    duration: 3,
     slug: '/modules/s2'
   },
   s3: {
     id: 's3',
     title: 'Managing AI',
     description: 'From managing people to managing AI, context engineering methodology',
-    slideCount: 19,
-    duration: 25,
+    slideCount: 2,
+    duration: 4,
     slug: '/modules/s3'
   }
 }

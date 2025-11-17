@@ -10,7 +10,6 @@ This library contains production-ready interactive slide patterns with comprehen
 
 ### 1. Button Toggle Comparison
 **Location**: `/patterns/button-toggle-comparison/`
-**Source**: `components/slide-103-execution-interactive.tsx`
 
 **Pattern Overview**: Binary toggle interface switching between contrasting scenarios with dynamic card grid updates.
 
@@ -34,7 +33,6 @@ This library contains production-ready interactive slide patterns with comprehen
 
 ### 2. Scrubber Metrics Timeline
 **Location**: `/patterns/scrubber-metrics-timeline/`
-**Source**: `components/slide-210-level4-iterative.tsx`
 
 **Pattern Overview**: Click-to-expand card selector revealing detailed pros/cons for multiple implementation paths.
 
@@ -58,7 +56,6 @@ This library contains production-ready interactive slide patterns with comprehen
 
 ### 3. Real-Time Calculator
 **Location**: `/patterns/realtime-calculator/`
-**Source**: `components/slide-211-roi-calculator.tsx`
 
 **Pattern Overview**: Live ROI calculator with numeric comparison cards and bar chart visualization.
 
@@ -82,7 +79,6 @@ This library contains production-ready interactive slide patterns with comprehen
 
 ### 4. Incremental Prototype
 **Location**: `/patterns/incremental-prototype/`
-**Source**: `components/slide-212-level5-autonomous.tsx`
 
 **Pattern Overview**: Animated HTML5 Canvas showing multi-agent system with data packets flowing between nodes.
 
@@ -107,7 +103,6 @@ This library contains production-ready interactive slide patterns with comprehen
 
 ### 5. Knowledge Test Poll
 **Location**: `/patterns/knowledge-test-poll/`
-**Source**: `components/slide-213-interactive-poll.tsx`
 
 **Pattern Overview**: Single-question interactive poll with live results and aggregate statistics.
 
@@ -132,7 +127,6 @@ This library contains production-ready interactive slide patterns with comprehen
 
 ### 6. Formal Quiz
 **Location**: `/patterns/formal-quiz/`
-**Source**: `components/slide-308-quiz-interactive.tsx`
 
 **Pattern Overview**: Multi-question quiz with navigation, scoring, immediate feedback, and final summary.
 
@@ -157,7 +151,6 @@ This library contains production-ready interactive slide patterns with comprehen
 
 ### 7. Layered Evolution
 **Location**: `/patterns/layered-evolution/`
-**Source**: `components/slide-3b06-agentic-spectrum.tsx`
 
 **Pattern Overview**: Slider-based spectrum exploration revealing progressive system complexity layers.
 
