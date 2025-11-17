@@ -1,10 +1,9 @@
 /**
  * Landing Page - Multi-Course Learning Platform
- * Displays course selector and path navigator for choosing learning experience
+ * Displays course selector for choosing learning experience
  */
 
 import { CourseSelector } from '@/components/course-selector'
-import { PathNavigator } from '@/components/path-navigator'
 import { GrainOverlay } from '@/components/decorative/grain-overlay'
 import { GeometricPattern } from '@/components/decorative/geometric-patterns'
 import { GradientMesh } from '@/components/decorative/geometric-patterns'
@@ -37,15 +36,15 @@ export default function LandingPage() {
           </h1>
 
           <p className="font-syne font-bold text-2xl md:text-3xl lg:text-4xl text-muted-foreground max-w-4xl mx-auto animate-slide-in-up delay-400 fill-backwards">
-            Choose your course or follow a role-based learning path
+            Choose your course to begin learning
           </p>
 
-          {/* Phase 1 Notice */}
+          {/* Build Notice */}
           <div className="animate-fade-in delay-600 fill-backwards">
             <p className="text-sm md:text-base text-muted-foreground/60 max-w-2xl mx-auto">
-              <span className="font-semibold text-primary">Phase 1: Infrastructure Demo</span>
+              <span className="font-semibold text-primary">Building from Scratch</span>
               {' • '}
-              Multi-course architecture with mock slides demonstrating navigation and path filtering
+              Foundation and Skills courses with 2 starter slides per module
             </p>
           </div>
         </div>
@@ -53,11 +52,6 @@ export default function LandingPage() {
         {/* Course Selection Section */}
         <section className="mb-24 animate-fade-in delay-800 fill-backwards">
           <CourseSelector />
-        </section>
-
-        {/* Path Navigation Section */}
-        <section className="animate-fade-in delay-1000 fill-backwards">
-          <PathNavigator />
         </section>
 
         {/* Footer */}
