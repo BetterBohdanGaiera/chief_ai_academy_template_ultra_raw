@@ -17,6 +17,20 @@ Parse the input to determine:
 - Module identifier (F1, F2, S1, S2, S3, etc.)
 - Slide IDs or descriptions
 - Total number of slides to design/redesign
+- **Spec generation mode**: Single spec (default) or multiple specs (one per agent group)
+
+**Spec Generation Mode Detection:**
+
+Check for explicit flags or keywords indicating multi-spec mode:
+- `--separate-specs` flag
+- Keywords: "separate specs", "one spec per group", "multiple specs", "individual specs"
+- If detected → **Multi-Spec Mode**: Create N separate spec files (one per agent group)
+- If NOT detected → **Single-Spec Mode**: Create 1 comprehensive spec file with all groups (current behavior)
+
+**Examples:**
+- `/plan_slide_redesign F1 slides 1-6` → Single spec (backward compatible)
+- `/plan_slide_redesign F1 slides 1-6 --separate-specs` → Multi-spec (3 files for 3 groups)
+- `/plan_slide_redesign Create separate specs for F1 slides 1-6` → Multi-spec mode
 
 ### Step 2: Extract Source Content
 
@@ -131,19 +145,34 @@ Ensure the spec file references ALL relevant design documentation:
 
 **CRITICAL**: Every slide MUST have an AI-generated BACKGROUND image at 10-20% opacity to enhance visual appeal.
 
+**⚠️ ABSOLUTE RULE: NO TEXT IN BACKGROUND IMAGES**
+- Background images must be **purely visual** - NO text, labels, numbers, or letters
+- Describe **shapes, forms, and compositions** ONLY - never named concepts that imply text
+- Use **visual metaphors** (geometric forms, organic shapes) instead of labeled elements
+- **VALIDATION**: Review each prompt to ensure it won't generate text
+
 **Image Generation Planning:**
 1. For each slide, determine the background image subject based on:
    - Slide content theme
-   - Visual metaphor that enhances the message
+   - Visual metaphor that enhances the message (expressed through SHAPES, not text)
    - Consistency with design system (handwritten illustration style, orange palette)
+   - **TEXT-FREE VISUAL DESCRIPTION** - no labels, no numbers, no written elements
+
 2. Draft image generation prompts using the template from `ai_docs/IMAGE_GENERATION_GUIDE.md`:
    ```
    Base template:
-   "A professional handwritten illustration of [SUBJECT], featuring warm orange tones (vibrant orange #F5A623, light orange accents), with charcoal outlines and white/light gray background. [SCENE DETAILS]. Editorial style, clean lines, minimal shading."
+   "A professional handwritten illustration of [VISUAL ELEMENTS - SHAPES/FORMS ONLY], featuring warm orange tones (vibrant orange #F5A623, light orange accents), with charcoal outlines and white/light gray background. [COMPOSITION DETAILS - NO TEXT]. Editorial style, clean lines, minimal shading."
    ```
-3. Specify aspect ratio: 16:9 for background images
-4. Note opacity and blend mode: 10-20% with mix-blend-multiply
-5. Optional: Plan additional content images (1:1 for cards, 3:2 for balanced scenes) if needed
+
+3. **PROMPT VALIDATION CHECKLIST** (for EACH prompt):
+   - [ ] Describes visual shapes/forms/composition ONLY
+   - [ ] Does NOT use words like: "labeled", "titled", "showing text", "with numbers", "named"
+   - [ ] Avoids specific concepts that AI might render as text (e.g., "Five Levels" → "ascending tiers")
+   - [ ] Uses pure visual metaphors (geometric patterns, organic forms, spatial relationships)
+
+4. Specify aspect ratio: 16:9 for background images
+5. Note opacity and blend mode: 10-20% with mix-blend-multiply
+6. Optional: Plan additional content images (1:1 for cards, 3:2 for balanced scenes) if needed
 
 **Example Image Strategy:**
 ```markdown
@@ -151,19 +180,22 @@ Ensure the spec file references ALL relevant design documentation:
 
 ### Slide 01: Title Slide
 **Background Image** (16:9, 15% opacity, mix-blend-multiply):
-- Subject: Abstract representation of 5 ascending steps/levels with a figure climbing them
-- Prompt: "A professional handwritten illustration of a business person climbing 5 ascending steps representing maturity levels, featuring warm orange tones (vibrant orange #F5A623, light orange accents), with charcoal outlines and white background. Steps are numbered 1-5, figure is small and positioned mid-climb. Editorial style, clean lines, minimal shading."
+- Subject: Abstract ascending tiers suggesting progression (NO TEXT/NUMBERS)
+- Prompt: "A professional handwritten illustration of ascending geometric tiers creating upward progression, with a small figure silhouette positioned mid-climb, featuring warm orange tones (vibrant orange #F5A623, light orange accents), with charcoal outlines and white background. Five distinct tier levels shown through shape and elevation, no text or numbers. Editorial style, clean lines, minimal shading."
+- **Validation**: ✅ No text/numbers/labels - uses "geometric tiers" not "numbered steps"
 - Generation command: `tsx generate-image.ts "[PROMPT]" --ratio 16:9`
 
 ### Slide 02: Why Levels Matter - Success Toggle View
 **Background Image** (16:9, 10% opacity):
-- Subject: Thriving office environment with upward trending graphs
-- Prompt: "A professional handwritten illustration of a modern office with people collaborating successfully, upward trending charts on screens, featuring warm orange tones (vibrant orange #F5A623, light orange accents), with charcoal outlines and white background. Positive energy, growth indicators. Editorial style, clean lines, minimal shading."
+- Subject: Thriving collaborative environment with upward geometric forms (NO TEXT/CHARTS WITH LABELS)
+- Prompt: "A professional handwritten illustration of a modern office scene with people collaborating, surrounded by ascending angular geometric shapes and rising curved lines suggesting positive growth, featuring warm orange tones (vibrant orange #F5A623, light orange accents), with charcoal outlines and white background. Positive energy through upward-pointing forms, no text or labeled charts. Editorial style, clean lines, minimal shading."
+- **Validation**: ✅ No text - uses "ascending angular geometric shapes" not "trending graphs with numbers"
 
 ### Slide 02: Why Levels Matter - Failure Toggle View
 **Background Image** (16:9, 10% opacity):
-- Subject: Stagnant office with confused team members
-- Prompt: "A professional handwritten illustration of an office with confused team members looking at flat/declining charts, featuring muted orange and gray tones, with charcoal outlines and white background. Stagnation indicators, puzzled expressions. Editorial style, clean lines, minimal shading."
+- Subject: Stagnant environment with flat/declining geometric forms (NO TEXT/CHARTS)
+- Prompt: "A professional handwritten illustration of an office scene with people in contemplative poses, surrounded by flat horizontal geometric shapes and gently declining curved lines, featuring muted orange and gray tones, with charcoal outlines and white background. Stagnation suggested through static horizontal forms and downward-pointing curves, no text or labeled indicators. Editorial style, clean lines, minimal shading."
+- **Validation**: ✅ No text - uses "flat horizontal geometric shapes" not "flat/declining charts with values"
 ```
 
 ### Step 6: Organize Slides into Agent Groups
@@ -174,6 +206,11 @@ Ensure the spec file references ALL relevant design documentation:
 - **Group Size**: Exactly 1-2 slides per group (optimal for quality + parallelization)
 - **Thematic Coherence**: Group related slides together (e.g., introduction slides, technical slides, summary slides)
 - **Balanced Workload**: Distribute complex vs simple slides evenly across groups
+
+**Output Format Based on Mode:**
+
+- **Single-Spec Mode**: All groups documented in ONE spec file (sections within the file)
+- **Multi-Spec Mode**: Each group becomes a SEPARATE spec file with its own complete structure
 
 **Agent Group Format:**
 ```markdown
@@ -259,14 +296,31 @@ Group 1: Slides 1-2 (Main content)
 Group 2: Slide 3 (Summary)
 ```
 
-### Step 7: Generate Complete Spec File
+### Step 7: Generate Complete Spec File(s)
 
-Create the spec file in `specs/` with the filename format: `[module]-slides-[range]-redesign.md`
+**Single-Spec Mode:**
+Create ONE spec file in `specs/` with the filename format: `[module]-slides-[range]-redesign.md`
 
-**Example filenames:**
+**Example filenames (Single-Spec Mode):**
 - `specs/f1-slides-1-5-redesign.md`
 - `specs/s2-architecture-slides-redesign.md`
 - `specs/new-ai-strategy-module-slides.md`
+
+**Multi-Spec Mode:**
+Create MULTIPLE spec files (one per agent group) with the filename format: `[module]-group-[N]-slides-[ids]-redesign.md`
+
+**Example filenames (Multi-Spec Mode):**
+- `specs/f1-group-1-slides-01-02-redesign.md` (Group 1: Introduction)
+- `specs/f1-group-2-slides-03-04-redesign.md` (Group 2: Framework Overview)
+- `specs/f1-group-3-slides-05-06-redesign.md` (Group 3: Deep Dive)
+
+**Multi-Spec Structure:**
+Each spec file contains:
+- Complete standalone spec for that group's slides only
+- All shared references (design docs, source content)
+- Group-specific content breakdown, patterns, images
+- Independent implementation plan
+- Can be implemented in parallel with other group specs
 
 **Required Spec File Sections:**
 
@@ -291,6 +345,7 @@ So that learners experience more engaging, interactive, and visually compelling 
 
 ## Solution Statement
 Redesign slides using POC-style interactive patterns from `ai_docs/components_inspiration/` and `ai_docs/INTERACTIVE_PATTERNS.md`:
+- **UPDATE/OVERWRITE existing slide files** with completely new implementations (replacing old versions)
 - Replace static text with interactive demos (toggles, canvas animations, hover-reveal)
 - Add AI-generated background images at appropriate opacity
 - Ensure design system compliance (DESIGN_AESTHETICS.md)
@@ -303,6 +358,10 @@ Redesign slides using POC-style interactive patterns from `ai_docs/components_in
 - `courses_to_build/education_v2/courses/[path]/[module].md` - Module source content
 - `courses_to_build/education_v2/resources/knowledge_components/` - Reusable content blocks
 
+### Existing Slide Files (to be updated/overwritten)
+- `components/slides/[module]/[slide-ids].tsx` - **EXISTING slides that will be COMPLETELY REWRITTEN**
+- Agents will use Write tool to replace old slide implementations with new designs
+
 ### Design Documentation
 - `ai_docs/INTERACTIVE_PATTERNS.md` - 5 preferred interactive patterns
 - `ai_docs/DESIGN_AESTHETICS.md` - Complete design system
@@ -314,11 +373,14 @@ Redesign slides using POC-style interactive patterns from `ai_docs/components_in
 
 ### Implementation Files
 - `generate-image.ts` - Image generation script
-- `components/slides/[module]/*.tsx` - Slide components to create/update
+- `components/slides/[module]/*.tsx` - Slide components to **UPDATE/OVERWRITE** (existing) or **CREATE** (new)
 - `config/slides.ts` - Slide registry
 
-### New Files
-- `components/slides/[module]/[slide-ids].tsx` - New/redesigned slide components
+### Files to Update/Create
+- `components/slides/[module]/[slide-ids].tsx` - **Slide components to UPDATE (overwrite existing) or CREATE (if new)**
+  - **For redesigns**: Existing files will be COMPLETELY REWRITTEN with new implementation
+  - **For new slides**: Fresh files will be created
+  - **Tool usage**: Always use Write tool (overwrites automatically) NOT Edit tool
 
 ## Content Breakdown
 
@@ -365,7 +427,9 @@ Redesign slides using POC-style interactive patterns from `ai_docs/components_in
   - Status:
   - Comments:
 
-- [ ] **Phase 2: Parallel Implementation** - Spawn slide-generator agents in parallel to implement all slides
+- [ ] **Phase 2: Parallel Implementation** - Spawn slide-generator agents in parallel to **UPDATE/OVERWRITE existing slides** or **CREATE new slides**
+  - **CRITICAL**: Agents will use Write tool to completely replace existing slide files with new implementations
+  - **No duplicates**: Old slide versions will be overwritten, not preserved
   - Status:
   - Comments:
 
@@ -399,7 +463,9 @@ Redesign slides using POC-style interactive patterns from `ai_docs/components_in
 ### Slide Implementation
 
 [For EACH agent group, create a task:]
-- [ ] **Implement Group [N]: [Name]** - Slides [IDs] using patterns [pattern names]
+- [ ] **Implement Group [N]: [Name]** - **UPDATE/OVERWRITE** Slides [IDs] using patterns [pattern names]
+  - **Action**: Agents will completely rewrite existing slide files (or create if new)
+  - **Tool**: Use Write tool to replace old implementations
   - Status:
   - Comments:
 
@@ -553,12 +619,53 @@ Before presenting the spec to the user:
 
 ### Step 9: Present Spec and Next Steps
 
+**Single-Spec Mode:**
 After creating the spec file, inform the user:
 1. Spec file location (e.g., `specs/f1-slides-1-5-redesign.md`)
 2. Number of slides planned
 3. Number of agent groups created
 4. Patterns selected summary
 5. Next step: Run `/implement_slide_redesign specs/[filename].md` to spawn agents and implement slides
+
+**Multi-Spec Mode:**
+After creating multiple spec files, inform the user:
+1. **List all generated spec files** with group summaries:
+   ```
+   Created 3 spec files for F1 slides 1-6:
+
+   📄 specs/f1-group-1-slides-01-02-redesign.md
+      Group 1: Introduction & Context (2 slides)
+      - 01-f1-title: Title slide
+      - 02-f1-why-levels: Why levels matter
+      Patterns: One-Screen Simplicity, Button Toggle Comparison
+
+   📄 specs/f1-group-2-slides-03-04-redesign.md
+      Group 2: Framework Overview (2 slides)
+      - 03-f1-levels-overview: 5 levels overview
+      - 04-f1-level1: Level 1 deep dive
+      Patterns: Horizontal Timeline, One-Screen Simplicity
+
+   📄 specs/f1-group-3-slides-05-06-redesign.md
+      Group 3: Deep Dive (2 slides)
+      - 05-f1-level2: Level 2 analysis
+      - 06-f1-level3: Level 3 trap
+      Patterns: One-Screen Simplicity, Iteration Animation
+   ```
+
+2. **Total statistics**:
+   - Total slides: 6
+   - Total groups: 3
+   - Total spec files: 3
+
+3. **Next steps**:
+   - **Parallel implementation**: Run all specs simultaneously:
+     ```
+     /implement_slide_redesign specs/f1-group-1-slides-01-02-redesign.md
+     /implement_slide_redesign specs/f1-group-2-slides-03-04-redesign.md
+     /implement_slide_redesign specs/f1-group-3-slides-05-06-redesign.md
+     ```
+   - **Sequential implementation**: Implement one group at a time
+   - Each spec is independently implementable
 
 ## Usage Examples
 
@@ -607,7 +714,7 @@ After creating the spec file, inform the user:
 **User**: `/plan_slide_redesign Redesign F2 slides 1-2 and add 1 new slide showing organizational transformation timeline`
 
 **Your Response**:
-1. Parse: F2 module, 2 existing + 1 new = 3 slides total
+1. Parse: F2 module, 2 existing + 1 new = 3 slides total, **Single-Spec Mode** (no flag detected)
 2. Extract content for slides 1-2 from existing, plan content for slide 3 from `courses_to_build/education_v2/courses/foundation/f2_organizational_structure.md`
 3. Match patterns:
    - Slide 01: One-Screen Simplicity (title)
@@ -619,6 +726,42 @@ After creating the spec file, inform the user:
    - Group 2: Slide 3 (Transformation)
 6. Generate spec: `specs/f2-slides-redesign-with-timeline.md`
 
+### Example 4: Multi-Spec Mode - Separate Specs Per Group
+
+**User**: `/plan_slide_redesign F1 slides 1-6 --separate-specs`
+
+**Your Response**:
+1. Parse: F1 module, 6 slides, **Multi-Spec Mode** detected (`--separate-specs` flag)
+2. Extract content from `courses_to_build/education_v2/courses/foundation/f1_five_levels_framework.md`
+3. Match patterns for all 6 slides
+4. Plan background images (6 prompts, 16:9 ratio)
+5. Create 3 agent groups (2 slides each):
+   - Group 1: Slides 1-2 (Introduction & Context)
+   - Group 2: Slides 3-4 (Framework Overview)
+   - Group 3: Slides 5-6 (Deep Dive)
+6. **Generate 3 separate spec files**:
+   - `specs/f1-group-1-slides-01-02-redesign.md`
+   - `specs/f1-group-2-slides-03-04-redesign.md`
+   - `specs/f1-group-3-slides-05-06-redesign.md`
+7. Present summary with all 3 file paths and parallel implementation instructions
+
+### Example 5: Multi-Spec Mode - Keyword Detection
+
+**User**: `/plan_slide_redesign Create separate specs for S2 slides explaining agent architecture (4 slides total)`
+
+**Your Response**:
+1. Parse: S2 module, 4 new slides, **Multi-Spec Mode** detected (keyword "separate specs")
+2. Extract content from `courses_to_build/education_v2/courses/skills/s2_agent_architecture.md`
+3. Match patterns for architecture slides
+4. Plan background images (4 prompts)
+5. Create 2 agent groups:
+   - Group 1: Slides 1-2 (Overview & LLM)
+   - Group 2: Slides 3-4 (Tools & Memory)
+6. **Generate 2 separate spec files**:
+   - `specs/s2-group-1-slides-01-02-redesign.md`
+   - `specs/s2-group-2-slides-03-04-redesign.md`
+7. Present summary with parallel implementation workflow
+
 ## Important Notes
 
 - **Always prefer POC-style interactive patterns** over static text-heavy designs
@@ -627,6 +770,30 @@ After creating the spec file, inform the user:
 - **Pattern-first approach**: Always check components_inspiration/ before designing custom slides
 - **Design system compliance**: Strictly follow DESIGN_AESTHETICS.md for typography, colors, animations
 - **Accessibility is non-negotiable**: All slides must meet WCAG AA standards
+
+### When to Use Each Mode
+
+**Use Single-Spec Mode (default) when:**
+- You want a comprehensive overview of all slides in one document
+- The slide count is small (2-4 slides)
+- You prefer to review all slides together before implementation
+- You want to implement groups sequentially with context from previous groups
+- The user doesn't explicitly request separate specs
+
+**Use Multi-Spec Mode when:**
+- User explicitly requests separate specs (`--separate-specs` flag or keywords)
+- You have many slides (6+ slides = 3+ groups)
+- You want maximum parallelization (implement all groups simultaneously)
+- Each group is thematically independent
+- You want clearer scope per implementation (easier debugging, tracking)
+- You're working with multiple developers/agents in parallel
+
+**Benefits of Multi-Spec Mode:**
+- Each spec file is focused (max 2 slides = smaller context)
+- Better parallelization (spawn 3+ slide-generator agents simultaneously)
+- Isolated failures (if one group fails, others succeed)
+- Clearer progress tracking (3 specs = 3 clear milestones)
+- Easier to distribute work across team members
 
 ## Troubleshooting
 

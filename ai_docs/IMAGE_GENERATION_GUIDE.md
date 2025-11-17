@@ -263,43 +263,55 @@ bash scripts/generate-presentation-images.sh
 
 ## Best Practices
 
+### ⚠️ CRITICAL: NO TEXT IN BACKGROUND IMAGES
+
+**ABSOLUTE RULE**: Background images must NEVER contain text, labels, numbers, letters, or any written characters.
+
+**Why This Matters:**
+- Background images are visual atmosphere layers at 10-20% opacity
+- Text in backgrounds becomes unreadable blur and looks unprofessional
+- Slide text content should come from the component, not the background image
+- Text in AI-generated images often looks distorted or unprofessional
+
+**Enforcement Checklist:**
+- [ ] Prompt describes **visual shapes, forms, and compositions** (not concepts that imply text)
+- [ ] Prompt does NOT use words like: "labeled", "titled", "showing text", "with numbers"
+- [ ] Prompt focuses on **pure visual metaphors** (geometric forms, organic shapes, abstract patterns)
+- [ ] Prompt avoids **specific named concepts** that AI might render as text (e.g., "Five Levels" → "ascending tiers")
+
 ### Prompt Writing Tips
 
-1. **Be Specific but Concise**
-   - Good: "AI transformation in healthcare analytics"
+1. **NO TEXT - Use Visual Metaphors Only**
+   - **RULE**: Describe shapes, colors, composition, and spatial relationships ONLY
+   - **NEVER**: Reference text, labels, numbers, or named concepts that imply text
+   - Good: "geometric shapes suggesting transformation and forward motion"
+   - **WRONG**: "AI Transformation for Executives" (AI will render this as text)
+   - Good: "interconnected nodes and flowing pathways"
+   - **WRONG**: "strategic planning framework with key principles" (implies labels)
+   - Good: "diverging angular paths, one chaotic with scattered elements, one organized with aligned forms"
+   - **WRONG**: "two paths labeled chaos and order" (explicitly asks for text labels)
+   - Good: "layered geometric foundation structure with ascending tiers"
+   - **WRONG**: "foundation principles for success" (AI might render as text overlay)
+   - Good: "branching paths diverging from center, left path with erratic angles, right path with smooth curves"
+   - **WRONG**: "paths showing good vs bad decisions" (implies labeled paths)
+   - Good: "ascending triangular forms creating hierarchy, orange accents on peak elements"
+   - **WRONG**: "pyramid showing top performers vs experimenters" (categories become text)
+
+2. **Be Specific but Concise**
+   - Good: "interconnected nodes with flowing pathways in healthcare setting"
    - Avoid: "A picture showing how AI is transforming the healthcare industry by improving analytics capabilities and enabling better patient outcomes through data-driven insights"
 
-2. **Let Design System Handle Style**
+3. **Let Design System Handle Style**
    - Focus on *what* you want, not *how* it should look
    - Design system automatically applies colors, aesthetic, layout
-   - Good: "Strategic planning framework"
+   - Good: "layered geometric structure with systematic composition"
    - Avoid: "Strategic planning framework with electric orange accents on white background using geometric shapes"
 
-3. **Use Templates for Consistency**
+4. **Use Templates for Consistency**
    - Always use templates unless you have a very specific custom need
    - Templates ensure brand consistency across all generated images
 
-4. **Avoid Literal Text References for Background Images**
-   - **CRITICAL**: For abstract backgrounds, describe visual concepts, not text content
-   - The AI may interpret text-heavy prompts as instructions to render actual text in the image
-   - Good: "geometric shapes suggesting transformation and forward motion"
-   - Avoid: "AI Transformation for Executives" (AI may render this as text)
-   - Good: "interconnected nodes and flowing pathways representing strategic decisions"
-   - Avoid: "strategic planning framework with key principles" (may render labels/text)
-   - Good: "diverging angular paths, one chaotic with scattered elements, one organized with aligned forms"
-   - Avoid: "two paths labeled chaos and order" (will render text labels)
-   - Good: "layered geometric foundation structure with ascending tiers"
-   - Avoid: "foundation principles for success" (may render text)
-
-5. **Use Visual Metaphors Instead of Labels**
-   - Describe the visual elements, shapes, and composition you want
-   - Let the visual speak through form, color, and layout—not text
-   - Good: "branching paths diverging from center, left path with erratic angles, right path with smooth curves"
-   - Avoid: "paths showing good vs bad decisions"
-   - Good: "ascending triangular forms creating hierarchy, orange accents on peak elements"
-   - Avoid: "pyramid showing top performers vs experimenters"
-
-6. **Consider Context**
+5. **Consider Context**
    - Match template category to slide purpose
    - Use aspect ratio that fits your slide layout
    - Generate 2-3 variations to have options

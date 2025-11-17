@@ -99,13 +99,21 @@ Task tool parameters:
         - Decide if you should use algorithmic-art skill (for canvas/p5.js patterns) or artifacts-builder skill (for React/shadcn patterns)
 
      b. **Generate background images**:
+        - **⚠️ CRITICAL**: Verify prompt has NO TEXT/LABELS/NUMBERS before generating
         - Extract the generation prompt from spec file's Image Generation Strategy section
+        - **VALIDATE PROMPT**: Ensure it describes visual shapes/forms ONLY (no text references)
         - Run: tsx generate-image.ts '[PROMPT FROM SPEC]' --ratio 16:9
         - Verify image is saved to public/generated-images/
+        - **INSPECT IMAGE**: Confirm generated image contains NO TEXT before proceeding
         - Note the timestamp for integration
 
      c. **Implement the slide component**:
-        - Create file: components/slides/[module]/[slide-id].tsx
+        - **CHECK IF FILE EXISTS**: First check if components/slides/[module]/[slide-id].tsx already exists
+        - **UPDATE/OVERWRITE file**: components/slides/[module]/[slide-id].tsx
+          - **If file exists**: Use Write tool to COMPLETELY REWRITE it with new implementation (replacing old version)
+          - **If file is new**: Use Write tool to create it fresh
+          - **NEVER**: Skip existing files, create duplicates, or leave old versions
+        - **CRITICAL**: Always use Write tool (NOT Edit) for complete slide rewrites to ensure clean replacement
         - Use EXACTLY this export pattern for lazy loading:
           ```typescript
           export default function SlideName() {
@@ -138,6 +146,7 @@ Task tool parameters:
      - Brief summary of your implementation approach
 
   **Design System Compliance Checklist** (verify before marking complete):
+  - [ ] **NO TEXT IN BACKGROUND IMAGES**: All background images are purely visual (no text/labels/numbers)
   - [ ] Typography: font-bebas (titles), font-syne (emphasis), font-manrope (body)
   - [ ] Colors: Electric orange #FF4D00, neon cyan #00D9FF, charcoal #0A0A0A
   - [ ] Component variants used correctly (Badge: glow/gradient, Card: layered/glow, Button: brutal/glow)
@@ -526,6 +535,7 @@ Before marking implementation as complete, verify:
 - [ ] File count matches number of slides in spec
 
 **Design System Compliance:**
+- [ ] **NO TEXT IN BACKGROUND IMAGES**: All background images contain only shapes/forms (zero text/labels/numbers)
 - [ ] Typography uses correct font classes (Bebas, Syne, Manrope)
 - [ ] Colors match design system (electric orange, neon cyan, charcoal)
 - [ ] Animations follow orchestrated entrance pattern
