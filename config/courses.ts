@@ -1,29 +1,68 @@
 /**
- * Course configuration
- * Defines all available courses with metadata and module mappings
+ * Module configuration
+ * Defines available presentation modules
+ *
+ * Template: Each module represents a separate visualization/presentation topic
  */
 
-import { type Course, type CourseRegistry } from '@/types/courses'
+import { type Course, type CourseRegistry, type ModuleRegistry } from '@/types/courses'
 
-export const courses: CourseRegistry = {
-  foundation: {
-    id: 'foundation',
-    title: 'Foundation',
-    description: 'Five Levels Framework & Organization Structure',
-    duration: 40, // minutes
-    modules: ['f1', 'f2'],
-    slug: '/courses/foundation',
-    theme: 'primary'
+/**
+ * Module Registry
+ * Each module is a self-contained presentation with its own slides
+ */
+export const modules: ModuleRegistry = {
+  m1: {
+    id: 'm1',
+    title: 'Example Module',
+    description: 'Template module with example slides',
+    duration: 5,
+    slideCount: 2
   },
-  skills: {
-    id: 'skills',
-    title: 'Skills',
-    description: 'Choosing AI Technology, Understanding Agents & Managing AI',
-    duration: 65, // minutes
-    modules: ['s1', 's2', 's3'],
-    slug: '/courses/skills',
+  m2: {
+    id: 'm2',
+    title: 'Module 2',
+    description: 'Add your content here',
+    duration: 0,
+    slideCount: 0
+  },
+  m3: {
+    id: 'm3',
+    title: 'Module 3',
+    description: 'Add your content here',
+    duration: 0,
+    slideCount: 0
+  }
+}
+
+/**
+ * Course Registry (Optional grouping of modules)
+ * Use if you want to group multiple modules into a course
+ */
+export const courses: CourseRegistry = {
+  main: {
+    id: 'main',
+    title: 'Main Presentation',
+    description: 'All modules combined',
+    duration: 5,
+    modules: ['m1', 'm2', 'm3'],
+    slug: '/courses/main',
     theme: 'primary'
   }
+}
+
+/**
+ * Get module by ID
+ */
+export function getModule(moduleId: string) {
+  return modules[moduleId]
+}
+
+/**
+ * Get all modules as an array
+ */
+export function getAllModules() {
+  return Object.values(modules)
 }
 
 /**
