@@ -94,12 +94,42 @@ This template includes powerful Claude Code commands:
 - `/implement_slide_redesign` - Implement a slide from spec
 - `/implement` - General implementation assistance
 - `/plan` - General planning assistance
+- `/deploy` - Deploy presentation to the web
 
 ## Keyboard Shortcuts
 
 - `Arrow Left/Right` - Navigate slides
 - `Home` - First slide
 - `End` - Last slide
+
+## One-Command Deployment
+
+Deploy your presentation to the web with a single command:
+
+```bash
+pnpm deploy
+```
+
+This automatically builds and deploys your presentation, returning a public URL.
+
+### Deployment Providers
+
+| Provider | Free Bandwidth | Command |
+|----------|---------------|---------|
+| **Cloudflare** (recommended) | Unlimited | `pnpm deploy:cloudflare` |
+| Netlify | 100GB/mo | `pnpm deploy:netlify` |
+| Surge.sh | Unlimited | `pnpm deploy:surge` |
+| Vercel | 100GB/mo | `pnpm deploy:vercel` |
+
+### First-Time Setup
+
+1. Create a free Cloudflare account at https://dash.cloudflare.com/sign-up
+2. Run `wrangler login` to authenticate
+3. Run `pnpm deploy` - done!
+
+Your presentation will be live at `https://<project-name>.pages.dev`
+
+See [/.claude/commands/deploy.md](./.claude/commands/deploy.md) for detailed deployment documentation.
 
 ## AI Image Generation
 

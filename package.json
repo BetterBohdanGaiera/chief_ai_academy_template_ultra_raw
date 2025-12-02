@@ -7,6 +7,11 @@
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start",
+    "deploy": "bash scripts/deploy.sh",
+    "deploy:cloudflare": "next build && wrangler pages deploy out --project-name=presentation",
+    "deploy:netlify": "next build && netlify deploy --prod --dir=out",
+    "deploy:surge": "next build && surge out",
+    "deploy:vercel": "vercel --prod",
     "gen:image": "tsx generate-image.ts",
     "gen:list": "tsx generate-image.ts --list-templates",
     "gen:hero": "tsx generate-image.ts --template hero-bold",
@@ -75,6 +80,7 @@
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.51.0"
   }
 }
