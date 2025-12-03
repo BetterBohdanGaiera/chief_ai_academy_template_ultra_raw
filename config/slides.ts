@@ -39,6 +39,18 @@ export const slideRegistry: SlideRegistry = {
       notes: 'Interactive toggle pattern example'
     },
     loader: () => import('@/components/slides/m1/02-example-interactive')
+  },
+  'm1-03-feedback': {
+    slide: {
+      id: 'm1-03-feedback',
+      component: () => import('@/components/slides/m1/03-feedback'),
+      module: 'm1',
+      title: 'Feedback Collection',
+      tags: ['feedback', 'interactive', 'form'],
+      duration: 3,
+      notes: 'Collect feedback from domain expert reviewers'
+    },
+    loader: () => import('@/components/slides/m1/03-feedback')
   }
 
   // ============================================

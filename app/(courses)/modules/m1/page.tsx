@@ -5,10 +5,11 @@
 
 import { PresentationContainer } from '@/components/presentation-container'
 
-// M1: Example Module slide IDs (2 slides)
+// M1: Example Module slide IDs (3 slides)
 const m1Slides = [
   'm1-01-title',
-  'm1-02-interactive'
+  'm1-02-interactive',
+  'm1-03-feedback'
 ]
 
 export default function M1ModulePage() {
