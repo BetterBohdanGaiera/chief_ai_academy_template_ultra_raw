@@ -22,6 +22,7 @@ export const feedbackSlideConfig: FeedbackSlideConfig = {
   collectEmail: false,
   submitButtonText: 'SUBMIT FEEDBACK',
   successMessage: 'Thank you for your valuable feedback!',
+  formId: 'default-feedback',
 }
 
 /**
@@ -37,4 +38,46 @@ export function createFeedbackSlideConfig(
     ...feedbackSlideConfig,
     ...overrides,
   }
+}
+
+/**
+ * Pre-defined form configurations for common feedback scenarios
+ */
+export const feedbackFormPresets = {
+  /** Introduction/opening feedback */
+  intro: createFeedbackSlideConfig({
+    formId: 'feedback-intro',
+    questionPrompt: 'What are your initial impressions of this presentation?',
+    title: 'FIRST',
+    titleAccent: 'IMPRESSIONS',
+    slideId: 'intro-feedback',
+  }),
+
+  /** Section-specific feedback */
+  section: (sectionNumber: number, sectionName: string) =>
+    createFeedbackSlideConfig({
+      formId: `feedback-section-${sectionNumber}`,
+      questionPrompt: `How clear was the "${sectionName}" section? What could be improved?`,
+      title: 'SECTION',
+      titleAccent: 'FEEDBACK',
+      slideId: `section-${sectionNumber}-feedback`,
+    }),
+
+  /** Closing/final feedback */
+  closing: createFeedbackSlideConfig({
+    formId: 'feedback-closing',
+    questionPrompt: 'What are your overall thoughts and suggestions for improvement?',
+    title: 'FINAL',
+    titleAccent: 'THOUGHTS',
+    slideId: 'closing-feedback',
+  }),
+
+  /** Q&A session feedback */
+  qna: createFeedbackSlideConfig({
+    formId: 'feedback-qna',
+    questionPrompt: 'Were your questions answered? What topics need more clarification?',
+    title: 'Q&A',
+    titleAccent: 'FEEDBACK',
+    slideId: 'qna-feedback',
+  }),
 }

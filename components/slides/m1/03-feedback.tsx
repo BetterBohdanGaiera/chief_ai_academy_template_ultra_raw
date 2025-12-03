@@ -8,6 +8,7 @@
  * - Configurable question prompt
  * - Optional reviewer name field
  * - Submit with loading, success, and error states
+ * - Multi-form support with formId and sessionId
  * - Brutalist-minimalist design matching the presentation aesthetic
  */
 
@@ -21,9 +22,10 @@ import { Input } from '@/components/ui/input'
 import { MessageSquare, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
 import { submitFeedback } from '@/lib/feedback-api'
 import { getPresentationId } from '@/lib/presentation-id'
+import { getSessionId, generateQuestionHash } from '@/lib/session'
 import { feedbackSlideConfig } from '@/config/feedback-slide'
 import { feedbackConfig } from '@/config/feedback'
-import type { FeedbackSlideConfig } from '@/types/feedback'
+import type { FeedbackSlideConfig, FormContext } from '@/types/feedback'
 
 type SubmissionState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -44,11 +46,14 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
   const [submissionState, setSubmissionState] = useState<SubmissionState>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [presentationId, setPresentationId] = useState(slideConfig.presentationId)
+  const [sessionId, setSessionId] = useState('')
 
-  // Get presentation ID on mount
+  // Get presentation ID and session ID on mount
   useEffect(() => {
-    const id = getPresentationId('m1')
-    setPresentationId(id)
+    const presId = getPresentationId('m1')
+    setPresentationId(presId)
+    const sessId = getSessionId()
+    setSessionId(sessId)
   }, [])
 
   // Handle form submission
@@ -71,6 +76,13 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
     setSubmissionState('submitting')
     setErrorMessage('')
 
+    // Build form context for tracking
+    const formContext: FormContext = {
+      questionPrompt: slideConfig.questionPrompt,
+      title: slideConfig.title,
+      configuredAt: new Date().toISOString(),
+    }
+
     const result = await submitFeedback({
       presentationId,
       slideId: slideConfig.slideId,
@@ -78,6 +90,10 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
       feedbackText: feedbackText.trim(),
       reviewerName: reviewerName.trim() || undefined,
       feedbackType: 'general',
+      formId: slideConfig.formId,
+      sessionId,
+      questionHash: generateQuestionHash(slideConfig.questionPrompt),
+      formContext,
     })
 
     if (result.success) {

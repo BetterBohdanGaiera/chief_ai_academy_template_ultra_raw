@@ -1,7 +1,15 @@
 /**
  * Presentation ID Utilities
  * Utilities for generating and managing unique presentation identifiers
+ *
+ * Priority for getting presentation ID:
+ * 1. Environment variable (NEXT_PUBLIC_PRESENTATION_ID)
+ * 2. Session config presentation ID
+ * 3. localStorage (for backward compatibility)
+ * 4. Generate new ID
  */
+
+import { sessionConfig } from '@/config/session'
 
 /**
  * Generate a unique presentation ID
@@ -18,20 +26,53 @@ export function generatePresentationId(): string {
 }
 
 /**
+ * Get the configured presentation ID from environment
+ *
+ * @returns Presentation ID from env/config, or null if not set
+ */
+function getConfiguredPresentationId(): string | null {
+  // Check for environment variable (available at build time)
+  const envId =
+    process.env.NEXT_PUBLIC_PRESENTATION_ID || process.env.PRESENTATION_ID
+
+  if (envId) {
+    return envId
+  }
+
+  // Check session config - if sessionId is not default, use it as presentation ID prefix
+  if (sessionConfig.sessionId !== 'default-session') {
+    return `pres-${sessionConfig.sessionId}`
+  }
+
+  return null
+}
+
+/**
  * Get or create a presentation ID for a module
  *
- * Uses localStorage to persist the ID across sessions.
- * If no ID exists, generates a new one.
+ * Priority:
+ * 1. Environment variable (NEXT_PUBLIC_PRESENTATION_ID)
+ * 2. Session config-based ID
+ * 3. localStorage (for backward compatibility)
+ * 4. Generate new ID
  *
  * @param moduleId - Module identifier (e.g., 'm1', 'm2')
  * @returns Presentation ID string
  */
 export function getPresentationId(moduleId: string): string {
-  // Only run on client side
+  // Priority 1 & 2: Check for configured ID
+  const configuredId = getConfiguredPresentationId()
+  if (configuredId) {
+    // Append module ID for multi-module presentations
+    return `${configuredId}-${moduleId}`
+  }
+
+  // Only run localStorage logic on client side
   if (typeof window === 'undefined') {
     return generatePresentationId()
   }
 
+  // Priority 3: localStorage (backward compatibility)
   const storageKey = `presentation-id-${moduleId}`
 
   try {
@@ -41,6 +82,7 @@ export function getPresentationId(moduleId: string): string {
       return existingId
     }
 
+    // Priority 4: Generate new ID
     const newId = generatePresentationId()
     localStorage.setItem(storageKey, newId)
     return newId

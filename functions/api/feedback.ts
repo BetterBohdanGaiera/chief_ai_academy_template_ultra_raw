@@ -1,10 +1,18 @@
 /**
  * Cloudflare Pages Function for Feedback API
  * Handles CRUD operations for presentation feedback
+ * Supports multi-form feedback with form_id, session_id, and form_context
  */
 
 interface Env {
   DB: D1Database
+}
+
+interface FormContext {
+  questionPrompt?: string
+  title?: string
+  configuredAt?: string
+  [key: string]: unknown
 }
 
 interface FeedbackSubmission {
@@ -16,6 +24,10 @@ interface FeedbackSubmission {
   reviewerEmail?: string
   feedbackType?: 'general' | 'content' | 'design' | 'accuracy'
   metadata?: Record<string, unknown>
+  formId?: string
+  sessionId?: string
+  questionHash?: string
+  formContext?: FormContext
 }
 
 /**
@@ -99,7 +111,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     const submission = body as FeedbackSubmission
 
-    // Insert feedback into database
+    // Insert feedback into database with multi-form support
     const result = await context.env.DB.prepare(`
       INSERT INTO feedback (
         presentation_id,
@@ -109,8 +121,12 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         reviewer_name,
         reviewer_email,
         feedback_type,
-        metadata
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        metadata,
+        form_id,
+        session_id,
+        question_hash,
+        form_context
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `)
       .bind(
         submission.presentationId,
@@ -120,7 +136,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         submission.reviewerName ?? null,
         submission.reviewerEmail ?? null,
         submission.feedbackType ?? 'general',
-        submission.metadata ? JSON.stringify(submission.metadata) : null
+        submission.metadata ? JSON.stringify(submission.metadata) : null,
+        submission.formId ?? 'default',
+        submission.sessionId ?? null,
+        submission.questionHash ?? null,
+        submission.formContext ? JSON.stringify(submission.formContext) : null
       )
       .run()
 
@@ -157,6 +177,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
 /**
  * Handle GET request to retrieve feedback
+ * Supports filtering by presentationId, slideId, feedbackType, formId, sessionId
  */
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   try {
@@ -164,6 +185,8 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     const presentationId = url.searchParams.get('presentationId')
     const slideId = url.searchParams.get('slideId')
     const feedbackType = url.searchParams.get('feedbackType')
+    const formId = url.searchParams.get('formId')
+    const sessionId = url.searchParams.get('sessionId')
     const limit = parseInt(url.searchParams.get('limit') ?? '100', 10)
     const offset = parseInt(url.searchParams.get('offset') ?? '0', 10)
 
@@ -186,6 +209,16 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
       params.push(feedbackType)
     }
 
+    if (formId) {
+      query += ' AND form_id = ?'
+      params.push(formId)
+    }
+
+    if (sessionId) {
+      query += ' AND session_id = ?'
+      params.push(sessionId)
+    }
+
     query += ' ORDER BY created_at DESC LIMIT ? OFFSET ?'
     params.push(limit, offset)
 
@@ -204,6 +237,10 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
       feedbackType: row.feedback_type,
       createdAt: row.created_at,
       metadata: row.metadata ? JSON.parse(row.metadata as string) : null,
+      formId: row.form_id ?? 'default',
+      sessionId: row.session_id,
+      questionHash: row.question_hash,
+      formContext: row.form_context ? JSON.parse(row.form_context as string) : null,
     }))
 
     return new Response(JSON.stringify(feedback), {

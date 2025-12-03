@@ -9,6 +9,21 @@
 export type FeedbackType = 'general' | 'content' | 'design' | 'accuracy'
 
 /**
+ * Form context stored with feedback submission
+ * Contains configuration state at the time of submission
+ */
+export interface FormContext {
+  /** Question prompt shown to the user */
+  questionPrompt?: string
+  /** Form title */
+  title?: string
+  /** Timestamp of form configuration */
+  configuredAt?: string
+  /** Additional custom context */
+  [key: string]: unknown
+}
+
+/**
  * Feedback record stored in the database
  */
 export interface Feedback {
@@ -22,6 +37,14 @@ export interface Feedback {
   feedbackType: FeedbackType
   createdAt: string
   metadata?: Record<string, unknown>
+  /** Unique identifier for the feedback form */
+  formId: string
+  /** Session/deployment identifier */
+  sessionId?: string
+  /** Hash of the question prompt for grouping */
+  questionHash?: string
+  /** Form configuration at submission time */
+  formContext?: FormContext
 }
 
 /**
@@ -35,6 +58,14 @@ export interface FeedbackSubmission {
   reviewerName?: string
   reviewerEmail?: string
   feedbackType?: FeedbackType
+  /** Unique identifier for the feedback form */
+  formId?: string
+  /** Session/deployment identifier */
+  sessionId?: string
+  /** Hash of the question prompt for grouping */
+  questionHash?: string
+  /** Form configuration at submission time */
+  formContext?: FormContext
 }
 
 /**
@@ -55,6 +86,10 @@ export interface FeedbackQueryParams {
   feedbackType?: FeedbackType
   limit?: number
   offset?: number
+  /** Filter by form ID */
+  formId?: string
+  /** Filter by session ID */
+  sessionId?: string
 }
 
 /**
@@ -79,4 +114,6 @@ export interface FeedbackSlideConfig {
   submitButtonText?: string
   /** Message shown after successful submission */
   successMessage?: string
+  /** Unique identifier for this feedback form */
+  formId: string
 }

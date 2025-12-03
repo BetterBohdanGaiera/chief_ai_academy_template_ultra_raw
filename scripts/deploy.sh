@@ -21,6 +21,8 @@ print_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 # Parse command line arguments
 CUSTOM_NAME=""
 PROVIDER=""
+SKIP_DB_INIT=""
+DB_NAME=""
 while [[ $# -gt 0 ]]; do
     case $1 in
         --name=*)
@@ -29,6 +31,18 @@ while [[ $# -gt 0 ]]; do
             ;;
         --name)
             CUSTOM_NAME="$2"
+            shift 2
+            ;;
+        --skip-db-init)
+            SKIP_DB_INIT="true"
+            shift
+            ;;
+        --db-name=*)
+            DB_NAME="${1#*=}"
+            shift
+            ;;
+        --db-name)
+            DB_NAME="$2"
             shift 2
             ;;
         --)
@@ -49,6 +63,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 PROVIDER="${PROVIDER:-auto}"
+DB_NAME="${DB_NAME:-presentation-feedback}"
 
 # Check if a command exists
 command_exists() {
@@ -82,6 +97,21 @@ check_vercel_auth() {
     fi
 }
 
+# Initialize database (if not skipped)
+init_database() {
+    if [ "$SKIP_DB_INIT" = "true" ]; then
+        print_info "Skipping database initialization (--skip-db-init)"
+        return 0
+    fi
+
+    if [ -f "scripts/init-database.sh" ]; then
+        print_info "Initializing database: $DB_NAME"
+        bash scripts/init-database.sh "$DB_NAME"
+    else
+        print_warning "Database initialization script not found. Skipping."
+    fi
+}
+
 # Build the project
 build_project() {
     print_info "Building the project..."
@@ -97,6 +127,9 @@ deploy_cloudflare() {
         print_warning "Not authenticated with Cloudflare. Running 'wrangler login'..."
         wrangler login
     fi
+
+    # Initialize database before deployment
+    init_database
 
     # Use custom name if provided, otherwise generate from directory name
     if [ -n "$CUSTOM_NAME" ]; then
@@ -263,7 +296,7 @@ main() {
         *)
             print_error "Unknown provider: $PROVIDER"
             echo ""
-            echo "Usage: pnpm deploy [provider] [--name=project-name]"
+            echo "Usage: pnpm deploy [provider] [options]"
             echo ""
             echo "Providers:"
             echo "  auto       - Auto-detect best available (default)"
@@ -271,6 +304,11 @@ main() {
             echo "  netlify    - Deploy to Netlify"
             echo "  surge      - Deploy to Surge.sh"
             echo "  vercel     - Deploy to Vercel"
+            echo ""
+            echo "Options:"
+            echo "  --name=<name>      Custom project name"
+            echo "  --db-name=<name>   Custom D1 database name (default: presentation-feedback)"
+            echo "  --skip-db-init     Skip database initialization"
             exit 1
             ;;
     esac

@@ -54,6 +54,7 @@ export async function submitFeedback(
 
 /**
  * Get feedback for a presentation or slide
+ * Supports filtering by formId and sessionId for multi-form feedback
  *
  * @param params - Query parameters for filtering feedback
  * @returns Promise with array of feedback items
@@ -70,6 +71,12 @@ export async function getFeedback(params: FeedbackQueryParams = {}): Promise<Fee
     }
     if (params.feedbackType) {
       searchParams.set('feedbackType', params.feedbackType)
+    }
+    if (params.formId) {
+      searchParams.set('formId', params.formId)
+    }
+    if (params.sessionId) {
+      searchParams.set('sessionId', params.sessionId)
     }
     if (params.limit !== undefined) {
       searchParams.set('limit', params.limit.toString())
@@ -115,4 +122,28 @@ export async function getFeedbackBySlide(
   slideId: string
 ): Promise<Feedback[]> {
   return getFeedback({ presentationId, slideId })
+}
+
+/**
+ * Get all feedback for a specific form
+ *
+ * @param formId - Unique form identifier
+ * @param sessionId - Optional session identifier for further filtering
+ * @returns Promise with array of feedback items
+ */
+export async function getFeedbackByForm(
+  formId: string,
+  sessionId?: string
+): Promise<Feedback[]> {
+  return getFeedback({ formId, sessionId })
+}
+
+/**
+ * Get all feedback for a specific session
+ *
+ * @param sessionId - Unique session identifier
+ * @returns Promise with array of feedback items
+ */
+export async function getFeedbackBySession(sessionId: string): Promise<Feedback[]> {
+  return getFeedback({ sessionId })
 }

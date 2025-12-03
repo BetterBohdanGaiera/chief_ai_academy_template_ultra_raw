@@ -5,6 +5,12 @@ compatibility_date = "2024-01-01"
 pages_build_output_dir = "out"
 
 # D1 Database Binding
+# The database_id will be auto-populated by scripts/init-database.sh
+# Run `pnpm db:init` or `pnpm deploy` to configure automatically
+#
+# For custom database names, use:
+#   pnpm db:init my-custom-db-name
+#   pnpm deploy --db-name=my-custom-db-name
 [[d1_databases]]
 binding = "DB"
 database_name = "presentation-feedback"

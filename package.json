@@ -15,7 +15,13 @@
     "gen:image": "tsx generate-image.ts",
     "gen:list": "tsx generate-image.ts --list-templates",
     "gen:hero": "tsx generate-image.ts --template hero-bold",
-    "gen:concept": "tsx generate-image.ts --template concept-ai"
+    "gen:concept": "tsx generate-image.ts --template concept-ai",
+    "session:create": "tsx cli/create-session.ts",
+    "session:list": "wrangler d1 execute presentation-feedback --remote --command=\"SELECT DISTINCT session_id, COUNT(*) as feedback_count FROM feedback GROUP BY session_id;\"",
+    "db:init": "bash scripts/init-database.sh",
+    "db:migrate": "wrangler d1 execute presentation-feedback --remote --file=migrations/0002_add_multi_form_support.sql",
+    "feedback:by-form": "wrangler d1 execute presentation-feedback --remote --command=\"SELECT form_id, COUNT(*) as count FROM feedback GROUP BY form_id;\"",
+    "feedback:by-session": "wrangler d1 execute presentation-feedback --remote --command=\"SELECT session_id, COUNT(*) as count FROM feedback GROUP BY session_id;\""
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
