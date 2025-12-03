@@ -8,4 +8,4 @@ pages_build_output_dir = "out"
 [[d1_databases]]
 binding = "DB"
 database_name = "presentation-feedback"
-database_id = "PLACEHOLDER_ID"  # Replace with actual ID after running: wrangler d1 create presentation-feedback
+database_id = "d3f4ff4a-593b-4656-933f-e9933b37f9fb"
