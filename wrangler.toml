@@ -1,4 +1,4 @@
-name = "presentation-feedback"
+name = "test-ai-academy"
 compatibility_date = "2024-01-01"
 
 # Main entry point for Pages Functions
@@ -13,5 +13,5 @@ pages_build_output_dir = "out"
 #   pnpm deploy --db-name=my-custom-db-name
 [[d1_databases]]
 binding = "DB"
-database_name = "presentation-feedback"
-database_id = "d3f4ff4a-593b-4656-933f-e9933b37f9fb"
+database_name = "test-ai-academy"
+database_id = "f334220c-bb58-4f30-a31c-256d40eacf66"
