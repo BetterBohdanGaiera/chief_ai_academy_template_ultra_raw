@@ -1,28 +1,32 @@
-# Generate Git Commit
+# Git Commit & Push
 
-Based on the `Instructions` below, follow the `Run` section to create a git commit with a properly formatted message. Then follow the `Report` section to report the results of your work.
+Commit all changes and push to GitHub using the correct SSH key configuration.
 
 ## Instructions
 
-- Generate a concise commit message in the format: `<agent_name>: <issue_class>: <commit message>`
-- The `<commit message>` should be:
+- Generate a concise commit message in the format: `<type>: <description>`
+- The `<description>` should be:
   - Present tense (e.g., "add", "fix", "update", not "added", "fixed", "updated")
-  - 50 characters or less
+  - 50-72 characters or less
   - Descriptive of the actual changes made
   - No period at the end
+- Common types: `feat`, `fix`, `chore`, `refactor`, `docs`, `style`, `test`
 - Examples:
-  - `sdlc_planner: feat: add user authentication module`
-  - `sdlc_implementor: bug: fix login validation error`
-  - `sdlc_planner: chore: update dependencies to latest versions`
-- Extract context from the issue JSON to make the commit message relevant
-- Don't include any 'Generated with...' or 'Authored by...' in the commit message. Focus purely on the changes made.
+  - `feat: add user authentication module`
+  - `fix: resolve login validation error`
+  - `chore: update dependencies to latest versions`
 
 ## Run
 
-1. Run `git diff HEAD` to understand what changes have been made
+1. Run `git status` and `git diff HEAD` to understand what changes have been made
 2. Run `git add -A` to stage all changes
 3. Run `git commit -m "<generated_commit_message>"` to create the commit
+4. Ensure the remote uses the correct SSH key:
+   ```bash
+   git remote set-url origin git@github.com-bohdangaiera:BetterBohdanGaiera/chief_ai_academy_template_ultra_raw.git
+   ```
+5. Run `git push` to push changes to GitHub
 
 ## Report
 
-Return ONLY the commit message that was used (no other text)
+Return the commit message and confirm the push was successful
