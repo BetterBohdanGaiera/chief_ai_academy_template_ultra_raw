@@ -35,7 +35,7 @@ export default function FormalQuiz() {
         "Your sales team needs to forecast quarterly revenue based on 5 years of historical sales data, seasonality patterns, and market indicators.",
       options: [
         { answer: "ML", label: "Machine Learning", icon: TrendingUp, color: "#10B981" },
-        { answer: "Agentic", label: "Custom Agentic AI", icon: Cpu, color: "#00BBFF" },
+        { answer: "Agentic", label: "Custom Agentic AI", icon: Cpu, color: "#1E3A5F" },
         { answer: "Existing", label: "Existing AI Tools", icon: Plug, color: "#F59E0B" },
       ],
       correctAnswer: "ML",
@@ -48,7 +48,7 @@ export default function FormalQuiz() {
         "Your customer support team needs an AI assistant that understands your company's specific product catalog, policies, and can route complex cases to the right department based on custom business rules.",
       options: [
         { answer: "ML", label: "Machine Learning", icon: TrendingUp, color: "#10B981" },
-        { answer: "Agentic", label: "Custom Agentic AI", icon: Cpu, color: "#00BBFF" },
+        { answer: "Agentic", label: "Custom Agentic AI", icon: Cpu, color: "#1E3A5F" },
         { answer: "Existing", label: "Existing AI Tools", icon: Plug, color: "#F59E0B" },
       ],
       correctAnswer: "Agentic",
@@ -61,7 +61,7 @@ export default function FormalQuiz() {
         "Your marketing team wants to improve the quality of their blog posts and social media content with grammar checking, tone suggestions, and clarity improvements.",
       options: [
         { answer: "ML", label: "Machine Learning", icon: TrendingUp, color: "#10B981" },
-        { answer: "Agentic", label: "Custom Agentic AI", icon: Cpu, color: "#00BBFF" },
+        { answer: "Agentic", label: "Custom Agentic AI", icon: Cpu, color: "#1E3A5F" },
         { answer: "Existing", label: "Existing AI Tools", icon: Plug, color: "#F59E0B" },
       ],
       correctAnswer: "Existing",
@@ -74,7 +74,7 @@ export default function FormalQuiz() {
         "Your engineering team needs to automate code review for company-specific coding standards, security patterns, and architectural guidelines that are unique to your codebase.",
       options: [
         { answer: "ML", label: "Machine Learning", icon: TrendingUp, color: "#10B981" },
-        { answer: "Agentic", label: "Custom Agentic AI", icon: Cpu, color: "#00BBFF" },
+        { answer: "Agentic", label: "Custom Agentic AI", icon: Cpu, color: "#1E3A5F" },
         { answer: "Existing", label: "Existing AI Tools", icon: Plug, color: "#F59E0B" },
       ],
       correctAnswer: "Agentic",
@@ -87,7 +87,7 @@ export default function FormalQuiz() {
         "Your HR team wants to predict employee churn risk based on tenure, performance reviews, compensation data, and engagement survey responses.",
       options: [
         { answer: "ML", label: "Machine Learning", icon: TrendingUp, color: "#10B981" },
-        { answer: "Agentic", label: "Custom Agentic AI", icon: Cpu, color: "#00BBFF" },
+        { answer: "Agentic", label: "Custom Agentic AI", icon: Cpu, color: "#1E3A5F" },
         { answer: "Existing", label: "Existing AI Tools", icon: Plug, color: "#F59E0B" },
       ],
       correctAnswer: "ML",

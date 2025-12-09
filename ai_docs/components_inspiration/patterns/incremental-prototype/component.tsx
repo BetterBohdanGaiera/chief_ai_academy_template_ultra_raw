@@ -39,7 +39,7 @@ export default function IncrementalPrototype() {
         x: canvas.width * 0.5,
         y: canvas.height * 0.2,
         role: "Router",
-        color: "#FF4D00",
+        color: "#00897B",
         connections: [2, 3, 4],
       },
       {
@@ -47,7 +47,7 @@ export default function IncrementalPrototype() {
         x: canvas.width * 0.25,
         y: canvas.height * 0.5,
         role: "Research",
-        color: "#00BBFF",
+        color: "#1E3A5F",
         connections: [1, 5],
       },
       {

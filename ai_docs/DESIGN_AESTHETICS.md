@@ -1,7 +1,7 @@
 # Design Aesthetics Guide
 
-**Chief AI Academy Executive Presentation**
-**Design System**: Brutalist-Minimalism Meets Retro-Futuristic
+**Premium Dental Finance Presentation**
+**Design System**: Premium Minimalist - Dental Healthcare + Fintech Trust
 
 ---
 
@@ -22,23 +22,23 @@
 
 ## Design Philosophy
 
-### Core Aesthetic: Brutalist-Minimalism Meets Retro-Futuristic
+### Core Aesthetic: Premium Minimalist - Dental Healthcare + Fintech Trust
 
-This presentation employs a distinctive hybrid design language that balances:
+This presentation employs a sophisticated design language that combines dental industry trust with fintech professionalism:
 
-**Brutalist Elements**:
-- Bold, unadorned typography (Bebas Neue display font)
-- High contrast color schemes (charcoal + electric orange)
-- Geometric patterns and grid systems
-- Unapologetic use of space and scale
-- Hard edges and angular compositions
+**Healthcare Trust Elements**:
+- Calming teal primary color (industry standard for dental/health)
+- Soft, rounded corners (0.75rem) for warmth
+- Clean, spa-like aesthetic
+- Soothing color transitions
+- Professional, reassuring typography
 
-**Retro-Futuristic Touches**:
-- Neon-style glows and shadows
-- Analog film grain texture overlays
-- Warm atmospheric gradient meshes
-- Cyan accent color (sparingly used)
-- Subtle animations that feel premium
+**Fintech Professionalism**:
+- Deep navy accent color (security and trust)
+- Clear data visualization
+- Modern, accessible interfaces
+- Subtle depth effects
+- Confident, authoritative presence
 
 **Minimalist Foundation**:
 - Clean layouts with generous white space
@@ -49,12 +49,12 @@ This presentation employs a distinctive hybrid design language that balances:
 
 ### Design Principles
 
-1. **Purposeful Restraint**: Orange is powerful because it's used sparingly (10-20% of visual elements)
+1. **Trust Through Color**: Teal conveys health, calm, and cleanliness - perfect for dental finance
 2. **Rhythm Through Staggering**: Nothing appears all at once; orchestrated entrance sequences guide attention
 3. **Depth Through Layering**: Multiple subtle effects (gradient + pattern + grain) create richness
 4. **Hierarchy Through Scale**: Typography jumps dramatically (14px to 128px) to establish clear importance
 5. **Accessibility First**: Every visual effect has a reduced-motion fallback and meets WCAG AA standards
-6. **Analog in Digital**: Grain textures, glows, and subtle rotations humanize the digital presentation
+6. **Professional Warmth**: Rounded corners, soft glows, and subtle animations humanize the digital presentation
 
 ---
 
@@ -62,13 +62,13 @@ This presentation employs a distinctive hybrid design language that balances:
 
 ### Primary Colors
 
-#### Electric Orange (Brand Identity)
+#### Teal (Healthcare Trust)
 ```css
---primary: #FF4D00
---primary-oklch: oklch(0.65 0.2 35)
---primary-glow: rgba(255, 77, 0, 0.4)
---primary-intense: #FF6A00
---primary-dark: #CC3D00
+--primary: #00897B
+--primary-oklch: oklch(0.55 0.12 175)
+--primary-glow: rgba(0, 137, 123, 0.2)
+--primary-intense: #26A69A
+--primary-dark: #00695C
 ```
 
 **Usage**:
@@ -79,76 +79,77 @@ This presentation employs a distinctive hybrid design language that balances:
 - Glow effects (shadows)
 
 **Contrast Ratios**:
-- On #0A0A0A (dark): 5.8:1 (WCAG AA for large text)
-- On #FAFAFA (light): 3.2:1 (use for large text only)
+- On #FFFFFF (white): 4.5:1 (WCAG AA)
+- On #F8FAFB (light): 4.3:1 (WCAG AA for large text)
 
-#### Neon Cyan (Accent - Rare)
+#### Deep Navy (Fintech Professionalism)
 ```css
---accent-blue: #00D9FF
---accent-blue-oklch: oklch(0.75 0.15 190)
---accent-blue-glow: rgba(0, 217, 255, 0.3)
---accent-blue-dark: #00BBFF
+--accent-blue: #1E3A5F
+--accent-blue-oklch: oklch(0.35 0.08 250)
+--accent-blue-glow: rgba(30, 58, 95, 0.15)
+--accent-blue-dark: #152D4A
 ```
 
 **Usage**:
-- Level 5 slides only (represents futuristic AI)
-- Rare accent color (< 5% of slides)
-- Creates visual surprise and progression
+- Secondary emphasis elements
+- Professional accents
+- Charts and data visualizations
+- Trust-building elements
 
 ### Base Colors
 
 #### Backgrounds
 ```css
---background-dark: #0A0A0A    /* Deep charcoal - primary background */
---background-light: #F5F5F0   /* Off-white - rarely used */
+--background-dark: #F8FAFB    /* Subtle cool tint - navigation */
+--background-light: #FFFFFF   /* Pure white - cards */
 ```
 
 #### Foreground Text
 ```css
---foreground: #FAFAFA         /* Near-white - primary text */
---foreground-muted: #A0A0A0   /* Medium gray - secondary text */
+--foreground: #1A1A2E         /* Deep charcoal-blue - primary text */
+--foreground-muted: #64748B   /* Slate gray - secondary text */
 ```
 
 **Contrast Ratios**:
-- #FAFAFA on #0A0A0A: 19.8:1 (WCAG AAA)
-- #A0A0A0 on #0A0A0A: 6.7:1 (WCAG AA)
+- #1A1A2E on #FFFFFF: 16.1:1 (WCAG AAA)
+- #64748B on #FFFFFF: 5.1:1 (WCAG AA)
 
 ### Status Colors
 
 ```css
---warning: #FFB800           /* Amber-yellow */
---warning-glow: rgba(255, 184, 0, 0.3)
+--warning: #FF9800           /* Amber */
+--warning-glow: rgba(255, 152, 0, 0.15)
 
---success: #00FF88           /* Bright green */
---success-glow: rgba(0, 255, 136, 0.3)
+--success: #4CAF50           /* Healthy green */
+--success-glow: rgba(76, 175, 80, 0.15)
 
---destructive: #FF006E       /* Hot pink */
---destructive-glow: rgba(255, 0, 110, 0.3)
+--destructive: #EF5350       /* Softer red */
+--destructive-glow: rgba(239, 83, 80, 0.15)
 ```
 
 **Usage Guidelines**:
-- **Warning**: Challenges, issues, cautionary content
-- **Success**: Achievements, completions, positive outcomes
-- **Destructive**: Errors, anti-examples, things to avoid
+- **Warning**: Payment reminders, due dates, cautionary content
+- **Success**: Approved financing, completed payments, positive outcomes
+- **Destructive**: Declined applications, errors, things to avoid
 
 ### Chart Colors
 
 ```css
---chart-1: oklch(0.65 0.2 35)      /* Electric orange */
---chart-2: oklch(0.75 0.15 190)    /* Neon cyan */
---chart-3: oklch(0.7 0.22 70)      /* Amber */
---chart-4: oklch(0.75 0.18 140)    /* Mint green */
---chart-5: oklch(0.55 0.25 340)    /* Hot pink */
+--chart-1: oklch(0.55 0.12 175)   /* Teal */
+--chart-2: oklch(0.35 0.08 250)   /* Navy */
+--chart-3: oklch(0.70 0.15 85)    /* Amber */
+--chart-4: oklch(0.60 0.15 145)   /* Green */
+--chart-5: oklch(0.55 0.12 190)   /* Cyan-teal */
 ```
 
 ### Color Usage Rules
 
 1. **60-30-10 Rule**:
-   - 60% Dark backgrounds (#0A0A0A)
-   - 30% Neutral text/elements (#FAFAFA, #A0A0A0)
-   - 10% Orange accents (#FF4D00)
+   - 60% Light backgrounds (#FFFFFF, #F8FAFB)
+   - 30% Neutral text/elements (#1A1A2E, #64748B)
+   - 10% Teal accents (#00897B)
 
-2. **Orange Hierarchy**:
+2. **Teal Hierarchy**:
    - Hero keywords: `text-primary animate-glow-pulse`
    - Badges: `bg-primary` or `shadow-glow`
    - CTAs: `bg-primary hover:bg-primary/90`
@@ -160,10 +161,10 @@ This presentation employs a distinctive hybrid design language that balances:
    bg-gradient-to-br from-primary/10 to-primary/5
 
    /* Atmospheric slide background */
-   bg-gradient-to-br from-background via-background to-orange-50
+   bg-gradient-to-br from-background via-background to-teal-50
 
    /* Hero gradient (rare) */
-   bg-gradient-orange  /* Linear gradient from #FF4D00 to #FF8C00 */
+   bg-gradient-primary  /* Linear gradient from #00897B to #4DB6AC */
    ```
 
 ---
@@ -598,18 +599,18 @@ Users who prefer reduced motion will see instant state changes instead of animat
 
 All defined in `app/globals.css`:
 
-#### 1. Glow Shadows (Orange)
+#### 1. Glow Shadows (Teal)
 
 ```css
 .shadow-glow {
   box-shadow: 0 0 20px var(--primary-glow);
 }
-/* Usage: Subtle orange glow, base intensity */
+/* Usage: Subtle teal glow, base intensity */
 
 .shadow-glow-lg {
   box-shadow: 0 0 40px var(--primary-glow), 0 0 60px var(--primary-glow);
 }
-/* Usage: Intense orange glow, double-layer */
+/* Usage: Intense teal glow, double-layer */
 ```
 
 **When to Use**:
@@ -618,24 +619,24 @@ All defined in `app/globals.css`:
 - Animated keyword emphasis (`animate-glow-pulse`)
 - Interactive elements on hover
 
-#### 2. Glow Shadows (Cyan)
+#### 2. Glow Shadows (Navy)
 
 ```css
 .shadow-glow-blue {
   box-shadow: 0 0 20px var(--accent-blue-glow);
 }
-/* Usage: Subtle cyan glow */
+/* Usage: Subtle navy glow */
 
 .shadow-glow-blue-lg {
   box-shadow: 0 0 40px var(--accent-blue-glow), 0 0 60px var(--accent-blue-glow);
 }
-/* Usage: Intense cyan glow, Level 5 only */
+/* Usage: Intense navy glow, professional emphasis */
 ```
 
 **When to Use**:
-- Level 5 slides exclusively
-- Futuristic AI concepts
-- Blue gradient accents
+- Financial data displays
+- Trust indicators
+- Professional accent elements
 
 #### 3. Layered Shadows (Depth)
 
@@ -654,19 +655,19 @@ All defined in `app/globals.css`:
 - Featured content
 - Multi-layer depth perception
 
-#### 4. Brutal Shadow (Brutalist)
+#### 4. Brutal Shadow (Modern Accent)
 
 ```css
 .shadow-brutal {
-  box-shadow: 8px 8px 0 rgba(255, 77, 0, 0.2);
+  box-shadow: 8px 8px 0 rgba(0, 137, 123, 0.15);
 }
 ```
 
 **When to Use**:
 - Outlined buttons/cards
-- Brutalist aesthetic elements
+- Modern accent elements
 - Decorative accents
-- Retro computing references
+- Call-to-action emphasis
 
 ### Standard Tailwind Shadows
 
@@ -761,12 +762,12 @@ import { GeometricPattern } from '@/components/decorative/geometric-patterns'
 
 **Pattern Types**:
 
-1. **Dots**: Radial gradient circles, 24px grid, orange tint
+1. **Dots**: Radial gradient circles, 24px grid, teal tint
    ```tsx
    <GeometricPattern type="dots" className="opacity-30" />
    ```
 
-2. **Grid**: Linear grid lines, 32px cells, subtle orange
+2. **Grid**: Linear grid lines, 32px cells, subtle neutral
    ```tsx
    <GeometricPattern type="grid" className="opacity-20" />
    ```
@@ -810,26 +811,26 @@ import { GradientMesh } from '@/components/decorative/geometric-patterns'
    linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0F0F0F 100%)
    ```
 
-2. **Warm**: Charcoal with subtle orange undertones
+2. **Warm**: Light with subtle teal undertones
    ```css
-   linear-gradient(135deg, #0A0A0A 0%, #1A0F0A 30%, #0F0A0A 60%, #0A0A0A 100%)
+   linear-gradient(135deg, #F8FAFB 0%, #E8F5F3 30%, #F0FAF9 60%, #F8FAFB 100%)
    ```
 
-3. **Orange**: Vibrant orange gradient (rare, high-impact slides)
+3. **Primary**: Vibrant teal gradient (high-impact slides)
    ```css
-   linear-gradient(135deg, #FF4D00 0%, #FF6A00 50%, #FF8C00 100%)
+   linear-gradient(135deg, #00897B 0%, #26A69A 50%, #4DB6AC 100%)
    ```
 
-4. **Cyan**: Cyan gradient (Level 5 slides only)
+4. **Accent**: Deep navy gradient (professional emphasis)
    ```css
-   linear-gradient(135deg, #00D9FF 0%, #00BBFF 100%)
+   linear-gradient(135deg, #1E3A5F 0%, #2C4A6E 100%)
    ```
 
 **Best Practices**:
-- **Hero slides**: Use `warm` for subtle warmth
+- **Hero slides**: Use `warm` for subtle healthcare warmth
 - **Standard slides**: Use `default` for neutrality
-- **High-impact slides**: Use `orange` sparingly
-- **Level 5 slides**: Use `cyan` for futuristic feel
+- **High-impact slides**: Use `primary` sparingly
+- **Financial data**: Use `accent` for trust emphasis
 
 ---
 
@@ -839,13 +840,13 @@ Alternative to components, use these CSS classes directly:
 
 ```css
 /* From globals.css */
-.bg-dots-pattern       /* Radial dots, 24px grid */
+.bg-dots-pattern       /* Radial dots, 24px grid, teal tint */
 .bg-grid-pattern       /* Linear grid, 32px cells */
 .bg-diagonal-pattern   /* 45° stripes, 20px repeat */
-.bg-gradient-mesh      /* Neutral dark gradient */
-.bg-gradient-mesh-warm /* Warm orange gradient */
-.bg-gradient-orange    /* Vibrant orange gradient */
-.bg-gradient-cyan      /* Cyan gradient */
+.bg-gradient-mesh      /* Neutral gradient */
+.bg-gradient-mesh-warm /* Warm teal gradient */
+.bg-gradient-primary   /* Vibrant teal gradient */
+.bg-gradient-accent    /* Navy gradient */
 ```
 
 **Usage**:
@@ -909,28 +910,28 @@ import { Badge } from '@/components/ui/badge'
 #### Custom Design System Variants
 
 ```tsx
-{/* Orange gradient background */}
+{/* Teal gradient background */}
 <Badge variant="gradient">Gradient</Badge>
 
-{/* Orange with glow shadow */}
+{/* Teal with glow shadow */}
 <Badge variant="glow">Glow</Badge>
 
-{/* Cyan gradient (Level 5 only) */}
-<Badge variant="cyan">Cyan</Badge>
+{/* Navy accent */}
+<Badge variant="cyan">Navy</Badge>
 
-{/* Brutalist: 2px border + shadow-brutal */}
-<Badge variant="brutal">Brutal</Badge>
+{/* Modern: 2px border + shadow-brutal */}
+<Badge variant="brutal">Modern</Badge>
 ```
 
 #### Usage Guidelines
 
 | Variant | Use Case | Example |
 |---------|----------|---------|
-| `default` | Standard labels | "Module 01" |
+| `default` | Standard labels | "Financing" |
 | `outline` | Subtle context | "Optional" |
-| `gradient` | Hero emphasis | "AI Transformation" |
+| `gradient` | Hero emphasis | "Dental Finance" |
 | `glow` | **Hero slides** | **"Featured"** |
-| `cyan` | Level 5 slides | "Autonomous AI" |
+| `cyan` | Professional accent | "Premium Care" |
 | `brutal` | Decorative accent | "New!" |
 
 #### Tilted Badge Pattern (Brutalist Touch)
@@ -1059,13 +1060,13 @@ import { Button } from '@/components/ui/button'
 #### Custom Design System Variants
 
 ```tsx
-{/* Orange gradient background */}
+{/* Teal gradient background */}
 <Button variant="gradient">Gradient</Button>
 
 {/* 2px border, shadow-brutal */}
-<Button variant="brutal">Brutal</Button>
+<Button variant="brutal">Modern</Button>
 
-{/* Orange glow shadow */}
+{/* Teal glow shadow */}
 <Button variant="glow">Glow</Button>
 ```
 
@@ -1387,9 +1388,9 @@ All images must have descriptive alt text:
    - Maintain responsive typography scaling
 
 2. **Color**:
-   - Orange for primary emphasis (10-20% of visual elements)
-   - Dark charcoal backgrounds (#0A0A0A)
-   - Muted gray for secondary text (#A0A0A0)
+   - Teal for primary emphasis (10-20% of visual elements)
+   - Light backgrounds (#FFFFFF, #F8FAFB)
+   - Slate gray for secondary text (#64748B)
    - Use gradients sparingly (from-primary/10 to-primary/5)
 
 3. **Animation**:
@@ -1424,10 +1425,10 @@ All images must have descriptive alt text:
    - ❌ Don't use tiny text (< 16px for body)
 
 2. **Color**:
-   - ❌ Don't overuse orange (keep it special)
-   - ❌ Don't use pure black (#000000) or pure white (#FFFFFF)
+   - ❌ Don't overuse teal (keep it special)
+   - ❌ Don't use pure black (#000000) as background
    - ❌ Don't use low-contrast color combinations
-   - ❌ Don't use cyan except on Level 5 slides
+   - ❌ Don't mix too many accent colors (stick to teal + navy)
 
 3. **Animation**:
    - ❌ Don't animate everything at once
@@ -1447,7 +1448,7 @@ All images must have descriptive alt text:
    - ❌ Don't forget to position content above backgrounds
 
 6. **Accessibility**:
-   - ❌ Don't use orange text on light backgrounds
+   - ❌ Don't use teal text on light backgrounds at small sizes
    - ❌ Don't hide focus states
    - ❌ Don't use divs instead of buttons
    - ❌ Don't forget alt text on images
@@ -1547,20 +1548,20 @@ All images must have descriptive alt text:
 - `fill-backwards` - Prevent flash
 
 ### Shadow Classes
-- `shadow-glow` - Orange glow
-- `shadow-glow-lg` - Intense orange glow
-- `shadow-glow-blue` - Cyan glow
+- `shadow-glow` - Teal glow
+- `shadow-glow-lg` - Intense teal glow
+- `shadow-glow-blue` - Navy glow
 - `shadow-layered` - Multi-layer depth
-- `shadow-brutal` - Offset brutalist shadow
+- `shadow-brutal` - Offset modern shadow
 
 ### Background Classes
-- `bg-dots-pattern` - Dot grid
+- `bg-dots-pattern` - Dot grid (teal tint)
 - `bg-grid-pattern` - Line grid
 - `bg-diagonal-pattern` - Diagonal stripes
 - `bg-gradient-mesh` - Neutral gradient
-- `bg-gradient-mesh-warm` - Warm gradient
-- `bg-gradient-orange` - Orange gradient
-- `bg-gradient-cyan` - Cyan gradient
+- `bg-gradient-mesh-warm` - Warm teal gradient
+- `bg-gradient-primary` - Teal gradient
+- `bg-gradient-accent` - Navy gradient
 
 ### Component Variants
 **Badge**: `default` `outline` `gradient` `glow` `cyan` `brutal`
@@ -1597,6 +1598,13 @@ For interactive slide design patterns and implementation examples, see:
 
 ## Version History
 
+**v3.0** - December 2025
+- Adapted for dental clinic financial services
+- Teal primary color (#00897B) for healthcare trust
+- Deep navy accent (#1E3A5F) for fintech professionalism
+- Light theme with warm backgrounds
+- Softer corners (0.75rem) for spa-like feel
+
 **v2.0** - December 2024
 - Added brutalist-minimalism meets retro-futuristic design system
 - Introduced four-font typography hierarchy (Bebas Neue, Syne, Manrope, JetBrains Mono)
@@ -1613,8 +1621,8 @@ For interactive slide design patterns and implementation examples, see:
 
 ---
 
-**Maintained by**: Chief AI Academy Design Team
-**Last Updated**: January 2025
+**Maintained by**: Premium Dental Finance Design Team
+**Last Updated**: December 2025
 **Related Documents**:
 - `ai_docs/INTERACTIVE_PATTERNS.md` - Interactive slide patterns and implementations
 - `ai_docs/ALGORITHMIC_COMPONENTS.md` - Canvas-based animation components

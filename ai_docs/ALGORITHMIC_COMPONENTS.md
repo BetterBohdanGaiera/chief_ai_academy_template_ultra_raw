@@ -2,7 +2,7 @@
 
 **Version**: 1.0 | **Last Updated**: 2025 | **Authoritative Reference**
 
-This document provides comprehensive documentation for algorithmic and decorative background components used in Chief AI Academy presentations. These components add visual interest, movement, and professional polish to slides through canvas-based animations and procedural patterns.
+This document provides comprehensive documentation for algorithmic and decorative background components used in Premium Dental Finance presentations. These components add visual interest, movement, and professional polish to slides through canvas-based animations and procedural patterns.
 
 ---
 
@@ -43,7 +43,7 @@ interface MeshGradientBackgroundProps {
 }
 ```
 
-### Example 1: Warm Orange Gradient (Transformation Themes)
+### Example 1: Healthcare Teal Gradient (Primary Themes)
 
 ```tsx
 import { MeshGradientBackground } from "@/components/algorithmic/mesh-gradient-background"
@@ -51,35 +51,35 @@ import { MeshGradientBackground } from "@/components/algorithmic/mesh-gradient-b
 export default function SlideTransformation() {
   return (
     <section className="min-h-screen flex items-center justify-center p-8 relative overflow-hidden">
-      {/* Warm gradient for transformation/innovation themes */}
+      {/* Healthcare teal gradient for trust/calm themes */}
       <MeshGradientBackground
         colors={[
-          '#FF4D00',  // Electric orange (primary)
-          '#F5A623',  // Warm orange
-          '#FFF5E1',  // Soft cream
-          '#0A0A0A'   // Charcoal
+          '#00897B',  // Teal (primary)
+          '#26A69A',  // Light teal
+          '#E8F5F3',  // Soft mint
+          '#F8FAFB'   // Off-white
         ]}
         speed={0.5}        // Slow, professional movement
         complexity={3}      // 3 gradient blobs
       />
 
       <div className="relative z-10">
-        <h1 className="text-8xl font-bebas">AI TRANSFORMATION</h1>
+        <h1 className="text-8xl font-bebas">DENTAL FINANCE</h1>
       </div>
     </section>
   )
 }
 ```
 
-### Example 2: Cool Gradient (Technical/Data Themes)
+### Example 2: Navy Gradient (Financial/Professional Themes)
 
 ```tsx
 <MeshGradientBackground
   colors={[
-    '#00BBFF',  // Cyan (Level 4/5 accent)
-    '#1E3A8A',  // Deep blue
+    '#1E3A5F',  // Deep navy (secondary)
+    '#2C4A6E',  // Medium navy
     '#F3F4F6',  // Light gray
-    '#0A0A0A'   // Charcoal
+    '#F8FAFB'   // Off-white
   ]}
   speed={0.3}
   complexity={2}
@@ -88,7 +88,7 @@ export default function SlideTransformation() {
 
 ### Best Practices
 
-- ✅ **Always include primary color** (#FF4D00) in transformation themes
+- ✅ **Always include primary color** (#00897B) in healthcare themes
 - ✅ **Use slow speeds** (0.3-0.5) for professional aesthetic
 - ✅ **Keep complexity low** (2-3) to avoid visual noise
 - ✅ **Layer with GrainOverlay** for analog warmth
@@ -97,24 +97,24 @@ export default function SlideTransformation() {
 
 ### Color Scheme Recommendations
 
-**Transformation/Innovation:**
+**Healthcare/Trust (Dental):**
 ```tsx
-colors={['#FF4D00', '#F5A623', '#FFF5E1', '#0A0A0A']}
+colors={['#00897B', '#26A69A', '#E8F5F3', '#F8FAFB']}
 ```
 
-**Technical/Data:**
+**Financial/Professional:**
 ```tsx
-colors={['#00BBFF', '#1E3A8A', '#F3F4F6', '#0A0A0A']}
+colors={['#1E3A5F', '#2C4A6E', '#F3F4F6', '#F8FAFB']}
 ```
 
-**Level 5/Advanced:**
+**Combined (Dental Finance):**
 ```tsx
-colors={['#00D9FF', '#00BBFF', '#0A0A0A', '#1E293B']}
+colors={['#00897B', '#1E3A5F', '#F8FAFB', '#E8F5F3']}
 ```
 
 **Minimal/Clean:**
 ```tsx
-colors={['#FAFAFA', '#F5F5F0', '#E5E5E0', '#D4D4D0']}
+colors={['#FFFFFF', '#F8FAFB', '#F0FAF9', '#E8F5F3']}
 ```
 
 ---
@@ -157,7 +157,7 @@ export default function SlideNetwork() {
       {/* Subtle particle field */}
       <ParticleField
         particleCount={50}           // Moderate density
-        color="#FF4D00"              // Orange particles
+        color="#00897B"              // Teal particles
         interactive={true}           // Respond to mouse
         speed={0.5}                  // Slow drift
         connectionDistance={150}     // Lines between nearby particles
@@ -178,7 +178,7 @@ export default function SlideNetwork() {
 ```tsx
 <ParticleField
   particleCount={120}
-  color="#00BBFF"
+  color="#1E3A5F"
   interactive={true}
   speed={0.8}
   connectionDistance={200}
@@ -191,7 +191,7 @@ export default function SlideNetwork() {
 ```tsx
 <ParticleField
   particleCount={30}
-  color="#0A0A0A"
+  color="#1A1A2E"
   interactive={false}          // No mouse interaction
   speed={0.3}
   connectionDistance={100}
@@ -204,9 +204,9 @@ export default function SlideNetwork() {
 - ✅ **Use sparingly** - high particle counts can impact performance
 - ✅ **Lower opacity** (0.2-0.4) for background ambiance
 - ✅ **Match particle color to slide theme**:
-  - Orange (#FF4D00) for transformation
-  - Cyan (#00BBFF) for technical
-  - Charcoal (#0A0A0A) for neutral
+  - Teal (#00897B) for healthcare themes
+  - Navy (#1E3A5F) for financial/professional
+  - Charcoal (#1A1A2E) for neutral
 - ✅ **Disable interactivity** (`interactive={false}`) if slide has other interactions
 - ⚠️ **Avoid >150 particles** - performance degradation
 - ⚠️ **Test on lower-end devices** before using dense fields
@@ -363,8 +363,8 @@ export default function SlideFramework() {
 #### Best Practices
 
 - ✅ **Keep opacity very low** (0.04-0.10) for subtlety
-- ✅ **Use charcoal** (#0A0A0A) for neutral backgrounds
-- ✅ **Use orange** (#FF4D00) sparingly for branded moments
+- ✅ **Use charcoal-blue** (#1A1A2E) for neutral backgrounds
+- ✅ **Use teal** (#00897B) sparingly for branded moments
 - ✅ **Larger spacing** (50-80px) for cleaner look
 - ✅ **Smaller spacing** (20-40px) for technical/data slides
 - ⚠️ **Avoid high opacity** (>0.15) - becomes distracting
@@ -388,7 +388,7 @@ export default function SlideFramework() {
 <section className="min-h-screen flex items-center justify-center p-8 lg:p-16 relative overflow-hidden">
   {/* Layer 1: Algorithmic background (color and movement) */}
   <MeshGradientBackground
-    colors={['#FF4D00', '#F5A623', '#FFF5E1', '#0A0A0A']}
+    colors={['#00897B', '#26A69A', '#E8F5F3', '#F8FAFB']}
     speed={0.4}
     complexity={3}
   />
@@ -404,7 +404,7 @@ export default function SlideFramework() {
   </div>
 
   {/* Layer 3: Geometric pattern (structure) */}
-  <GeometricPattern type="dots" opacity={0.06} color="#0A0A0A" spacing={60} />
+  <GeometricPattern type="dots" opacity={0.06} color="#1A1A2E" spacing={60} />
 
   {/* Layer 4: Grain overlay (analog warmth) */}
   <GrainOverlay opacity={0.15} />
@@ -442,27 +442,27 @@ export default function SlideFramework() {
 <section className="min-h-screen flex items-center justify-center p-8 relative overflow-hidden">
   {/* Full layering for maximum visual impact */}
   <MeshGradientBackground
-    colors={['#FF4D00', '#F5A623', '#FFF5E1', '#0A0A0A']}
+    colors={['#00897B', '#26A69A', '#E8F5F3', '#F8FAFB']}
     speed={0.4}
     complexity={3}
   />
 
   <div className="absolute inset-0 z-0">
     <Image
-      src="/generated-images/transformation-hero.png"
+      src="/generated-images/dental-finance-hero.png"
       fill
       className="object-cover opacity-15 mix-blend-multiply"
       aria-hidden="true"
     />
   </div>
 
-  <GeometricPattern type="dots" opacity={0.05} color="#0A0A0A" spacing={60} />
+  <GeometricPattern type="dots" opacity={0.05} color="#1A1A2E" spacing={60} />
   <GrainOverlay opacity={0.18} />
 
   <div className="relative z-10 max-w-7xl w-full text-center space-y-12">
-    <Badge variant="glow" className="animate-slide-in-down">Module 02</Badge>
+    <Badge variant="glow" className="animate-slide-in-down">Premium Care</Badge>
     <h1 className="text-9xl font-bebas animate-fade-in delay-200 fill-backwards">
-      THE FIVE LEVELS <span className="text-primary animate-glow-pulse">FRAMEWORK</span>
+      DENTAL <span className="text-primary animate-glow-pulse">FINANCE</span>
     </h1>
   </div>
 </section>

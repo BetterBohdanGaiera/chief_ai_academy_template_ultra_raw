@@ -283,12 +283,40 @@ If errors occur:
 - Re-run validation commands
 - Report errors to user if cannot auto-fix
 
-#### 4e. Register Slides (if needed)
+#### 4e. Register Slides (MANDATORY)
 
-Check if slides need to be registered in module configuration:
-- Read `config/slides.ts` or relevant module config
-- Verify slides are registered with correct IDs and ordering
-- If not registered, add them following existing patterns
+**CRITICAL**: ALL newly created slides MUST be registered in BOTH configuration files:
+
+**1. Register in `config/slides.ts`:**
+```typescript
+'[module]-[number]-[name]': {
+  slide: {
+    id: '[module]-[number]-[name]',
+    component: () => import('@/components/slides/[module]/[filename]'),
+    module: '[module]',
+    title: '[Slide Title]',
+    tags: ['tag1', 'tag2'],
+    duration: 2,
+    notes: '[Brief description]'
+  },
+  loader: () => import('@/components/slides/[module]/[filename]')
+},
+```
+
+**2. Add to `app/page.tsx` defaultSlides array:**
+```typescript
+const defaultSlides = [
+  // ... existing slides
+  '[module]-[number]-[name]',  // Add your new slide here in correct order
+]
+```
+
+**Validation:**
+- Read `config/slides.ts` to verify all new slides are registered
+- Read `app/page.tsx` to verify defaultSlides contains all new slide IDs
+- If ANY slide is missing from EITHER file, add it now
+
+**IMPORTANT**: Slides will NOT appear in the presentation until registered in BOTH files. Do NOT mark implementation as complete until registration is verified.
 
 #### 4f. Generate Completion Summary
 
@@ -566,6 +594,11 @@ Before marking implementation as complete, verify:
 - [ ] All slide checkboxes marked complete in spec file
 - [ ] Status fields filled with 'Completed'
 - [ ] Comments added with implementation notes
+
+**Slide Registration (MANDATORY):**
+- [ ] All slides registered in `config/slides.ts` with correct metadata
+- [ ] All slide IDs added to `app/page.tsx` defaultSlides array
+- [ ] Slide ordering verified (slides appear in correct sequence)
 
 ## Spec File Path
 $ARGUMENTS

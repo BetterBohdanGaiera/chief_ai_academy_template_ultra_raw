@@ -268,7 +268,7 @@ bash scripts/generate-presentation-images.sh
 **ABSOLUTE RULE**: Background images must NEVER contain text, labels, numbers, letters, or any written characters.
 
 **Why This Matters:**
-- Background images are visual atmosphere layers at 10-20% opacity
+- Background images are visual atmosphere layers at 2-4% opacity
 - Text in backgrounds becomes unreadable blur and looks unprofessional
 - Slide text content should come from the component, not the background image
 - Text in AI-generated images often looks distorted or unprofessional
@@ -597,11 +597,11 @@ console.log(result.metadata);
 ### Color Values (from DESIGN_AESTHETICS.md)
 
 Use these exact values in prompts for design consistency:
-- **Electric Orange**: `#FF4D00` (primary)
-- **Warm Orange**: `#F5A623` (accent)
-- **Neon Cyan**: `#00D9FF` (Level 5 only)
-- **Deep Charcoal**: `#0A0A0A` (backgrounds)
-- **Off-white**: `#FAFAFA`, `#F5F5F0` (light backgrounds)
+- **Teal**: `#00897B` (primary - healthcare trust)
+- **Light Teal**: `#26A69A` (accent)
+- **Deep Navy**: `#1E3A5F` (secondary - fintech professionalism)
+- **Deep Charcoal-Blue**: `#1A1A2E` (foreground text)
+- **Off-white**: `#FFFFFF`, `#F8FAFB` (light backgrounds)
 
 ---
 

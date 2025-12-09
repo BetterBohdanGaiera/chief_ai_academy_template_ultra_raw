@@ -678,20 +678,40 @@ Report pass/fail for all 5 categories:
 - **Technical**: [Pass/Fail] - Note any issues
 - **Performance**: [Pass/Fail] - Note any issues
 
-### 5. Integration Instructions
-Step-by-step guide to add the slide to the presentation:
+### 5. Slide Registration (MANDATORY)
 
+**CRITICAL**: ALL newly created slides MUST be registered in BOTH configuration files before marking implementation complete.
+
+**Step 1: Register in `config/slides.ts`:**
 ```typescript
-// 1. Import in app/page.tsx
-import { SlideXXXName } from '@/components/slide-XXX-name'
+'[module]-[number]-[name]': {
+  slide: {
+    id: '[module]-[number]-[name]',
+    component: () => import('@/components/slides/[module]/[filename]'),
+    module: '[module]',
+    title: '[Slide Title]',
+    tags: ['tag1', 'tag2'],
+    duration: 2,
+    notes: '[Brief description for speaker notes]'
+  },
+  loader: () => import('@/components/slides/[module]/[filename]')
+},
+```
 
-// 2. Add to slides array at appropriate position
-const slides = [
+**Step 2: Add to `app/page.tsx` defaultSlides array:**
+```typescript
+const defaultSlides = [
   // ... existing slides
-  <SlideXXXName key="slide-XXX" />,
-  // ... more slides
+  '[module]-[number]-[name]',  // Add your new slide here in correct order
 ]
 ```
+
+**Verification:**
+- Read `config/slides.ts` to confirm entry exists with correct path
+- Read `app/page.tsx` to confirm slide ID is in defaultSlides array
+- Verify slide appears in correct position in the presentation
+
+**IMPORTANT**: Slides will NOT appear in the presentation until registered in BOTH files. Do NOT mark the task complete until registration is verified.
 
 ### 6. Suggestions for Future Improvements
 Optional enhancements for v2:
