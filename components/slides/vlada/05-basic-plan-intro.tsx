@@ -1,0 +1,211 @@
+"use client"
+
+import { useState } from "react"
+import Image from "next/image"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+import { GrainOverlay } from "@/components/decorative/grain-overlay"
+import { GeometricPattern } from "@/components/decorative/geometric-patterns"
+import {
+  Building2,
+  FileSpreadsheet,
+  HelpCircle,
+  MessageSquare,
+  TrendingDown,
+  CheckCircle2
+} from "lucide-react"
+
+/**
+ * Slide 05: Basic Plan Intro - "Taryf 'Finansove vedennia' - 9 000 hrn/mis"
+ * Pattern: Hover-Reveal Progressive Disclosure
+ * Content: Maria persona introduction, target criteria with hover details
+ */
+export default function Slide05BasicPlanIntro() {
+  const [activeCard, setActiveCard] = useState<string | null>(null)
+
+  const targetCriteria = [
+    {
+      id: "works-chaos",
+      title: "Klinika vzhe pratsiuie",
+      subtitle: "ale oblik - khaotychnyi",
+      icon: Building2,
+      description: "Ye patsiienty, ye dohid - ale hroshi vedutsia 'iak vyide'. Khochete naresti znaty tochni tsyfry.",
+      color: "border-primary",
+      glowColor: "shadow-[0_0_30px_rgba(0,137,123,0.3)]"
+    },
+    {
+      id: "understand-numbers",
+      title: "Khochete rozumity tsyfry",
+      subtitle: "ale ne hotovi do hlybokoho analizu",
+      icon: TrendingDown,
+      description: "Potrebuiete prostoho zvitu: skilky zaroblyly, skilky vytratyly, shcho zalyshylos. Bez skladnykh tablyst.",
+      color: "border-[#1E3A5F]",
+      glowColor: "shadow-[0_0_30px_rgba(30,58,95,0.3)]"
+    },
+    {
+      id: "no-calls",
+      title: "Ne potrebuiete dzvinkiv",
+      subtitle: "zvity cherez mesendzhery - dostatno",
+      icon: MessageSquare,
+      description: "Vam ne potribni shchotyzhevi zustrichi. Dostatno otrymuvatyzvity v Telegram i stavyty pytannia koly potribno.",
+      color: "border-green-600",
+      glowColor: "shadow-[0_0_30px_rgba(22,163,74,0.3)]"
+    }
+  ]
+
+  return (
+    <section className="min-h-screen flex items-center justify-center p-8 lg:p-16 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/generated-images/gemini-1765289824441-1.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.15] select-none pointer-events-none mix-blend-multiply"
+          priority
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* Geometric Pattern */}
+      <GeometricPattern type="dots" className="opacity-[0.06]" />
+
+      {/* Grain Overlay */}
+      <GrainOverlay opacity={0.15} />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl w-full space-y-10">
+        {/* Header */}
+        <div className="text-center space-y-4">
+          <Badge
+            variant="glow"
+            className="animate-slide-in-down px-6 py-2"
+          >
+            Taryf "Finansove vedennia"
+          </Badge>
+
+          <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl tracking-tight animate-fade-in delay-200 fill-backwards">
+            Dlia kliniky <span className="text-primary">Marii</span>
+          </h2>
+
+          <div className="flex justify-center animate-fade-in delay-300 fill-backwards">
+            <Badge
+              variant="brutal"
+              className="text-2xl md:text-3xl px-8 py-3 animate-glow-pulse"
+            >
+              9 000 hrn/mis
+            </Badge>
+          </div>
+        </div>
+
+        {/* Maria's Persona Card */}
+        <Card
+          className="max-w-2xl mx-auto border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 animate-scale-in delay-400 fill-backwards"
+        >
+          <CardContent className="pt-6 space-y-4">
+            <div className="flex items-center gap-4">
+              <div className="p-3 rounded-xl bg-primary/10">
+                <Building2 className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-xl md:text-2xl font-syne font-bold">Klinika Marii</h3>
+                <p className="text-sm text-foreground/70 font-manrope">Mala stomatolohichna klinika - 2 krisla</p>
+              </div>
+            </div>
+
+            <div className="space-y-3 pt-2 border-t border-border">
+              <div className="flex items-start gap-3">
+                <FileSpreadsheet className="w-5 h-5 text-warning shrink-0 mt-0.5" />
+                <p className="text-sm text-foreground/80 font-manrope">
+                  Vede hroshi v Excel "iak vyide"
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <HelpCircle className="w-5 h-5 text-warning shrink-0 mt-0.5" />
+                <p className="text-sm text-foreground/80 font-manrope">
+                  V kintsi misiatsia ne rozumiie - chomu prybutok menshyi, nizh ochikuvala
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <TrendingDown className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
+                <p className="text-sm text-foreground/80 font-manrope">
+                  Boitsia shchos propustyty i otrymaty problemy
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-3 border-t border-border">
+              <p className="text-sm font-syne font-semibold text-primary text-center">
+                Marii potribno PORIADOK - bez skladnoho analizu. Prosto zrozumili tsyfry.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Target Criteria Section */}
+        <div className="space-y-4">
+          <p className="text-center text-lg text-foreground/70 font-manrope animate-fade-in delay-500 fill-backwards">
+            Navedite na kartku, shchob diznatysia bilshe
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {targetCriteria.map((criteria, idx) => {
+              const Icon = criteria.icon
+              const isActive = activeCard === criteria.id
+
+              return (
+                <Card
+                  key={criteria.id}
+                  className={`
+                    transition-all duration-300 cursor-pointer
+                    ${isActive
+                      ? `scale-105 ${criteria.color} ${criteria.glowColor}`
+                      : "border-border hover:scale-102 hover:border-primary/50"
+                    }
+                    animate-fade-in fill-backwards
+                  `}
+                  style={{ animationDelay: `${600 + idx * 100}ms` }}
+                  onMouseEnter={() => setActiveCard(criteria.id)}
+                  onMouseLeave={() => setActiveCard(null)}
+                >
+                  <CardContent className="pt-6 space-y-3">
+                    <div className={`p-3 rounded-xl ${isActive ? 'bg-primary/10' : 'bg-muted'} transition-colors w-fit`}>
+                      <Icon className={`w-7 h-7 ${isActive ? 'text-primary' : 'text-foreground/60'}`} />
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-syne font-bold">{criteria.title}</h4>
+                      <p className="text-sm text-foreground/60">{criteria.subtitle}</p>
+                    </div>
+
+                    {/* Revealed content on hover */}
+                    {isActive && (
+                      <div className="pt-3 border-t border-border animate-fade-in">
+                        <div className="flex items-start gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                          <p className="text-sm text-foreground/80 font-manrope">
+                            {criteria.description}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Key Message */}
+        <Card className="bg-primary/5 border-primary/20 animate-fade-in delay-900 fill-backwards">
+          <CardContent className="pt-4">
+            <p className="text-sm md:text-base text-center text-foreground/90 font-manrope">
+              <span className="font-semibold text-primary">Tsei taryf</span> - dlia tykh, komu potribna finansova prozorist bez zaivoho skladu. Poriadok u tsyfrakh = spokoiiu holovnoi.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  )
+}

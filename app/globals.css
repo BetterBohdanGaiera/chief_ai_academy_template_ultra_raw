@@ -3,65 +3,65 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Brutalist Minimalism meets Retro-Futuristic Design System - Light Theme */
+/* Premium Dental Finance Design System - Light Theme */
 :root {
   /* Base Colors - Light backgrounds with dark text */
-  --background-dark: #FAFAFA; /* Now light for navigation elements */
+  --background-dark: #F8FAFB; /* Subtle cool tint for navigation elements */
   --background-light: #FFFFFF; /* Pure white for cards */
-  --foreground: #0A0A0A; /* Dark text */
-  --foreground-muted: #525252; /* Medium gray for muted text */
+  --foreground: #1A1A2E; /* Deep charcoal with hint of blue */
+  --foreground-muted: #64748B; /* Slate gray for secondary text */
 
-  /* Primary - Electric Orange (unchanged for brand consistency) */
-  --primary: #FF4D00;
-  --primary-glow: rgba(255, 77, 0, 0.2); /* Reduced for light bg */
-  --primary-intense: #FF6A00;
-  --primary-dark: #CC3D00;
+  /* Primary - Teal (Trust, health, calm - dental industry standard) */
+  --primary: #00897B;
+  --primary-glow: rgba(0, 137, 123, 0.2); /* Teal glow */
+  --primary-intense: #26A69A; /* Lighter teal for highlights */
+  --primary-dark: #00695C; /* Darker teal for depth */
 
-  /* Accent - Neon Cyan (adjusted for light bg) */
-  --accent-blue: #00BBFF; /* Slightly darker for better contrast */
-  --accent-blue-glow: rgba(0, 187, 255, 0.15);
-  --accent-blue-dark: #0099DD;
+  /* Accent - Deep Navy (Professionalism, fintech trust) */
+  --accent-blue: #1E3A5F; /* Deep navy for professional accent */
+  --accent-blue-glow: rgba(30, 58, 95, 0.15);
+  --accent-blue-dark: #152D4A; /* Darker navy */
 
-  /* Status Colors (adjusted for light bg) */
-  --warning: #F59E0B; /* Amber-600 for better contrast */
-  --warning-glow: rgba(245, 158, 11, 0.15);
-  --success: #10B981; /* Emerald-500 for better contrast */
-  --success-glow: rgba(16, 185, 129, 0.15);
-  --destructive: #EF4444; /* Red-500 for better contrast */
-  --destructive-glow: rgba(239, 68, 68, 0.15);
+  /* Status Colors (adjusted for dental/health context) */
+  --warning: #FF9800; /* Amber warning */
+  --warning-glow: rgba(255, 152, 0, 0.15);
+  --success: #4CAF50; /* Healthy green */
+  --success-glow: rgba(76, 175, 80, 0.15);
+  --destructive: #EF5350; /* Softer red */
+  --destructive-glow: rgba(239, 83, 80, 0.15);
 
   /* Design Tokens for shadcn/ui compatibility - Light Theme */
-  --background: oklch(0.98 0 0); /* Off-white/light gray */
+  --background: oklch(0.98 0.005 220); /* Off-white with cool tint */
   --card: oklch(1 0 0); /* Pure white */
-  --card-foreground: oklch(0.09 0 0); /* Near black */
+  --card-foreground: oklch(0.15 0.02 260); /* Deep charcoal-blue */
   --popover: oklch(1 0 0); /* Pure white */
-  --popover-foreground: oklch(0.09 0 0); /* Near black */
-  --primary-oklch: oklch(0.65 0.2 35); /* Electric orange in oklch */
-  --primary-foreground: oklch(1 0 0); /* White on orange */
-  --secondary: oklch(0.96 0 0); /* Very light gray */
-  --secondary-foreground: oklch(0.09 0 0); /* Dark text */
-  --muted: oklch(0.96 0 0); /* Light gray */
-  --muted-foreground: oklch(0.45 0 0); /* Medium gray text */
-  --accent: oklch(0.65 0.2 35); /* Orange accent */
+  --popover-foreground: oklch(0.15 0.02 260); /* Deep charcoal-blue */
+  --primary-oklch: oklch(0.55 0.12 175); /* Teal in oklch */
+  --primary-foreground: oklch(1 0 0); /* White on teal */
+  --secondary: oklch(0.96 0.005 220); /* Very light gray with cool tint */
+  --secondary-foreground: oklch(0.15 0.02 260); /* Dark text */
+  --muted: oklch(0.96 0.005 220); /* Light gray with cool tint */
+  --muted-foreground: oklch(0.55 0.02 250); /* Slate gray text */
+  --accent: oklch(0.35 0.08 250); /* Navy accent in oklch */
   --accent-foreground: oklch(1 0 0); /* White on accent */
-  --destructive-oklch: oklch(0.55 0.25 25); /* Red */
+  --destructive-oklch: oklch(0.60 0.2 25); /* Softer red */
   --destructive-foreground: oklch(1 0 0); /* White on red */
-  --border: oklch(0.89 0 0); /* Light gray border */
-  --input: oklch(0.89 0 0); /* Light gray input border */
-  --ring: oklch(0.65 0.2 35); /* Orange focus ring */
+  --border: oklch(0.90 0.005 220); /* Light gray border with cool tint */
+  --input: oklch(0.90 0.005 220); /* Light gray input border */
+  --ring: oklch(0.55 0.12 175); /* Teal focus ring */
 
-  /* Chart Colors (keeping vibrant colors, they work on light bg) */
-  --chart-1: oklch(0.65 0.2 35); /* Electric orange */
-  --chart-2: oklch(0.65 0.15 220); /* Blue (darker for contrast) */
-  --chart-3: oklch(0.65 0.18 85); /* Amber */
-  --chart-4: oklch(0.60 0.15 145); /* Green (darker for contrast) */
-  --chart-5: oklch(0.55 0.2 350); /* Pink */
+  /* Chart Colors (dental/finance themed) */
+  --chart-1: oklch(0.55 0.12 175); /* Teal */
+  --chart-2: oklch(0.35 0.08 250); /* Navy */
+  --chart-3: oklch(0.70 0.15 85); /* Amber */
+  --chart-4: oklch(0.60 0.15 145); /* Green */
+  --chart-5: oklch(0.55 0.12 190); /* Cyan-teal */
 
-  --warning-oklch: oklch(0.65 0.18 70); /* Amber */
-  --warning-foreground: oklch(0.09 0 0); /* Dark text on warning */
-  --transformation: oklch(0.65 0.2 35); /* Orange */
-  --transformation-foreground: oklch(1 0 0); /* White on orange */
-  --radius: 0.5rem;
+  --warning-oklch: oklch(0.70 0.15 70); /* Amber */
+  --warning-foreground: oklch(0.15 0 0); /* Dark text on warning */
+  --transformation: oklch(0.55 0.12 175); /* Teal */
+  --transformation-foreground: oklch(1 0 0); /* White on teal */
+  --radius: 0.75rem; /* Warmer, more rounded corners */
 }
 
 /* .dark class removed - light theme is now default */
@@ -343,7 +343,7 @@
 @layer utilities {
   /* Light theme patterns - increased visibility */
   .bg-dots-pattern {
-    background-image: radial-gradient(circle, rgba(255, 77, 0, 0.15) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0, 137, 123, 0.15) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
@@ -375,10 +375,10 @@
 
   .bg-gradient-mesh-warm {
     background: linear-gradient(135deg,
-      #FAFAFA 0%,
-      #FFF5F0 30%,
-      #FFF8F5 60%,
-      #FAFAFA 100%
+      #F8FAFB 0%,
+      #E8F5F3 30%,
+      #F0FAF9 60%,
+      #F8FAFB 100%
     );
   }
 
@@ -390,18 +390,18 @@
     );
   }
 
-  .bg-gradient-orange {
+  .bg-gradient-primary {
     background: linear-gradient(135deg,
-      #FF4D00 0%,
-      #FF6A00 50%,
-      #FF8C00 100%
+      #00897B 0%,
+      #26A69A 50%,
+      #4DB6AC 100%
     );
   }
 
-  .bg-gradient-cyan {
+  .bg-gradient-accent {
     background: linear-gradient(135deg,
-      #00BBFF 0%,
-      #0099DD 100%
+      #1E3A5F 0%,
+      #2C4A6E 100%
     );
   }
 
@@ -466,7 +466,7 @@
   }
 
   .shadow-brutal {
-    box-shadow: 8px 8px 0 rgba(255, 77, 0, 0.15);
+    box-shadow: 8px 8px 0 rgba(0, 137, 123, 0.15);
   }
 }
 

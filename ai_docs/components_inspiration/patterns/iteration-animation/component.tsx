@@ -144,13 +144,13 @@ export default function IterationAnimationPattern() {
       // Draw Fast Label
       ctx.font = 'bold 14px Manrope'
       ctx.textAlign = 'left'
-      ctx.fillStyle = '#FF4D00' // primary orange
+      ctx.fillStyle = '#00897B' // primary teal
       ctx.fillText('Fast Approach', trackStartX, fastTrackY - 30)
 
       // Draw Fast Dots
       fastDots.forEach((day) => {
         const x = daysToX(day)
-        ctx.fillStyle = '#FF4D00' // primary orange
+        ctx.fillStyle = '#00897B' // primary teal
         ctx.beginPath()
         ctx.arc(x, fastTrackY, 5, 0, Math.PI * 2)
         ctx.fill()
@@ -158,7 +158,7 @@ export default function IterationAnimationPattern() {
 
       // Draw current time indicator (vertical line)
       const currentX = daysToX(simulatedDays)
-      ctx.strokeStyle = '#00BBFF' // cyan
+      ctx.strokeStyle = '#1E3A5F' // navy
       ctx.lineWidth = 2
       ctx.beginPath()
       ctx.moveTo(currentX, slowTrackY - 50)
@@ -168,7 +168,7 @@ export default function IterationAnimationPattern() {
       // Draw time marker at top
       ctx.font = 'bold 12px Manrope'
       ctx.textAlign = 'center'
-      ctx.fillStyle = '#00BBFF'
+      ctx.fillStyle = '#1E3A5F'
       const weeks = Math.floor(simulatedDays / 7)
       const days = Math.floor(simulatedDays % 7)
       ctx.fillText(`Week ${weeks}, Day ${days}`, currentX, slowTrackY - 60)
@@ -180,7 +180,7 @@ export default function IterationAnimationPattern() {
       ctx.fillStyle = '#71717a'
       ctx.fillText(`${slowCount} iterations`, trackStartX - 10, slowTrackY + 6)
 
-      ctx.fillStyle = '#FF4D00'
+      ctx.fillStyle = '#00897B'
       ctx.fillText(`${fastCount} iterations`, trackStartX - 10, fastTrackY + 6)
 
       // Continue animation if not complete

@@ -89,14 +89,14 @@ Algorithmic expression: Randomized circle packing or Voronoi tessellation. Start
 
 ## DESIGN SYSTEM INTEGRATION FOR SLIDE BACKGROUNDS
 
-**CRITICAL: When creating algorithmic art for presentation slide backgrounds**, you MUST reconcile the organic/emergent algorithmic philosophy with the project's brutalist-minimalist design system defined in `ai_docs/DESIGN_AESTHETICS.md`.
+**CRITICAL: When creating algorithmic art for presentation slide backgrounds**, you MUST reconcile the organic/emergent algorithmic philosophy with the project's premium dental finance design system defined in `ai_docs/DESIGN_AESTHETICS.md`.
 
 **Reference dynamically for:**
 
 - **Color Palette** (Section: "Color System"):
-  - Primary: Electric Orange (#FF4D00 / RGB: 255, 77, 0)
-  - Accent: Neon Cyan (#00D9FF / RGB: 0, 217, 255)
-  - Neutral: Charcoal (#0A0A0A / RGB: 10, 10, 10), Muted Gray (#A0A0A0 / RGB: 160, 160, 160)
+  - Primary: Teal (#00897B / RGB: 0, 137, 123) - Healthcare trust
+  - Accent: Deep Navy (#1E3A5F / RGB: 30, 58, 95) - Fintech professionalism
+  - Neutral: Charcoal-Blue (#1A1A2E / RGB: 26, 26, 46), Slate Gray (#64748B / RGB: 100, 116, 139)
   - Use these as VARIABLES in your p5.js code, not hardcoded values
 
 - **Design Philosophy Alignment** (Section: "Design Philosophy"):

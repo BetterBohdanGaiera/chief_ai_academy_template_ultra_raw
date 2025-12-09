@@ -253,6 +253,14 @@ Implement each spec using:
 ```
 
 Or implement all at once by running the commands sequentially.
+
+### Slide Registration Required (MANDATORY)
+
+After implementation, ALL slides MUST be registered in:
+1. **`config/slides.ts`** - Add slide metadata entries (id, component, module, title, tags, duration, notes)
+2. **`app/page.tsx`** - Add slide IDs to defaultSlides array in correct order
+
+**IMPORTANT**: Slides will NOT appear in the presentation until registered in BOTH files!
 ```
 
 ---

@@ -361,11 +361,33 @@ Redesign slides using POC-style interactive patterns from `ai_docs/components_in
   - Status:
   - Comments:
 
-### Integration & Validation
+### Slide Registration (MANDATORY)
 
-- [ ] **Register slides in config/slides.ts** - Add slide metadata and ordering
+- [ ] **Register slides in config/slides.ts** - Add all new slide entries with metadata (REQUIRED)
   - Status:
   - Comments:
+  - **Template:**
+    ```typescript
+    '[module]-[number]-[name]': {
+      slide: {
+        id: '[module]-[number]-[name]',
+        component: () => import('@/components/slides/[module]/[filename]'),
+        module: '[module]',
+        title: '[Slide Title]',
+        tags: ['tag1', 'tag2'],
+        duration: 2,
+        notes: '[Brief description]'
+      },
+      loader: () => import('@/components/slides/[module]/[filename]')
+    },
+    ```
+
+- [ ] **Add slides to app/page.tsx** - Include slide IDs in defaultSlides array in correct order (REQUIRED)
+  - Status:
+  - Comments:
+  - **Note:** Slides will NOT appear until added to BOTH config/slides.ts AND app/page.tsx
+
+### Integration & Validation
 
 - [ ] **Test slide navigation** - Verify chevron buttons, dot indicators, keyboard navigation
   - Status:

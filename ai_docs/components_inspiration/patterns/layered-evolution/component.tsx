@@ -61,7 +61,7 @@ const SPECTRUM_LEVELS: SpectrumLevel[] = [
     components: { llm: true, tools: true, memory: true, autonomy: true },
     examples: ["Agent swarms", "Specialized agent teams", "Autonomous systems"],
     icon: Network,
-    color: "#FF4D00",
+    color: "#00897B",
   },
 ]
 
