@@ -2,7 +2,7 @@
 name: slide-planner
 description: Creates detailed slide redesign specifications (max 4 slides per spec) by extracting source content, consulting design patterns, and organizing slides into implementation groups. Returns specification file path.
 tools: Read, Write, Glob, Grep, Bash
-model: sonnet
+model: opus
 ---
 
 # Slide Planner Sub-Agent

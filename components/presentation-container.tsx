@@ -30,6 +30,7 @@ export function PresentationContainer({
     navState,
     nextSlide,
     prevSlide,
+    firstSlide,
     progress,
     isFirstSlide,
     isLastSlide
@@ -70,11 +71,9 @@ export function PresentationContainer({
         <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
           {/* Home + Title */}
           <div className="flex items-center gap-4">
-            <Link href="/">
-              <Button variant="ghost" size="sm">
-                <Home className="h-4 w-4" />
-              </Button>
-            </Link>
+            <Button variant="ghost" size="sm" onClick={firstSlide}>
+              <Home className="h-4 w-4" />
+            </Button>
             <span className="font-syne font-semibold text-sm">{title}</span>
           </div>
 

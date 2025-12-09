@@ -2,7 +2,7 @@
 name: slide-generator
 description: Expert presentation slide designer. Use when creating new slides or improving existing ones. Ensures design system compliance, visual appeal, and executive-level quality.
 tools: Read, Write, Edit, Bash, Glob, Grep
-model: sonnet
+model: opus
 ---
 
 # Slide Generator Sub-Agent
