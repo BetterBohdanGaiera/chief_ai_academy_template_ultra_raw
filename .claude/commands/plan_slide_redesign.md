@@ -2,6 +2,85 @@
 
 Orchestrate parallel slide planning by reading source content, organizing slides into groups, and spawning multiple `slide-planner` agents simultaneously.
 
+---
+
+## VISUAL-FIRST DESIGN PHILOSOPHY (READ THIS FIRST)
+
+**Core Principle: "Show, Don't Tell"**
+
+Before planning ANY slide, ask yourself: **"Can this be shown instead of told?"**
+
+### The Visual-First Mandate
+
+Every slide should prioritize visual communication over text:
+
+| ❌ Text-Heavy Approach | ✅ Visual-First Approach |
+|------------------------|-------------------------|
+| Bullet points listing benefits | Interactive toggle showing before/after |
+| Paragraph explaining process | Canvas animation demonstrating flow |
+| Static text describing options | Hover-reveal cards for exploration |
+| Written comparison | Side-by-side visual contrast |
+
+### Text-to-Visual Ratio Target
+
+**Target: Maximum 30% text, minimum 70% visual elements**
+
+Visual elements include:
+- Interactive components (toggles, buttons, hover states)
+- Data visualizations (charts, graphs, diagrams)
+- Canvas animations and algorithmic art
+- AI-generated images at appropriate opacity
+- Icons and visual metaphors
+- Structured layouts (cards, grids)
+
+### Visual-First Checklist (Apply to EVERY Slide)
+
+Before finalizing a slide plan, verify:
+- [ ] **Primary message is visual** - The core concept is shown, not just described
+- [ ] **Text supports visuals** - Labels, captions, and explanations enhance visuals
+- [ ] **Interactive where possible** - Concepts that benefit from exploration have interactivity
+- [ ] **Data is visualized** - Numbers and comparisons use charts or visual metaphors
+- [ ] **"Can this be shown?"** question was explicitly asked and answered
+
+### When to Invoke Skills
+
+**IMPORTANT**: Most slides benefit from skills. Make skill usage explicit in planning:
+
+| Slide Needs | Skill to Use |
+|-------------|--------------|
+| Flow fields, particles, procedural art | `algorithmic-art` |
+| Canvas animations, network visualizations | `algorithmic-art` |
+| Complex React UI, state management | `artifacts-builder` |
+| Standard cards, badges, layouts | `artifacts-builder` (default) |
+| Interactive toggles, hover states | `artifacts-builder` |
+
+Reference: `ai_docs/INTERACTIVE_PATTERNS.md` for complete pattern implementations
+
+---
+
+## CRITICAL: PLANNING ONLY - NO EXECUTION
+
+**THIS COMMAND ONLY CREATES SPECIFICATION FILES. IT MUST NEVER:**
+
+- Create or modify any `.tsx` slide component files
+- Edit `config/slides.ts`
+- Edit any `page.tsx` files
+- Run any build or dev commands
+- Generate any images
+- Implement any code whatsoever
+
+**ALLOWED ACTIONS:**
+- Read source content files
+- Read design documentation (`ai_docs/`)
+- Write specification files to `specs/` folder ONLY
+- Report created spec file paths
+
+**OUTPUT**: Markdown specification files in `specs/` folder
+
+**IMPLEMENTATION**: Use `/implement_slide_redesign` command separately (AFTER reviewing specs)
+
+---
+
 ## Instructions
 
 When the user invokes this command, you act as the **MASTER ORCHESTRATOR** responsible for:
@@ -170,6 +249,17 @@ Read these before designing:
 - **NO TEXT in background images** - Use visual shapes/forms only
 - **Pattern-first approach** - Always check components_inspiration/ before designing
 - **Return file path** - Your final output MUST include the spec file path created
+
+## STRICT BOUNDARIES - DO NOT VIOLATE
+
+**YOU ARE A PLANNER, NOT AN IMPLEMENTER. YOU MUST NEVER:**
+- Create or modify `.tsx` files
+- Edit `config/slides.ts` or any `page.tsx`
+- Write any React/TypeScript code
+- Generate images
+- Run build commands
+
+**YOUR ONLY OUTPUT IS**: A single markdown spec file in `specs/` folder
 ```
 
 ### 2.4 Example: Spawning 2 Agents for 8 Slides
@@ -306,12 +396,14 @@ If the source file doesn't exist, report the error and ask for correction.
 
 ## Key Points Summary
 
-1. **YOU are the orchestrator** - Read all content first, then distribute to agents
-2. **Parallel spawning is CRITICAL** - All agents in ONE message
-3. **Max 4 slides per agent** - Each agent creates one spec file
-4. **Context distribution** - Extract and pass relevant content to each agent
-5. **Agents can re-read** - Provide source path so agents can get more detail if needed
-6. **Report all spec paths** - Final output lists all created spec files
+1. **PLANNING ONLY** - This command creates spec files, NEVER implements code
+2. **YOU are the orchestrator** - Read all content first, then distribute to agents
+3. **Parallel spawning is CRITICAL** - All agents in ONE message
+4. **Max 4 slides per agent** - Each agent creates one spec file
+5. **Context distribution** - Extract and pass relevant content to each agent
+6. **Agents can re-read** - Provide source path so agents can get more detail if needed
+7. **Report all spec paths** - Final output lists all created spec files
+8. **NO `.tsx` FILES** - Never create or modify any component files
 
 ---
 

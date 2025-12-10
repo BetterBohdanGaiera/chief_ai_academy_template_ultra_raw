@@ -490,7 +490,7 @@ Pattern seen in slide 39 (Summary):
 
 ## 7. Interactive & Animation Patterns
 
-**AUTHORITATIVE REFERENCE:** `ai_docs/INTERACTIVE_PATTERNS.md` (Complete pattern implementations and examples)
+**AUTHORITATIVE REFERENCE:** `.claude/skills/artifacts-builder/patterns/interactive/INTERACTIVE_PATTERNS.md` (Complete pattern implementations and examples)
 
 ### 7.0 Design Philosophy: Show, Don't Tell
 
@@ -507,7 +507,7 @@ The most effective slides share a common trait: they **show** concepts rather th
 
 ### 7.1 Preferred Interactive Patterns
 
-**For complete implementations with full code examples**, see `ai_docs/INTERACTIVE_PATTERNS.md`.
+**For complete implementations with full code examples**, see `.claude/skills/artifacts-builder/patterns/interactive/INTERACTIVE_PATTERNS.md`.
 
 **Quick Pattern Reference:**
 
@@ -528,7 +528,7 @@ The most effective slides share a common trait: they **show** concepts rather th
 
 For slides with interactive foreground content, enhance with subtle background animations. Keep opacity very low (5-15%), use slow movement (10-20 second durations), and never compete with foreground interactivity.
 
-See `ai_docs/INTERACTIVE_PATTERNS.md` for complete background animation patterns and examples.
+See `.claude/skills/artifacts-builder/patterns/interactive/INTERACTIVE_PATTERNS.md` for complete background animation patterns and examples.
 
 ### 7.3 Entrance Animations
 

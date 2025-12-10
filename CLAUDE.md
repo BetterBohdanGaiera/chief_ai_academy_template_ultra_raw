@@ -9,8 +9,8 @@ This is a clean template for building presentations and visualizations using Nex
 ├── .claude/              # Claude commands, agents, skills
 │   ├── agents/           # Slide generator and planner agents
 │   ├── commands/         # Workflow automation commands
-│   └── skills/           # Algorithmic art, artifacts builder
-├── ai_docs/              # Design system documentation
+│   └── skills/           # Algorithmic art, artifacts builder (with patterns library)
+├── ai_docs/              # Core design system (DESIGN_AESTHETICS.md, IMAGE_GENERATION_GUIDE.md)
 ├── app/                  # Next.js app router
 │   └── (courses)/modules/  # Module pages (m1, m2, m3)
 ├── components/
@@ -22,6 +22,17 @@ This is a clean template for building presentations and visualizations using Nex
 ├── config/               # Slide and module configuration
 └── lib/                  # Utilities and helpers
 ```
+
+## Documentation Architecture
+
+**Core Design System** (ai_docs/):
+- `DESIGN_AESTHETICS.md` - Colors, typography, animations, component variants
+- `IMAGE_GENERATION_GUIDE.md` - AI image generation workflow
+- `PRESENTATION_DESIGN_GUIDELINES.md` - High-level layout philosophy
+
+**Implementation Details** (.claude/skills/):
+- `artifacts-builder/` - React patterns, shadcn/ui components, 13 patterns + 6 templates
+- `algorithmic-art/` - Canvas animations, p5.js, MeshGradient, ParticleField
 
 ## Slide Management Workflow
 

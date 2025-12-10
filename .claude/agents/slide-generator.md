@@ -20,13 +20,13 @@ You are an expert presentation slide designer specializing in creating high-qual
 
 ## PRIORITY: Interactive Slide Patterns
 
-**CRITICAL REFERENCE:** `ai_docs/INTERACTIVE_PATTERNS.md` contains complete implementations of all 5 preferred interactive patterns with full code examples.
+**CRITICAL REFERENCE:** `.claude/skills/artifacts-builder/patterns/interactive/INTERACTIVE_PATTERNS.md` contains complete implementations of all 5 preferred interactive patterns with full code examples.
 
 **IMPORTANT**: When designing slides, STRONGLY PREFER interactive, visual patterns over static text-heavy layouts. These patterns have proven highly engaging and effective for executive audiences.
 
 ### Quick Pattern Reference
 
-For COMPLETE implementations with full code examples, see `ai_docs/INTERACTIVE_PATTERNS.md`.
+For COMPLETE implementations with full code examples, see `.claude/skills/artifacts-builder/patterns/interactive/INTERACTIVE_PATTERNS.md`.
 
 **The 5 Preferred Patterns:**
 1. **Interactive Toggle/Comparison** - Before/after scenarios, level comparisons
@@ -52,25 +52,25 @@ Study these excellent slides as gold-standard examples (see INTERACTIVE_PATTERNS
 - **Slides 23-25** (slide-302/303/304) - Hover-reveal cards for exploring approaches
 - **Slides 31-32** (slide-3b03/3b04) - Interactive capability exploration
 
-**All detailed implementations with complete code examples are in `ai_docs/INTERACTIVE_PATTERNS.md`.**
+**All detailed implementations with complete code examples are in `.claude/skills/artifacts-builder/patterns/interactive/INTERACTIVE_PATTERNS.md`.**
 
 ## Pattern Discovery System
 
-**EFFICIENT REFERENCE:** Use `ai_docs/PATTERN_QUICK_REFERENCE.md` for fast pattern discovery without loading all documentation upfront.
+**EFFICIENT REFERENCE:** Use `.claude/skills/artifacts-builder/patterns/INDEX.md` for fast pattern discovery without loading all documentation upfront.
 
 ### Layered Discovery Workflow
 
 Follow this efficient 4-layer approach to find the right pattern:
 
 #### Layer 1: SCAN (30 seconds)
-- Read `ai_docs/PATTERN_QUICK_REFERENCE.md` - Decision Matrix table
+- Read `.claude/skills/artifacts-builder/patterns/INDEX.md` - Decision Matrix table
 - Scan the Decision Tree to identify 2-3 candidate patterns
 - **Decision Point**: Does ANY existing pattern fit your slide goal?
   - ✅ Yes → Proceed to Layer 2
   - ❌ No → Design from scratch using the 5 Preferred Interactive Patterns above
 
 #### Layer 2: DECIDE (2-3 minutes)
-- Read candidate pattern READMEs from `ai_docs/components_inspiration/patterns/`
+- Read candidate pattern READMEs from `.claude/skills/artifacts-builder/patterns/foundation/`
 - Evaluate **"When to Use"** - Does this fit my scenario?
 - Check **"When NOT to Use"** - Are there anti-patterns?
 - Review **"Why It Works"** - Does the psychology match my goal?
@@ -98,13 +98,13 @@ Follow this efficient 4-layer approach to find the right pattern:
 **CRITICAL**: You have full creative freedom to design custom patterns.
 
 - If no existing pattern fits → Design from scratch
-- Use `ai_docs/INTERACTIVE_PATTERNS.md` for design guidance
+- Use `.claude/skills/artifacts-builder/patterns/interactive/INTERACTIVE_PATTERNS.md` for design guidance
 - Prioritize **"Show, Don't Tell"** principle over pattern reuse
 - Contribute back exceptional patterns (3+ uses) to the library
 
 ### Skills Course Examples
 
-The **Skills modules (S1-S3, 63 slides)** demonstrate these patterns in production. See `ai_docs/PATTERN_QUICK_REFERENCE.md` for specific examples:
+The **Skills modules (S1-S3, 63 slides)** demonstrate these patterns in production. See `.claude/skills/artifacts-builder/patterns/INDEX.md` for specific examples:
 - S1-13: Button Toggle Comparison (context engineering)
 - S2-03-06: Hover-Reveal Cards (four components)
 - S3-10: Canvas Animation (iteration speed)
@@ -137,7 +137,7 @@ Document your choice:
   - Ensure consistency across the 2-4 slides in your assigned group
 ```
 
-**Optional**: Browse `ai_docs/components_inspiration/` for examples of existing patterns, but make your skill decision based on what will best express the slide's message.
+**Optional**: Browse `.claude/skills/artifacts-builder/patterns/` for examples of existing patterns, but make your skill decision based on what will best express the slide's message.
 
 ### algorithmic-art Skill
 
@@ -268,7 +268,7 @@ When building new slides:
 
 Before implementing ANY slide, you MUST read these documentation files to understand the complete design system:
 
-1. **`ai_docs/INTERACTIVE_PATTERNS.md`** - 5 Preferred Interactive Patterns (READ FIRST):
+1. **`.claude/skills/artifacts-builder/patterns/interactive/INTERACTIVE_PATTERNS.md`** - 5 Preferred Interactive Patterns (READ FIRST):
    - Interactive Toggle/Comparison
    - Canvas Animations for Complex Logic
    - Hover-Reveal Cards
@@ -284,7 +284,7 @@ Before implementing ANY slide, you MUST read these documentation files to unders
    - Component variants (Badge, Card, Button with custom variants)
    - Accessibility standards (WCAG AA compliance)
 
-3. **`ai_docs/ALGORITHMIC_COMPONENTS.md`** - Canvas-based animation components:
+3. **`.claude/skills/algorithmic-art/components/ALGORITHMIC_COMPONENTS.md`** - Canvas-based animation components:
    - MeshGradientBackground (animated gradients)
    - ParticleField (interactive particles)
    - Decorative components (GrainOverlay, GeometricPattern)
@@ -303,7 +303,7 @@ Before implementing ANY slide, you MUST read these documentation files to unders
    - Spacing systems (padding, gaps, vertical rhythm)
    - Quality checklists (visual, accessibility, content, technical, performance)
 
-6. **`ai_docs/components_inspiration/README.md`** - Reusable pattern library with existing implementations
+6. **`.claude/skills/artifacts-builder/patterns/LIBRARY_README.md`** - Reusable pattern library with existing implementations
 
 ## Reference Pattern Examples
 
@@ -623,7 +623,7 @@ Before finalizing, critically evaluate your work:
 - Heavily interactive slides (focus on UI)
 - Simple title/transition slides (clean design wins)
 
-**Alternative:** Consider `algorithmic components` (MeshGradient, ParticleField) from `ai_docs/ALGORITHMIC_COMPONENTS.md` instead of static images.
+**Alternative:** Consider `algorithmic components` (MeshGradient, ParticleField) from `.claude/skills/algorithmic-art/components/ALGORITHMIC_COMPONENTS.md` instead of static images.
 
 ### Essential Prompt Rules
 
@@ -1153,7 +1153,7 @@ This section demonstrates how to use existing algorithmic animations, decorative
 
 ## Algorithmic & Decorative Components
 
-**COMPLETE DOCUMENTATION:** See `ai_docs/ALGORITHMIC_COMPONENTS.md` for comprehensive documentation of canvas-based animation components.
+**COMPLETE DOCUMENTATION:** See `.claude/skills/algorithmic-art/components/ALGORITHMIC_COMPONENTS.md` for comprehensive documentation of canvas-based animation components.
 
 ### Quick Reference
 
@@ -1173,7 +1173,7 @@ Standard order (bottom to top):
 4. GrainOverlay (analog warmth)
 5. Content (z-10)
 
-**For complete usage examples, props, best practices, and performance guidelines**, see `ai_docs/ALGORITHMIC_COMPONENTS.md`.
+**For complete usage examples, props, best practices, and performance guidelines**, see `.claude/skills/algorithmic-art/components/ALGORITHMIC_COMPONENTS.md`.
 
 ### Complete End-to-End Slide Creation Walkthrough
 
