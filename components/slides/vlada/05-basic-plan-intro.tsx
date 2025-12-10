@@ -26,28 +26,28 @@ export default function Slide05BasicPlanIntro() {
   const targetCriteria = [
     {
       id: "works-chaos",
-      title: "Klinika vzhe pratsiuie",
-      subtitle: "ale oblik - khaotychnyi",
+      title: "Клініка вже працює",
+      subtitle: "але облік - хаотичний",
       icon: Building2,
-      description: "Ye patsiienty, ye dohid - ale hroshi vedutsia 'iak vyide'. Khochete naresti znaty tochni tsyfry.",
+      description: "Є пацієнти, є дохід - але гроші ведуться «як вийде». Хочете нарешті знати точні цифри.",
       color: "border-primary",
       glowColor: "shadow-[0_0_30px_rgba(0,137,123,0.3)]"
     },
     {
       id: "understand-numbers",
-      title: "Khochete rozumity tsyfry",
-      subtitle: "ale ne hotovi do hlybokoho analizu",
+      title: "Хочете розуміти цифри",
+      subtitle: "але не готові до глибокого аналізу",
       icon: TrendingDown,
-      description: "Potrebuiete prostoho zvitu: skilky zaroblyly, skilky vytratyly, shcho zalyshylos. Bez skladnykh tablyst.",
+      description: "Потребуєте простого звіту: скільки заробили, скільки витратили, що залишилось. Без складних таблиць.",
       color: "border-[#1E3A5F]",
       glowColor: "shadow-[0_0_30px_rgba(30,58,95,0.3)]"
     },
     {
       id: "no-calls",
-      title: "Ne potrebuiete dzvinkiv",
-      subtitle: "zvity cherez mesendzhery - dostatno",
+      title: "Не потребуєте дзвінків",
+      subtitle: "звіти через месенджери - достатньо",
       icon: MessageSquare,
-      description: "Vam ne potribni shchotyzhevi zustrichi. Dostatno otrymuvatyzvity v Telegram i stavyty pytannia koly potribno.",
+      description: "Вам не потрібні щотижневі зустрічі. Достатньо отримувати звіти в Telegram і ставити питання коли потрібно.",
       color: "border-green-600",
       glowColor: "shadow-[0_0_30px_rgba(22,163,74,0.3)]"
     }
@@ -82,11 +82,11 @@ export default function Slide05BasicPlanIntro() {
             variant="glow"
             className="animate-slide-in-down px-6 py-2"
           >
-            Taryf "Finansove vedennia"
+            Тариф «Фінансове ведення»
           </Badge>
 
           <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl tracking-tight animate-fade-in delay-200 fill-backwards">
-            Dlia kliniky <span className="text-primary">Marii</span>
+            Для клініки <span className="text-primary">Марії</span>
           </h2>
 
           <div className="flex justify-center animate-fade-in delay-300 fill-backwards">
@@ -94,7 +94,7 @@ export default function Slide05BasicPlanIntro() {
               variant="brutal"
               className="text-2xl md:text-3xl px-8 py-3 animate-glow-pulse"
             >
-              9 000 hrn/mis
+              9 000 грн/міс
             </Badge>
           </div>
         </div>
@@ -109,8 +109,8 @@ export default function Slide05BasicPlanIntro() {
                 <Building2 className="w-8 h-8 text-primary" />
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl font-syne font-bold">Klinika Marii</h3>
-                <p className="text-sm text-foreground/70 font-manrope">Mala stomatolohichna klinika - 2 krisla</p>
+                <h3 className="text-xl md:text-2xl font-syne font-bold">Клініка Марії</h3>
+                <p className="text-sm text-foreground/70 font-manrope">Мала стоматологічна клініка - 2 крісла</p>
               </div>
             </div>
 
@@ -118,26 +118,26 @@ export default function Slide05BasicPlanIntro() {
               <div className="flex items-start gap-3">
                 <FileSpreadsheet className="w-5 h-5 text-warning shrink-0 mt-0.5" />
                 <p className="text-sm text-foreground/80 font-manrope">
-                  Vede hroshi v Excel "iak vyide"
+                  Веде гроші в Excel «як вийде»
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <HelpCircle className="w-5 h-5 text-warning shrink-0 mt-0.5" />
                 <p className="text-sm text-foreground/80 font-manrope">
-                  V kintsi misiatsia ne rozumiie - chomu prybutok menshyi, nizh ochikuvala
+                  В кінці місяця не розуміє - чому прибуток менший, ніж очікувала
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <TrendingDown className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
                 <p className="text-sm text-foreground/80 font-manrope">
-                  Boitsia shchos propustyty i otrymaty problemy
+                  Боїться щось пропустити й отримати проблеми
                 </p>
               </div>
             </div>
 
             <div className="pt-3 border-t border-border">
               <p className="text-sm font-syne font-semibold text-primary text-center">
-                Marii potribno PORIADOK - bez skladnoho analizu. Prosto zrozumili tsyfry.
+                Марії потрібен ПОРЯДОК - без складного аналізу. Просто зрозумілі цифри.
               </p>
             </div>
           </CardContent>
@@ -146,7 +146,7 @@ export default function Slide05BasicPlanIntro() {
         {/* Target Criteria Section */}
         <div className="space-y-4">
           <p className="text-center text-lg text-foreground/70 font-manrope animate-fade-in delay-500 fill-backwards">
-            Navedite na kartku, shchob diznatysia bilshe
+            Наведіть на картку, щоб дізнатись більше
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -201,7 +201,7 @@ export default function Slide05BasicPlanIntro() {
         <Card className="bg-primary/5 border-primary/20 animate-fade-in delay-900 fill-backwards">
           <CardContent className="pt-4">
             <p className="text-sm md:text-base text-center text-foreground/90 font-manrope">
-              <span className="font-semibold text-primary">Tsei taryf</span> - dlia tykh, komu potribna finansova prozorist bez zaivoho skladu. Poriadok u tsyfrakh = spokoiiu holovnoi.
+              <span className="font-semibold text-primary">Цей тариф</span> - для тих, кому потрібна фінансова прозорість без зайвого складу. Порядок у цифрах = спокій голови.
             </p>
           </CardContent>
         </Card>

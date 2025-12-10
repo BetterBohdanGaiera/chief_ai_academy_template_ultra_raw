@@ -17,7 +17,7 @@ import Image from 'next/image'
 
 // Financial data structure for the report
 const reportData = {
-  title: 'ЗВІТ ЗА ЛИСТОПАД 2024',
+  title: 'ЗВІТ ЗА ЛИСТОПАД 2025',
   revenue: {
     total: '620 000 грн',
     breakdown: [

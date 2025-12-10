@@ -28,14 +28,14 @@ export default function SlideSolution() {
   const comparisons: ComparisonItem[] = [
     // What they ARE (inclusions) - Green/Success
     { type: "ARE", label: "Щодня стежимо за доходами та витратами" },
-    { type: "ARE", label: "Перевiряємо, щоб цифри в касi, банку i програмi збiгалися" },
-    { type: "ARE", label: "Щомiсяця - чiтка картинка: заробили, витратили, залишилось" },
+    { type: "ARE", label: "Перевіряємо, щоб цифри в касі, банку і програмі збігалися" },
+    { type: "ARE", label: "Щомісяця - чітка картинка: заробили, витратили, залишилось" },
     { type: "ARE", label: "Пояснюємо, що з грошима - простими словами" },
 
     // What they're NOT (exclusions) - Red/Destructive
     { type: "NOT", label: "Складний бухгалтерський жаргон" },
-    { type: "NOT", label: "Нескiнченнi таблицi без контексту" },
-    { type: "NOT", label: "Типовi поради, що не пiдходять вашiй клiнiцi" },
+    { type: "NOT", label: "Нескінченні таблиці без контексту" },
+    { type: "NOT", label: "Типові поради, що не підходять вашій клініці" },
   ]
 
   return (
@@ -66,7 +66,7 @@ export default function SlideSolution() {
           <Badge
             className="inline-flex text-base px-5 py-2 bg-[#00897B] text-white border-[#00897B] shadow-[0_0_20px_rgba(0,137,123,0.3)]"
           >
-            Наш пiдхiд
+            Наш підхід
           </Badge>
 
           <h1 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none tracking-tight text-foreground animate-fade-in delay-200 fill-backwards">
@@ -74,7 +74,7 @@ export default function SlideSolution() {
           </h1>
 
           <p className="font-syne text-xl md:text-2xl lg:text-3xl font-semibold text-foreground/80 animate-slide-in-up delay-400 fill-backwards">
-            Ми - ваш <span className="text-[#00897B]">фiнансовий адмiнiстратор</span>
+            Ми - ваш <span className="text-[#00897B]">фінансовий адміністратор</span>
           </p>
         </div>
 
@@ -149,10 +149,10 @@ export default function SlideSolution() {
                 </div>
                 <div>
                   <p className="font-syne text-lg md:text-xl font-bold text-[#00897B]">
-                    Це як персональний тренер, тiльки для фiнансiв вашої клiнiки
+                    Це як персональний тренер, тільки для фінансів вашої клініки
                   </p>
                   <p className="text-sm text-foreground/70 mt-2">
-                    Ми не просто показуємо цифри - ми допомагаємо вам їх розумiти та використовувати для розвитку
+                    Ми не просто показуємо цифри - ми допомагаємо вам їх розуміти та використовувати для розвитку
                   </p>
                 </div>
               </div>
@@ -165,7 +165,7 @@ export default function SlideSolution() {
           <div className="inline-block relative">
             <div className="absolute inset-0 bg-[#00897B]/20 blur-3xl" />
             <p className="relative font-syne text-lg md:text-xl font-semibold text-foreground/80 max-w-3xl">
-              Простота та зрозумiлiсть - ключ до контролю над фiнансами вашої клiнiки
+              Простота та зрозумілість - ключ до контролю над фінансами вашої клініки
             </p>
           </div>
         </div>

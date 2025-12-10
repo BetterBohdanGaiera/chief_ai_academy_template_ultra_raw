@@ -1,6 +1,6 @@
 "use client"
 
-import { MessageCircle, Mail, Phone, CheckCircle2, ArrowRight } from "lucide-react"
+import { MessageCircle, CheckCircle2, ArrowRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -10,10 +10,10 @@ import Image from "next/image"
 
 export default function CTAContactsSlide() {
   const benefits = [
-    "Познайомимось із вашою клінікою",
-    "Обговоримо, які завдання стоять перед вами",
-    "Підкажемо, який тариф підійде краще",
-    "Відповімо на всі запитання",
+    "Впроваджуємо все, що входить в інтеграційний місяць",
+    "Налаштовуємо систему обліку під вашу клініку",
+    "Якщо не продовжуєте - забираєте всі напрацювання безкоштовно",
+    "Це ні до чого не зобов'язує",
   ]
 
   const contacts = [
@@ -21,31 +21,11 @@ export default function CTAContactsSlide() {
       id: "telegram",
       icon: MessageCircle,
       label: "Telegram",
-      value: "@vlada_finance",
-      href: "https://t.me/vlada_finance",
+      value: "@Profit_med",
+      href: "https://t.me/Profit_med",
       color: "text-[#0088cc]",
       bgColor: "bg-[#0088cc]/10",
       hoverBg: "hover:bg-[#0088cc]/20",
-    },
-    {
-      id: "email",
-      icon: Mail,
-      label: "Email",
-      value: "finance@vlada.dental",
-      href: "mailto:finance@vlada.dental",
-      color: "text-primary",
-      bgColor: "bg-primary/10",
-      hoverBg: "hover:bg-primary/20",
-    },
-    {
-      id: "phone",
-      icon: Phone,
-      label: "Телефон",
-      value: "+380 67 123 45 67",
-      href: "tel:+380671234567",
-      color: "text-[#1E3A5F]",
-      bgColor: "bg-[#1E3A5F]/10",
-      hoverBg: "hover:bg-[#1E3A5F]/20",
     },
   ]
 
@@ -91,10 +71,10 @@ export default function CTAContactsSlide() {
               <CardContent className="p-6 md:p-8 space-y-6">
                 <div className="space-y-2">
                   <h3 className="font-syne text-2xl md:text-3xl font-bold text-foreground">
-                    Почніть із безкоштовної консультації
+                    Два тижні пробного періоду
                   </h3>
                   <p className="text-lg text-muted-foreground">
-                    За 30 хвилин ми:
+                    За цей час ми:
                   </p>
                 </div>
 
@@ -115,7 +95,7 @@ export default function CTAContactsSlide() {
                 {/* Trust Signal */}
                 <div className="pt-4 border-t border-primary/20">
                   <p className="text-primary font-semibold text-lg">
-                    Це безкоштовно і ні до чого не зобов&apos;язує
+                    Пробний період - безкоштовно. Всі документи - ваші.
                   </p>
                 </div>
               </CardContent>
@@ -170,7 +150,7 @@ export default function CTAContactsSlide() {
                 size="lg"
                 className="w-full bg-primary hover:bg-primary/90 text-white shadow-glow text-lg py-6"
               >
-                <a href="https://t.me/vlada_finance" target="_blank" rel="noopener noreferrer">
+                <a href="https://t.me/Profit_med" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5 mr-2" />
                   Записатися на консультацію
                 </a>

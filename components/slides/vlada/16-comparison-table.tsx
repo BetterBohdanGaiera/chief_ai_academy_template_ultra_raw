@@ -24,35 +24,35 @@ export default function Slide16ComparisonTable() {
     // Common features (both tiers)
     {
       id: "integration",
-      name: "Тиждень iнтеграцii",
+      name: "Місяць інтеграції",
       icon: Calendar,
       inBase: true,
       inPremium: true
     },
     {
       id: "payments",
-      name: "Щоденний облiк оплат",
+      name: "Щоденний облік оплат",
       icon: CreditCard,
       inBase: true,
       inPremium: true
     },
     {
       id: "reconciliation",
-      name: "Звiрка каса/банк",
+      name: "Звірка каса/банк",
       icon: BarChart3,
       inBase: true,
       inPremium: true
     },
     {
       id: "profit",
-      name: "Мiсячний звiт про прибуток",
+      name: "Місячний звіт про прибуток",
       icon: FileText,
       inBase: true,
       inPremium: true
     },
     {
       id: "cashflow",
-      name: "Звiт про грошовий потiк",
+      name: "Звіт про грошовий потік",
       icon: TrendingUp,
       inBase: true,
       inPremium: true
@@ -66,7 +66,7 @@ export default function Slide16ComparisonTable() {
     },
     {
       id: "recommendations",
-      name: "Письмовi рекомендацii",
+      name: "Письмові рекомендації",
       icon: FileText,
       inBase: true,
       inPremium: true
@@ -74,47 +74,47 @@ export default function Slide16ComparisonTable() {
     // Premium-only features
     {
       id: "zoom",
-      name: "Zoom-зустрiчi",
+      name: "Zoom-зустрічі",
       icon: Video,
       inBase: false,
       inPremium: true,
-      premiumBenefit: "Живе обговорення складних питань з фiнансовим експертом"
+      premiumBenefit: "Живе обговорення складних питань з фінансовим експертом"
     },
     {
       id: "costing",
-      name: "Собiвартiсть послуг",
+      name: "Собівартість послуг",
       icon: Target,
       inBase: false,
       inPremium: true,
-      premiumBenefit: "Точне розумiння прибутковостi кожної процедури"
+      premiumBenefit: "Точне розуміння прибутковості кожної процедури"
     },
     {
       id: "yearplan",
-      name: "Рiчний фiнансовий план",
+      name: "Річний фінансовий план",
       icon: Calendar,
       inBase: false,
       inPremium: true,
-      premiumBenefit: "Стратегiчне планування на 12 мiсяцiв наперед"
+      premiumBenefit: "Стратегічне планування на 12 місяців наперед"
     },
     {
       id: "dividends",
-      name: "Рекомендацii щодо дивiдендiв",
+      name: "Рекомендації щодо дивідендів",
       icon: Wallet,
       inBase: false,
       inPremium: true,
-      premiumBenefit: "Безпечне вилучення прибутку без шкоди бiзнесу"
+      premiumBenefit: "Безпечне вилучення прибутку без шкоди бізнесу"
     },
     {
       id: "efficiency",
-      name: "Аналiз лiкарiв/крiсел",
+      name: "Аналіз лікарів/крісел",
       icon: Users,
       inBase: false,
       inPremium: true,
-      premiumBenefit: "Оптимiзацiя завантаженостi та продуктивностi"
+      premiumBenefit: "Оптимізація завантаженості та продуктивності"
     },
     {
       id: "budgets",
-      name: "Бюджети та лiмiти",
+      name: "Бюджети та ліміти",
       icon: BarChart3,
       inBase: false,
       inPremium: true,
@@ -152,13 +152,13 @@ export default function Slide16ComparisonTable() {
             className="text-base px-5 py-2 bg-[#1E3A5F] text-white border-[#1E3A5F] shadow-[0_0_20px_rgba(30,58,95,0.3)]"
           >
             <Star className="h-4 w-4 mr-2" />
-            Порiвняння тарифiв
+            Порівняння тарифів
           </Badge>
           <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none text-[#1A1A2E]">
-            ОБЕРИ СВIЙ <span className="text-[#00897B]">ТАРИФ</span>
+            ОБЕРИ СВІЙ <span className="text-[#00897B]">ТАРИФ</span>
           </h2>
           <p className="font-syne text-xl md:text-2xl text-[#64748B] max-w-3xl mx-auto">
-            Наведiть на премiум-функцii, щоб дiзнатися бiльше
+            Наведіть на преміум-функції, щоб дізнатися більше
           </p>
         </div>
 
@@ -169,7 +169,7 @@ export default function Slide16ComparisonTable() {
             <CardContent className="p-6 text-center">
               <p className="text-sm text-[#64748B] mb-2">Базовий тариф</p>
               <p className="font-bebas text-5xl text-[#1A1A2E]">9,000</p>
-              <p className="text-lg text-[#64748B]">грн/мiсяць</p>
+              <p className="text-lg text-[#64748B]">грн/місяць</p>
             </CardContent>
           </Card>
 
@@ -180,9 +180,9 @@ export default function Slide16ComparisonTable() {
                 <Sparkles className="h-3 w-3 mr-1" />
                 Рекомендовано
               </Badge>
-              <p className="text-sm text-[#00897B] mb-2 mt-2">Премiум тариф</p>
+              <p className="text-sm text-[#00897B] mb-2 mt-2">Преміум тариф</p>
               <p className="font-bebas text-5xl text-[#00897B]">19,000</p>
-              <p className="text-lg text-[#64748B]">грн/мiсяць</p>
+              <p className="text-lg text-[#64748B]">грн/місяць</p>
             </CardContent>
           </Card>
         </div>
@@ -191,23 +191,28 @@ export default function Slide16ComparisonTable() {
         <div className="space-y-6 animate-fade-in delay-300 fill-backwards">
           {/* Common Features Section */}
           <div className="space-y-3">
-            <h3 className="font-syne text-lg font-bold text-[#1A1A2E] flex items-center gap-2">
+            <div className="flex items-center justify-center gap-2 p-3 bg-[#4CAF50]/10 rounded-lg border border-[#4CAF50]/30">
               <Check className="h-5 w-5 text-[#4CAF50]" />
-              Включено в обидва тарифи:
-            </h3>
+              <h3 className="font-syne text-lg font-bold text-[#1A1A2E]">
+                Включено в обидва тарифи
+              </h3>
+              <Check className="h-5 w-5 text-[#4CAF50]" />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               {baseFeatures.map((feature, index) => {
                 const IconComponent = feature.icon
                 return (
                   <div
                     key={feature.id}
-                    className="flex items-center gap-3 p-3 bg-white/60 rounded-lg border border-gray-100 animate-fade-in"
+                    className="flex items-center gap-3 p-3 bg-white/60 rounded-lg border border-[#4CAF50]/20 animate-fade-in"
                     style={{ animationDelay: `${300 + index * 50}ms` }}
                   >
                     <IconComponent className="h-5 w-5 text-[#64748B]" />
-                    <span className="text-sm text-[#1A1A2E]">{feature.name}</span>
-                    <div className="ml-auto flex gap-2">
+                    <span className="text-sm text-[#1A1A2E] flex-1">{feature.name}</span>
+                    <div className="flex items-center gap-1 text-xs text-[#64748B]">
+                      <span className="px-2 py-0.5 bg-[#64748B]/10 rounded">9К</span>
                       <Check className="h-4 w-4 text-[#4CAF50]" />
+                      <span className="px-2 py-0.5 bg-[#00897B]/10 rounded text-[#00897B]">19К</span>
                       <Check className="h-4 w-4 text-[#4CAF50]" />
                     </div>
                   </div>
@@ -218,10 +223,13 @@ export default function Slide16ComparisonTable() {
 
           {/* Premium-Only Features Section */}
           <div className="space-y-3">
-            <h3 className="font-syne text-lg font-bold text-[#00897B] flex items-center gap-2">
-              <Star className="h-5 w-5" />
-              Додатково у Премiум:
-            </h3>
+            <div className="flex items-center justify-center gap-2 p-3 bg-[#00897B]/10 rounded-lg border border-[#00897B]/30">
+              <Star className="h-5 w-5 text-[#00897B]" />
+              <h3 className="font-syne text-lg font-bold text-[#00897B]">
+                Тільки у Преміум (19 000 грн)
+              </h3>
+              <Star className="h-5 w-5 text-[#00897B]" />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {premiumOnlyFeatures.map((feature, index) => {
                 const IconComponent = feature.icon
@@ -276,16 +284,16 @@ export default function Slide16ComparisonTable() {
           <Card className="border-[#64748B]/20 bg-white/80">
             <CardContent className="p-4 text-center">
               <p className="text-sm text-[#64748B] mb-1">Базовий тариф</p>
-              <p className="font-syne font-bold text-[#1A1A2E]">7 основних функцiй</p>
-              <p className="text-sm text-[#64748B] mt-1">Для клiнiк, що починають</p>
+              <p className="font-syne font-bold text-[#1A1A2E]">7 основних функцій</p>
+              <p className="text-sm text-[#64748B] mt-1">Для клінік, що починають</p>
             </CardContent>
           </Card>
 
           <Card className="border-[#00897B] border-2 bg-[#00897B]/5 shadow-[0_0_20px_rgba(0,137,123,0.15)]">
             <CardContent className="p-4 text-center">
-              <p className="text-sm text-[#00897B] mb-1">Премiум тариф</p>
-              <p className="font-syne font-bold text-[#00897B]">13 функцiй + Zoom</p>
-              <p className="text-sm text-[#64748B] mt-1">Для клiнiк, що зростають</p>
+              <p className="text-sm text-[#00897B] mb-1">Преміум тариф</p>
+              <p className="font-syne font-bold text-[#00897B]">13 функцій + Zoom</p>
+              <p className="text-sm text-[#64748B] mt-1">Для клінік, що зростають</p>
             </CardContent>
           </Card>
         </div>

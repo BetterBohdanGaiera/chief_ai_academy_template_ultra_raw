@@ -52,11 +52,71 @@ export default function BeforeStateSlide() {
           </h2>
         </div>
 
-        {/* Chaotic Financial Cards - Scattered positioning */}
-        <div className="relative min-h-[280px] md:min-h-[320px]">
+        {/* Chaotic Financial Cards - Mobile: stacked, Desktop: scattered */}
+        {/* Mobile Layout (< md) */}
+        <div className="flex md:hidden flex-col gap-4">
+          {/* Dokhody Card */}
+          <Card
+            className="w-full border-2 border-amber-500/40 bg-amber-50/50 transform -rotate-1 animate-fade-in delay-200 fill-backwards"
+          >
+            <CardContent className="pt-5 pb-4">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-amber-100">
+                  <Calculator className="h-5 w-5 text-amber-600" />
+                </div>
+                <p className="font-syne font-semibold text-amber-800">Доходи:</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <HelpCircle className="h-6 w-6 text-amber-600 animate-pulse" />
+                <HelpCircle className="h-6 w-6 text-amber-600 animate-pulse" style={{ animationDelay: '200ms' }} />
+                <HelpCircle className="h-6 w-6 text-amber-600 animate-pulse" style={{ animationDelay: '400ms' }} />
+              </div>
+              <p className="text-xs text-amber-700/70 mt-2 italic">
+                (десь у Clinic Cards, десь у зошиті)
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Vytraty Card */}
+          <Card
+            className="w-full border-2 border-red-400/40 bg-red-50/50 transform rotate-1 animate-fade-in delay-400 fill-backwards"
+          >
+            <CardContent className="pt-5 pb-4">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-red-100">
+                  <FileQuestion className="h-5 w-5 text-red-500" />
+                </div>
+                <p className="font-syne font-semibold text-red-700">Витрати:</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <HelpCircle className="h-6 w-6 text-red-500 animate-pulse" style={{ animationDelay: '100ms' }} />
+                <HelpCircle className="h-6 w-6 text-red-500 animate-pulse" style={{ animationDelay: '300ms' }} />
+                <HelpCircle className="h-6 w-6 text-red-500 animate-pulse" style={{ animationDelay: '500ms' }} />
+              </div>
+              <p className="text-xs text-red-600/70 mt-2 italic">
+                (частина в Excel, частина ніде)
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Prybutok Card */}
+          <Card
+            className="w-full border-2 border-gray-400/50 bg-gray-100/60 transform -rotate-1 animate-fade-in delay-600 fill-backwards"
+          >
+            <CardContent className="pt-5 pb-4 text-center">
+              <p className="font-syne font-semibold text-gray-700 mb-3">Прибуток:</p>
+              <div className="text-5xl" role="img" aria-label="Shrug - unknown">
+                🤷
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Desktop Layout (>= md) - Original scattered design */}
+        <div className="hidden md:block relative min-h-[320px]">
           {/* Dokhody Card - Tilted left */}
           <Card
-            className="absolute left-0 md:left-4 top-0 w-[280px] md:w-[320px] border-2 border-amber-500/40 bg-amber-50/50 transform -rotate-2 animate-fade-in delay-200 fill-backwards hover:scale-105 transition-transform"
+            className="absolute left-4 top-0 w-[320px] border-2 border-amber-500/40 bg-amber-50/50 transform -rotate-2 animate-fade-in delay-200 fill-backwards hover:scale-105 transition-transform"
           >
             <CardContent className="pt-5 pb-4">
               <div className="flex items-center gap-3 mb-3">
@@ -78,7 +138,7 @@ export default function BeforeStateSlide() {
 
           {/* Vytraty Card - Tilted right, overlapping */}
           <Card
-            className="absolute right-0 md:right-4 top-4 md:top-8 w-[280px] md:w-[320px] border-2 border-red-400/40 bg-red-50/50 transform rotate-3 animate-fade-in delay-400 fill-backwards hover:scale-105 transition-transform"
+            className="absolute right-4 top-8 w-[320px] border-2 border-red-400/40 bg-red-50/50 transform rotate-3 animate-fade-in delay-400 fill-backwards hover:scale-105 transition-transform"
           >
             <CardContent className="pt-5 pb-4">
               <div className="flex items-center gap-3 mb-3">
@@ -100,11 +160,11 @@ export default function BeforeStateSlide() {
 
           {/* Prybutok Card - Center bottom, biggest confusion */}
           <Card
-            className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[260px] md:w-[300px] border-2 border-gray-400/50 bg-gray-100/60 transform -rotate-1 animate-fade-in delay-600 fill-backwards hover:scale-105 transition-transform"
+            className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[300px] border-2 border-gray-400/50 bg-gray-100/60 transform -rotate-1 animate-fade-in delay-600 fill-backwards hover:scale-105 transition-transform"
           >
             <CardContent className="pt-5 pb-4 text-center">
               <p className="font-syne font-semibold text-gray-700 mb-3">Прибуток:</p>
-              <div className="text-5xl md:text-6xl" role="img" aria-label="Shrug - unknown">
+              <div className="text-6xl" role="img" aria-label="Shrug - unknown">
                 🤷
               </div>
             </CardContent>

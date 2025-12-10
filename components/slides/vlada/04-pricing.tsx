@@ -45,19 +45,19 @@ export default function SlidePricing() {
 
   const planData: Record<PlanType, PlanData> = {
     basic: {
-      title: "Фiнансове ведення",
-      price: "9 000 грн/мiс",
+      title: "Фінансове ведення",
+      price: "9 000 грн/міс",
       subtitle: "Порядок у цифрах",
       icon: FileText,
       color: "text-[#00897B]",
       bgColor: "bg-[#00897B]/5",
       borderColor: "border-[#00897B]/40",
       shadowColor: "shadow-[0_0_30px_rgba(0,137,123,0.2)]",
-      keyMessage: "Ви БАЧИТЕ, що вiдбувається з грошима",
+      keyMessage: "Ви БАЧИТЕ, що відбувається з грошима",
       features: [
         {
           label: "Формат",
-          description: "Письмова комунiкацiя",
+          description: "Письмова комунікація",
           icon: FileText,
         },
         {
@@ -67,25 +67,25 @@ export default function SlidePricing() {
         },
         {
           label: "Для кого",
-          description: "Клiнiка хоче розумiти фiнанси",
+          description: "Клініка хоче розуміти фінанси",
           icon: Eye,
         },
       ],
     },
     partnership: {
-      title: "Фiнансове партнерство",
-      price: "19 000 грн/мiс",
+      title: "Фінансове партнерство",
+      price: "19 000 грн/міс",
       subtitle: "Порядок + зростання прибутку",
       icon: TrendingUp,
       color: "text-[#1E3A5F]",
       bgColor: "bg-[#1E3A5F]/5",
       borderColor: "border-[#1E3A5F]/40",
       shadowColor: "shadow-[0_0_30px_rgba(30,58,95,0.2)]",
-      keyMessage: "Ви КЕРУЄТЕ тим, що вiдбувається з грошима",
+      keyMessage: "Ви КЕРУЄТЕ тим, що відбувається з грошима",
       features: [
         {
           label: "Формат",
-          description: "Письмова + Zoom-дзвiнки",
+          description: "Письмова + Zoom-дзвінки",
           icon: Video,
         },
         {
@@ -95,7 +95,7 @@ export default function SlidePricing() {
         },
         {
           label: "Для кого",
-          description: "Клiнiка хоче розвиватись i планувати",
+          description: "Клініка хоче розвиватись і планувати",
           icon: Settings,
         },
       ],
@@ -137,11 +137,11 @@ export default function SlidePricing() {
           </Badge>
 
           <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none text-foreground animate-fade-in delay-200 fill-backwards">
-            Два тарифи на <span className="text-[#00897B]">вибiр</span>
+            Два тарифи на <span className="text-[#00897B]">вибір</span>
           </h2>
 
           <p className="font-syne text-xl md:text-2xl text-foreground/70 max-w-3xl mx-auto animate-slide-in-up delay-400 fill-backwards">
-            Оберiть план, який вiдповiдає потребам вашої клiнiки
+            Оберіть план, який відповідає потребам вашої клініки
           </p>
         </div>
 
@@ -158,7 +158,7 @@ export default function SlidePricing() {
             }`}
           >
             <FileText className="h-5 w-5 mr-2" />
-            Фiнансове ведення
+            Фінансове ведення
           </Button>
           <Button
             variant={activePlan === "partnership" ? "default" : "outline"}
@@ -171,7 +171,7 @@ export default function SlidePricing() {
             }`}
           >
             <TrendingUp className="h-5 w-5 mr-2" />
-            Фiнансове партнерство
+            Фінансове партнерство
           </Button>
         </div>
 
@@ -254,7 +254,7 @@ export default function SlidePricing() {
                 >
                   <p className="font-bebas text-2xl text-[#00897B]">9 000 грн</p>
                   <p className="font-syne text-sm text-foreground/70 mt-1">
-                    Ви <span className="font-bold text-[#00897B]">БАЧИТЕ</span>, що вiдбувається
+                    Ви <span className="font-bold text-[#00897B]">БАЧИТЕ</span>, що відбувається
                   </p>
                 </div>
                 <div
@@ -267,13 +267,13 @@ export default function SlidePricing() {
                 >
                   <p className="font-bebas text-2xl text-[#1E3A5F]">19 000 грн</p>
                   <p className="font-syne text-sm text-foreground/70 mt-1">
-                    Ви <span className="font-bold text-[#1E3A5F]">КЕРУЄТЕ</span> тим, що вiдбувається
+                    Ви <span className="font-bold text-[#1E3A5F]">КЕРУЄТЕ</span> тим, що відбувається
                   </p>
                 </div>
               </div>
 
               <p className="text-center text-sm text-foreground/60 mt-6">
-                Натиснiть на тариф для перегляду деталей
+                Натисніть на тариф для перегляду деталей
               </p>
             </CardContent>
           </Card>

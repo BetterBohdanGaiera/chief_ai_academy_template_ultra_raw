@@ -34,7 +34,7 @@ export default function Slide15PremiumBudgets() {
   const budgetCategories: BudgetCategory[] = [
     {
       id: "materials",
-      name: "Матерiали",
+      name: "Матеріали",
       icon: Package,
       limit: "120,000 грн",
       actual: "145,000 грн",
@@ -59,7 +59,7 @@ export default function Slide15PremiumBudgets() {
     },
     {
       id: "utilities",
-      name: "Комунальнi",
+      name: "Комунальні",
       icon: Zap,
       limit: "15,000 грн",
       actual: "14,500 грн",
@@ -70,17 +70,17 @@ export default function Slide15PremiumBudgets() {
   const rootCauses: RootCause[] = [
     {
       id: "supplier",
-      question: "Постачальник пiдняв цiни?",
+      question: "Постачальник підняв ціни?",
       action: "знайти альтернативу"
     },
     {
       id: "advance",
       question: "Закупили наперед?",
-      action: "нормально, врахуємо наступного мiсяця"
+      action: "нормально, врахуємо наступного місяця"
     },
     {
       id: "doctors",
-      question: "Лiкарi перевитрачають?",
+      question: "Лікарі перевитрачають?",
       action: "переглянути норми"
     }
   ]
@@ -125,13 +125,13 @@ export default function Slide15PremiumBudgets() {
             className="text-base px-5 py-2 bg-[#00897B] text-white border-[#00897B] shadow-[0_0_20px_rgba(0,137,123,0.3)]"
           >
             <Wallet className="h-4 w-4 mr-2" />
-            Премiум #6
+            Преміум #6
           </Badge>
           <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none text-[#1A1A2E]">
-            БЮДЖЕТИ ТА <span className="text-[#00897B]">ЛIМIТИ</span>
+            БЮДЖЕТИ ТА <span className="text-[#00897B]">ЛІМІТИ</span>
           </h2>
           <p className="font-syne text-xl md:text-2xl text-[#64748B] max-w-3xl mx-auto">
-            Витрати &quot;наростають&quot; непомiтно. Контролюємо ключовi категорii
+            Витрати &quot;наростають&quot; непомітно. Контролюємо ключові категорії
           </p>
         </div>
 
@@ -148,7 +148,7 @@ export default function Slide15PremiumBudgets() {
             }`}
           >
             <CheckCircle2 className="h-5 w-5 mr-2" />
-            Усi категорii
+            Усі категорії
           </Button>
           <Button
             variant={activeView === "overspend" ? "default" : "outline"}
@@ -161,7 +161,7 @@ export default function Slide15PremiumBudgets() {
             }`}
           >
             <AlertCircle className="h-5 w-5 mr-2" />
-            Тiльки перевитрати
+            Тільки перевитрати
           </Button>
         </div>
 
@@ -210,7 +210,7 @@ export default function Slide15PremiumBudgets() {
                   {/* Limit vs Actual */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-sm text-[#64748B] mb-1">Лiмiт</p>
+                      <p className="text-sm text-[#64748B] mb-1">Ліміт</p>
                       <p className="font-jetbrains text-lg font-semibold text-[#1A1A2E]">{category.limit}</p>
                     </div>
                     <div>
@@ -253,7 +253,7 @@ export default function Slide15PremiumBudgets() {
                       >
                         <span className="flex items-center gap-2">
                           <Search className="h-4 w-4" />
-                          Дослiдження причин
+                          Дослідження причин
                         </span>
                         {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                       </button>
@@ -261,7 +261,7 @@ export default function Slide15PremiumBudgets() {
                       {isExpanded && (
                         <div className="mt-4 space-y-3 animate-fade-in">
                           <p className="text-sm font-semibold text-[#1A1A2E]">
-                            Матерiали +25,000 грн - чому?
+                            Матеріали +25,000 грн - чому?
                           </p>
                           {rootCauses.map((cause) => (
                             <div
@@ -293,7 +293,7 @@ export default function Slide15PremiumBudgets() {
               <div>
                 <p className="font-syne text-lg font-bold text-[#00897B]">Результат:</p>
                 <p className="text-[#1A1A2E]">
-                  Контроль витрат без вiдчуття &quot;економимо на всьому&quot;
+                  Контроль витрат без відчуття &quot;економимо на всьому&quot;
                 </p>
               </div>
             </div>

@@ -31,36 +31,36 @@ export default function Slide06BasicPlanDetails() {
   const integrationSteps = [
     {
       step: 1,
-      title: "Znaiomstvo",
-      description: "Zustrichaemosia, pidpysuiemo dohovir, vyznachaiemo vidpovidalnykh",
+      title: "Знайомство",
+      description: "Зустрічаємось, підписуємо договір, визначаємо відповідальних",
       icon: Handshake,
       color: "bg-primary"
     },
     {
       step: 2,
-      title: "Dostupy",
-      description: "Otrymaiemo dostupy do prohram, zberemo potochni dani",
+      title: "Доступи",
+      description: "Отримуємо доступи до програм, збираємо поточні дані",
       icon: Database,
       color: "bg-primary"
     },
     {
       step: 3,
-      title: "Audyt",
-      description: "Provodimo audyt: znakhodymo 'diry' v obliku",
+      title: "Аудит",
+      description: "Проводимо аудит: знаходимо «діри» в обліку",
       icon: Search,
       color: "bg-primary"
     },
     {
       step: 4,
-      title: "Nalashtuvannia",
-      description: "Nalashtovoiemo systemu obliku pid vashu kliniku",
+      title: "Налаштування",
+      description: "Налаштовуємо систему обліку під вашу клініку",
       icon: Settings,
       color: "bg-primary"
     },
     {
       step: 5,
-      title: "Zvity",
-      description: "Stvoruiemo pershi zvity ta domovliaiemosia pro pravyla",
+      title: "Звіти",
+      description: "Створюємо перші звіти та узгоджуємо правила роботи",
       icon: FileText,
       color: "bg-primary"
     }
@@ -68,40 +68,40 @@ export default function Slide06BasicPlanDetails() {
 
   const dailyActivities = [
     {
-      title: "Vnosymo vsi platezhi patsiientiv",
+      title: "Вносимо всі платежі пацієнтів",
       icon: Receipt
     },
     {
-      title: "Vnosymo vsi vytraty",
+      title: "Вносимо всі витрати",
       icon: Receipt
     },
     {
-      title: "Pereviaiaiemo: hotivka = bank = systema",
+      title: "Перевіряємо: готівка = банк = система",
       icon: CheckCircle2
     },
     {
-      title: "Utiochniaiemo nezrozumili operatsii",
+      title: "Уточнюємо незрозумілі операції",
       icon: Search
     }
   ]
 
   const monthlyDeliverables = [
     {
-      title: "Zvit po prybutku",
-      description: "dokhody - vytraty = rezultat",
+      title: "Звіт про прибуток",
+      description: "доходи - витрати = результат",
       icon: FileText
     },
     {
-      title: "Zvit po rukhu hroshei",
-      description: "zvidky pryishly, kudy pishly",
+      title: "Звіт про рух грошей",
+      description: "звідки прийшли, куди пішли",
       icon: ArrowRight
     },
     {
-      title: "Rozrakhunok zarplat spivrobitnykiv",
+      title: "Розрахунок зарплат співробітників",
       icon: Users
     },
     {
-      title: "Pysyomovi rekomendatsii",
+      title: "Письмові рекомендації",
       icon: FileText
     }
   ]
@@ -135,11 +135,11 @@ export default function Slide06BasicPlanDetails() {
             variant="glow"
             className="animate-slide-in-down px-6 py-2"
           >
-            Shcho vkhodyt u taryf
+            Що входить у тариф
           </Badge>
 
           <h2 className="font-bebas text-4xl md:text-6xl lg:text-7xl tracking-tight animate-fade-in delay-200 fill-backwards">
-            <span className="text-primary">9 000 hrn</span> - povnyi tsykl obliku
+            <span className="text-primary">9 000 грн</span> - повний цикл обліку
           </h2>
         </div>
 
@@ -147,7 +147,7 @@ export default function Slide06BasicPlanDetails() {
         <div className="space-y-4 animate-slide-in-up delay-300 fill-backwards">
           <div className="flex items-center gap-3 justify-center">
             <Calendar className="w-5 h-5 text-primary" />
-            <h3 className="text-xl font-syne font-bold text-center">Tyzhden 1 - Intehratsiia</h3>
+            <h3 className="text-xl font-syne font-bold text-center">Місяць 1 - Інтеграція</h3>
           </div>
 
           {/* Horizontal Timeline */}
@@ -224,7 +224,7 @@ export default function Slide06BasicPlanDetails() {
                 <div className="p-2 rounded-lg bg-primary/10">
                   <Clock className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="text-lg font-syne font-bold">Shchodenno</h3>
+                <h3 className="text-lg font-syne font-bold">Щоденно</h3>
               </div>
 
               <div className="space-y-3">
@@ -253,7 +253,7 @@ export default function Slide06BasicPlanDetails() {
                 <div className="p-2 rounded-lg bg-[#1E3A5F]/10">
                   <Calendar className="w-5 h-5 text-[#1E3A5F]" />
                 </div>
-                <h3 className="text-lg font-syne font-bold">Shchomisiatsia</h3>
+                <h3 className="text-lg font-syne font-bold">Щомісячно</h3>
               </div>
 
               <div className="space-y-3">
@@ -287,7 +287,7 @@ export default function Slide06BasicPlanDetails() {
         <Card className="bg-gradient-to-r from-primary/5 to-[#1E3A5F]/5 border-primary/20 animate-fade-in delay-800 fill-backwards">
           <CardContent className="pt-4">
             <p className="text-sm md:text-base text-center text-foreground/90 font-manrope">
-              <span className="font-semibold text-primary">Rezultat:</span> vy otrymuiete chistyi, zrozumilyi finansovyi oblik bez zaivoho skladu. Znaiete tochno, skilky zarobliaiete.
+              <span className="font-semibold text-primary">Результат:</span> ви отримуєте чистий, зрозумілий фінансовий облік без зайвого складу. Знаєте точно, скільки заробляєте.
             </p>
           </CardContent>
         </Card>

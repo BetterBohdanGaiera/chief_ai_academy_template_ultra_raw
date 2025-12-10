@@ -279,17 +279,17 @@ export default function PremiumYearlyPlan() {
                 <Sparkles className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <div>
                   <p className="text-sm font-bold text-foreground mb-2">Модель враховує:</p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-foreground/80">
+                  <div className="flex flex-wrap justify-center gap-6 text-sm text-foreground/80">
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                      <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
                       <span>Сезонність (літо -20%, грудень +15%)</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                      <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span>
                       <span>Відпустки лікарів</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                      <span className="w-2 h-2 rounded-full bg-green-500 shrink-0"></span>
                       <span>Заплановані інвестиції</span>
                     </div>
                   </div>

@@ -41,30 +41,30 @@ const painPoints: PainPoint[] = [
   {
     id: 'money-flow',
     icon: CircleDollarSign,
-    title: 'Hroshi prykhodiat...',
-    shortDescription: 'Ale kudy vony potim ydut?',
-    expandedDescription: 'Vy bachyte nadkhodzhennya na rakhunok, ale detalna kartyna vytrat zalyshayetsya nezovsim zrozumiloyu. Tse stvoryuye vidchuttya nevyznachenosti.'
+    title: 'Гроші приходять...',
+    shortDescription: 'Але куди вони потім йдуть?',
+    expandedDescription: 'Ви бачите надходження на рахунок, але детальна картина витрат залишається не зовсім зрозумілою. Це створює відчуття невизначеності.'
   },
   {
     id: 'expectations',
     icon: TrendingDown,
-    title: 'Naprykintsi misyatsya...',
-    shortDescription: 'Na rakhunku menshe, nizh ochikuvaly',
-    expandedDescription: 'Planuvannya byudzhetu staye skladnym, koly realni tsyfry ne zbihayutsya z ochikuvannyamy. Tse vplyvaye na mozhlyvistʹ robyty investytsiyi v rozvytok.'
+    title: 'Наприкінці місяця...',
+    shortDescription: 'На рахунку менше, ніж очікували',
+    expandedDescription: 'Планування бюджету стає складним, коли реальні цифри не збігаються з очікуваннями. Це впливає на можливість робити інвестиції в розвиток.'
   },
   {
     id: 'accountant',
     icon: FileQuestion,
-    title: 'Bukhhalter nadsylaye tablytsi...',
-    shortDescription: 'Ale shcho z nymy robyty?',
-    expandedDescription: 'Sklani zvity bez kontekstu ta poyasnen ne dopomahayutʹ pryymatyty upravlinski rishennya. Vy potrebuyete prostykh vidpovidey, a ne bilshe pytan.'
+    title: 'Бухгалтер надсилає таблиці...',
+    shortDescription: 'Але що з ними робити?',
+    expandedDescription: 'Складні звіти без контексту та пояснень не допомагають приймати управлінські рішення. Ви потребуєте простих відповідей, а не більше питань.'
   },
   {
     id: 'withdrawals',
     icon: AlertTriangle,
-    title: 'Khochete vyvesty hroshi...',
-    shortDescription: 'Ale boyites, shcho ne vystachyt',
-    expandedDescription: 'Strakh, shcho vyluchennya koshtiv vplyne na zarplaty abo operatsiyni vytraty, blokuye vas vid otrymannya vynhorody za vashu prazyyu.'
+    title: 'Хочете вивести гроші...',
+    shortDescription: 'Але боїтесь, що не вистачить',
+    expandedDescription: 'Страх, що вилучення коштів вплине на зарплати або операційні витрати, блокує вас від отримання винагороди за вашу працю.'
   }
 ]
 
@@ -98,15 +98,15 @@ export default function Slide02Problem() {
             className="animate-slide-in-down border-amber-500/50 text-amber-600 bg-amber-500/5"
           >
             <AlertTriangle className="h-4 w-4 mr-2" aria-hidden="true" />
-            Rozpiznannya problemy
+            Розпізнання проблеми
           </Badge>
 
           <h2 className="font-bebas text-5xl md:text-6xl lg:text-7xl leading-tight animate-fade-in delay-200 fill-backwards">
-            Znayoma <span className="text-amber-500">sytuatsiya</span>?
+            Знайома <span className="text-amber-500">ситуація</span>?
           </h2>
 
           <p className="font-manrope text-lg md:text-xl text-foreground/60 animate-slide-in-up delay-400 fill-backwards">
-            Navedyt na kartku, shchob diznatys bilshe
+            Наведіть на картку, щоб дізнатись більше
           </p>
         </div>
 
@@ -180,13 +180,13 @@ export default function Slide02Problem() {
               </div>
               <div className="flex-1">
                 <p className="font-syne text-lg font-semibold text-foreground mb-2">
-                  Klyuchove usvidomlennya
+                  Ключове усвідомлення
                 </p>
                 <p className="font-manrope text-base text-foreground/80 leading-relaxed">
                   <span className="font-semibold text-primary">
-                    Vy chudovyy stomatoloh.
+                    Ви чудовий стоматолог.
                   </span>{' '}
-                  Ale finansy — tse okrema profesiya. I tse normalno — potrebuvaty dopomohy u tomu, shcho ne ye vashoyu spetsializatsiyeyu.
+                  Але фінанси — це окрема професія. І це нормально — потребувати допомоги у тому, що не є вашою спеціалізацією.
                 </p>
               </div>
             </div>

@@ -57,27 +57,27 @@ export default function Slide01Title() {
         {/* Main Title - Fades in with delay */}
         <h1 className="font-bebas text-5xl md:text-7xl lg:text-8xl xl:text-9xl leading-none tracking-tight animate-fade-in delay-200 fill-backwards">
           <span className="block text-foreground">
-            FINANSOVE
+            ФІНАНСОВЕ
           </span>
           <span className="block text-foreground">
-            UPRAVLINNYA DLYA
+            УПРАВЛІННЯ ДЛЯ
           </span>
           <span className="block text-primary animate-glow-pulse">
-            STOMATOLOHICHNOYI KLINIKY
+            СТОМАТОЛОГІЧНОЇ КЛІНІКИ
           </span>
         </h1>
 
         {/* Tagline - Slides up with delay */}
         <p className="font-syne font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl text-foreground/80 max-w-4xl mx-auto animate-slide-in-up delay-500 fill-backwards text-balance leading-relaxed">
-          Navedemo lad u hroshakh{' '}
-          <span className="text-primary">-</span>
-          {' '}vy zaymetes patsiyentamy
+          Наведемо лад у грошах{' '}
+          <span className="text-primary">—</span>
+          {' '}ви займетесь пацієнтами
         </p>
 
         {/* Metadata - Fades in last */}
         <div className="pt-8 animate-fade-in delay-700 fill-backwards">
           <p className="font-manrope text-lg md:text-xl text-foreground/50">
-            Vash finansovyy partner u rozvytku kliniky
+            Ваш фінансовий партнер у розвитку клініки
           </p>
         </div>
       </div>

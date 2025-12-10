@@ -5,9 +5,8 @@ import { bebasNeue, syne, manrope, jetBrainsMono } from "./fonts"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Your Presentation Title",
-  description: "Your presentation description",
-  generator: "v0.app",
+  title: "Фінансове управління стоматологічної клініки",
+  description: "Profitmed - презентація",
   icons: {
     icon: [
       {
