@@ -2,6 +2,65 @@
 
 Spawn slide-generator agents in parallel to implement slides according to a redesign specification. This command orchestrates parallel agent execution, monitors progress, and validates the final implementation.
 
+---
+
+## SKILL SELECTION REQUIREMENT (READ THIS FIRST)
+
+**CRITICAL**: Every slide MUST use an appropriate skill. This is NOT optional.
+
+### Skill Selection Decision Tree
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    SLIDE REQUIREMENTS                            │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+           ┌──────────────────┴──────────────────┐
+           ▼                                     ▼
+   ┌───────────────────┐               ┌───────────────────┐
+   │   GENERATIVE/     │               │   REACT UI/       │
+   │   CANVAS-BASED?   │               │   INTERACTIVE?    │
+   └───────────────────┘               └───────────────────┘
+           │                                     │
+   ┌───────┴───────┐                   ┌────────┴────────┐
+   │               │                   │                 │
+   ▼               ▼                   ▼                 ▼
+Flow fields    Canvas           State mgmt        Standard
+Particles      animations       Complex UI        layouts
+Procedural     Network viz      Multi-state       Cards/badges
+art            Time-based       Forms             Hover states
+   │               │                   │                 │
+   └───────┬───────┘                   └────────┬────────┘
+           ▼                                    ▼
+  ┌─────────────────┐                 ┌─────────────────┐
+  │ algorithmic-art │                 │artifacts-builder│
+  │     SKILL       │                 │     SKILL       │
+  └─────────────────┘                 └─────────────────┘
+```
+
+### Quick Reference Table
+
+| Slide Needs | Skill | Examples |
+|-------------|-------|----------|
+| Flow fields, particles | `algorithmic-art` | MeshGradient, ParticleField |
+| Canvas animations | `algorithmic-art` | Network visualizations, time-based |
+| Procedural/generative art | `algorithmic-art` | Noise patterns, fractals |
+| Complex React UI | `artifacts-builder` | Multi-component interactions |
+| State management | `artifacts-builder` | useState, toggles, forms |
+| Standard layouts | `artifacts-builder` | Cards, badges, grids |
+| Hover-reveal patterns | `artifacts-builder` | Interactive card exploration |
+| Data visualizations | `artifacts-builder` | Recharts, graphs |
+
+### Skill Invocation Instructions for Agents
+
+When spawning agents, ensure they understand:
+1. **Check spec file** for recommended skill per slide
+2. **If no recommendation**: Use decision tree above
+3. **Invoke skill** before implementing each slide
+4. **Document** skill usage in implementation notes
+
+---
+
 ## Instructions
 
 You are implementing slides according to a spec file created by `/plan_slide_redesign`. Follow these steps carefully to ensure parallel agent spawning and high-quality implementation.
@@ -92,13 +151,20 @@ Task tool parameters:
 
   3. **For EACH slide in your group**:
 
-     a. **Check components_inspiration for patterns**:
+     a. **INVOKE APPROPRIATE SKILL (MANDATORY)**:
+        - Check spec file for "Recommended Skill" field for this slide
+        - If not specified, use the Skill Selection Decision Tree:
+          * Canvas/generative/procedural → `algorithmic-art`
+          * React UI/state management/interactive → `artifacts-builder`
+        - **Invoke the skill using the Skill tool** before implementing the slide
+        - Document which skill was used in your implementation notes
+
+     b. **Check components_inspiration for patterns**:
         - Navigate to ai_docs/components_inspiration/patterns/[pattern-name]/
         - Read the pattern's README.md to understand design rationale
         - Review the pattern's component.tsx for implementation details
-        - Decide if you should use algorithmic-art skill (for canvas/p5.js patterns) or artifacts-builder skill (for React/shadcn patterns)
 
-     b. **Generate background images**:
+     c. **Generate background images**:
         - **⚠️ CRITICAL**: Verify prompt has NO TEXT/LABELS/NUMBERS before generating
         - Extract the generation prompt from spec file's Image Generation Strategy section
         - **VALIDATE PROMPT**: Ensure it describes visual shapes/forms ONLY (no text references)
@@ -107,7 +173,7 @@ Task tool parameters:
         - **INSPECT IMAGE**: Confirm generated image contains NO TEXT before proceeding
         - Note the timestamp for integration
 
-     c. **Implement the slide component**:
+     d. **Implement the slide component**:
         - **CHECK IF FILE EXISTS**: First check if components/slides/[module]/[slide-id].tsx already exists
         - **UPDATE/OVERWRITE file**: components/slides/[module]/[slide-id].tsx
           - **If file exists**: Use Write tool to COMPLETELY REWRITE it with new implementation (replacing old version)
@@ -128,10 +194,10 @@ Task tool parameters:
         - Ensure accessibility (WCAG AA contrast, focus states, semantic HTML)
         - Add entrance animations (badge → title → subtitle → content with delays)
 
-     d. **Update spec file checkboxes**:
+     e. **Update spec file checkboxes**:
         - Mark slide task as completed: - [ ] → - [x]
         - Fill in Status field: 'Completed'
-        - Add Comments with brief implementation notes
+        - Add Comments with brief implementation notes (include which skill was used)
 
   4. **Ensure visual consistency across your group**:
      - All slides in your group must use the same color palette

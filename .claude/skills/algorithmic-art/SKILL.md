@@ -433,6 +433,52 @@ To achieve the best results, trust creativity and let the philosophy guide the i
 
 ---
 
+## ALGORITHMIC COMPONENTS LIBRARY
+
+This skill includes documentation for canvas-based animation components in `components/`:
+
+### Component Documentation
+
+**File**: `components/ALGORITHMIC_COMPONENTS.md`
+
+This comprehensive documentation covers:
+
+1. **MeshGradientBackground** - Animated radial gradients with organic blob-like motion
+   - When to use: Hero/title slides, background atmosphere, transformation themes
+   - Props: colors (hex array), speed (0.3-0.8), complexity (2-4)
+   - Color schemes for healthcare, financial, combined themes
+
+2. **ParticleField** - Interactive particle systems with network effects
+   - When to use: Network visualizations, technical slides, interactive exploration
+   - Props: particleCount, color, interactive, speed, connectionDistance, opacity
+   - Performance guidelines based on particle count
+
+3. **Decorative Components**:
+   - **GrainOverlay** - Film grain texture (standard: 0.15 opacity)
+   - **GeometricPattern** - Subtle patterns (dots, grid, lines)
+
+4. **Component Layering** - Standard order (bottom to top):
+   - Layer 1: MeshGradientBackground (color/movement)
+   - Layer 2: AI-generated image (optional, 15% opacity)
+   - Layer 3: GeometricPattern (structure)
+   - Layer 4: GrainOverlay (analog warmth)
+   - Layer 5: Content (z-10)
+
+5. **Performance Considerations** - Guidelines for canvas-based vs static components
+
+### When to Use This Skill
+
+Use `algorithmic-art` for:
+- Flow fields or particle systems
+- Generative patterns (noise, fractals, organic shapes)
+- Canvas-based animations (MeshGradient, ParticleField)
+- P5.js visualizations
+- Procedural backgrounds
+- Time-based process animations
+- Network visualizations
+
+**Note**: For React component-based slides with shadcn/ui, use the `artifacts-builder` skill instead.
+
 ## RESOURCES
 
 This skill includes helpful templates and documentation:

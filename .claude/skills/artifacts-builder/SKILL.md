@@ -95,6 +95,73 @@ Note: This is a completely optional step. Only perform if necessary or requested
 
 To test/visualize the artifact, use available tools (including other Skills or built-in tools like Playwright or Puppeteer). In general, avoid testing the artifact upfront as it adds latency between the request and when the finished artifact can be seen. Test later, after presenting the artifact, if requested or if issues arise.
 
+## Pattern Library
+
+This skill includes a comprehensive pattern library for slide development:
+
+### Quick Pattern Discovery
+
+**Start here**: Read `patterns/INDEX.md` for fast pattern discovery with a decision matrix and decision tree.
+
+### Pattern Organization
+
+```
+patterns/
+├── INDEX.md                    # Quick pattern discovery (start here)
+├── LIBRARY_README.md           # Full library documentation
+├── interactive/
+│   └── INTERACTIVE_PATTERNS.md # 5 core interactive patterns with code
+└── foundation/
+    ├── button-toggle-comparison/
+    ├── scrubber-metrics-timeline/
+    ├── realtime-calculator/
+    ├── incremental-prototype/
+    ├── knowledge-test-poll/
+    ├── formal-quiz/
+    ├── layered-evolution/
+    ├── one-screen-simplicity/
+    ├── horizontal-timeline/
+    ├── are-vs-not-comparison/
+    ├── interactive-correlation/
+    ├── iteration-animation/
+    └── progressive-disclosure/
+```
+
+### Templates
+
+Pre-built templates for rapid prototyping in `templates/`:
+
+| Template | Purpose |
+|----------|---------|
+| `calculator-template.tsx` | Real-time calculators with sliders/inputs |
+| `quiz-template.tsx` | Quizzes with scoring |
+| `interactive-slide-template.tsx` | Generic interactive with state |
+| `comparison-slide-template.tsx` | Side-by-side comparisons |
+| `interactive-comparison-template.tsx` | Button toggles with 2-3 options |
+| `story-slide-template.tsx` | Character-driven narratives |
+
+### Pattern Selection Workflow
+
+1. **SCAN** `patterns/INDEX.md` - Find candidate patterns (30 seconds)
+2. **DECIDE** - Read pattern READMEs to evaluate fit (2-3 minutes)
+3. **LOAD** - Study code highlights and customization points (5 minutes)
+4. **IMPLEMENT** - Copy component.tsx and adapt for your content
+
+### When to Use This Skill
+
+Use `artifacts-builder` for:
+- React component-based slides with state management
+- shadcn/ui component usage (Cards, Badges, Buttons, etc.)
+- Interactive toggles, hover states, click handlers
+- Form interactions and data displays
+- Charts and data visualizations (Recharts)
+- Standard content layouts with cards and grids
+
+**Note**: For canvas-based animations, flow fields, particle systems, or p5.js visualizations, use the `algorithmic-art` skill instead.
+
 ## Reference
 
 - **shadcn/ui components**: https://ui.shadcn.com/docs/components
+- **Pattern Index**: `patterns/INDEX.md`
+- **Interactive Patterns**: `patterns/interactive/INTERACTIVE_PATTERNS.md`
+- **Design System**: `ai_docs/DESIGN_AESTHETICS.md`
