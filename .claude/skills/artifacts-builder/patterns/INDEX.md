@@ -4,14 +4,15 @@
 
 **Location**: This index is part of the `artifacts-builder` skill. Patterns are organized into:
 - `interactive/` - Interactive pattern documentation (INTERACTIVE_PATTERNS.md)
-- `foundation/` - Foundation patterns library (13 patterns with README + component.tsx)
+- `foundation/` - Foundation patterns library (14 patterns with README + component.tsx)
 
 ---
 
-## Decision Matrix (13 Patterns)
+## Decision Matrix (14 Patterns)
 
 | Your Slide Goal | Pattern Name | Category | Tech | Load Details |
 |-----------------|--------------|----------|------|--------------|
+| Collect user preferences or feedback | **Feedback Form** | User Input | React + API | [📖](./foundation/feedback-form/README.md) |
 | Compare 2 opposing scenarios (before/after, poor/excellent) | **Button Toggle Comparison** | User Control | React state | [📖](./foundation/button-toggle-comparison/README.md) |
 | Show metrics changing over time (weeks, iterations) | **Scrubber Metrics Timeline** | User Control | React state | [📖](./foundation/scrubber-metrics-timeline/README.md) |
 | Calculate ROI or cost/benefit with user inputs | **Real-Time Calculator** | Real-Time Feedback | React + Recharts | [📖](./foundation/realtime-calculator/README.md) |
@@ -52,6 +53,12 @@
 ### 5. Need to PRESENT information?
 - **3-5 core principles** (minimalist) → **One-Screen Simplicity**
 - **Complex info with reveal** (manage cognitive load) → **Progressive Disclosure**
+
+### 6. Need to COLLECT user input?
+- **Multiple choice with custom option** → **Feedback Form** (FeedbackChoice)
+- **AI-powered conversational** → **Feedback Form** (AgentForm)
+- **Simple single question** → **Knowledge Test Poll**
+- **Survey/poll with results** → **Feedback Form**
 
 ---
 
@@ -138,5 +145,5 @@ For rapid prototyping, use these generic templates in `../templates/`:
 ---
 
 **Last Updated**: December 2024
-**Pattern Count**: 13 (6 Foundation + 7 Interactive)
+**Pattern Count**: 14 (7 Foundation + 7 Interactive)
 **Location**: `.claude/skills/artifacts-builder/patterns/`
