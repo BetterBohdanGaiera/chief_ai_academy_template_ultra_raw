@@ -1,8 +1,16 @@
 name = "test-ai-academy"
-compatibility_date = "2024-01-01"
+compatibility_date = "2025-03-20"
+compatibility_flags = ["nodejs_compat_v2"]
 
 # Main entry point for Pages Functions
 pages_build_output_dir = "out"
+
+# Secrets Store Binding (shared MongoDB URI across all Pages projects)
+# Store: mongodb-secrets (ID: a3315bc126d14b39bdfe9286043c3f66)
+# Copy this to new projects to share the same MongoDB connection
+secrets_store_secrets = [
+  { binding = "MONGODB", store_id = "a3315bc126d14b39bdfe9286043c3f66", secret_name = "MONGODB_URI" }
+]
 
 # D1 Database Binding
 # The database_id will be auto-populated by scripts/init-database.sh

@@ -147,3 +147,211 @@ export async function getFeedbackByForm(
 export async function getFeedbackBySession(sessionId: string): Promise<Feedback[]> {
   return getFeedback({ sessionId })
 }
+
+// =============================================================================
+// MongoDB-specific API functions
+// =============================================================================
+
+import type {
+  MongoFeedbackSubmission,
+  MongoFeedbackBatchSubmission,
+  MongoFeedbackResponse,
+  MongoFeedbackBatchResponse,
+  MongoFeedbackRetrievalResponse,
+  MongoFeedbackDocument,
+  FeedbackQueryFilters as MongoFeedbackQueryFilters,
+} from '@/types/mongodb-feedback'
+
+/**
+ * MongoDB API endpoint (Cloudflare Pages Function)
+ */
+const MONGO_API_BASE = '/api/feedback-mongo'
+
+/**
+ * Submit feedback to MongoDB (single submission)
+ *
+ * @param data - Feedback submission data with full context
+ * @returns Promise with success status and document ID
+ */
+export async function submitFeedbackToMongo(
+  data: MongoFeedbackSubmission
+): Promise<MongoFeedbackResponse> {
+  try {
+    const response = await fetch(MONGO_API_BASE, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+
+    const result = await response.json()
+
+    if (!response.ok) {
+      return {
+        success: false,
+        error: result.error || 'Failed to submit feedback to MongoDB',
+      }
+    }
+
+    return result
+  } catch (error) {
+    console.error('Error submitting feedback to MongoDB:', error)
+    return {
+      success: false,
+      error: 'Network error. Please check your connection and try again.',
+    }
+  }
+}
+
+/**
+ * Submit batch feedback to MongoDB (multi-question flows)
+ *
+ * @param data - Batch submission with common metadata and individual questions
+ * @returns Promise with success status and document IDs
+ */
+export async function submitFeedbackBatchToMongo(
+  data: MongoFeedbackBatchSubmission
+): Promise<MongoFeedbackBatchResponse> {
+  try {
+    const response = await fetch(MONGO_API_BASE, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+
+    const result = await response.json()
+
+    if (!response.ok) {
+      return {
+        success: false,
+        error: result.error || 'Failed to submit batch feedback to MongoDB',
+      }
+    }
+
+    return result
+  } catch (error) {
+    console.error('Error submitting batch feedback to MongoDB:', error)
+    return {
+      success: false,
+      error: 'Network error. Please check your connection and try again.',
+    }
+  }
+}
+
+/**
+ * Get feedback from MongoDB with filters
+ *
+ * @param filters - Query filters for MongoDB
+ * @returns Promise with feedback documents and total count
+ */
+export async function getFeedbackFromMongo(
+  filters: MongoFeedbackQueryFilters = {}
+): Promise<MongoFeedbackRetrievalResponse> {
+  try {
+    const searchParams = new URLSearchParams()
+
+    if (filters.presentationId) {
+      searchParams.set('presentationId', filters.presentationId)
+    }
+    if (filters.moduleId) {
+      searchParams.set('moduleId', filters.moduleId)
+    }
+    if (filters.slideId) {
+      searchParams.set('slideId', filters.slideId)
+    }
+    if (filters.formId) {
+      searchParams.set('formId', filters.formId)
+    }
+    if (filters.sessionId) {
+      searchParams.set('sessionId', filters.sessionId)
+    }
+    if (filters.feedbackType) {
+      searchParams.set('feedbackType', filters.feedbackType)
+    }
+    if (filters.startDate) {
+      searchParams.set(
+        'startDate',
+        typeof filters.startDate === 'string'
+          ? filters.startDate
+          : filters.startDate.toISOString()
+      )
+    }
+    if (filters.endDate) {
+      searchParams.set(
+        'endDate',
+        typeof filters.endDate === 'string'
+          ? filters.endDate
+          : filters.endDate.toISOString()
+      )
+    }
+    if (filters.limit !== undefined) {
+      searchParams.set('limit', filters.limit.toString())
+    }
+    if (filters.offset !== undefined) {
+      searchParams.set('offset', filters.offset.toString())
+    }
+
+    const url = `${MONGO_API_BASE}?${searchParams.toString()}`
+    const response = await fetch(url)
+
+    if (!response.ok) {
+      console.error('Error fetching feedback from MongoDB:', response.statusText)
+      return {
+        success: false,
+        error: 'Failed to retrieve feedback',
+      }
+    }
+
+    return response.json()
+  } catch (error) {
+    console.error('Error fetching feedback from MongoDB:', error)
+    return {
+      success: false,
+      error: 'Network error. Please check your connection and try again.',
+    }
+  }
+}
+
+/**
+ * Get all feedback for a presentation from MongoDB
+ *
+ * @param presentationId - Presentation identifier
+ * @returns Promise with feedback documents
+ */
+export async function getMongoFeedbackByPresentation(
+  presentationId: string
+): Promise<MongoFeedbackDocument[]> {
+  const result = await getFeedbackFromMongo({ presentationId })
+  return result.data || []
+}
+
+/**
+ * Get all feedback for a module from MongoDB
+ *
+ * @param moduleId - Module identifier
+ * @returns Promise with feedback documents
+ */
+export async function getMongoFeedbackByModule(
+  moduleId: string
+): Promise<MongoFeedbackDocument[]> {
+  const result = await getFeedbackFromMongo({ moduleId })
+  return result.data || []
+}
+
+/**
+ * Get all feedback for a form session from MongoDB
+ *
+ * @param formId - Form identifier
+ * @param sessionId - Session identifier
+ * @returns Promise with feedback documents
+ */
+export async function getMongoFeedbackByFormSession(
+  formId: string,
+  sessionId: string
+): Promise<MongoFeedbackDocument[]> {
+  const result = await getFeedbackFromMongo({ formId, sessionId })
+  return result.data || []
+}

@@ -3,6 +3,22 @@
  * TypeScript interfaces for the feedback data model
  */
 
+// Re-export MongoDB-specific types for convenience
+export type {
+  MongoFeedbackDocument,
+  MongoFeedbackSubmission,
+  MongoFeedbackBatchSubmission,
+  MongoFeedbackResponse,
+  MongoFeedbackBatchResponse,
+  MongoFeedbackRetrievalResponse,
+  FeedbackQueryFilters,
+  FeedbackAggregationOptions,
+  SlideContentMetadata,
+  AnswerOption,
+  UserResponse,
+  F1FeedbackType,
+} from './mongodb-feedback'
+
 /**
  * Feedback types for categorizing feedback
  */
