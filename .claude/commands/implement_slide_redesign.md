@@ -105,7 +105,36 @@ Before starting, verify the spec file is ready:
    - Must NOT use mock/hardcoded data
    - Must include label lookup maps for display
 
-4. **Add to agent prompts**:
+4. **MANDATORY: Final summary slide implementation**:
+   - Must be the LAST slide in the feedback flow
+   - Display all collected choices using label lookup maps
+   - Include submit button with `variant="glow"`
+   - Add Enter key handler for keyboard accessibility
+   - Show "Feedback was remembered" toast on submission:
+     ```tsx
+     {showConfirmation && (
+       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 animate-fade-in">
+         <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground shadow-lg">
+           <Check className="h-4 w-4" />
+           <span className="font-syne text-sm font-semibold">Feedback was remembered</span>
+         </div>
+       </div>
+     )}
+     ```
+   - Auto-advance to next slide after 1.5-2 second delay:
+     ```tsx
+     const handleSubmit = async () => {
+       await submitFeedback()
+       setShowConfirmation(true)
+       // Auto-advance after showing confirmation
+       setTimeout(() => {
+         nextSlide() // from useCourseNavigation hook
+       }, 1500)
+     }
+     ```
+   - Reference: `.claude/patterns/multi-slide-feedback/summary-slide.tsx`
+
+5. **Add to agent prompts**:
    When spawning slide-generator agents for feedback flows, add this to each agent's prompt:
 
    ```
@@ -119,10 +148,13 @@ Before starting, verify the spec file is ready:
       - Add Enter key handler for text inputs
       - Reference: `.claude/patterns/multi-slide-feedback/question-slide.tsx`
 
-   2. For summary slides:
+   2. For summary slides (MANDATORY - must be LAST slide in flow):
       - Consume context state via `useFeedback()`
       - Create label lookup maps to display user-friendly text
       - Do NOT use mock or hardcoded data
+      - Include submit button with "Feedback was remembered" toast
+      - Auto-advance to next slide after 1.5-2 second confirmation delay
+      - Support Enter key for submission
       - Reference: `.claude/patterns/multi-slide-feedback/summary-slide.tsx`
 
    3. ALL pages loading these slides must wrap with FeedbackProvider:
@@ -435,6 +467,90 @@ const defaultSlides = [
 
 **IMPORTANT**: Slides will NOT appear in the presentation until registered in BOTH files. Do NOT mark implementation as complete until registration is verified.
 
+#### 4e-auto. Auto-Replace Template Slides (AUTOMATIC)
+
+**This step runs AUTOMATICALLY after all agents complete. Do not skip.**
+
+When registering new slides, you MUST also remove M1 template slides and replace them with the newly created slides:
+
+**1. Identify M1 template slides to remove:**
+```
+Template slides (ALWAYS remove these):
+- m1-01-title
+- m1-02-interactive
+- m1-03-feedback
+```
+
+**2. Parse spec file for new slide IDs:**
+```
+From the ## Agent Groups section, extract:
+- All slide IDs that were implemented
+- Module ID (e.g., f1, f2, m2)
+- Slide titles and metadata
+```
+
+**3. Update `config/slides.ts` - Remove templates, add new:**
+
+Read `config/slides.ts` and:
+- **REMOVE** the M1 template section entirely (entries for m1-01-title, m1-02-interactive, m1-03-feedback)
+- **ADD** new slide entries for all implemented slides
+- **PRESERVE** all other modules (F1, etc.)
+
+Example - Remove this entire block:
+```typescript
+// ============================================
+// M1: EXAMPLE MODULE (Template Slides)
+// ============================================
+'m1-01-title': { ... },
+'m1-02-interactive': { ... },
+'m1-03-feedback': { ... },
+```
+
+**4. Update `app/page.tsx` defaultSlides array:**
+
+Read `app/page.tsx` and:
+- **REMOVE** M1 template slide IDs from the array:
+  - `'m1-01-title'`
+  - `'m1-02-interactive'`
+  - `'m1-03-feedback'`
+- **ADD** all newly implemented slide IDs at the BEGINNING of the array
+- **PRESERVE** FeedbackProvider wrapper and existing F1 slides
+
+Example transformation:
+```typescript
+// BEFORE:
+const defaultSlides = [
+  'm1-01-title',
+  'm1-02-interactive',
+  'm1-03-feedback',
+  'f1-01-campaign-brief-title',
+  ...
+]
+
+// AFTER (e.g., new f2 module implemented):
+const defaultSlides = [
+  'f2-01-title',
+  'f2-02-context',
+  'f2-03-interactive',
+  'f1-01-campaign-brief-title',
+  ...
+]
+```
+
+**5. Verify the replacement:**
+- Read updated `config/slides.ts` - confirm M1 entries removed, new entries added
+- Read updated `app/page.tsx` - confirm M1 IDs removed, new IDs added
+- Run `pnpm run build` to verify all imports resolve correctly
+
+**6. Report the replacement:**
+```markdown
+### Template Slides Replaced
+- **Removed**: m1-01-title, m1-02-interactive, m1-03-feedback
+- **Added**: [list all newly created slide IDs]
+```
+
+**NOTE**: This replacement is MANDATORY. Template slides must be removed to prevent confusion and ensure the presentation shows only the actual implemented content.
+
 #### 4f. Generate Completion Summary
 
 Create a detailed summary for the user:
@@ -468,6 +584,16 @@ Successfully implemented **[N] slides** across **[M] agent groups** in parallel.
 
 - `components/slides/[module]/[slide-ids].tsx` - [N] slide components
 - `public/generated-images/gemini-[timestamps]-1.png` - [N] background images
+
+### Template Slides Replaced
+
+✅ **Removed** M1 template slides:
+- m1-01-title
+- m1-02-interactive
+- m1-03-feedback
+
+✅ **Added** new slides:
+- [list all newly created slide IDs]
 
 ### Validation Results
 
@@ -712,10 +838,22 @@ Before marking implementation as complete, verify:
 - [ ] Status fields filled with 'Completed'
 - [ ] Comments added with implementation notes
 
-**Slide Registration (MANDATORY):**
-- [ ] All slides registered in `config/slides.ts` with correct metadata
-- [ ] All slide IDs added to `app/page.tsx` defaultSlides array
-- [ ] Slide ordering verified (slides appear in correct sequence)
+**Multi-Slide Feedback Flow (if applicable):**
+- [ ] Final summary slide implemented as LAST slide in flow
+- [ ] Summary slide displays all collected choices with label lookup maps
+- [ ] Submit button with `variant="glow"` included
+- [ ] "Feedback was remembered" toast shows on submission
+- [ ] Auto-advance to next slide after 1.5-2 second delay
+- [ ] Enter key handler for keyboard accessibility
+- [ ] FeedbackProvider wraps all pages loading feedback slides
+
+**Slide Registration & Template Replacement (MANDATORY):**
+- [ ] M1 template slides removed from `config/slides.ts` (m1-01-title, m1-02-interactive, m1-03-feedback)
+- [ ] M1 template slide IDs removed from `app/page.tsx` defaultSlides array
+- [ ] All new slides registered in `config/slides.ts` with correct metadata
+- [ ] All new slide IDs added to `app/page.tsx` defaultSlides array
+- [ ] Slide ordering verified (new slides appear in correct sequence)
+- [ ] Build passes after template replacement (`pnpm run build`)
 
 ## Spec File Path
 $ARGUMENTS

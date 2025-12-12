@@ -81,6 +81,50 @@ Reference: `ai_docs/INTERACTIVE_PATTERNS.md` for complete pattern implementation
 
 ---
 
+## MANDATORY: Final Summary Slide for Feedback Flows
+
+**When planning any multi-slide feedback flow (2+ question slides that collect user choices), you MUST include a FINAL SUMMARY SLIDE at the end.**
+
+### Final Summary Slide Requirements
+
+1. **Display all collected choices** - Show each question's selected option with user-friendly labels
+2. **Submit mechanism** - Include a submit button AND Enter key support
+3. **Confirmation feedback** - Show "Feedback was remembered" toast/notification on submit
+4. **Auto-advance** - Navigate to the next slide after 1.5-2 seconds
+
+### Example Flow Structure
+
+```
+Slide 1: Question (Brand Tone) → saves to FeedbackContext
+Slide 2: Question (Lead Strategy) → saves to FeedbackContext
+Slide 3: Question (Target Persona) → saves to FeedbackContext
+Slide 4: **FINAL SUMMARY** → displays all 3 choices, submit button, "Feedback was remembered" toast, auto-advance
+```
+
+### What the Final Summary Slide Must Include
+
+| Element | Requirement |
+|---------|-------------|
+| Choice Display | Card for each question showing selected option with icon |
+| Label Lookup | Maps to convert option IDs to user-friendly labels |
+| Submit Button | `variant="glow"` with "Submit Feedback" text |
+| Enter Key | Keyboard handler for accessibility |
+| Success Toast | "Feedback was remembered" fixed bottom-center notification |
+| Auto-Advance | Call `nextSlide()` after 1.5-2 second delay |
+
+### Planning Checklist for Feedback Flows
+
+When planning slides that collect user choices:
+- [ ] Identified all question slides that save to FeedbackContext
+- [ ] Planned final summary slide as the LAST slide in the flow
+- [ ] Specified label lookup maps for each question's options
+- [ ] Included "Feedback was remembered" confirmation in spec
+- [ ] Included auto-advance behavior in spec
+
+**Reference Implementation**: `.claude/patterns/multi-slide-feedback/summary-slide.tsx`
+
+---
+
 ## Instructions
 
 When the user invokes this command, you act as the **MASTER ORCHESTRATOR** responsible for:
