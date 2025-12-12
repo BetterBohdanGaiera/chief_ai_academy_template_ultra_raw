@@ -130,6 +130,29 @@ For EACH slide, recommend an appropriate skill based on its visual needs:
 
 **Include in spec file**: For each slide, add a "Recommended Skill" field with your selection and rationale.
 
+### Slide Type Recognition: Feedback & User Input
+
+When planning slides, identify if any require **user input collection**. These slides should use the **Feedback Form pattern**.
+
+| Slide Purpose | Recommend | Component |
+|---------------|-----------|-----------|
+| Audience poll / preference survey | Feedback Form | `FeedbackChoice` |
+| Post-presentation feedback | Feedback Form | `AgentForm` |
+| Interactive questionnaire | Feedback Form | `AgentForm` |
+| Topic preference selection | Feedback Form | `FeedbackChoice` |
+| Workshop customization | Feedback Form | `FeedbackChoice` |
+
+**When to include in spec**:
+- Add "Pattern: Feedback Form" in Visual Design Recommendations
+- Add "Recommended Skill: `artifacts-builder`" (feedback components are React-based)
+- Include "Components: FeedbackChoice" or "Components: AgentForm" based on complexity
+- Reference: `.claude/skills/artifacts-builder/patterns/foundation/feedback-form/`
+
+**Quick Decision**:
+- Simple selection (2-6 options)? → `FeedbackChoice`
+- AI follow-up questions needed? → `AgentForm`
+- Context/background to show? → Add `QuestionContext`
+
 ---
 
 ## MOBILE CONSIDERATIONS

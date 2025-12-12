@@ -15,6 +15,18 @@ interface FormContext {
   [key: string]: unknown
 }
 
+interface ConversationThreadMessage {
+  role: 'user' | 'assistant'
+  content: string
+  timestamp: string
+}
+
+interface ConversationMetadata {
+  totalExchanges: number
+  aiGenerated: boolean
+  completionReason?: 'comprehensive' | 'max_reached' | 'user_done' | 'error'
+}
+
 interface FeedbackSubmission {
   presentationId: string
   slideId: string
@@ -28,6 +40,12 @@ interface FeedbackSubmission {
   sessionId?: string
   questionHash?: string
   formContext?: FormContext
+  /** Complete conversation thread for AI-assisted feedback */
+  conversationThread?: ConversationThreadMessage[]
+  /** Whether this is an AI-assisted conversation submission */
+  isConversation?: boolean
+  /** Metadata about the conversation */
+  conversationMetadata?: ConversationMetadata
 }
 
 /**

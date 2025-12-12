@@ -110,6 +110,58 @@ The **Skills modules (S1-S3, 63 slides)** demonstrate these patterns in producti
 - S3-10: Canvas Animation (iteration speed)
 - S3-28: Interactive Toggle (partnership model)
 
+## Feedback Collection Patterns
+
+When slides need to **collect user input, preferences, or feedback**, use the Feedback Form pattern.
+
+### When to Use Feedback Components
+
+| Slide Need | Component | Import |
+|------------|-----------|--------|
+| Multiple choice with "Other" option | `FeedbackChoice` | `@/components/feedback/FeedbackChoice` |
+| Full AI-powered conversation | `AgentForm` | `@/components/agent/AgentForm` |
+| Display conversation thread | `ConversationThread` | `@/components/feedback/ConversationThread` |
+| AI follow-up message styling | `FollowUpMessage` | `@/components/feedback/FollowUpMessage` |
+| Expandable context sections | `QuestionContext` | `@/components/feedback/QuestionContext` |
+| Context panel for questions | `ContextPanel` | `@/components/agent/ContextPanel` |
+| Form selection UI | `FormSelector` | `@/components/agent/FormSelector` |
+
+### Quick Usage Examples
+
+**FeedbackChoice** (Simple selection):
+```tsx
+import FeedbackChoice from '@/components/feedback/FeedbackChoice'
+
+const options = [
+  { id: 'opt1', label: 'Option 1', description: 'Description' },
+  { id: 'opt2', label: 'Option 2', description: 'Description' },
+]
+
+<FeedbackChoice
+  options={options}
+  selectedId={selected}
+  onSelect={setSelected}
+  showOther={true}
+/>
+```
+
+**AgentForm** (AI conversation):
+```tsx
+import AgentForm from '@/components/agent/AgentForm'
+import type { FormDefinition } from '@/lib/agent-sdk/types'
+
+const form: FormDefinition = {
+  id: 'feedback-form',
+  type: 'feedback',
+  title: 'Share Your Thoughts',
+  questions: [/* question definitions */]
+}
+
+<AgentForm form={form} onComplete={handleComplete} />
+```
+
+**Pattern documentation**: `.claude/skills/artifacts-builder/patterns/foundation/feedback-form/`
+
 ## Skill Selection for Slide Implementation
 
 **IMPORTANT**: When assigned to create 2-4 slides as a group, you must choose the appropriate implementation approach for each slide.
