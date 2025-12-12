@@ -162,6 +162,104 @@ const form: FormDefinition = {
 
 **Pattern documentation**: `.claude/skills/artifacts-builder/patterns/foundation/feedback-form/`
 
+## Multi-Slide Feedback: Shared State Requirements
+
+**CRITICAL**: When implementing feedback/question slides that are part of a multi-slide flow (2+ question slides with a summary), you MUST use shared state via React Context instead of local `useState`.
+
+### Detection: When Does This Apply?
+
+Check the spec file for:
+- "Shared State Architecture" section
+- Multiple question slides in sequence
+- A summary slide that displays collected feedback
+- References to `FeedbackProvider` or `useFeedback`
+
+If ANY of these are present, follow the shared state pattern.
+
+### Implementation Requirements
+
+| Requirement | Details |
+|-------------|---------|
+| **ALL pages** | MUST wrap `PresentationContainer` with `FeedbackProvider` on every page loading feedback slides (module page, home page, etc.) |
+| Question slides | MUST use `useFeedback()` hook, NOT local `useState` |
+| Summary slide | MUST consume context state, NOT mock/hardcoded data |
+| Visual confirmation | MUST show "Selection saved" indicator after each selection |
+| Text inputs | MUST handle Enter key with "Press Enter to confirm" hint |
+
+### Code Pattern: Question Slide
+
+```tsx
+// ❌ WRONG (state lost on navigation):
+export default function QuestionSlide() {
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+  // State is lost when user navigates to another slide!
+}
+
+// ✅ CORRECT (state persists):
+export default function QuestionSlide() {
+  const { state, setQuestion1 } = useFeedback()
+  const selectedId = state.question1
+  // State persists because context lives in page wrapper (doesn't unmount)
+}
+```
+
+### Code Pattern: Summary Slide
+
+```tsx
+// ❌ WRONG (hardcoded mock data):
+const mockSelections = {
+  question1: { id: 'option-1', label: 'Option One' },
+}
+// Uses mockSelections.question1.label
+
+// ✅ CORRECT (reads from context):
+const { state } = useFeedback()
+const getQuestion1Label = () => {
+  if (!state.question1) return 'Not selected'
+  if (state.question1 === 'other') return state.question1Other
+  return labelMap[state.question1]
+}
+// Uses getQuestion1Label()
+```
+
+### UX Requirements
+
+1. **Visual confirmation**: Show toast/indicator after selection
+   ```tsx
+   const [showSavedIndicator, setShowSavedIndicator] = useState(false)
+
+   const showSaved = () => {
+     setShowSavedIndicator(true)
+     setTimeout(() => setShowSavedIndicator(false), 2000)
+   }
+
+   const handleSelect = (id: string) => {
+     setQuestion1(id)
+     showSaved() // Show "Selection saved"
+   }
+   ```
+
+2. **Enter key handler**: For "Other" text inputs
+   ```tsx
+   const handleOtherKeyDown = (e: React.KeyboardEvent) => {
+     if (e.key === 'Enter') {
+       e.preventDefault()
+       showSaved()
+     }
+   }
+
+   <Input onKeyDown={handleOtherKeyDown} />
+   <p className="text-xs">Press Enter to confirm</p>
+   ```
+
+### Reference Implementation
+
+See `.claude/patterns/multi-slide-feedback/` for complete examples:
+- `context-provider.tsx` - FeedbackContext pattern
+- `question-slide.tsx` - Question slide with context
+- `summary-slide.tsx` - Summary slide consuming context
+- `module-page.tsx` - Module page with provider wrapper
+
 ## Skill Selection for Slide Implementation
 
 **IMPORTANT**: When assigned to create 2-4 slides as a group, you must choose the appropriate implementation approach for each slide.

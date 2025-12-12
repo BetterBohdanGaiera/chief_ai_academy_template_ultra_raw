@@ -155,6 +155,101 @@ When planning slides, identify if any require **user input collection**. These s
 
 ---
 
+## Multi-Slide Feedback Architecture
+
+**CRITICAL**: When planning presentations with MULTIPLE feedback/question slides that need to:
+- Persist selections across navigation
+- Display collected feedback on a summary slide
+- Submit all feedback at the end
+
+**YOU MUST specify in the spec file** a Shared State Architecture section.
+
+### When to Include Shared State Architecture
+
+| Presentation Type | Include Shared State? |
+|-------------------|----------------------|
+| Single question slide only | No |
+| 2+ question slides with summary | **Yes - REQUIRED** |
+| Feedback collection module | **Yes - REQUIRED** |
+| Survey/questionnaire flow | **Yes - REQUIRED** |
+| Independent question slides (no summary) | No |
+
+### Shared State Architecture Template
+
+Include this section in your spec file when feedback flow is detected:
+
+```markdown
+## Shared State Architecture
+
+This presentation requires shared state across multiple slides.
+
+### Context Provider
+- **Provider**: FeedbackProvider (from `@/contexts/FeedbackContext`)
+- **Wrap Location**: ALL pages that load these slides, including:
+  - Module page (e.g., `app/(courses)/modules/[module]/page.tsx`)
+  - Home page if it loads these slides (e.g., `app/page.tsx`)
+  - Any other page rendering feedback slides
+- **Reason**: State must persist across slide navigation (components unmount)
+
+### State Fields
+| Field | Type | Used In Slides |
+|-------|------|----------------|
+| positioning | string \| null | 05-question, 08-summary |
+| positioningOther | string | 05-question, 08-summary |
+| brandTone | string \| null | 06-question, 08-summary |
+| brandToneOther | string | 06-question, 08-summary |
+| leadStrategy | string \| null | 07-question, 08-summary |
+| leadStrategyOther | string | 07-question, 08-summary |
+| additionalFeedback | string | 08-summary |
+| isSubmitted | boolean | 08-summary |
+
+### Implementation Requirements
+- [ ] **ALL pages** loading these slides MUST wrap `PresentationContainer` with `FeedbackProvider`
+  - [ ] Module page wrapped
+  - [ ] Home page wrapped (if loading feedback slides)
+  - [ ] Other pages wrapped (if applicable)
+- [ ] All question slides MUST use `useFeedback()` hook, NOT local `useState`
+- [ ] Summary slide MUST consume context state, NOT mock/hardcoded data
+- [ ] Summary slide MUST use label lookup maps for displaying user-friendly text
+
+### UX Requirements
+- [ ] Add "Selection saved" visual confirmation after each selection
+- [ ] Add Enter key handler for text inputs with "Press Enter to confirm" hint
+- [ ] Progress is indicated via badge (e.g., "Question 1 of 3")
+```
+
+### Anti-Pattern Warning
+
+**❌ WRONG** (causes state loss on navigation):
+```tsx
+// Individual slide with local state - BROKEN!
+export default function QuestionSlide() {
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+  // State is lost when user navigates away!
+}
+```
+
+**✅ CORRECT** (state persists across navigation):
+```tsx
+// Individual slide using shared context - WORKS!
+export default function QuestionSlide() {
+  const { state, setPositioning } = useFeedback()
+  const selectedId = state.positioning
+  // State persists because context lives in module page (doesn't unmount)
+}
+```
+
+### Reference Implementation
+
+See `.claude/patterns/multi-slide-feedback/` for complete reference implementations:
+- `README.md` - Pattern overview and when to use
+- `context-provider.tsx` - FeedbackContext implementation
+- `question-slide.tsx` - Question slide using context hook
+- `summary-slide.tsx` - Summary slide consuming context state
+- `module-page.tsx` - Module page with provider wrapper
+
+---
+
 ## MOBILE CONSIDERATIONS
 
 **Reference**: See `ai_docs/MOBILE_VISUALIZATION_STRATEGY.md` for complete mobile strategy.

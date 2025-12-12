@@ -1,13 +1,13 @@
 /**
- * Homepage - Direct Presentation View
- * Displays the presentation immediately without module selection
+ * FB Module Page - Feedback Presentation (TechFlow Solutions)
+ * Q1 2025 Marketing Launch - Stakeholder Feedback Session
  */
 
 import { PresentationContainer } from '@/components/presentation-container'
 import { FeedbackProvider } from '@/contexts/FeedbackContext'
 
-// Default presentation slides (FB Feedback Module)
-const defaultSlides = [
+// FB: Feedback Module slide IDs
+const fbSlides = [
   'fb-01-title',
   'fb-02-techflow-overview',
   'fb-03-market-landscape',
@@ -18,13 +18,13 @@ const defaultSlides = [
   'fb-08-summary-next-steps'
 ]
 
-export default function HomePage() {
+export default function FBModulePage() {
   return (
     <FeedbackProvider>
       <PresentationContainer
-        slideIds={defaultSlides}
-        title="Presentation"
-        id="main"
+        slideIds={fbSlides}
+        title="FB: TechFlow Feedback Session"
+        id="fb"
       />
     </FeedbackProvider>
   )

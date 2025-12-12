@@ -82,6 +82,57 @@ Before starting, verify the spec file is ready:
 
 **If any of these are missing, STOP and ask the user to run `/plan_slide_redesign` first.**
 
+### Multi-Slide Feedback Flow Check (CRITICAL)
+
+**IMPORTANT**: Check if the spec file contains a `## Shared State Architecture` section. This indicates a feedback flow that requires special handling.
+
+**If "Shared State Architecture" section is present:**
+
+1. **Verify ALL pages that load feedback slides have FeedbackProvider wrapper**:
+   - Module page MUST wrap `PresentationContainer` with `FeedbackProvider`
+   - Home page MUST also wrap if it loads feedback slides (e.g., `app/page.tsx`)
+   - Any other page loading these slides MUST also wrap
+   - This is NOT optional - state persistence WILL break without it (runtime error)
+
+2. **Verify question slides will use context**:
+   - All question slides MUST use `useFeedback()` hook
+   - Must NOT use local `useState` for selections
+   - Must include visual confirmation ("Selection saved")
+   - Must include Enter key handler for text inputs
+
+3. **Verify summary slide will consume context**:
+   - Summary slide MUST read from context state
+   - Must NOT use mock/hardcoded data
+   - Must include label lookup maps for display
+
+4. **Add to agent prompts**:
+   When spawning slide-generator agents for feedback flows, add this to each agent's prompt:
+
+   ```
+   **CRITICAL - Multi-Slide Feedback Flow:**
+   This module uses shared state across slides. You MUST:
+
+   1. For question slides:
+      - Import and use `useFeedback()` from `@/contexts/FeedbackContext`
+      - Do NOT use local `useState` for selections (state will be lost!)
+      - Add "Selection saved" toast after each selection
+      - Add Enter key handler for text inputs
+      - Reference: `.claude/patterns/multi-slide-feedback/question-slide.tsx`
+
+   2. For summary slides:
+      - Consume context state via `useFeedback()`
+      - Create label lookup maps to display user-friendly text
+      - Do NOT use mock or hardcoded data
+      - Reference: `.claude/patterns/multi-slide-feedback/summary-slide.tsx`
+
+   3. ALL pages loading these slides must wrap with FeedbackProvider:
+      - Module page (app/(courses)/modules/[module]/page.tsx)
+      - Home page if loading feedback slides (app/page.tsx)
+      - Reference: `.claude/patterns/multi-slide-feedback/module-page.tsx`
+   ```
+
+**Reference Implementation**: `.claude/patterns/multi-slide-feedback/` contains complete examples.
+
 ### Step 1: Parse Agent Groups
 
 Read the spec file's `## Agent Groups` section and extract all group definitions.

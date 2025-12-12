@@ -51,6 +51,106 @@ export const slideRegistry: SlideRegistry = {
       notes: 'Collect feedback from domain expert reviewers'
     },
     loader: () => import('@/components/slides/m1/03-feedback')
+  },
+
+  // ============================================
+  // FB: FEEDBACK MODULE (TechFlow Solutions)
+  // ============================================
+  'fb-01-title': {
+    slide: {
+      id: 'fb-01-title',
+      component: () => import('@/components/slides/fb/01-title'),
+      module: 'fb',
+      title: 'TechFlow Feedback Session',
+      tags: ['title', 'feedback'],
+      duration: 1,
+      notes: 'Title slide establishing the feedback session context'
+    },
+    loader: () => import('@/components/slides/fb/01-title')
+  },
+  'fb-02-techflow-overview': {
+    slide: {
+      id: 'fb-02-techflow-overview',
+      component: () => import('@/components/slides/fb/02-techflow-overview'),
+      module: 'fb',
+      title: 'TechFlow Overview',
+      tags: ['context', 'company', 'metrics'],
+      duration: 2,
+      notes: 'Company background and key metrics for context'
+    },
+    loader: () => import('@/components/slides/fb/02-techflow-overview')
+  },
+  'fb-03-market-landscape': {
+    slide: {
+      id: 'fb-03-market-landscape',
+      component: () => import('@/components/slides/fb/03-market-landscape'),
+      module: 'fb',
+      title: 'Market Landscape',
+      tags: ['context', 'competition', 'interactive'],
+      duration: 3,
+      notes: 'Interactive competitive positioning quadrant - supports positioning decisions'
+    },
+    loader: () => import('@/components/slides/fb/03-market-landscape')
+  },
+  'fb-04-campaign-context': {
+    slide: {
+      id: 'fb-04-campaign-context',
+      component: () => import('@/components/slides/fb/04-campaign-context'),
+      module: 'fb',
+      title: 'Campaign Context',
+      tags: ['context', 'campaign', 'data-viz'],
+      duration: 2,
+      notes: 'Campaign details and decision gaps - transitions to feedback questions'
+    },
+    loader: () => import('@/components/slides/fb/04-campaign-context')
+  },
+  'fb-05-positioning-question': {
+    slide: {
+      id: 'fb-05-positioning-question',
+      component: () => import('@/components/slides/fb/05-positioning-question'),
+      module: 'fb',
+      title: 'Strategic Positioning',
+      tags: ['feedback', 'interactive', 'question'],
+      duration: 3,
+      notes: 'Question 1: TechFlow positioning direction - AI-First, Mid-Market, or Unified Platform'
+    },
+    loader: () => import('@/components/slides/fb/05-positioning-question')
+  },
+  'fb-06-brand-tone-question': {
+    slide: {
+      id: 'fb-06-brand-tone-question',
+      component: () => import('@/components/slides/fb/06-brand-tone-question'),
+      module: 'fb',
+      title: 'Brand Tone',
+      tags: ['feedback', 'interactive', 'question'],
+      duration: 3,
+      notes: 'Question 2: Brand voice positioning on spectrum from Playful to Professional'
+    },
+    loader: () => import('@/components/slides/fb/06-brand-tone-question')
+  },
+  'fb-07-lead-strategy-question': {
+    slide: {
+      id: 'fb-07-lead-strategy-question',
+      component: () => import('@/components/slides/fb/07-lead-strategy-question'),
+      module: 'fb',
+      title: 'Lead Strategy',
+      tags: ['feedback', 'interactive', 'question'],
+      duration: 3,
+      notes: 'Question 3: Quality vs quantity optimization with $180K budget'
+    },
+    loader: () => import('@/components/slides/fb/07-lead-strategy-question')
+  },
+  'fb-08-summary-next-steps': {
+    slide: {
+      id: 'fb-08-summary-next-steps',
+      component: () => import('@/components/slides/fb/08-summary-next-steps'),
+      module: 'fb',
+      title: 'Summary & Submit',
+      tags: ['feedback', 'summary', 'cta'],
+      duration: 2,
+      notes: 'Review selections and submit feedback with timeline'
+    },
+    loader: () => import('@/components/slides/fb/08-summary-next-steps')
   }
 
   // ============================================
