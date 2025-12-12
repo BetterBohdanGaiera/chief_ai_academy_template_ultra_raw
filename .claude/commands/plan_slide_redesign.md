@@ -81,25 +81,81 @@ Reference: `ai_docs/INTERACTIVE_PATTERNS.md` for complete pattern implementation
 
 ---
 
-## MANDATORY: Final Summary Slide for Feedback Flows
+## MANDATORY: 3-Part Presentation Structure
 
-**When planning any multi-slide feedback flow (2+ question slides that collect user choices), you MUST include a FINAL SUMMARY SLIDE at the end.**
+**ALL presentations in this repository must follow this 3-part structure:**
 
-### Final Summary Slide Requirements
+### Part 1: Title + Agenda Slide (FIRST SLIDE)
 
-1. **Display all collected choices** - Show each question's selected option with user-friendly labels
-2. **Submit mechanism** - Include a submit button AND Enter key support
-3. **Confirmation feedback** - Show "Feedback was remembered" toast/notification on submit
-4. **Auto-advance** - Navigate to the next slide after 1.5-2 seconds
+The opening slide MUST include:
 
-### Example Flow Structure
+| Element | Requirement |
+|---------|-------------|
+| Badge | Module identifier (e.g., "Feedback Session", "Strategic Input") |
+| Title | Clear presentation title |
+| Agenda/Questions List | Visual list of questions that will be answered |
+| Purpose Statement | One-line explanation of what feedback is being collected |
+
+**Example Content:**
+- "Today we'll ask you about: Positioning, Brand Tone, and Lead Strategy"
+- Visual numbered list or icons representing each question topic
+
+### Part 2: Context Provision (1-2 SLIDES)
+
+After the title, include context slides that provide:
+
+**A. Data Context (What We Know)**
+- Company/project metrics and facts
+- Background information relevant to the feedback
+- Visual metric cards or data visualization
+
+**B. Purpose Context (Why We're Asking)**
+- Explanation of why this feedback is needed
+- How the feedback will be used
+- What decisions depend on this input
+
+Can be combined into one slide or split into two depending on content volume.
+
+### Part 3: Feedback Collection + Summary (REMAINING SLIDES)
+
+**Question Slides:**
+- Each question gets its own slide
+- Interactive selection cards with options
+- "Other" option with text input when appropriate
+- Saves to FeedbackContext on selection
+
+**Final Summary Slide (LAST SLIDE - MANDATORY):**
+- Display all collected choices
+- Submit button with `variant="glow"`
+- "Feedback was remembered" toast
+- Auto-advance to next slide after 1.5-2 seconds
+
+### Example Flow Structure (MANDATORY)
 
 ```
-Slide 1: Question (Brand Tone) → saves to FeedbackContext
-Slide 2: Question (Lead Strategy) → saves to FeedbackContext
-Slide 3: Question (Target Persona) → saves to FeedbackContext
-Slide 4: **FINAL SUMMARY** → displays all 3 choices, submit button, "Feedback was remembered" toast, auto-advance
+Slide 1: **TITLE + AGENDA** → badge, title, list of 3 questions to answer
+Slide 2: **CONTEXT - WHAT WE KNOW** → data metrics, background info
+Slide 3: **CONTEXT - WHY WE'RE ASKING** → purpose, how feedback will be used
+Slide 4: Question (Brand Tone) → saves to FeedbackContext
+Slide 5: Question (Lead Strategy) → saves to FeedbackContext
+Slide 6: Question (Target Persona) → saves to FeedbackContext
+Slide 7: **FINAL SUMMARY** → displays all 3 choices, submit button, toast, auto-advance
 ```
+
+### Planning Checklist (Apply to EVERY Presentation)
+
+Before finalizing slide plans, verify:
+- [ ] **Slide 1 is Title + Agenda** - Shows all questions to be answered
+- [ ] **Slides 2-3 are Context** - Include data AND purpose explanation
+- [ ] **Question slides follow context** - One question per slide
+- [ ] **Final slide is Summary** - Review + Submit + Confirmation
+- [ ] **Total flow is clear** - User understands the journey upfront
+
+---
+
+## Final Summary Slide Requirements
+
+For the FINAL SUMMARY SLIDE specifically:
 
 ### What the Final Summary Slide Must Include
 
@@ -287,12 +343,22 @@ Read these before designing:
 - `ai_docs/components_inspiration/README.md` - Pattern library index
 - `ai_docs/components_inspiration/patterns/[pattern-name]/` - Specific pattern details
 
+## MANDATORY 3-Part Structure Reminder
+
+This presentation MUST follow the 3-part structure:
+1. **First slide: Title + Agenda** - List all questions to be answered
+2. **Next 1-2 slides: Context** - Data (what we know) + Purpose (why we're asking)
+3. **Remaining slides: Questions + Final Summary** - One question per slide, then summary with review/submit
+
+Verify this structure is planned before writing the spec.
+
 ## Critical Rules
 
 - **Max 4 slides per spec** - You are creating exactly ONE spec file
 - **NO TEXT in background images** - Use visual shapes/forms only
 - **Pattern-first approach** - Always check components_inspiration/ before designing
 - **Return file path** - Your final output MUST include the spec file path created
+- **3-Part structure** - Every presentation follows Title → Context → Questions → Summary
 
 ## STRICT BOUNDARIES - DO NOT VIOLATE
 
