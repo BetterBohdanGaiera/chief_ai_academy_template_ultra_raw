@@ -1,12 +1,12 @@
 /**
- * Homepage - Direct Presentation View
- * Displays the presentation immediately without module selection
+ * Reddit Module Page - Reddit Marketing Research
+ * Slides covering Reddit marketing research, architecture, and strategy
  */
 
 import { PresentationContainer } from '@/components/presentation-container'
 
-// Default presentation slides (Reddit Marketing Research)
-const defaultSlides = [
+// Reddit: Marketing Research slide IDs
+const redditSlides = [
   'reddit-01-title',
   'reddit-02-all-in-one-platforms',
   'reddit-03-monitoring-tools',
@@ -19,12 +19,12 @@ const defaultSlides = [
   'reddit-10-risks-next-steps'
 ]
 
-export default function HomePage() {
+export default function RedditModulePage() {
   return (
     <PresentationContainer
-      slideIds={defaultSlides}
-      title="Presentation"
-      id="main"
+      slideIds={redditSlides}
+      title="Reddit Marketing Research"
+      id="reddit"
     />
   )
 }
