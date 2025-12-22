@@ -1,10 +1,10 @@
 'use client'
 
 /**
- * Example Interactive Slide
- * Toggle pattern with state management
+ * Пример интерактивного слайда
+ * Паттерн переключения с управлением состоянием
  *
- * Use this as a template for creating interactive comparison slides
+ * Используйте это как шаблон для создания интерактивных слайдов сравнения
  */
 
 import { useState } from 'react'
@@ -14,32 +14,32 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { ArrowRight, Zap, Settings } from 'lucide-react'
 
-// Define your comparison content
+// Определите содержимое для сравнения
 const modes = {
   before: {
-    title: 'Before',
+    title: 'До',
     icon: Settings,
     color: 'text-orange-500',
     bgColor: 'bg-orange-500/10',
     borderColor: 'border-orange-500/30',
     items: [
-      'Traditional approach item 1',
-      'Traditional approach item 2',
-      'Traditional approach item 3',
-      'Traditional approach item 4'
+      'Традиционный подход пункт 1',
+      'Традиционный подход пункт 2',
+      'Традиционный подход пункт 3',
+      'Традиционный подход пункт 4'
     ]
   },
   after: {
-    title: 'After',
+    title: 'После',
     icon: Zap,
     color: 'text-primary',
     bgColor: 'bg-primary/10',
     borderColor: 'border-primary/30',
     items: [
-      'Modern approach item 1',
-      'Modern approach item 2',
-      'Modern approach item 3',
-      'Modern approach item 4'
+      'Современный подход пункт 1',
+      'Современный подход пункт 2',
+      'Современный подход пункт 3',
+      'Современный подход пункт 4'
     ]
   }
 }
@@ -60,10 +60,10 @@ export default function ExampleInteractiveSlide() {
         {/* Header */}
         <div className="text-center space-y-4">
           <h2 className="font-bebas text-5xl md:text-7xl tracking-tight">
-            BEFORE <span className="text-primary">VS</span> AFTER
+            ДО <span className="text-primary">ПРОТИВ</span> ПОСЛЕ
           </h2>
           <p className="font-syne text-xl text-muted-foreground">
-            Click to toggle between views
+            Нажмите, чтобы переключить между видами
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export default function ExampleInteractiveSlide() {
             className="min-w-32"
           >
             <Settings className="h-4 w-4 mr-2" />
-            Before
+            До
           </Button>
           <Button
             variant={activeMode === 'after' ? 'default' : 'outline'}
@@ -85,7 +85,7 @@ export default function ExampleInteractiveSlide() {
             className="min-w-32"
           >
             <Zap className="h-4 w-4 mr-2" />
-            After
+            После
           </Button>
         </div>
 
@@ -116,7 +116,7 @@ export default function ExampleInteractiveSlide() {
 
         {/* Hint */}
         <p className="text-center text-sm text-muted-foreground/60">
-          Tip: Use this pattern for any before/after, comparison, or toggle content
+          Совет: Используйте этот паттерн для любого контента до/после, сравнения или переключения
         </p>
       </div>
     </div>

@@ -52,62 +52,62 @@ export default function AllInOnePlatforms() {
       id: "ogtool",
       name: "OGTool",
       icon: Building2,
-      price: "$99/mo",
+      price: "$99/мес",
       priceColor: "text-red-500",
       priceGlow: "shadow-[0_0_20px_rgba(239,68,68,0.3)]",
-      coreFeature: "100,000+ subreddits monitoring",
+      coreFeature: "Мониторинг более 100 000 сабреддитов",
       features: [
-        "100,000+ subreddits monitoring",
-        "AI-generated responses",
-        "Lead identification",
+        "Мониторинг более 100 000 сабреддитов",
+        "Ответы, сгенерированные ИИ",
+        "Определение лидов",
       ],
-      limitation: "Generic AI responses may lack authenticity",
+      limitation: "Общие ответы ИИ могут не быть аутентичными",
     },
     {
       id: "reddit-radar",
       name: "Reddit Radar",
       icon: Radar,
-      price: "$19.99-39.99/mo",
+      price: "$19.99-39.99/мес",
       priceColor: "text-green-500",
       priceGlow: "shadow-[0_0_20px_rgba(34,197,94,0.3)]",
-      coreFeature: "AI community search with virality scoring",
+      coreFeature: "ИИ-поиск сообществ с оценкой вирусности",
       features: [
-        "AI-powered community search",
-        "Virality scoring system",
-        "Health score analytics",
-        "Starter: 100 msgs, Pro: 300 msgs",
+        "ИИ-поиск сообществ",
+        "Система оценки вирусности",
+        "Аналитика показателей здоровья",
+        "Starter: 100 сообщ., Pro: 300 сообщ.",
       ],
-      limitation: "Hard message limits per tier",
+      limitation: "Жёсткие лимиты сообщений на тариф",
     },
     {
       id: "promotee",
       name: "Promotee",
       icon: Users,
-      price: "$59/account/mo",
+      price: "$59/аккаунт/мес",
       priceColor: "text-amber-500",
       priceGlow: "shadow-[0_0_20px_rgba(245,158,11,0.3)]",
-      coreFeature: "Full automation suite with CRM",
+      coreFeature: "Полный набор автоматизации с CRM",
       features: [
-        "Auto Comments",
-        "Auto DMs",
-        "Account Warmup",
-        "Multi-account management",
-        "Built-in CRM",
+        "Автокомментарии",
+        "Авто-DM",
+        "Прогрев аккаунта",
+        "Управление множеством аккаунтов",
+        "Встроенная CRM",
       ],
-      limitation: "Aggressive automation increases ban risk",
+      limitation: "Агрессивная автоматизация повышает риск бана",
     },
     {
       id: "subtle-ai",
       name: "Subtle AI",
       icon: Lightbulb,
-      price: "Price unlisted",
+      price: "Цена не указана",
       priceColor: "text-foreground/60",
       priceGlow: "shadow-[0_0_20px_rgba(100,100,100,0.2)]",
-      coreFeature: "Smart post search and response creation",
+      coreFeature: "Умный поиск постов и создание ответов",
       features: [
-        "Relevant post search",
-        "Response creation",
-        "Opportunity identification",
+        "Поиск релевантных постов",
+        "Создание ответов",
+        "Определение возможностей",
       ],
       limitation: null,
     },
@@ -115,14 +115,14 @@ export default function AllInOnePlatforms() {
       id: "replyagent",
       name: "ReplyAgent.ai",
       icon: MessageCircle,
-      price: "Price unlisted",
+      price: "Цена не указана",
       priceColor: "text-foreground/60",
       priceGlow: "shadow-[0_0_20px_rgba(100,100,100,0.2)]",
-      coreFeature: "Auto search with smart targeting",
+      coreFeature: "Автопоиск с умным таргетингом",
       features: [
-        "Automated conversation search",
-        "Smart targeting",
-        "Persona-based replies",
+        "Автоматический поиск диалогов",
+        "Умный таргетинг",
+        "Ответы на основе персоны",
       ],
       limitation: null,
     },
@@ -166,13 +166,13 @@ export default function AllInOnePlatforms() {
         {/* Header */}
         <div className="text-center space-y-4">
           <Badge variant="glow" className="animate-slide-in-down">
-            Market Analysis
+            Анализ рынка
           </Badge>
           <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl xl:text-7xl animate-fade-in delay-200 fill-backwards">
-            All-in-One <span className="text-primary">Platforms</span>
+            Универсальные <span className="text-primary">Платформы</span>
           </h2>
           <p className="font-syne text-base md:text-lg text-foreground/70 animate-slide-in-up delay-400 fill-backwards">
-            Hover over each platform to explore features and limitations
+            Наведите на каждую платформу, чтобы изучить возможности и ограничения
           </p>
         </div>
 
@@ -237,7 +237,7 @@ export default function AllInOnePlatforms() {
                       {/* Features List */}
                       <div>
                         <p className="text-xs font-semibold text-primary mb-2">
-                          FEATURES:
+                          ВОЗМОЖНОСТИ:
                         </p>
                         <ul className="space-y-1">
                           {platform.features.map((feature, i) => (
@@ -267,7 +267,7 @@ export default function AllInOnePlatforms() {
                       {/* Link Indicator */}
                       <div className="flex items-center justify-center gap-1 text-xs text-primary pt-2">
                         <ExternalLink className="w-3 h-3" />
-                        <span>View details</span>
+                        <span>Посмотреть детали</span>
                       </div>
                     </div>
                   )}
@@ -281,9 +281,9 @@ export default function AllInOnePlatforms() {
         <Card className="bg-primary/5 border-primary/20 animate-fade-in delay-1000 fill-backwards">
           <CardContent className="py-4">
             <p className="text-sm text-center text-foreground/90">
-              <span className="font-semibold text-primary">Key Insight:</span>{" "}
-              All-in-one platforms offer convenience but often sacrifice customization.
-              Evaluate based on your specific workflow needs and risk tolerance.
+              <span className="font-semibold text-primary">Ключевой вывод:</span>{" "}
+              Универсальные платформы предлагают удобство, но часто жертвуют кастомизацией.
+              Оценивайте на основе ваших конкретных потребностей в рабочем процессе и толерантности к риску.
             </p>
           </CardContent>
         </Card>

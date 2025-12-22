@@ -16,94 +16,94 @@ export default function BuildVsBuy() {
 
   const responseExamples = {
     generic: {
-      title: "Generic Response",
-      subtitle: "What ready tools produce",
+      title: "Общий ответ",
+      subtitle: "Что производят готовые инструменты",
       color: "text-destructive",
       bgColor: "bg-destructive/5",
       borderColor: "border-destructive/40",
-      code: `"Great question! You should check out [ProductName] - it solves
-exactly this problem. Here's the link: https://..."`,
+      code: `"Отличный вопрос! Вам стоит попробовать [НазваниеПродукта] - он решает
+именно эту проблему. Вот ссылка: https://..."`,
       issues: [
-        "Instantly recognized as promotional",
-        "Gets downvoted or removed",
-        "Damages brand reputation",
-        "Triggers spam filters",
+        "Мгновенно распознается как реклама",
+        "Получает минусы или удаляется",
+        "Наносит ущерб репутации бренда",
+        "Активирует спам-фильтры",
       ],
     },
     valuefirst: {
-      title: "Value-First Response",
-      subtitle: "What custom systems can produce",
+      title: "Ответ с ценностью в приоритете",
+      subtitle: "Что могут производить кастомные системы",
       color: "text-success",
       bgColor: "bg-success/5",
       borderColor: "border-success/40",
-      code: `"Been there! Here's what I learned after 6 months of trial and error:
+      code: `"Был в такой же ситуации! Вот что я узнал за 6 месяцев проб и ошибок:
 
-1. First, you need to understand that [detailed technical explanation]
-2. The key insight is [valuable knowledge]
-3. For implementation, consider [actionable advice]
+1. Для начала нужно понять, что [детальное техническое объяснение]
+2. Ключевой инсайт в том, что [ценные знания]
+3. Для реализации, рассмотрите [практические советы]
 
-I actually built something to automate this process after
-struggling with it for months. Happy to share more details
-if you're interested."`,
+Я на самом деле создал что-то для автоматизации этого процесса после
+того, как бился с этим несколько месяцев. С радостью поделюсь подробностями,
+если интересно."`,
       benefits: [
-        "Provides genuine value first",
-        "Builds trust and credibility",
-        "Generates 40%+ reply rates",
-        "Creates authentic engagement",
+        "Сначала предоставляет настоящую ценность",
+        "Строит доверие и авторитет",
+        "Генерирует 40%+ откликов",
+        "Создает аутентичное вовлечение",
       ],
     },
   }
 
   const buyComponents = [
     {
-      name: "Warmed Accounts",
-      description: "Pre-aged Reddit accounts",
-      cost: "$0.03-50+/account",
+      name: "Прогретые аккаунты",
+      description: "Подготовленные Reddit аккаунты",
+      cost: "$0.03-50+/аккаунт",
       icon: UserCheck,
     },
     {
-      name: "Antidetect Browser",
+      name: "Антидетект браузер",
       description: "DICloak, Multilogin",
-      cost: "$8-99/mo",
+      cost: "$8-99/мес",
       icon: Bot,
     },
     {
-      name: "Proxies",
-      description: "Residential proxies",
-      cost: "$10-50+/mo",
+      name: "Прокси",
+      description: "Резидентные прокси",
+      cost: "$10-50+/мес",
       icon: Bot,
     },
     {
       name: "Reddit API",
-      description: "PRAW access",
-      cost: "$0-120+/mo",
+      description: "Доступ через PRAW",
+      cost: "$0-120+/мес",
       icon: Code,
     },
   ]
 
   const buildComponents = [
     {
-      name: "Keyword Monitoring",
-      description: "Find relevant posts and comments",
-      whyBuild: "Ready solutions: $20-200/mo",
+      name: "Мониторинг ключевых слов",
+      description: "Поиск релевантных постов и комментариев",
+      whyBuild: "Готовые решения: $20-200/мес",
       icon: Search,
     },
     {
-      name: "AI Response Agent",
-      description: "Generate value-first comments",
-      whyBuild: "Ready tools give generic answers",
+      name: "AI агент ответов",
+      description: "Генерация комментариев с ценностью",
+      whyBuild: "Готовые инструменты дают общие ответы",
       icon: Brain,
     },
     {
-      name: "Opportunity Scoring",
-      description: "Prioritize where to respond",
-      whyBuild: "Custom for your product",
+      name: "Оценка возможностей",
+      description: "Приоритизация, где отвечать",
+      whyBuild: "Кастомизировано под ваш продукт",
       icon: Target,
     },
     {
-      name: "Human Review Pipeline",
-      description: "Check before posting",
-      whyBuild: "Quality + ban protection",
+      name: "Конвейер проверки человеком",
+      description: "Проверка перед публикацией",
+      whyBuild: "Качество + защита от бана",
       icon: UserCheck,
     },
   ]
@@ -133,18 +133,18 @@ if you're interested."`,
         <div className="text-center space-y-4 animate-fade-in">
           <Badge variant="glow" className="text-lg px-6 py-2">
             <Wrench className="h-5 w-5 mr-2" />
-            STRATEGY DECISION
+            СТРАТЕГИЧЕСКОЕ РЕШЕНИЕ
           </Badge>
           <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none">
-            Build vs Buy
-            <span className="block text-primary mt-2">Why Custom May Be Better</span>
+            Создать или купить
+            <span className="block text-primary mt-2">Почему кастом может быть лучше</span>
           </h2>
         </div>
 
         {/* Response Comparison Section */}
         <div className="space-y-4 animate-slide-in-up delay-200 fill-backwards">
           <p className="text-center text-muted-foreground font-syne text-lg">
-            &quot;Rephrase the question and suggest our product&quot; - that&apos;s what all ready tools do
+            &quot;Перефразировать вопрос и предложить наш продукт&quot; - вот что делают все готовые инструменты
           </p>
 
           {/* Toggle Buttons */}
@@ -160,7 +160,7 @@ if you're interested."`,
               }`}
             >
               <XCircle className="h-5 w-5 mr-2" />
-              Generic Response
+              Общий ответ
             </Button>
             <Button
               variant={activeResponse === "valuefirst" ? "default" : "outline"}
@@ -173,7 +173,7 @@ if you're interested."`,
               }`}
             >
               <CheckCircle2 className="h-5 w-5 mr-2" />
-              Value-First Response
+              Ответ с ценностью в приоритете
             </Button>
           </div>
 
@@ -237,8 +237,8 @@ if you're interested."`,
                   <ShoppingCart className="h-6 w-6 text-warning" />
                 </div>
                 <div>
-                  <h3 className="font-syne text-xl font-bold">What We Buy</h3>
-                  <p className="text-sm text-muted-foreground">Ready-made infrastructure</p>
+                  <h3 className="font-syne text-xl font-bold">Что мы покупаем</h3>
+                  <p className="text-sm text-muted-foreground">Готовая инфраструктура</p>
                 </div>
               </div>
 
@@ -275,8 +275,8 @@ if you're interested."`,
                   <Wrench className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-syne text-xl font-bold">What We Build</h3>
-                  <p className="text-sm text-muted-foreground">Custom for competitive advantage</p>
+                  <h3 className="font-syne text-xl font-bold">Что мы создаем</h3>
+                  <p className="text-sm text-muted-foreground">Кастом для конкурентного преимущества</p>
                 </div>
               </div>
 
@@ -311,9 +311,9 @@ if you're interested."`,
           <Card className="bg-white/95 backdrop-blur-md border-2 border-primary/30">
             <CardContent className="p-6">
               <p className="font-syne text-xl md:text-2xl font-bold text-primary">
-                The difference between spam and engagement
+                Разница между спамом и вовлечением
                 <span className="block mt-2 text-foreground">
-                  is whether you lead with <span className="text-success">value</span> or <span className="text-destructive">promotion</span>
+                  в том, начинаете ли вы с <span className="text-success">ценности</span> или <span className="text-destructive">рекламы</span>
                 </span>
               </p>
             </CardContent>

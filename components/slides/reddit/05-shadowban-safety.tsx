@@ -16,8 +16,8 @@ export default function ShadowbanSafety() {
 
   const safetyData = {
     dangerous: {
-      title: "Ban Triggers",
-      subtitle: "Behaviors that trigger shadowbans",
+      title: "Триггеры бана",
+      subtitle: "Действия, которые приводят к теневому бану",
       icon: AlertTriangle,
       color: "text-destructive",
       bgColor: "bg-destructive/5",
@@ -25,45 +25,45 @@ export default function ShadowbanSafety() {
       headerBg: "bg-destructive/10",
       items: [
         {
-          label: "Cross-posting same content",
-          description: "Posting identical content to multiple subreddits",
+          label: "Кросс-постинг одинакового контента",
+          description: "Публикация идентичного контента в несколько сабреддитов",
           icon: Link2,
           iconColor: "text-destructive",
         },
         {
-          label: "Vote manipulation",
-          description: "Using multiple accounts or coordinating votes",
+          label: "Манипуляция голосами",
+          description: "Использование нескольких аккаунтов или координация голосов",
           icon: ThumbsUp,
           iconColor: "text-destructive",
         },
         {
-          label: "Repeated promotional links",
-          description: "Excessive linking to the same domain",
+          label: "Повторяющиеся промо-ссылки",
+          description: "Чрезмерное количество ссылок на один домен",
           icon: Link2,
           iconColor: "text-destructive",
         },
         {
-          label: "Automated behavior",
-          description: "Bot-like patterns without proper warm-up",
+          label: "Автоматизированное поведение",
+          description: "Бот-подобные паттерны без правильного прогрева",
           icon: Bot,
           iconColor: "text-destructive",
         },
         {
-          label: "VPN during account creation",
-          description: "Creating accounts while using VPN/proxy",
+          label: "VPN при создании аккаунта",
+          description: "Создание аккаунтов через VPN/прокси",
           icon: Globe,
           iconColor: "text-destructive",
         },
       ],
       checkMethods: [
-        { label: "r/ShadowBan", description: "Bot will check your account" },
-        { label: "Incognito test", description: "View your profile logged out" },
-        { label: "reddit.com/appeal", description: "Submit an appeal if banned" },
+        { label: "r/ShadowBan", description: "Бот проверит ваш аккаунт" },
+        { label: "Тест в инкогнито", description: "Просмотрите профиль без входа" },
+        { label: "reddit.com/appeal", description: "Отправьте апелляцию при бане" },
       ],
     },
     safe: {
-      title: "Survival Rules",
-      subtitle: "Behaviors that keep you safe",
+      title: "Правила выживания",
+      subtitle: "Действия, которые обеспечивают безопасность",
       icon: Shield,
       color: "text-success",
       bgColor: "bg-success/5",
@@ -71,40 +71,40 @@ export default function ShadowbanSafety() {
       headerBg: "bg-success/10",
       items: [
         {
-          label: "9:1 Rule for posts",
-          description: "9 valuable posts for every promotional link",
+          label: "Правило 9:1 для постов",
+          description: "9 ценных постов на каждую промо-ссылку",
           icon: Star,
           iconColor: "text-success",
         },
         {
-          label: "10:1 Rule for comments",
-          description: "10 helpful comments per product mention",
+          label: "Правило 10:1 для комментариев",
+          description: "10 полезных комментариев на каждое упоминание продукта",
           icon: MessageSquare,
           iconColor: "text-success",
         },
         {
-          label: "Wait for 300+ karma",
-          description: "Don't automate until sufficient karma",
+          label: "Дождитесь 300+ кармы",
+          description: "Не автоматизируйте до достаточной кармы",
           icon: Clock,
           iconColor: "text-success",
         },
         {
-          label: "Verify your email",
-          description: "Adds trust signal to your account",
+          label: "Подтвердите email",
+          description: "Добавляет сигнал доверия к вашему аккаунту",
           icon: Mail,
           iconColor: "text-success",
         },
         {
-          label: "Provide genuine value",
-          description: "Help before you promote",
+          label: "Давайте реальную ценность",
+          description: "Помогайте прежде чем продвигать",
           icon: CheckCircle2,
           iconColor: "text-success",
         },
       ],
       checkMethods: [
-        { label: "Build reputation first", description: "Organic participation" },
-        { label: "Gradual automation", description: "Scale slowly over time" },
-        { label: "Quality over quantity", description: "Focus on value-first" },
+        { label: "Сначала создайте репутацию", description: "Органическое участие" },
+        { label: "Постепенная автоматизация", description: "Масштабируйтесь медленно" },
+        { label: "Качество важнее количества", description: "Фокус на ценности" },
       ],
     },
   }
@@ -135,14 +135,14 @@ export default function ShadowbanSafety() {
         <div className="text-center space-y-4 animate-fade-in">
           <Badge variant="glow" className="text-lg px-6 py-2">
             <Shield className="h-5 w-5 mr-2" />
-            SAFETY GUIDE
+            РУКОВОДСТВО ПО БЕЗОПАСНОСТИ
           </Badge>
           <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none">
-            Shadowban
-            <span className="block text-primary mt-2">&amp; Safety</span>
+            Теневой бан
+            <span className="block text-primary mt-2">и безопасность</span>
           </h2>
           <p className="font-syne text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Posts hidden from everyone except you - you don&apos;t know you&apos;re banned
+            Посты скрыты от всех, кроме вас - вы не знаете, что забанены
           </p>
         </div>
 
@@ -155,7 +155,7 @@ export default function ShadowbanSafety() {
           }`}>
             <EyeOff className={`h-5 w-5 ${activeView === "dangerous" ? "text-destructive" : "text-muted-foreground"}`} />
             <span className={`font-semibold ${activeView === "dangerous" ? "text-destructive" : "text-muted-foreground"}`}>
-              Hidden
+              Скрыто
             </span>
           </div>
           <div className="w-16 h-1 bg-gradient-to-r from-destructive to-success rounded-full" />
@@ -166,7 +166,7 @@ export default function ShadowbanSafety() {
           }`}>
             <Eye className={`h-5 w-5 ${activeView === "safe" ? "text-success" : "text-muted-foreground"}`} />
             <span className={`font-semibold ${activeView === "safe" ? "text-success" : "text-muted-foreground"}`}>
-              Visible
+              Видимо
             </span>
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function ShadowbanSafety() {
             }`}
           >
             <AlertTriangle className="h-5 w-5 mr-2" />
-            Dangerous
+            Опасно
           </Button>
           <Button
             variant={activeView === "safe" ? "default" : "outline"}
@@ -197,7 +197,7 @@ export default function ShadowbanSafety() {
             }`}
           >
             <Shield className="h-5 w-5 mr-2" />
-            Safe
+            Безопасно
           </Button>
         </div>
 
@@ -247,12 +247,12 @@ export default function ShadowbanSafety() {
                   {activeView === "dangerous" ? (
                     <>
                       <Eye className="h-5 w-5 text-primary" />
-                      How to Check
+                      Как проверить
                     </>
                   ) : (
                     <>
                       <CheckCircle2 className="h-5 w-5 text-success" />
-                      Best Practices
+                      Лучшие практики
                     </>
                   )}
                 </h4>
@@ -278,10 +278,10 @@ export default function ShadowbanSafety() {
             {/* What is Shadowban */}
             <Card className="border-primary/30 bg-primary/5">
               <CardContent className="p-4">
-                <h4 className="font-syne font-bold text-sm text-primary mb-2">What is Shadowban?</h4>
+                <h4 className="font-syne font-bold text-sm text-primary mb-2">Что такое теневой бан?</h4>
                 <p className="text-sm text-foreground/80">
-                  Your posts and comments become invisible to everyone except you.
-                  You continue posting normally, unaware that no one can see your content.
+                  Ваши посты и комментарии становятся невидимыми для всех, кроме вас.
+                  Вы продолжаете публиковать контент как обычно, не зная, что никто его не видит.
                 </p>
               </CardContent>
             </Card>
@@ -295,13 +295,13 @@ export default function ShadowbanSafety() {
               <p className="font-syne text-xl md:text-2xl font-bold">
                 {activeView === "dangerous" ? (
                   <>
-                    <span className="text-destructive">Avoid these behaviors</span>
-                    <span className="block mt-2 text-foreground">or risk losing your account permanently</span>
+                    <span className="text-destructive">Избегайте этих действий</span>
+                    <span className="block mt-2 text-foreground">или рискуете потерять аккаунт навсегда</span>
                   </>
                 ) : (
                   <>
-                    <span className="text-success">Follow these rules</span>
-                    <span className="block mt-2 text-foreground">to build a sustainable Reddit presence</span>
+                    <span className="text-success">Следуйте этим правилам</span>
+                    <span className="block mt-2 text-foreground">чтобы создать устойчивое присутствие на Reddit</span>
                   </>
                 )}
               </p>

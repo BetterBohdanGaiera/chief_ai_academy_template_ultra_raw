@@ -47,42 +47,42 @@ export default function SlideArchitecture() {
   const buyComponents: ComponentItem[] = [
     {
       id: "antidetect",
-      name: "Antidetect Browser",
+      name: "Антидетект-браузер",
       icon: Shield,
-      cost: "$8-99/mo",
-      purpose: "Manage multiple Reddit accounts without detection",
+      cost: "$8-99/мес",
+      purpose: "Управление несколькими аккаунтами Reddit без обнаружения",
       alternatives: "DICloak, Multilogin, GoLogin"
     },
     {
       id: "proxies",
-      name: "Residential Proxies",
+      name: "Резидентные прокси",
       icon: Server,
-      cost: "$10-50/mo",
-      purpose: "Unique IP addresses for each account",
+      cost: "$10-50/мес",
+      purpose: "Уникальные IP-адреса для каждого аккаунта",
       alternatives: "BrightData, IPRoyal, Smartproxy"
     },
     {
       id: "accounts",
-      name: "Warmed Accounts",
+      name: "Прогретые аккаунты",
       icon: Users,
-      cost: "$0-50/mo",
-      purpose: "Aged accounts with karma and history",
-      alternatives: "Buy or self-warmup over 30-60 days"
+      cost: "$0-50/мес",
+      purpose: "Старые аккаунты с кармой и историей",
+      alternatives: "Покупка или самостоятельный прогрев 30-60 дней"
     },
     {
       id: "reddit-api",
       name: "Reddit API (PRAW)",
       icon: Bot,
-      cost: "$0-100/mo",
-      purpose: "Programmatic access to Reddit data",
-      alternatives: "PRAW (Python), or manual scraping"
+      cost: "$0-100/мес",
+      purpose: "Программный доступ к данным Reddit",
+      alternatives: "PRAW (Python) или ручной парсинг"
     },
     {
       id: "ai-api",
       name: "Claude/GPT API",
       icon: Brain,
-      cost: "$20-120/mo",
-      purpose: "Generate human-like responses",
+      cost: "$20-120/мес",
+      purpose: "Генерация человекоподобных ответов",
       alternatives: "OpenAI GPT-4, Anthropic Claude, Llama"
     }
   ]
@@ -91,43 +91,43 @@ export default function SlideArchitecture() {
   const buildComponents: ComponentItem[] = [
     {
       id: "monitoring",
-      name: "Keyword Monitoring",
+      name: "Мониторинг ключевых слов",
       icon: Eye,
-      cost: "FREE (dev time)",
-      purpose: "Track relevant conversations in target subreddits",
-      alternatives: "Custom script watching for keywords"
+      cost: "БЕСПЛАТНО (время разработки)",
+      purpose: "Отслеживание релевантных обсуждений в целевых сабреддитах",
+      alternatives: "Собственный скрипт для отслеживания ключевых слов"
     },
     {
       id: "agent",
-      name: "AI Agent",
+      name: "AI-агент",
       icon: Brain,
-      cost: "FREE (dev time)",
-      purpose: "Understands YOUR expertise and products",
-      alternatives: "Custom-trained on your domain"
+      cost: "БЕСПЛАТНО (время разработки)",
+      purpose: "Понимает ВАШУ экспертизу и продукты",
+      alternatives: "Кастомная обучение на вашей предметной области"
     },
     {
       id: "scoring",
-      name: "Priority Scoring",
+      name: "Приоритизация",
       icon: Gauge,
-      cost: "FREE (dev time)",
-      purpose: "Decides which posts to respond to first",
-      alternatives: "ML model or rule-based scoring"
+      cost: "БЕСПЛАТНО (время разработки)",
+      purpose: "Определяет, на какие посты отвечать в первую очередь",
+      alternatives: "ML-модель или система правил для оценки"
     },
     {
       id: "review",
-      name: "Human Review",
+      name: "Ручная проверка",
       icon: Users,
-      cost: "FREE (workflow)",
-      purpose: "Quality check before posting",
-      alternatives: "Approval queue with notification"
+      cost: "БЕСПЛАТНО (рабочий процесс)",
+      purpose: "Контроль качества перед публикацией",
+      alternatives: "Очередь на одобрение с уведомлением"
     },
     {
       id: "dashboard",
-      name: "Management Dashboard",
+      name: "Панель управления",
       icon: Layout,
-      cost: "FREE (dev time)",
-      purpose: "Monitor performance and manage campaigns",
-      alternatives: "Custom admin panel"
+      cost: "БЕСПЛАТНО (время разработки)",
+      purpose: "Мониторинг эффективности и управление кампаниями",
+      alternatives: "Собственная админ-панель"
     }
   ]
 
@@ -198,7 +198,7 @@ export default function SlideArchitecture() {
               </p>
               {component.alternatives && (
                 <p className="text-xs text-foreground/60">
-                  <span className="font-semibold">Options: </span>
+                  <span className="font-semibold">Варианты: </span>
                   {component.alternatives}
                 </p>
               )}
@@ -239,15 +239,15 @@ export default function SlideArchitecture() {
             className="inline-flex items-center gap-2 text-sm px-4 py-2 border-primary/60 text-primary font-medium animate-slide-in-down fill-backwards"
           >
             <Layers className="w-4 h-4" />
-            System Design
+            Проектирование системы
           </Badge>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bebas leading-tight tracking-tight animate-fade-in delay-200 fill-backwards">
-            SYSTEM <span className="text-primary">ARCHITECTURE</span>
+            АРХИТЕКТУРА <span className="text-primary">СИСТЕМЫ</span>
           </h2>
 
           <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto font-manrope animate-slide-in-up delay-400 fill-backwards">
-            Modular design: Buy commodity components, build custom value
+            Модульный дизайн: покупайте готовые компоненты, создавайте уникальную ценность
           </p>
         </div>
 
@@ -263,10 +263,10 @@ export default function SlideArchitecture() {
               </div>
               <div>
                 <h3 className="text-xl md:text-2xl font-bebas text-slate-700">
-                  BUY / USE READY
+                  КУПИТЬ / ИСПОЛЬЗОВАТЬ ГОТОВОЕ
                 </h3>
                 <p className="text-sm text-slate-500 font-manrope">
-                  Commodity tools and services (~$50-400/month)
+                  Стандартные инструменты и сервисы (~$50-400/мес)
                 </p>
               </div>
             </div>
@@ -305,10 +305,10 @@ export default function SlideArchitecture() {
               </div>
               <div>
                 <h3 className="text-xl md:text-2xl font-bebas text-primary">
-                  BUILD OURSELVES
+                  СОЗДАТЬ САМОСТОЯТЕЛЬНО
                 </h3>
                 <p className="text-sm text-primary/70 font-manrope">
-                  Custom components that understand YOUR expertise
+                  Кастомные компоненты, понимающие ВАШУ экспертизу
                 </p>
               </div>
             </div>
@@ -330,16 +330,16 @@ export default function SlideArchitecture() {
               </div>
               <div className="space-y-2">
                 <h3 className="font-syne font-bold text-lg text-primary">
-                  Key Strategic Advantage
+                  Ключевое стратегическое преимущество
                 </h3>
                 <p className="text-foreground/90 font-manrope leading-relaxed">
-                  The real value isn't in the tools you buy—it's in the{" "}
-                  <strong className="text-primary">AI agent that understands YOUR expertise</strong>.{" "}
-                  Ready solutions give generic responses. Custom build gives responses that sound like your best expert.
+                  Настоящая ценность не в инструментах, которые вы покупаете, а в{" "}
+                  <strong className="text-primary">AI-агенте, который понимает ВАШУ экспертизу</strong>.{" "}
+                  Готовые решения дают общие ответы. Собственная разработка дает ответы, звучащие как от вашего лучшего эксперта.
                 </p>
                 <p className="text-sm text-foreground/60 pt-2">
-                  <span className="font-semibold">Estimated Total Cost:</span>{" "}
-                  ~$50-150/month for "spare parts" vs $20-200/month for ready solutions with generic output
+                  <span className="font-semibold">Примерная общая стоимость:</span>{" "}
+                  ~$50-150/мес за "запчасти" против $20-200/мес за готовые решения с общими ответами
                 </p>
               </div>
             </div>
@@ -348,7 +348,7 @@ export default function SlideArchitecture() {
 
         {/* Interaction Hint */}
         <p className="text-center text-sm text-foreground/50 animate-fade-in delay-1200 fill-backwards">
-          Hover over components to see details and alternatives
+          Наведите курсор на компоненты, чтобы увидеть детали и варианты
         </p>
       </div>
     </section>

@@ -1,12 +1,12 @@
 'use client'
 
 /**
- * Section Feedback Slide
- * Example of a multi-form feedback slide with a different formId
+ * Слайд обратной связи по разделу
+ * Пример слайда с несколькими формами обратной связи с разными formId
  *
- * This demonstrates how to use the FeedbackFormWrapper component
- * to collect feedback at different points in a presentation.
- * Each form has a unique formId for separate tracking and analysis.
+ * Демонстрирует, как использовать компонент FeedbackFormWrapper
+ * для сбора обратной связи в различных точках презентации.
+ * Каждая форма имеет уникальный formId для отдельного отслеживания и анализа.
  */
 
 import { GrainOverlay } from '@/components/decorative/grain-overlay'
@@ -16,48 +16,48 @@ import { MessageSquare } from 'lucide-react'
 import FeedbackFormWrapper from '@/components/feedback/FeedbackFormWrapper'
 
 interface SectionFeedbackSlideProps {
-  /** Section number for tracking */
+  /** Номер раздела для отслеживания */
   sectionNumber?: number
-  /** Section name for context */
+  /** Название раздела для контекста */
   sectionName?: string
-  /** Custom question prompt */
+  /** Пользовательский текст вопроса */
   questionPrompt?: string
 }
 
 export default function SectionFeedbackSlide({
   sectionNumber = 1,
-  sectionName = 'Introduction',
+  sectionName = 'Введение',
   questionPrompt,
 }: SectionFeedbackSlideProps) {
-  const defaultPrompt = `How clear was the "${sectionName}" section? What could be improved?`
+  const defaultPrompt = `Насколько понятен был раздел "${sectionName}"? Что можно улучшить?`
 
   return (
     <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-      {/* Atmospheric Background */}
+      {/* Атмосферный фон */}
       <GradientMesh variant="warm" />
       <GeometricPattern type="dots" className="opacity-15" />
       <GrainOverlay opacity={0.25} />
 
-      {/* Content */}
+      {/* Контент */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-8 space-y-8">
-        {/* Badge */}
+        {/* Бейдж */}
         <div className="flex justify-center animate-slide-in-down">
           <Badge variant="glow" className="transform -rotate-1">
             <MessageSquare className="h-5 w-5 mr-2" aria-hidden="true" />
-            SECTION {sectionNumber} FEEDBACK
+            ОБРАТНАЯ СВЯЗЬ РАЗДЕЛ {sectionNumber}
           </Badge>
         </div>
 
-        {/* Title */}
+        {/* Заголовок */}
         <div className="text-center animate-fade-in delay-200 fill-backwards">
           <h1 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none tracking-tight">
-            SECTION
+            ОБРАТНАЯ СВЯЗЬ
             <br />
-            <span className="text-primary animate-glow-pulse">FEEDBACK</span>
+            <span className="text-primary animate-glow-pulse">ПО РАЗДЕЛУ</span>
           </h1>
         </div>
 
-        {/* Feedback Form */}
+        {/* Форма обратной связи */}
         <div className="animate-fade-in delay-500 fill-backwards">
           <FeedbackFormWrapper
             formId={`feedback-section-${sectionNumber}`}
@@ -67,8 +67,8 @@ export default function SectionFeedbackSlide({
             moduleId="m1"
             collectName={true}
             collectEmail={false}
-            submitButtonText="SUBMIT SECTION FEEDBACK"
-            successMessage={`Thank you for your feedback on ${sectionName}!`}
+            submitButtonText="ОТПРАВИТЬ ОБРАТНУЮ СВЯЗЬ"
+            successMessage={`Спасибо за вашу обратную связь по разделу ${sectionName}!`}
             additionalContext={{
               sectionNumber,
               sectionName,
@@ -76,9 +76,9 @@ export default function SectionFeedbackSlide({
           />
         </div>
 
-        {/* Privacy Note */}
+        {/* Примечание о конфиденциальности */}
         <p className="text-center text-sm text-muted-foreground/50 animate-fade-in delay-700 fill-backwards">
-          Your section-specific feedback helps us improve each part of the presentation.
+          Ваша обратная связь по разделам помогает нам улучшить каждую часть презентации.
         </p>
       </div>
     </div>

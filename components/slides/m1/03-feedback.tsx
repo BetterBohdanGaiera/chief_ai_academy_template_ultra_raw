@@ -62,13 +62,13 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
 
     // Validate
     if (!feedbackText.trim()) {
-      setErrorMessage('Please enter your feedback')
+      setErrorMessage('Пожалуйста, введите ваш отзыв')
       setSubmissionState('error')
       return
     }
 
     if (feedbackText.length < feedbackConfig.minFeedbackLength) {
-      setErrorMessage(`Feedback must be at least ${feedbackConfig.minFeedbackLength} characters`)
+      setErrorMessage(`Отзыв должен содержать минимум ${feedbackConfig.minFeedbackLength} символов`)
       setSubmissionState('error')
       return
     }
@@ -103,7 +103,7 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
       setReviewerName('')
     } else {
       setSubmissionState('error')
-      setErrorMessage(result.error || 'Failed to submit feedback. Please try again.')
+      setErrorMessage(result.error || 'Не удалось отправить отзыв. Пожалуйста, попробуйте снова.')
     }
   }
 
@@ -126,7 +126,7 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
         <div className="flex justify-center animate-slide-in-down">
           <Badge variant="glow" className="transform -rotate-1">
             <MessageSquare className="h-5 w-5 mr-2" aria-hidden="true" />
-            FEEDBACK
+            ОБРАТНАЯ СВЯЗЬ
           </Badge>
         </div>
 
@@ -159,7 +159,7 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
                   </div>
                 </div>
                 <h3 className="font-bebas text-3xl md:text-4xl text-green-500">
-                  THANK YOU!
+                  СПАСИБО!
                 </h3>
                 <p className="font-manrope text-lg text-muted-foreground">
                   {slideConfig.successMessage}
@@ -169,7 +169,7 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
                   onClick={() => setSubmissionState('idle')}
                   className="mt-4"
                 >
-                  Submit More Feedback
+                  Оставить еще отзыв
                 </Button>
               </div>
             ) : (
@@ -182,12 +182,12 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
                       htmlFor="reviewer-name"
                       className="font-syne font-medium text-sm text-muted-foreground"
                     >
-                      Your Name (optional)
+                      Ваше имя (необязательно)
                     </label>
                     <Input
                       id="reviewer-name"
                       type="text"
-                      placeholder="Enter your name..."
+                      placeholder="Введите ваше имя..."
                       value={reviewerName}
                       onChange={(e) => setReviewerName(e.target.value)}
                       disabled={submissionState === 'submitting'}
@@ -202,11 +202,11 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
                     htmlFor="feedback-text"
                     className="font-syne font-medium text-sm text-muted-foreground"
                   >
-                    Your Feedback <span className="text-primary">*</span>
+                    Ваш отзыв <span className="text-primary">*</span>
                   </label>
                   <textarea
                     id="feedback-text"
-                    placeholder="Share your thoughts, suggestions, or insights..."
+                    placeholder="Поделитесь своими мыслями, предложениями или идеями..."
                     value={feedbackText}
                     onChange={(e) => setFeedbackText(e.target.value)}
                     disabled={submissionState === 'submitting'}
@@ -217,7 +217,7 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
                   <div className="flex justify-between text-xs text-muted-foreground/60">
                     <span>
                       {feedbackText.length < feedbackConfig.minFeedbackLength
-                        ? `Minimum ${feedbackConfig.minFeedbackLength} characters`
+                        ? `Минимум ${feedbackConfig.minFeedbackLength} символов`
                         : ''}
                     </span>
                     <span>
@@ -238,7 +238,7 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
                       onClick={handleRetry}
                       className="ml-auto text-destructive hover:text-destructive"
                     >
-                      Dismiss
+                      Закрыть
                     </Button>
                   </div>
                 )}
@@ -254,7 +254,7 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
                   {submissionState === 'submitting' ? (
                     <>
                       <Loader2 className="h-5 w-5 mr-2 animate-spin" />
-                      SUBMITTING...
+                      ОТПРАВКА...
                     </>
                   ) : (
                     <>
@@ -270,7 +270,7 @@ export default function FeedbackSlide({ config }: FeedbackSlideProps) {
 
         {/* Privacy Note */}
         <p className="text-center text-sm text-muted-foreground/50 animate-fade-in delay-700 fill-backwards">
-          Your feedback helps us improve. We value your expertise.
+          Ваш отзыв помогает нам стать лучше. Мы ценим ваш опыт.
         </p>
       </div>
     </div>

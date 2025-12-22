@@ -1,14 +1,14 @@
 "use client"
 
 /**
- * Slide 10: Risks & Next Steps
+ * Слайд 10: Риски и Следующие Шаги
  * Pattern: Risk Matrix + Horizontal Timeline
  * Skill: artifacts-builder
  *
- * This slide combines:
- * - Risk cards with severity indicators and hover-reveal mitigation strategies
- * - Key insights section highlighting main takeaways
- * - Action plan timeline with parallel (1-2) and sequential (3-4) steps
+ * Этот слайд объединяет:
+ * - Карточки рисков с индикаторами серьезности и стратегиями снижения при наведении
+ * - Раздел ключевых выводов с основными заключениями
+ * - Временная шкала плана действий с параллельными (1-2) и последовательными (3-4) шагами
  */
 
 import { useState } from "react"
@@ -62,55 +62,55 @@ export default function RisksNextSteps() {
   const risks: Risk[] = [
     {
       id: "mass-ban",
-      title: "Mass Account Ban",
+      title: "Массовая Блокировка Аккаунтов",
       icon: AlertTriangle,
       severity: "high",
-      description: "Lose all accounts in a single sweep",
-      mitigation: "Rotation strategy, focus on quality over quantity, gradual scaling"
+      description: "Потеря всех аккаунтов за один раз",
+      mitigation: "Стратегия ротации, фокус на качестве, а не количестве, постепенное масштабирование"
     },
     {
       id: "ai-detection",
-      title: "AI Content Detection",
+      title: "Обнаружение AI Контента",
       icon: Bot,
       severity: "medium",
-      description: "Flagged as spam or bot content",
-      mitigation: "Human review before posting, develop unique writing style"
+      description: "Помечен как спам или контент бота",
+      mitigation: "Проверка человеком перед публикацией, разработка уникального стиля письма"
     },
     {
       id: "community-reaction",
-      title: "Negative Community Reaction",
+      title: "Негативная Реакция Сообщества",
       icon: Users,
       severity: "medium",
-      description: "Reputation damage if perceived as spammy",
-      mitigation: "Value-first approach, genuine engagement, transparency"
+      description: "Ущерб репутации, если воспринимается как спам",
+      mitigation: "Подход «ценность прежде всего», искреннее вовлечение, прозрачность"
     },
     {
       id: "api-changes",
-      title: "Reddit API Changes",
+      title: "Изменения Reddit API",
       icon: Settings,
       severity: "medium",
-      description: "System stops working after Reddit updates",
-      mitigation: "Monitor API changelog, build abstraction layer, have fallback"
+      description: "Система перестает работать после обновлений Reddit",
+      mitigation: "Мониторинг изменений API, создание слоя абстракции, резервный план"
     }
   ]
 
   const insights: Insight[] = [
     {
       id: "ready-solutions",
-      title: "$20-200/mo",
-      description: "Ready solutions cost but give generic responses",
+      title: "$20-200/мес",
+      description: "Готовые решения стоят денег, но дают типовые ответы",
       icon: DollarSign
     },
     {
       id: "spare-parts",
-      title: "From ~$50/mo",
-      description: "Build own system from modular 'spare parts'",
+      title: "От ~$50/мес",
+      description: "Создать собственную систему из модульных «запчастей»",
       icon: Settings
     },
     {
       id: "main-advantage",
-      title: "Main Advantage",
-      description: "AI agent that understands YOUR expertise",
+      title: "Главное Преимущество",
+      description: "AI-агент, который понимает ВАШУ экспертизу",
       icon: Zap,
       highlight: true
     }
@@ -119,25 +119,25 @@ export default function RisksNextSteps() {
   const actionSteps: ActionStep[] = [
     {
       id: 1,
-      title: "Try Ready Solution",
-      description: "Use Reddit Radar or GummySearch to understand the process and workflow",
+      title: "Попробовать Готовое Решение",
+      description: "Использовать Reddit Radar или GummySearch, чтобы понять процесс и рабочий процесс",
       parallel: 2
     },
     {
       id: 2,
-      title: "Build MVP",
-      description: "In parallel, assemble own system from modular components",
+      title: "Создать MVP",
+      description: "Параллельно собрать собственную систему из модульных компонентов",
       parallel: 1
     },
     {
       id: 3,
-      title: "Compare Results",
-      description: "Measure quality, cost, and conversion of both approaches"
+      title: "Сравнить Результаты",
+      description: "Измерить качество, стоимость и конверсию обоих подходов"
     },
     {
       id: 4,
-      title: "Decide Investment",
-      description: "Choose where to invest further based on data"
+      title: "Решить об Инвестициях",
+      description: "Выбрать, куда инвестировать дальше, на основе данных"
     }
   ]
 
@@ -192,13 +192,13 @@ export default function RisksNextSteps() {
             className="text-sm px-4 py-2 animate-slide-in-down"
           >
             <Target className="h-4 w-4 mr-2" aria-hidden="true" />
-            Action Plan
+            План Действий
           </Badge>
           <h2 className="font-bebas text-5xl md:text-6xl lg:text-7xl leading-none tracking-tight animate-fade-in delay-200 fill-backwards">
-            RISKS & <span className="text-primary">NEXT STEPS</span>
+            РИСКИ И <span className="text-primary">СЛЕДУЮЩИЕ ШАГИ</span>
           </h2>
           <p className="font-manrope text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-in-up delay-300 fill-backwards">
-            Understand the challenges and plan your path forward
+            Понять вызовы и спланировать путь вперед
           </p>
         </div>
 
@@ -206,7 +206,7 @@ export default function RisksNextSteps() {
         <div className="space-y-4">
           <h3 className="font-syne text-xl font-semibold text-foreground/80 animate-fade-in delay-400 fill-backwards">
             <AlertTriangle className="inline h-5 w-5 mr-2 text-warning" aria-hidden="true" />
-            Risk Assessment
+            Оценка Рисков
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {risks.map((risk, index) => {
@@ -268,7 +268,7 @@ export default function RisksNextSteps() {
             })}
           </div>
           <p className="text-xs text-muted-foreground text-center animate-fade-in delay-900 fill-backwards">
-            Hover over each risk to see mitigation strategies
+            Наведите на каждый риск, чтобы увидеть стратегии снижения
           </p>
         </div>
 
@@ -276,7 +276,7 @@ export default function RisksNextSteps() {
         <div className="space-y-4 animate-slide-in-left delay-700 fill-backwards">
           <h3 className="font-syne text-xl font-semibold text-foreground/80">
             <Lightbulb className="inline h-5 w-5 mr-2 text-primary" aria-hidden="true" />
-            What We Learned
+            Что Мы Узнали
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {insights.map((insight, index) => {
@@ -325,7 +325,7 @@ export default function RisksNextSteps() {
         <div className="space-y-4 animate-slide-in-up delay-900 fill-backwards">
           <h3 className="font-syne text-xl font-semibold text-foreground/80">
             <Target className="inline h-5 w-5 mr-2 text-primary" aria-hidden="true" />
-            Action Plan
+            План Действий
           </h3>
 
           {/* Timeline Container */}
@@ -375,7 +375,7 @@ export default function RisksNextSteps() {
                             <div className="absolute top-6 left-1/2 transform translate-x-8">
                               <div className="flex items-center gap-1 text-xs text-muted-foreground bg-white px-2 py-0.5 rounded-full border border-border/50">
                                 <ArrowRight className="h-3 w-3 rotate-90" aria-hidden="true" />
-                                <span>parallel</span>
+                                <span>параллельно</span>
                               </div>
                             </div>
                           )}
@@ -441,7 +441,7 @@ export default function RisksNextSteps() {
                           </h4>
                           {isParallel && (
                             <Badge variant="outline" className="text-xs px-1.5 py-0">
-                              parallel
+                              параллельно
                             </Badge>
                           )}
                         </div>
@@ -462,7 +462,7 @@ export default function RisksNextSteps() {
               </div>
 
               <p className="text-xs text-muted-foreground text-center mt-6">
-                Click on a step to see details
+                Нажмите на шаг, чтобы увидеть детали
               </p>
             </CardContent>
           </Card>

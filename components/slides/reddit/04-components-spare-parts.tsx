@@ -1,9 +1,9 @@
 "use client"
 
 /**
- * Slide 04: Components (Spare Parts) for Building Custom Systems
- * Pattern: Click-to-Expand Details / Accordion (artifacts-builder skill)
- * Shows 4 component categories with expandable details
+ * Слайд 04: Компоненты (Запчасти) для Создания Пользовательских Систем
+ * Паттерн: Раскрывающиеся Детали / Аккордеон (навык artifacts-builder)
+ * Показывает 4 категории компонентов с раскрывающимися деталями
  */
 
 import { useState } from "react"
@@ -39,47 +39,47 @@ export default function ComponentsSpareParts() {
   const components: ComponentCategory[] = [
     {
       id: "accounts",
-      title: "Warmed Accounts",
+      title: "Прогретые Аккаунты",
       icon: Users,
       riskLevel: "high",
-      priceRange: "From $0.03+",
+      priceRange: "От $0.03+",
       borderColor: "border-red-500/40",
       bgColor: "bg-red-500/5",
       iconColor: "text-red-500",
       details: {
         stats: [
-          "280% higher engagement for 12mo+ accounts",
-          "4x more upvotes for 1000+ karma accounts"
+          "280% выше вовлечённость для аккаунтов 12мес+",
+          "В 4 раза больше голосов для аккаунтов с кармой 1000+"
         ],
         providers: [
-          { name: "SocialPlug", price: "Varies" },
+          { name: "SocialPlug", price: "Варьируется" },
           { name: "AccsMarket", price: "$0.03+" },
-          { name: "REDAccs", price: "Varies" },
-          { name: "PlayerUp", price: "Varies" }
+          { name: "REDAccs", price: "Варьируется" },
+          { name: "PlayerUp", price: "Варьируется" }
         ],
         risks: [
-          "TOS violation - account termination risk",
-          "Potential ban on linked accounts",
-          "May have spam history affecting trust"
+          "Нарушение правил - риск блокировки аккаунта",
+          "Возможная блокировка связанных аккаунтов",
+          "Может иметь историю спама, влияющую на доверие"
         ]
       }
     },
     {
       id: "browsers",
-      title: "Antidetect Browsers",
+      title: "Антидетект Браузеры",
       icon: Shield,
       riskLevel: "medium",
-      priceRange: "$8-99/mo",
+      priceRange: "$8-99/мес",
       borderColor: "border-amber-500/40",
       bgColor: "bg-amber-500/5",
       iconColor: "text-amber-500",
       details: {
         tiers: [
-          { name: "Multilogin", price: "$99/mo", note: "30M+ IPs" },
-          { name: "DICloak", price: "$8/mo", note: "Free plan available" },
-          { name: "Nstbrowser", price: "Free", note: "Canvas, WebGL fingerprints" },
-          { name: "Hidemyacc", price: "$15/mo", note: "Isolated environments" },
-          { name: "AdsPower", price: "$9/mo", note: "Reddit-specific solution" }
+          { name: "Multilogin", price: "$99/мес", note: "30M+ IP" },
+          { name: "DICloak", price: "$8/мес", note: "Доступен бесплатный тариф" },
+          { name: "Nstbrowser", price: "Бесплатно", note: "Canvas, WebGL отпечатки" },
+          { name: "Hidemyacc", price: "$15/мес", note: "Изолированные среды" },
+          { name: "AdsPower", price: "$9/мес", note: "Решение для Reddit" }
         ]
       }
     },
@@ -88,32 +88,32 @@ export default function ComponentsSpareParts() {
       title: "Reddit API (PRAW)",
       icon: Code,
       riskLevel: "low",
-      priceRange: "Free - $120+/mo",
+      priceRange: "Бесплатно - $120+/мес",
       borderColor: "border-green-500/40",
       bgColor: "bg-green-500/5",
       iconColor: "text-green-500",
       details: {
         tiers: [
-          { name: "Free Tier", price: "Free", note: "100 requests/min" },
-          { name: "Commercial", price: "$0.24/1K calls", note: "Per API call pricing" },
-          { name: "Basic Monitoring", price: "~$2.07/mo", note: "~8,640 requests" },
-          { name: "Active Bot", price: "$120+/mo", note: "500,000+ requests" }
+          { name: "Бесплатный тариф", price: "Бесплатно", note: "100 запросов/мин" },
+          { name: "Коммерческий", price: "$0.24/1K запросов", note: "Оплата за вызов API" },
+          { name: "Базовый мониторинг", price: "~$2.07/мес", note: "~8,640 запросов" },
+          { name: "Активный бот", price: "$120+/мес", note: "500,000+ запросов" }
         ]
       }
     },
     {
       id: "ai",
-      title: "AI Response Generation",
+      title: "Генерация Ответов ИИ",
       icon: Brain,
       riskLevel: "low",
-      priceRange: "$3-30/1M tokens",
+      priceRange: "$3-30/1М токенов",
       borderColor: "border-green-500/40",
       bgColor: "bg-green-500/5",
       iconColor: "text-green-500",
       details: {
         tiers: [
-          { name: "Claude", price: "$3-15/1M tokens", note: "Context-aware responses" },
-          { name: "GPT-4", price: "$10-30/1M tokens", note: "High quality output" }
+          { name: "Claude", price: "$3-15/1М токенов", note: "Контекстные ответы" },
+          { name: "GPT-4", price: "$10-30/1М токенов", note: "Высокое качество" }
         ]
       }
     }
@@ -125,9 +125,9 @@ export default function ComponentsSpareParts() {
 
   const getRiskBadge = (level: "high" | "medium" | "low") => {
     const config = {
-      high: { variant: "destructive" as const, label: "HIGH RISK" },
-      medium: { variant: "outline" as const, label: "MEDIUM", className: "border-amber-500 text-amber-600" },
-      low: { variant: "secondary" as const, label: "LOW RISK" }
+      high: { variant: "destructive" as const, label: "ВЫСОКИЙ РИСК" },
+      medium: { variant: "outline" as const, label: "СРЕДНИЙ", className: "border-amber-500 text-amber-600" },
+      low: { variant: "secondary" as const, label: "НИЗКИЙ РИСК" }
     }
     return config[level]
   }
@@ -158,19 +158,19 @@ export default function ComponentsSpareParts() {
         {/* Header */}
         <div className="text-center space-y-4 animate-fade-in">
           <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary font-medium">
-            Build Your Own System
+            Создайте Свою Систему
           </Badge>
           <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none">
-            Components <span className="text-primary">(Spare Parts)</span>
+            Компоненты <span className="text-primary">(Запчасти)</span>
           </h2>
           <p className="font-syne text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Building blocks for custom Reddit marketing infrastructure
+            Строительные блоки для пользовательской инфраструктуры Reddit-маркетинга
           </p>
         </div>
 
         {/* Instruction */}
         <p className="text-center text-sm text-muted-foreground animate-slide-in-up delay-300 fill-backwards">
-          Click each category to explore details and pricing
+          Нажмите на каждую категорию, чтобы изучить детали и цены
         </p>
 
         {/* Component Grid - 2x2 on desktop, stack on mobile */}
@@ -227,7 +227,7 @@ export default function ComponentsSpareParts() {
                       {/* Stats */}
                       {component.details.stats && (
                         <div>
-                          <p className="text-xs font-semibold text-primary mb-2">KEY STATS:</p>
+                          <p className="text-xs font-semibold text-primary mb-2">КЛЮЧЕВАЯ СТАТИСТИКА:</p>
                           <ul className="space-y-1">
                             {component.details.stats.map((stat, i) => (
                               <li key={i} className="text-sm text-foreground/80 flex gap-2">
@@ -242,7 +242,7 @@ export default function ComponentsSpareParts() {
                       {/* Providers */}
                       {component.details.providers && (
                         <div>
-                          <p className="text-xs font-semibold text-muted-foreground mb-2">SOURCES:</p>
+                          <p className="text-xs font-semibold text-muted-foreground mb-2">ИСТОЧНИКИ:</p>
                           <div className="grid grid-cols-2 gap-2">
                             {component.details.providers.map((provider, i) => (
                               <div key={i} className="flex justify-between text-sm bg-muted/30 rounded px-2 py-1">
@@ -259,7 +259,7 @@ export default function ComponentsSpareParts() {
                         <div>
                           <p className="text-xs font-semibold text-muted-foreground mb-2">
                             <DollarSign className="h-3 w-3 inline mr-1" />
-                            PRICING OPTIONS:
+                            ВАРИАНТЫ ЦЕН:
                           </p>
                           <div className="space-y-2">
                             {component.details.tiers.map((tier, i) => (
@@ -284,7 +284,7 @@ export default function ComponentsSpareParts() {
                         <div className="bg-red-500/5 border border-red-500/20 rounded-lg p-3">
                           <p className="text-xs font-semibold text-red-500 mb-2 flex items-center gap-1">
                             <AlertTriangle className="h-3 w-3" />
-                            WARNING - RISKS:
+                            ВНИМАНИЕ - РИСКИ:
                           </p>
                           <ul className="space-y-1">
                             {component.details.risks.map((risk, i) => (
@@ -308,10 +308,10 @@ export default function ComponentsSpareParts() {
         <Card className="bg-white/95 backdrop-blur-md border-2 border-primary/30 animate-fade-in delay-700 fill-backwards">
           <CardContent className="p-6">
             <p className="font-syne text-lg md:text-xl text-center">
-              <span className="font-bold text-primary">Key Insight:</span>{" "}
-              Building custom systems offers maximum control but requires careful
-              <span className="font-semibold text-amber-600"> risk assessment </span>
-              and technical expertise.
+              <span className="font-bold text-primary">Ключевой вывод:</span>{" "}
+              Создание пользовательских систем даёт максимальный контроль, но требует тщательной
+              <span className="font-semibold text-amber-600"> оценки рисков </span>
+              и технической экспертизы.
             </p>
           </CardContent>
         </Card>

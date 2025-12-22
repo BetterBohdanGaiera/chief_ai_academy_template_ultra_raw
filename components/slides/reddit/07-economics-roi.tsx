@@ -11,21 +11,21 @@ import Image from "next/image"
 
 // Ready Solutions data
 const readySolutions = [
-  { name: "Reddit Radar Starter", price: 19.99, features: "100 AI messages" },
-  { name: "Reddit Radar Pro", price: 39.99, features: "300 AI messages" },
-  { name: "Promotee", price: 59, features: "Per account automation" },
-  { name: "OGTool Starter", price: 99, features: "Monitoring + AI" },
-  { name: "GummySearch Pro", price: 59, features: "Monitoring only" },
+  { name: "Reddit Radar Starter", price: 19.99, features: "100 AI сообщений" },
+  { name: "Reddit Radar Pro", price: 39.99, features: "300 AI сообщений" },
+  { name: "Promotee", price: 59, features: "Автоматизация на аккаунт" },
+  { name: "OGTool Starter", price: 99, features: "Мониторинг + AI" },
+  { name: "GummySearch Pro", price: 59, features: "Только мониторинг" },
 ]
 
 // Own System Components
 const ownSystemComponents = [
-  { name: "Antidetect (DICloak)", price: 8, note: "from $8/mo" },
-  { name: "Reddit API (basic)", price: 2, note: "~$2/mo monitoring" },
-  { name: "Reddit API (active)", price: 120, note: "~$120/mo for bot" },
-  { name: "Claude/GPT API", price: 15, note: "$3-30 per 1M tokens" },
-  { name: "Proxies", price: 30, note: "$10-50/mo" },
-  { name: "Accounts", price: 25, note: "One-time $0.03-50 each" },
+  { name: "Antidetect (DICloak)", price: 8, note: "от $8/мес" },
+  { name: "Reddit API (базовый)", price: 2, note: "~$2/мес мониторинг" },
+  { name: "Reddit API (активный)", price: 120, note: "~$120/мес для бота" },
+  { name: "Claude/GPT API", price: 15, note: "$3-30 за 1M токенов" },
+  { name: "Прокси", price: 30, note: "$10-50/мес" },
+  { name: "Аккаунты", price: 25, note: "Разово $0.03-50 каждый" },
 ]
 
 export default function EconomicsROI() {
@@ -47,17 +47,17 @@ export default function EconomicsROI() {
 
   const comparisonData = [
     {
-      name: "Ready\nSolutions",
+      name: "Готовые\nРешения",
       monthlyCost: readyTotal,
       color: "#FF9800",
     },
     {
-      name: "Own System\n(Basic)",
+      name: "Своя Система\n(Базовая)",
       monthlyCost: ownBasicTotal,
       color: "#00897B",
     },
     {
-      name: "Own System\n(Active)",
+      name: "Своя Система\n(Активная)",
       monthlyCost: ownActiveTotal,
       color: "#1E3A5F",
     },
@@ -86,11 +86,11 @@ export default function EconomicsROI() {
         <div className="text-center space-y-4 animate-fade-in">
           <Badge variant="glow" className="text-lg px-6 py-2">
             <Calculator className="h-5 w-5 mr-2" />
-            ROI ANALYSIS
+            АНАЛИЗ ROI
           </Badge>
           <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none">
-            Economics &amp; ROI
-            <span className="block text-primary mt-2">Cost Comparison Framework</span>
+            Экономика &amp; ROI
+            <span className="block text-primary mt-2">Сравнение Затрат</span>
           </h2>
         </div>
 
@@ -102,10 +102,10 @@ export default function EconomicsROI() {
               <CardTitle className="font-syne text-xl flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Package className="h-5 w-5 text-warning" />
-                  Ready Solutions
+                  Готовые Решения
                 </div>
                 <Badge variant="outline" className="border-warning text-warning">
-                  Higher Cost
+                  Выше Стоимость
                 </Badge>
               </CardTitle>
             </CardHeader>
@@ -128,9 +128,9 @@ export default function EconomicsROI() {
 
               <div className="pt-4 border-t border-border mt-4">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm text-muted-foreground">Example: Pro + 3 accounts</p>
+                  <p className="text-sm text-muted-foreground">Пример: Pro + 3 аккаунта</p>
                   <p className="font-jetbrains text-xl font-bold text-warning">
-                    {formatCurrency(readyTotal)}/mo
+                    {formatCurrency(readyTotal)}/мес
                   </p>
                 </div>
               </div>
@@ -143,10 +143,10 @@ export default function EconomicsROI() {
               <CardTitle className="font-syne text-xl flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Wrench className="h-5 w-5 text-primary" />
-                  Own System
+                  Своя Система
                 </div>
                 <Badge variant="outline" className="border-primary text-primary">
-                  + Your Time
+                  + Ваше Время
                 </Badge>
               </CardTitle>
             </CardHeader>
@@ -168,15 +168,15 @@ export default function EconomicsROI() {
 
               <div className="pt-4 border-t border-border mt-4 space-y-2">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm text-muted-foreground">Basic setup</p>
+                  <p className="text-sm text-muted-foreground">Базовая настройка</p>
                   <p className="font-jetbrains text-lg font-bold text-primary">
-                    ~{formatCurrency(ownBasicTotal)}/mo
+                    ~{formatCurrency(ownBasicTotal)}/мес
                   </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p className="text-sm text-muted-foreground">Active bot</p>
+                  <p className="text-sm text-muted-foreground">Активный бот</p>
                   <p className="font-jetbrains text-lg font-bold text-[#1E3A5F]">
-                    ~{formatCurrency(ownActiveTotal)}/mo
+                    ~{formatCurrency(ownActiveTotal)}/мес
                   </p>
                 </div>
               </div>
@@ -190,7 +190,7 @@ export default function EconomicsROI() {
             <CardHeader>
               <CardTitle className="font-syne text-xl flex items-center gap-2">
                 <TrendingUp className="h-5 w-5 text-primary" />
-                Monthly Cost Comparison
+                Сравнение Месячных Затрат
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -208,7 +208,7 @@ export default function EconomicsROI() {
                     tickFormatter={(value) => formatCurrency(value)}
                   />
                   <Tooltip
-                    formatter={(value: number) => [formatCurrency(value), "Monthly Cost"]}
+                    formatter={(value: number) => [formatCurrency(value), "Месячные Затраты"]}
                     contentStyle={{
                       backgroundColor: "rgba(255, 255, 255, 0.95)",
                       border: "2px solid #00897B",
@@ -238,16 +238,16 @@ export default function EconomicsROI() {
                 </div>
                 <div className="space-y-2">
                   <Badge variant="outline" className="border-success text-success">
-                    Case Study
+                    Кейс
                   </Badge>
                   <p className="font-jetbrains text-4xl font-bold text-success">
                     $173
                   </p>
                   <p className="text-sm text-foreground/80">
-                    Earned in <span className="font-bold">3 days</span> with Reddit automation
+                    Заработано за <span className="font-bold">3 дня</span> с автоматизацией Reddit
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Promotee claims <span className="font-semibold">40%+ reply rate</span> on AI messages
+                    Promotee заявляет <span className="font-semibold">40%+ ответов</span> на AI сообщения
                   </p>
                 </div>
               </div>
@@ -259,28 +259,28 @@ export default function EconomicsROI() {
             <CardContent className="p-6">
               <h3 className="font-syne text-lg font-bold mb-4 flex items-center gap-2">
                 <Zap className="h-5 w-5 text-primary" />
-                ROI Calculation Framework
+                Расчет ROI
               </h3>
               <ol className="space-y-2 text-sm">
                 <li className="flex items-start gap-2">
                   <span className="bg-primary/10 text-primary px-2 py-0.5 rounded font-bold text-xs">1</span>
-                  <span>Determine target volume (responses/mo, accounts)</span>
+                  <span>Определите целевой объем (ответов/мес, аккаунтов)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="bg-primary/10 text-primary px-2 py-0.5 rounded font-bold text-xs">2</span>
-                  <span>Calculate ready solution cost</span>
+                  <span>Рассчитайте стоимость готовых решений</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="bg-primary/10 text-primary px-2 py-0.5 rounded font-bold text-xs">3</span>
-                  <span>Calculate own system cost + your time</span>
+                  <span>Рассчитайте стоимость своей системы + ваше время</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="bg-primary/10 text-primary px-2 py-0.5 rounded font-bold text-xs">4</span>
-                  <span>Factor in quality (generic vs value-first)</span>
+                  <span>Учтите качество (общие vs ценностные)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="bg-primary/10 text-primary px-2 py-0.5 rounded font-bold text-xs">5</span>
-                  <span>Find your break-even point</span>
+                  <span>Найдите точку безубыточности</span>
                 </li>
               </ol>
             </CardContent>
@@ -292,9 +292,9 @@ export default function EconomicsROI() {
           <Card className="bg-white/95 backdrop-blur-md border-2 border-primary/30">
             <CardContent className="p-6">
               <p className="font-syne text-xl md:text-2xl font-bold text-primary">
-                Own system saves {formatCurrency(readyTotal - ownBasicTotal)}/mo at basic level
+                Своя система экономит {formatCurrency(readyTotal - ownBasicTotal)}/мес на базовом уровне
                 <span className="block mt-2 text-foreground">
-                  Plus you get <span className="text-success">value-first responses</span> instead of <span className="text-destructive">generic spam</span>
+                  Плюс вы получаете <span className="text-success">ценностные ответы</span> вместо <span className="text-destructive">общего спама</span>
                 </span>
               </p>
             </CardContent>

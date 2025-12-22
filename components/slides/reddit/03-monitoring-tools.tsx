@@ -1,9 +1,9 @@
 "use client"
 
 /**
- * Slide 03: Monitoring Tools Comparison
- * Pattern: Button Toggle Comparison (artifacts-builder skill)
- * Compares GummySearch vs Syften monitoring-only tools
+ * Слайд 03: Сравнение инструментов мониторинга
+ * Паттерн: Сравнение с переключением кнопок (artifacts-builder skill)
+ * Сравнивает GummySearch и Syften - инструменты только для мониторинга
  */
 
 import { useState } from "react"
@@ -23,7 +23,7 @@ export default function MonitoringTools() {
   const toolsData = {
     gummysearch: {
       title: "GummySearch",
-      tagline: "Research-Focused Monitoring",
+      tagline: "Мониторинг с фокусом на исследования",
       color: "text-teal-600",
       bgColor: "bg-teal-500/5",
       borderColor: "border-teal-500/40",
@@ -32,32 +32,32 @@ export default function MonitoringTools() {
       features: [
         {
           icon: Search,
-          title: "Audience Research",
-          description: "Deep dive into subreddit audiences and trending topics"
+          title: "Исследование аудитории",
+          description: "Глубокий анализ аудитории сабреддитов и трендовых тем"
         },
         {
           icon: MessageSquare,
-          title: "AI Thread Summaries",
-          description: "AI-powered summaries of relevant discussions"
+          title: "AI-резюме тредов",
+          description: "AI-резюме релевантных дискуссий"
         },
         {
           icon: Mail,
-          title: "Saved Searches",
-          description: "Email digests for tracked keywords and topics"
+          title: "Сохраненные поиски",
+          description: "Email-дайджесты по отслеживаемым ключевым словам и темам"
         }
       ],
       integrations: ["Slack", "Discord"],
       pricing: [
-        { tier: "Free", price: "50 searches", highlight: false },
-        { tier: "Starter", price: "$29/mo", highlight: false },
-        { tier: "Pro", price: "$59/mo", highlight: true },
-        { tier: "Mega", price: "$199/mo", highlight: false }
+        { tier: "Бесплатный", price: "50 поисков", highlight: false },
+        { tier: "Стартовый", price: "$29/мес", highlight: false },
+        { tier: "Про", price: "$59/мес", highlight: true },
+        { tier: "Мега", price: "$199/мес", highlight: false }
       ],
-      bestFor: "Teams needing deep audience research and AI-powered insights"
+      bestFor: "Команды, которым нужны глубокие исследования аудитории и AI-инсайты"
     },
     syften: {
       title: "Syften",
-      tagline: "Real-Time Alert System",
+      tagline: "Система оповещений в реальном времени",
       color: "text-cyan-500",
       bgColor: "bg-cyan-500/5",
       borderColor: "border-cyan-500/40",
@@ -66,26 +66,26 @@ export default function MonitoringTools() {
       features: [
         {
           icon: Bell,
-          title: "15+ Platform Monitoring",
-          description: "Reddit, HN, Quora, GitHub, YouTube, and more"
+          title: "Мониторинг 15+ платформ",
+          description: "Reddit, HN, Quora, GitHub, YouTube и другие"
         },
         {
           icon: Zap,
-          title: "1-Minute Alert Delay",
-          description: "Near real-time notifications for mentions"
+          title: "1-минутная задержка оповещений",
+          description: "Уведомления о упоминаниях почти в реальном времени"
         },
         {
           icon: Clock,
-          title: "Continuous Monitoring",
-          description: "24/7 tracking across all configured platforms"
+          title: "Непрерывный мониторинг",
+          description: "Отслеживание 24/7 на всех настроенных платформах"
         }
       ],
       integrations: [],
       pricing: [
-        { tier: "Basic", price: "$19.95/mo", highlight: false },
-        { tier: "Pro", price: "$99.95/mo", highlight: true }
+        { tier: "Базовый", price: "$19.95/мес", highlight: false },
+        { tier: "Про", price: "$99.95/мес", highlight: true }
       ],
-      bestFor: "Teams requiring instant alerts across multiple platforms"
+      bestFor: "Команды, которым нужны мгновенные оповещения на множестве платформ"
     }
   }
 
@@ -117,13 +117,13 @@ export default function MonitoringTools() {
         {/* Header */}
         <div className="text-center space-y-4 animate-fade-in">
           <Badge variant="outline" className="text-sm px-4 py-2 border-primary text-primary font-medium">
-            Monitoring Tools (Search Only)
+            Инструменты мониторинга (только поиск)
           </Badge>
           <h2 className="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none">
-            Monitor Without <span className="text-primary">Posting</span>
+            Мониторинг без <span className="text-primary">публикаций</span>
           </h2>
           <p className="font-syne text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Search-only solutions for tracking conversations across platforms
+            Решения только для поиска и отслеживания разговоров на разных платформах
           </p>
         </div>
 
@@ -162,7 +162,7 @@ export default function MonitoringTools() {
           {/* Features Column */}
           <div className="space-y-4">
             <h3 className="font-syne text-xl font-bold flex items-center gap-2">
-              <span className={currentTool.color}>Key Features</span>
+              <span className={currentTool.color}>Ключевые функции</span>
             </h3>
             <div className="space-y-3">
               {currentTool.features.map((feature, index) => {
@@ -190,7 +190,7 @@ export default function MonitoringTools() {
             {/* Integrations */}
             {currentTool.integrations.length > 0 && (
               <div className="pt-4">
-                <p className="text-sm font-semibold text-muted-foreground mb-2">INTEGRATIONS:</p>
+                <p className="text-sm font-semibold text-muted-foreground mb-2">ИНТЕГРАЦИИ:</p>
                 <div className="flex gap-2">
                   {currentTool.integrations.map((integration, idx) => (
                     <Badge key={idx} variant="secondary" className="text-xs">
@@ -202,7 +202,7 @@ export default function MonitoringTools() {
             )}
             {currentTool.integrations.length === 0 && (
               <div className="pt-4">
-                <p className="text-sm text-muted-foreground italic">No third-party integrations listed</p>
+                <p className="text-sm text-muted-foreground italic">Нет сторонних интеграций</p>
               </div>
             )}
           </div>
@@ -210,7 +210,7 @@ export default function MonitoringTools() {
           {/* Pricing Column */}
           <div className="space-y-4">
             <h3 className="font-syne text-xl font-bold">
-              <span className={currentTool.color}>Pricing Tiers</span>
+              <span className={currentTool.color}>Ценовые планы</span>
             </h3>
             <div className="space-y-3">
               {currentTool.pricing.map((tier, index) => (
@@ -228,7 +228,7 @@ export default function MonitoringTools() {
                       <span className="font-semibold">{tier.tier}</span>
                       {tier.highlight && (
                         <Badge variant="default" className="text-xs">
-                          Popular
+                          Популярный
                         </Badge>
                       )}
                     </div>
@@ -243,7 +243,7 @@ export default function MonitoringTools() {
             {/* Best For */}
             <Card className={`${currentTool.bgColor} ${currentTool.borderColor} border mt-6`}>
               <CardContent className="p-4">
-                <p className="text-xs font-semibold text-muted-foreground mb-1">BEST FOR:</p>
+                <p className="text-xs font-semibold text-muted-foreground mb-1">ЛУЧШЕ ВСЕГО ДЛЯ:</p>
                 <p className="text-sm text-foreground">{currentTool.bestFor}</p>
               </CardContent>
             </Card>
@@ -254,9 +254,9 @@ export default function MonitoringTools() {
         <Card className="bg-white/95 backdrop-blur-md border-2 border-primary/30 animate-fade-in delay-700 fill-backwards">
           <CardContent className="p-6">
             <p className="font-syne text-lg md:text-xl text-center">
-              <span className="font-bold text-primary">Key Insight:</span>{" "}
-              Monitoring tools focus on discovery and alerts—
-              <span className="font-semibold"> you handle the engagement manually.</span>
+              <span className="font-bold text-primary">Ключевой инсайт:</span>{" "}
+              Инструменты мониторинга фокусируются на обнаружении и оповещениях—
+              <span className="font-semibold"> вы обрабатываете взаимодействие вручную.</span>
             </p>
           </CardContent>
         </Card>

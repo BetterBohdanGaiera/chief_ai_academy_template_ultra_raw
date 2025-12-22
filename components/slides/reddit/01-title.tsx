@@ -22,10 +22,10 @@ import Image from "next/image"
 
 export default function RedditTitle() {
   const scopeIndicators = [
-    { icon: Search, label: "Existing Tools" },
-    { icon: Wrench, label: "Custom Solutions" },
-    { icon: DollarSign, label: "Economics" },
-    { icon: Target, label: "Strategy" },
+    { icon: Search, label: "Существующие Инструменты" },
+    { icon: Wrench, label: "Индивидуальные Решения" },
+    { icon: DollarSign, label: "Экономика" },
+    { icon: Target, label: "Стратегия" },
   ]
 
   return (
@@ -54,20 +54,20 @@ export default function RedditTitle() {
         {/* Badge */}
         <div className="flex justify-center animate-slide-in-down">
           <Badge variant="glow" className="transform -rotate-2 px-6 py-3 text-sm">
-            Research 2025
+            Исследование 2025
           </Badge>
         </div>
 
         {/* Main Title */}
         <h1 className="font-bebas text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-none tracking-tight animate-fade-in delay-200 fill-backwards">
-          Reddit-Marketing:
+          Reddit-Маркетинг:
           <br />
-          <span className="text-primary">Lead Generation</span> Research
+          Исследование <span className="text-primary">Генерации Лидов</span>
         </h1>
 
         {/* Subtitle */}
         <p className="font-syne font-semibold text-xl md:text-2xl lg:text-3xl text-foreground/80 max-w-4xl mx-auto animate-slide-in-up delay-400 fill-backwards">
-          Comprehensive Analysis of Reddit Commenting Services for Client Acquisition
+          Комплексный Анализ Сервисов Комментирования Reddit для Привлечения Клиентов
         </p>
 
         {/* Scope Indicators */}
@@ -89,7 +89,7 @@ export default function RedditTitle() {
 
         {/* Metadata */}
         <div className="pt-8 space-y-2 text-foreground/50 font-manrope animate-fade-in delay-800 fill-backwards">
-          <p className="text-base md:text-lg">Lead Generation Research Initiative</p>
+          <p className="text-base md:text-lg">Инициатива Исследования Генерации Лидов</p>
         </div>
       </div>
     </section>

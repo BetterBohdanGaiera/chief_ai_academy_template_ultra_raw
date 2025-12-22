@@ -1,12 +1,12 @@
 "use client"
 
 /**
- * Slide 09: Native Product Mention Strategy
- * Pattern: Button Toggle Comparison
- * Skill: artifacts-builder
+ * Слайд 09: Стратегия нативного упоминания продукта
+ * Паттерн: Сравнение с переключением кнопок
+ * Навык: artifacts-builder
  *
- * Shows the dramatic difference between spammy vs native Reddit engagement
- * through an interactive toggle comparison with example messages.
+ * Показывает драматическую разницу между спамным и нативным взаимодействием на Reddit
+ * через интерактивное сравнение с примерами сообщений.
  */
 
 import { useState } from "react"
@@ -43,65 +43,65 @@ export default function SlideNativeStrategy() {
 
   const approachData = {
     spammy: {
-      title: "Spammy Approach",
+      title: "Спамный подход",
       icon: XCircle,
       color: "text-destructive",
       bgColor: "bg-destructive/5",
       borderColor: "border-destructive/40",
-      message: `Great question! You should definitely check out [ProductName] - it's the best solution for exactly what you're describing. We've helped thousands of users just like you. Visit our website to learn more and get started today!`,
-      result: "Deleted by automoderator, account shadowbanned",
+      message: `Отличный вопрос! Вам обязательно стоит посмотреть [НазваниеПродукта] - это лучшее решение именно для того, что вы описываете. Мы помогли тысячам пользователей, таких как вы. Посетите наш сайт, чтобы узнать больше и начать работу сегодня!`,
+      result: "Удалено автомодератором, аккаунт в теневом бане",
       resultIcon: AlertTriangle,
       resultColor: "text-destructive"
     },
     native: {
-      title: "Native Approach",
+      title: "Нативный подход",
       icon: CheckCircle2,
       color: "text-success",
       bgColor: "bg-success/5",
       borderColor: "border-success/40",
-      message: `Been there! I struggled with this exact problem for about 6 months. What finally worked for me:
+      message: `Знаю эту боль! Я боролся с этой же проблемой около 6 месяцев. Что в итоге сработало для меня:
 
-1. Started tracking everything in a spreadsheet (tedious but eye-opening)
-2. Realized 80% of my time went to 3 specific bottlenecks
-3. Automated those with a combination of Zapier and a tool I helped build
+1. Начал отслеживать всё в электронной таблице (утомительно, но открывает глаза)
+2. Понял, что 80% времени уходило на 3 конкретных узких места
+3. Автоматизировал их с помощью комбинации Zapier и инструмента, который помог создать
 
-The spreadsheet alone might solve half your problem. For the automation part - there are several options depending on your stack. I'm obviously biased since I'm one of the founders, but happy to share what we learned even if you go a different route.
+Одна таблица может решить половину вашей проблемы. Что касается автоматизации - есть несколько вариантов в зависимости от вашего стека. Я, очевидно, предвзят, так как я один из основателей, но с радостью поделюсь тем, что мы узнали, даже если вы выберете другой путь.
 
-What's your current setup look like?`,
-      result: "Upvoted, genuine conversation started, leads generated",
+Как выглядит ваша текущая настройка?`,
+      result: "Получено голосов, начался настоящий диалог, сгенерированы лиды",
       resultIcon: ThumbsUp,
       resultColor: "text-success"
     }
   }
 
   const nativeCheckItems: NativeCheckItem[] = [
-    { label: "Real story with specific details", icon: Heart },
-    { label: "Offers value before mentioning product", icon: Lightbulb },
-    { label: "Acknowledges bias transparently", icon: Target },
-    { label: "Doesn't push - invites dialogue", icon: MessageSquare },
-    { label: "No direct links (avoids automoderator)", icon: Check }
+    { label: "Реальная история с конкретными деталями", icon: Heart },
+    { label: "Предлагает ценность перед упоминанием продукта", icon: Lightbulb },
+    { label: "Прозрачно признает предвзятость", icon: Target },
+    { label: "Не давит - приглашает к диалогу", icon: MessageSquare },
+    { label: "Без прямых ссылок (избегает автомодератора)", icon: Check }
   ]
 
   const rules = [
     {
       number: "01",
-      title: "100% Relevance Only",
-      description: "User describes EXACTLY the problem you solve"
+      title: "Только 100% релевантность",
+      description: "Пользователь описывает ИМЕННО ту проблему, которую вы решаете"
     },
     {
       number: "02",
-      title: "Value First",
-      description: "80% of response = useful information, 20% = subtle mention"
+      title: "Сначала ценность",
+      description: "80% ответа = полезная информация, 20% = тонкое упоминание"
     },
     {
       number: "03",
-      title: "No Direct Links",
-      description: "Automoderators delete instantly; let them search"
+      title: "Никаких прямых ссылок",
+      description: "Автомодераторы удаляют мгновенно; пусть сами ищут"
     },
     {
       number: "04",
-      title: "Transparency Works",
-      description: '"I\'m the founder, so obviously biased, but..." builds trust'
+      title: "Прозрачность работает",
+      description: '"Я основатель, так что предвзят, но..." укрепляет доверие'
     }
   ]
 
@@ -139,11 +139,11 @@ What's your current setup look like?`,
             className="inline-flex items-center gap-2 text-sm px-4 py-2 border-primary/60 text-primary font-medium animate-slide-in-down fill-backwards"
           >
             <MessageCircle className="w-4 h-4" />
-            Engagement Strategy
+            Стратегия взаимодействия
           </Badge>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bebas leading-tight tracking-tight animate-fade-in delay-200 fill-backwards">
-            NATIVE <span className="text-primary">PRODUCT MENTION</span> STRATEGY
+            СТРАТЕГИЯ <span className="text-primary">НАТИВНОГО УПОМИНАНИЯ</span> ПРОДУКТА
           </h2>
         </div>
 
@@ -153,7 +153,7 @@ What's your current setup look like?`,
             <div className="flex items-start gap-4">
               <Quote className="w-8 h-8 text-primary shrink-0 mt-1" />
               <blockquote className="font-syne text-lg md:text-xl lg:text-2xl italic text-foreground/90 leading-relaxed">
-                "It's perfectly fine to be a Redditor with a website, it's not okay to be a website with a Reddit account."
+                "Быть реддитором с сайтом - нормально, быть сайтом с аккаунтом на Reddit - нет."
               </blockquote>
             </div>
           </CardContent>
@@ -172,7 +172,7 @@ What's your current setup look like?`,
             }`}
           >
             <XCircle className="h-5 w-5 mr-2" />
-            Spammy Example
+            Спамный пример
           </Button>
           <Button
             variant={activeView === "native" ? "default" : "outline"}
@@ -185,7 +185,7 @@ What's your current setup look like?`,
             }`}
           >
             <CheckCircle2 className="h-5 w-5 mr-2" />
-            Native Example
+            Нативный пример
           </Button>
         </div>
 
@@ -238,7 +238,7 @@ What's your current setup look like?`,
             <CardContent className="p-6 space-y-4">
               <h4 className="font-syne font-bold text-lg text-success flex items-center gap-2">
                 <Check className="w-5 h-5" />
-                What Makes It Native
+                Что делает его нативным
               </h4>
               <div className="space-y-3">
                 {nativeCheckItems.map((item, index) => {
@@ -274,7 +274,7 @@ What's your current setup look like?`,
         {/* 4 Rules Cards */}
         <div className="space-y-4 animate-slide-in-up delay-600 fill-backwards">
           <h3 className="text-xl font-bebas text-center text-foreground/80">
-            4 RULES FOR NATIVE ENGAGEMENT
+            4 ПРАВИЛА НАТИВНОГО ВЗАИМОДЕЙСТВИЯ
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {rules.map((rule, index) => (
@@ -305,8 +305,8 @@ What's your current setup look like?`,
         <Card className="bg-primary/5 border-primary/20 animate-fade-in delay-1000 fill-backwards">
           <CardContent className="p-4">
             <p className="text-sm text-center text-foreground/90">
-              <span className="font-semibold text-primary">The Philosophy:</span>{" "}
-              Be a genuine community member who happens to have built something useful, not a marketer pretending to be a user.
+              <span className="font-semibold text-primary">Философия:</span>{" "}
+              Будьте настоящим членом сообщества, который создал что-то полезное, а не маркетологом, притворяющимся пользователем.
             </p>
           </CardContent>
         </Card>
